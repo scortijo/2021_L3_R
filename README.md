@@ -1,4 +1,4 @@
-# Formation ggplot2
+# BioInformatique appliquée à la biologie des plantes (L3, année 2021-2022)
 
-Formation ggplot2 faite dans le cadre du réseau [MSB](https://groupes.renater.fr/wiki/montpellier-biostat/index). Site du cours: https://scortijo.github.io/ggplot_course/
+Site du cours: https://scortijo.github.io/2021_L3_R/
 
