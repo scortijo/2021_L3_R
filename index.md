@@ -4,12 +4,24 @@
 
 **Instructeurs:** 
 [Sandra Cortijo](mailto:sandra.cortijo@hotmail.fr), 
-[Isabelle Sanchez](mailto:Isabelle.Sanchez@inrae.fr)
+[Océane Cassan](mailto:Oceane.CASSAN@cnrs.fr)
 
 
 ### Description
 
-Cette formation va vous apprendre comment réaliser des graphiques sur **R** en utilisant **ggplot2**, en partant de données tabulaires (ce que vous pourriez créer en utilisant excel).
+Cette formation va vous apprendre comment exporer des données et réaliser des graphiques sur **R**. 
+Les differentes séances sont:
+- 14/10/2021 8h-11h15 : organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
+- 21/10/2021 8h-11h15: Réaliser des graphiques en utilisant **ggplot2** sur **R**. 
+- 28/10/2021 8h-11h15: Manipulation des données dans **R** ( filtrer, sélectionner, modifier données, extraire statistiques descriptive)
+- séance 4 (3h): manipulation des données avancée (combiner fichiers, changer leur organisation (gather et spread), combiner ou séparer colonnes)
+- séance 5 (3h):  Notebooks + si temps exemples de combinaison de manipulation de données et graphs (jouer sur les facteurs, ajouter données descriptives dans graph etc)
+- séance 6 (3h): mise en pratique de ce qu'on a vu jusque-là: exploration d'un jeu de données (comme un exam blanc)
+- séance 7 (1h30): pour revenir sur ce qui n'a pas été compris (à partir de l'exam blanc)
+
+
+
+en utilisant **ggplot2**, en partant de données tabulaires (ce que vous pourriez créer en utilisant excel).
 
 Le jeu de données que nous allons utiliser en exemple a été publié par 
 [Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
