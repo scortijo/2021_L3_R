@@ -23,10 +23,10 @@ Les différentes séances sont:
 
 ### Accès au cours
 
-## Séance 1: Organisation des données
+#### Séance 1: Organisation des données
 
 
-## Séance 2: Réaliser des graphiques
+#### Séance 2: Réaliser des graphiques
 
 [cours incluant les scripts](ggplot_lesson/materiel/ggplot_lesson.html)  
 
