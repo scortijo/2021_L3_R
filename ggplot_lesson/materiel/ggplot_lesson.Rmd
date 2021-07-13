@@ -400,41 +400,17 @@ pour ajouter des thèmes et géométries en plus
 pour faire des graphiques "ridge" 
 - [`GGally`](https://ggobi.github.io/ggally/) pour représenter automatiquement les relations entre des données  
 
-# Liens utiles
 
+# Ressources et liens utiles
+
+- [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
+- [antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+- [antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
 - [D'autres antisèches!](https://www.rstudio.com/resources/cheatsheets/)
-
-
-
-# Si vous voulez 
-
-Téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, dezippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `Script_ggplot_lesson.R` qui est dans le répertoire `materiel`. Nous allons coder ensemble dans ce script, qui est quasiment vide pour le moment. 
-
-Lors de cette formation nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
-- `tidyverse` qui contient plusiers packages dont `ggplot2`  
-- `visdat`  qui permet une représentation rapide des données  
-- `plotly` pour faire des graphiques interactifs  
-
-
-Vous avez normalement déjà installé ces packages. Pour vérifier qu'ils sont bien installé, et pour les importer dans votre session, utilisez la fonction ``library()`` : 
-
-```{r load packages, eval = TRUE, message = FALSE}
-library(tidyverse)
-library(visdat)
-library(plotly)
-```
-
-Vous devez aussi vous assurer que le répertoire de travail de R est bien le dossier qui contient le matériel de la formation. Le chemin vers ce dossier va être différent en fonction de votre système opérateur.   
-Pour spécifier le répertoire de travail de R utilisez la fonction ``setwd()``:
-
-``` {r}
-setwd("~/Desktop/ggplot_course/materiel")
-```
-
 
 
 -------
 
-[back to course home](https://tavareshugo.github.io/slcu_r_course/)
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 
