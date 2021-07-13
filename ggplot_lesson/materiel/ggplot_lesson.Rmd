@@ -1,5 +1,5 @@
 ---
-title: Séance 2: Réaliser des graphiques avec ``ggplot2``
+title: Réaliser des graphiques avec ``ggplot2``
 output:
   html_document:
     toc: yes
@@ -17,6 +17,31 @@ knitr::opts_chunk$set(echo = TRUE)
 Lors de cette séance nous allons apprendre à visualiser des jeux de données tabulaires avec [``ggplot2``](http://ggplot2.org/).
 
 Pour cette formation, nous allons utiliser une version légèrement modifée du jeu de donnée publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
+
+# Mise en place
+
+
+Lors de cette formation nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
+- `tidyverse` qui contient plusiers packages dont `ggplot2`  
+- `visdat`  qui permet une représentation rapide des données  
+- `plotly` pour faire des graphiques interactifs  
+
+
+Ces packages sont normalement déjà installé. Pour les importer dans votre session, utilisez la fonction ``library()`` : 
+
+```{r load packages, eval = TRUE, message = FALSE}
+library(tidyverse)
+library(visdat)
+library(plotly)
+```
+
+Vous devez aussi vous assurer que le répertoire de travail de R est bien le dossier qui contient le matériel de la formation. Le chemin vers ce dossier va être différent en fonction de votre système opérateur.   
+Pour spécifier le répertoire de travail de R utilisez la fonction ``setwd()``:
+
+``` {r}
+setwd("~/Desktop/2021_L3_R/ggplot_lesson/materiel")
+```
+
 
 # Import et vérification des données
 
