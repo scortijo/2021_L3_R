@@ -3,7 +3,7 @@
 **Quand:** Du 14 Octobre 2021 au 2 Décembre 2021
 
 **Instructeurs:** 
-[Sandra Cortijo](mailto:sandra.cortijo@hotmail.fr), 
+[Sandra Cortijo](mailto:sandra.cortijo@cnrs.fr), 
 [Océane Cassan](mailto:Oceane.CASSAN@cnrs.fr)
 
 
@@ -25,7 +25,7 @@ Les différentes séances sont:
 
 ### Séance 1: Organisation des données
 
-[Cours, incluant les scripts](Organisation_lesson/materiel/ggplot_lesson.html)  
+[Cours, incluant les scripts](Organisation_lesson/materiel/organisation_lesson.html)  
 
 ### Séance 2: Réaliser des graphiques
 
