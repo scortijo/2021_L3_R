@@ -1,6 +1,8 @@
 ---
-title: Réaliser des graphiques avec ``ggplot2``
+title: "Réaliser des graphiques avec ``ggplot2``"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     toc_float: yes
@@ -429,8 +431,8 @@ pour faire des graphiques "ridge"
 # Ressources et liens utiles
 
 - [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
-- [antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-- [antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
+- [Antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+- [Antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
 - [D'autres antisèches!](https://www.rstudio.com/resources/cheatsheets/)
 
 
