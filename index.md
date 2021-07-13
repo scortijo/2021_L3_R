@@ -9,31 +9,37 @@
 
 ### Description
 
-Cette formation va vous apprendre comment exporer des données et réaliser des graphiques sur **R**. 
-Les differentes séances sont:
-- 14/10/2021 8h-11h15 : organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
-- 21/10/2021 8h-11h15: Réaliser des graphiques en utilisant **ggplot2** sur **R**. 
-- 28/10/2021 8h-11h15: Manipulation des données dans **R** ( filtrer, sélectionner, modifier données, extraire statistiques descriptive)
-- séance 4 (3h): manipulation des données avancée (combiner fichiers, changer leur organisation (gather et spread), combiner ou séparer colonnes)
-- séance 5 (3h):  Notebooks + si temps exemples de combinaison de manipulation de données et graphs (jouer sur les facteurs, ajouter données descriptives dans graph etc)
-- séance 6 (3h): mise en pratique de ce qu'on a vu jusque-là: exploration d'un jeu de données (comme un exam blanc)
-- séance 7 (1h30): pour revenir sur ce qui n'a pas été compris (à partir de l'exam blanc)
+Ce cours va vous apprendre comment exporer des données et réaliser des graphiques dans **R**. 
+Les différentes séances sont:
+- 14/10/2021 8h-11h15 : Organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
+- 21/10/2021 8h-11h15: Réaliser des graphiques en utilisant **ggplot2** dans **R**. 
+- 28/10/2021 8h-11h15: Manipulation des données dans **R** (filtrer, sélectionner, modifier données, extraire statistiques descriptive)
+- 11/11/2021 8h-11h15: Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
+- 18/11/2021 8h-11h15: Créer des notebooks dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
+- 25/11/2021 8h-11h15: Exploration d'un jeu de données (exam blanc)
+- 02/12/2021 9h45-11h15: Correction de l'exam blanc et trucs et astuces
 
 
 
-en utilisant **ggplot2**, en partant de données tabulaires (ce que vous pourriez créer en utilisant excel).
+### Accès au cours
 
-Le jeu de données que nous allons utiliser en exemple a été publié par 
+####Séance 1: Organisation des données
+
+
+####Séance 2: Réaliser des graphiques
+[cours incluant les scripts](ggplot_lesson/materiel/ggplot_lesson.html)  
+
+Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
 [Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
 
 
-### Prérequis
-Les participants doivent déjà avoir des bases de R et savoir utiliser Rstudio. Si ce n'est pas le cas, veuillez vous inscrire pour une formation R avant de venir à la formation ggplot.
+[Solution des exercices](ggplot_lesson/materiel/ggplot_exercise_solutions.html)
 
 
 
-### A faire avant la formation: 
-Les participants doivent amener leur ordinateur sur lequel R et R studio sont installés:
+
+### Si vous voulez utiliser R chez vous: 
+Il est recommandé d'utiliser R régulièrement pour bien comprendre et aprendre. Pour cela le mieux est d'installer **R** et **R studio** sur votre ordinateur:
 [Installer R](https://cran.biotools.fr/);
 [Installer Rstudio](https://rstudio.com/products/rstudio/download/)
 
@@ -47,19 +53,10 @@ Pour cela:
 4. Assurez vous que l'installation a fonctionné en tapant `library(tidyverse)` (puis faites la même chose avec `visdat` et `plotly`)
 5. Le message affiché doit être similaire à la capture d'écran ci-dessous. Si vous avez un message du type: 
 "Error in library(tidyverse): there is no package called 'tidyverse'"
-**contactez un des instructeurs avant la formation**.
+**contactez un des instructeurs**.
 
 ![capture d'écran d'un installation correcte](installation_package_instructions.png)
 
-
-
-### Matériel de la formation
-
-
-[Scripts et explications](materiel/ggplot_lesson.html)  
-
-
-[Solution des exercices](materiel/ggplot_exercise_solutions.html)
 
 
 
