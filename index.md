@@ -27,6 +27,7 @@ Les différentes séances sont:
 
 
 ##Séance 2: Réaliser des graphiques
+
 [cours incluant les scripts](ggplot_lesson/materiel/ggplot_lesson.html)  
 
 Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
