@@ -7,7 +7,7 @@
 [Océane Cassan](mailto:Oceane.CASSAN@cnrs.fr)
 
 
-### Description
+## Description
 
 Ce cours va vous apprendre comment exporer des données et réaliser des graphiques dans **R**. 
 Les différentes séances sont:
@@ -21,12 +21,12 @@ Les différentes séances sont:
 
 
 
-### Accès au cours
+## Accès au cours
 
-#### Séance 1: Organisation des données
+### Séance 1: Organisation des données
 
 
-#### Séance 2: Réaliser des graphiques
+### Séance 2: Réaliser des graphiques
 
 [cours incluant les scripts](ggplot_lesson/materiel/ggplot_lesson.html)  
 
@@ -39,7 +39,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 
 
-### Si vous voulez utiliser R chez vous: 
+## Si vous voulez utiliser R chez vous: 
 Il est recommandé d'utiliser R régulièrement pour bien comprendre et aprendre. Pour cela le mieux est d'installer **R** et **R studio** sur votre ordinateur:
 [Installer R](https://cran.biotools.fr/);
 [Installer Rstudio](https://rstudio.com/products/rstudio/download/)
@@ -62,7 +62,7 @@ Pour cela:
 
 
 
-### Ressources 
+## Ressources 
 
 [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
 
