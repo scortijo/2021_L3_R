@@ -1,6 +1,6 @@
-**Où:** Salle 109 du batiment 9 (IMAG), au premier étage
+**Où:** A indiquer
 
-**Quand:** 15/10/2020, 14h-17h
+**Quand:** Du 14 Octobre 2021 au 2 Décembre 2021
 
 **Instructeurs:** 
 [Sandra Cortijo](mailto:sandra.cortijo@hotmail.fr), 
