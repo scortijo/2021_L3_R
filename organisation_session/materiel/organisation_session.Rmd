@@ -23,10 +23,16 @@ Lors de cette séance nous allons apprendre:
 4. Des bases de codage avec ``R`` 
 
 
-# Organisation des fichiers
+# 1. Organisation des fichiers
 
 Adapté de [ce cours] (https://rpubs.com/minebocek/user2017-ors)
 
+
+### Pourquoi organiser ses fichiers?
+
+
+
+### Comment organiser ses fichiers?
 
 
 
