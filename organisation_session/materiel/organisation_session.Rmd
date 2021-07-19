@@ -35,4 +35,12 @@ Adapté de [ce cours] (https://rpubs.com/minebocek/user2017-ors)
 ### Comment organiser ses fichiers?
 
 
+# 2. Organisation des données dans un fichier excel
+
+
+# 3. Intro à ``R``
+
+
+
+
 
