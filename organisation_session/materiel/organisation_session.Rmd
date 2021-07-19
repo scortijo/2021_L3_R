@@ -9,13 +9,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
+# Organisation des fichiers et données
 
 
 Lors de cette séance nous allons apprendre:
+
 1. A organiser les fichiers dans les dossiers
+
 2. A organiser les données dans un fichier excel afin que ce soit compatible avec leur import dans ``R``
+
 3. Ce que sont R et Rstudio et comment y importer des données
+
 4. Des bases de codage avec ``R`` 
+
 
 # Organisation des fichiers
 
