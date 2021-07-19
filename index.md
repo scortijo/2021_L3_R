@@ -25,7 +25,7 @@ Les différentes séances sont:
 
 ### Séance 1: Organisation des données
 
-[Cours, incluant les scripts](Organisation_session/materiel/organisation_session.html)  
+[Cours, incluant les scripts](organisation_session/materiel/organisation_session.html)  
 
 ### Séance 2: Réaliser des graphiques
 
