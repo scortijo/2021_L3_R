@@ -25,17 +25,17 @@ Les différentes séances sont:
 
 ### Séance 1: Organisation des données
 
-[Cours, incluant les scripts](Organisation_lesson/materiel/organisation_lesson.html)  
+[Cours, incluant les scripts](Organisation_session/materiel/organisation_session.html)  
 
 ### Séance 2: Réaliser des graphiques
 
-[Cours, incluant les scripts](ggplot_lesson/materiel/ggplot_lesson.html)  
+[Cours, incluant les scripts](ggplot_session/materiel/ggplot_session.html)  
 
 Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
 [Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
 
 
-[Solution des exercices](ggplot_lesson/materiel/ggplot_exercise_solutions.html)
+[Solution des exercices](ggplot_sessopn/materiel/ggplot_exercise_solutions.html)
 
 
 
