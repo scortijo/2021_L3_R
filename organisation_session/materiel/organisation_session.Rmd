@@ -28,11 +28,16 @@ Lors de cette séance nous allons apprendre:
 Adapté de [ce cours] (https://rpubs.com/minebocek/user2017-ors)
 
 
-### Pourquoi organiser ses fichiers?
+### Pourquoi organiser ses fichiers et documents?
+
+Vous aller créer *beaucoup* de documents. 
+Ils vont changer au cours du temps.
+La relation entre les fichiers va aussi changer au cours du temps.
 
 
 
-### Comment organiser ses fichiers?
+
+### Comment organiser ses fichiers et documents?
 
 
 # 2. Organisation des données dans un fichier excel
