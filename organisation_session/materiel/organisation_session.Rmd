@@ -61,13 +61,23 @@ Faites le pour vous, et surtout votre future vous (qui a déjà eu des difficult
 La manière dont vous allez organiser vos fichiers va dépendre du type de données que vous générez pour votre projet. Il n'y a donc pas de solution universelle, mais vous pouvez suivre les principes suivants pour que **quelqu'un qui n'est pas familier avec votre projet puisse comprendre ce que vous avez fait en regardant vos documents**. A contrario une mauvaise organisation des fichiers et documents peut rendre votre tache plus difficile.
 
 Principes clés:
-- 
-- 
 
+- Décidez de la structure des fichiers et sous-fichiers avant de commencer le projet
+
+- Gerdez tous les documents d'un projet dans le même fichier
+
+- Garder les données brutes séparémment et **ne les changez jamais** (faites un copie que vous pouvez modifier)
+
+- Incluez un document README qui contient une courte description des différents documents ainsi que les métadonnées et autres information 
+
+
+<br>
 
 Exemple de structure d'un projet
+
 ![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png){width=30%}
 
+<br>
 
 #### Bien nommer ses documents
 
