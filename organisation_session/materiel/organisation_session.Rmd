@@ -28,9 +28,9 @@ Lors de cette séance nous allons apprendre:
 Plusieurs scandales montrent l'importance d'une recherche reproductible et transparente:
 - [Une erreur dans un fichier excel](https://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt) qui change la conclusion d'un papier sur le lien entre niveau d'endettement d'un pays et sa croissance 
 
-- [Une erreur de programmation](https://people.ligo-wa.caltech.edu/~michael.landry/calibration/S5/getsignright.pdf) dans un logiciel qui interverti deux colonnes et change ainsi la structure de protéine prédite. 5 articles ont dû être rétracté à cause de cette erreur
+- [Une erreur de programmation](https://people.ligo-wa.caltech.edu/~michael.landry/calibration/S5/getsignright.pdf) dans un logiciel qui interverti deux colonnes et change ainsi la structure de protéine déduite à partir de données de christalographie. 5 articles ont dû être rétracté à cause de cette erreur
 
-- [Excel qui change les noms de gènes en date](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
+- [Excel qui change les noms de gènes en date](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7) (SEPT2 (Septin 2) en sept-02 ou 01/09/2002)
 
 
 ## 1. Organisation des fichiers
@@ -54,17 +54,16 @@ Faites le pour vous, et surtout votre future vous (qui a déjà eu des difficult
 
 
 
-
 ### Comment organiser ses fichiers et documents?
 
 #### Bien organiser ses fichiers
 
+La manière dont vous allez organiser vos fichiers va dépendre du type de données que vous générez pour votre projet. Il n'y a donc pas de solution universelle, mais vous pouvez suivre les principes suivants pour que **quelqu'un qui n'est pas familier avec votre projet puisse comprendre ce que vous avez fait en regardant vos documents**. A contrario une mauvaise organisation des fichiers et documents peut rendre votre tache plus difficile.
+
+![](https://raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png){width=30%}
 
 
-
-
-
-#### Bien nommer ses dossiers
+#### Bien nommer ses documents
 
 ## 2. Organisation des données dans un fichier excel
 
