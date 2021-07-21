@@ -33,12 +33,12 @@ Plusieurs scandales montrent l'importance d'une recherche reproductible et trans
 - [Excel qui change les noms de gènes en date](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7) (SEPT2 (Septin 2) en sept-02 ou 01/09/2002)
 
 
-## 1. Organisation des fichiers
+# 1. Organisation des fichiers
 
-Adapté de [ce cours] (https://rpubs.com/minebocek/user2017-ors)
+Adapté de [ce cours](https://rpubs.com/minebocek/user2017-ors)
 
 
-### Pourquoi organiser ses fichiers et documents?
+## Pourquoi organiser ses fichiers et documents?
 
 - Vous allez créer *beaucoup* de documents. 
 
@@ -54,9 +54,9 @@ Faites le pour vous, et surtout votre future vous (qui a déjà eu des difficult
 
 
 
-### Comment organiser ses fichiers et documents?
+## Comment organiser ses fichiers et documents?
 
-#### Bien organiser ses fichiers
+### Bien organiser ses fichiers
 
 La manière dont vous allez organiser vos fichiers va dépendre du type de données que vous générez pour votre projet. Il n'y a donc pas de solution universelle, mais vous pouvez suivre les principes suivants pour que **quelqu'un qui n'est pas familier avec votre projet puisse comprendre ce que vous avez fait en regardant vos documents**. A contrario une mauvaise organisation des fichiers et documents peut rendre votre tache plus difficile.
 
@@ -79,11 +79,53 @@ Exemple de structure d'un projet
 
 <br>
 
-#### Bien nommer ses documents
+### Bien nommer ses documents
 
-## 2. Organisation des données dans un fichier excel
+Les principes principaux pour nommer vos documents et qu'ils doivent être:
+
+1. lisible par un ordinateur
+2. lisible par un humain
+3. organisés de manière logique dans vos fichiers
+
+<br>
 
 
+#### Des documents lisibles par un ordinateur
+
+C'est important pour pouvoir facilement chercher (et trouver!) des documents d'intérêt, filtrer des documents en fonction de leur nom et extraire des informations utiles à partir du nom du document.
+
+Pour cela:
+- ordonnez les éléments dans le nom du document du plus général au plus spécifique
+- évitez les caractères spéciaux comme `* : \ / < > | " ? [ ] ; = + & £ $`
+- **Ne mettez pas d'espaces** pour séparer les éléments dans le nom du document
+- choisissez une convention et tennez vous y: 
+  - toutenminuscule, exemple: adjustcolor
+  - separe.par.un.point, exemple: plot.new
+  - separe_par_un_tiret_bas, exemple: numeric_version
+  - camelCase ou CamelCase, exemple: addTaskCallback ou SignatureMethod
+
+<br>
+
+
+#### Des documents lisibles par un humain
+
+
+Des noms de documents lisibles par des humains doivent: 
+
+- contenir des information sur ce que le document contient 
+- contain semantics (place in work flow)
+- avoid usage of initials, abbreviations or codes that are not commonly understood
+- be short, but meaningful
+
+
+
+#### Des documents organisés de manière logique dans vos fichiers
+
+
+
+# 2. Organisation des données dans un fichier excel
+
+Ajouter lien cours data carpentry ici
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_2.jpg)
 
@@ -99,7 +141,7 @@ Exemple de structure d'un projet
 
 
 
-## 3. Intro à ``R``
+# 3. Intro à ``R``
 
 
 
