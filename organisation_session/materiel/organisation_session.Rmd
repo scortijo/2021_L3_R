@@ -209,8 +209,48 @@ La plupart d'entre nous utilisent à un moment donné ou à un autre, un tableur
 > - A partir des bonne habitude d'organisation indiquées plus haut, identifiez les problèmes de format dans ces >données. Discutez-en avec votre voisin.e
 >
 
+## Problèmes dans l'organisation des données
+
+
+- Les données ne doivent pas être éparpillées dans plusieurs tableaux ou onglets
+
+- Les données manquantes doivent être indiquées par une cellule vide ou un "NA". Un zéro doit être utilisé pour les zéros et non pour des données manquantes.
+
+- Le formatage (gras, cellules colorées etc) et commentaires ne doivent pas être utilisés. Les données importantes doivent être associées à une variable (par exemple dans le nom de la colonne).
+
+- Ne pas utiliser de caractères spéciaux (comme `!`, `#`, `*`).
+
+- Avoid special characters  in the column names (such as `!`, `#`, `*`). Pour que ce soit compatible avec R, utiliser `_` plutôt que des espaces entre les mots.
+
+- *Attention aux dates!* Cela peut causer des problèmes de format d'un tableaur à un autre. Le mieux est de garder le jours, le mois et l'années commes des variables (colonnes) séparées
+    
+
+
+
+## Exporter les données
+
+Bien que excel est souvent utilisé, sont format de fichier par défault n'est malheureusement pas compatible avec d'autres programmes, y compris ``R``. Pour cela le mieux est d'enregistrer les données tabulaires dans un format texte.  
+
+Les deux formats les plus utilisés sont:
+
+_CSV_ (séparateur: virgule (UK, US) ou point-virgule (EU))
+
+
+_TXT_ (séparateur: tabulation)
+
+
+**Attention**: les documents avec un format _CSV_ qui ont un séparateur virgule ou un séparetur point-virgule ne pas la même chose. Les coinfondre peut poser des problèmes lors de l'import des données dans ``R``. C'est pourquoi nous recommendons de sauver les données en format _TXT_ (séparateur: tabulation) pour ensuite pouvoir les importer dans  ``R`.
+
+Pour cela, dans escel, choisissez "Enregistrez sous" et ensuite sélectionnez le format _TXT_ (séparateur: tabulation) .
+
+
+>### Exercice:
+>
+>- Ouvrez le fichier "dataset_tidy.xls" dans le dossier "organisation_session/data"
+>- Regardez le tableau, est-ce que vous pouvez comprendre ce qu'il contient?  
+>- Exportez les données au format _TXT_ (séparateur: tabulation) et sauvez le dans le dossier >"organisation_session/data"  
 
 
 
 
-
+# Ressources et liens utiles
