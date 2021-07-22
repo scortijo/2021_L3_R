@@ -1,0 +1,13 @@
+---
+title: "Intro à R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+## Intro à R
