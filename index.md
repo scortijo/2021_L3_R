@@ -23,9 +23,12 @@ Les différentes séances sont:
 
 ## Accès au cours
 
-### Séance 1: Organisation des données
+### Séance 1: Organisation des données et intro à **R**
 
-[Cours, incluant les scripts](organisation_session/materiel/organisation_session.html)  
+[Matériel organisation des données](organisation_session/materiel/organisation_session.html)  
+
+[Matériel intro à R](organisation_session/materiel/intro_R_session.html)  
+
 
 ### Séance 2: Réaliser des graphiques
 
