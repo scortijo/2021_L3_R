@@ -26,6 +26,7 @@ Lors de cette séance nous allons apprendre:
 **Etre capable de reproduire vos analyses et de les partager avec d'autres qui peuvent aussi les reproduire est essentiel.** 
 
 Plusieurs scandales montrent l'importance d'une recherche reproductible et transparente:
+
 - [Une erreur dans un fichier excel](https://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt) qui change la conclusion d'un papier sur le lien entre niveau d'endettement d'un pays et sa croissance 
 
 - [Une erreur de programmation](https://people.ligo-wa.caltech.edu/~michael.landry/calibration/S5/getsignright.pdf) dans un logiciel qui interverti deux colonnes et change ainsi la structure de protéine déduite à partir de données de christalographie. 5 articles ont dû être rétracté à cause de cette erreur
