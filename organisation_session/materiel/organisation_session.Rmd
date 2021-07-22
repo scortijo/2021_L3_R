@@ -165,6 +165,21 @@ Afin que les documents soient ordonnés de manière logique dans vos fichiers, c
 
 Adapté de [ce cours](https://datacarpentry.org/spreadsheet-ecology-lesson/)
 
+## Pourquoi bien organiser les données dans un fichier?
+
+
+
+In order to effectively analyse data it is crucial that we have **tidy data**. 
+Although organising, cleaning and formatting data is often seen as a "boring" and 
+"unrewarding" task, it is absolutely vital to ensure that your data analysis 
+efforts run smoothly later on and ensures that you can make the most out of your data!
+
+Most of us use, at some point or another, a spreadsheet software (aka "Excel") 
+to input data in the computer. In this session, we're going to discuss:
+
+- common pitfalls when recording data (and learn to avoid them!)
+- principles and good practices for organising your data
+- understand file formats and their suitability for other programs (e.g. _R_)
 
 
 ![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidydata_2.jpg)
