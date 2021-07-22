@@ -163,7 +163,7 @@ Afin que les documents soient ordonnés de manière logique dans vos fichiers, c
 
 # 2. Organisation des données dans un fichier excel
 
-Adapté de [ce cours](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
+Adapté de [ce cours](https://datacarpentry.org/spreadsheet-ecology-lesson/)
 
 
 
