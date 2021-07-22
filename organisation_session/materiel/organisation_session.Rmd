@@ -196,9 +196,6 @@ to input data in the computer. In this session, we're going to discuss:
 
 
 
-# 3. Intro à ``R``
-
-
 
 
 
