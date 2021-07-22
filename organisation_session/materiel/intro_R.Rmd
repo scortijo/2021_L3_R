@@ -11,3 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 ## Intro à R
+
+
+Lors de cette séance nous allons apprendre:
+
+1. Ce que sont R et Rstudio et comment y importer des données
+
+2. Des bases de codage avec ``R`` 
+
