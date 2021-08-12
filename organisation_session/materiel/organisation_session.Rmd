@@ -6,8 +6,9 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+<br>
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+<br>
 
 ## Organisation des dossiers, fichiers et données
 
@@ -252,5 +253,22 @@ Pour cela, dans escel, choisissez "Enregistrez sous" et ensuite sélectionnez le
 
 
 
+<br>
 
 # Ressources et liens utiles
+
+[A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+
+
+[Ten Simple Rules for Digital Data Storage](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097)
+
+
+[Formatting data tables in Spreadsheets](https://datacarpentry.org/spreadsheet-ecology-lesson/01-format-data/)
+
+
+
+******
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
