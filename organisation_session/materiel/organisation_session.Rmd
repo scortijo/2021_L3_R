@@ -272,3 +272,5 @@ Pour cela, dans escel, choisissez "Enregistrez sous" et ensuite sélectionnez le
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 <br>
+
+******
