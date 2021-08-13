@@ -53,3 +53,44 @@ Nous pouvons par exemple utiliser R pour faire des calculs:
 Notez que les lignes commençant avec le symbole `#` sont des "Commentaires" que R ignore et ne les exécute pas pas comme du code. 
 
 
+## Créer des objets dans R
+
+Dans R, nous pouvons conserver l'output d'une commande dans un _objet_, et lui donner un nom.
+
+Pour cela, il faut utiliser `<-` avec le nom de l'objet à gauche et la commande à doite (attention, ne pas inclure d'espace entre `<` et `-`)
+
+
+```{r}
+# Conserver le résultat de l'opération dans un objet appelé "mon_objet" 
+mon_objet <- 3 + 2
+```
+
+Nous pouvons ensuite réutiliser ce qui est stocké dans l'objet pour différentes opérations. Par exemple:
+
+```{r}
+mon_objet + 1
+mon_objet + 2
+mon_objet * 2 + 3
+```
+
+Notez que la valeur de `mon_objet` n'a pas changé:
+
+```{r}
+mon_objet
+```
+
+Cependant, il est possible de changer la valeur de `mon_objet` en y sauvant une nouvelle valeur:
+
+```{r}
+mon_objet <- 6
+```
+
+La valeur précédente de `mon_objet` est maintenant perdue, et il faudrait réutiliser la commande précédente pour la retrouver. 
+
+> Quelle est la valeur de `mon_objet` après la commande suivante?
+
+```{r, eval = FALSE}
+mon_objet <- mon_objet + 1
+```
+
+
