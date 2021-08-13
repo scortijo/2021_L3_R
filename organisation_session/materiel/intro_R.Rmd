@@ -130,18 +130,11 @@ Mais comment connaitre les arguments d'une fonction et leurs nom?  **En regardan
 
 Chaque fonction a une page d'aide que l'on peut appeler en utilisant `?` suivi du nom de la fonction. Par exemple `?round`.
 
+Sur la page d'aide, nous pouvons voir que la fonction `round()` accpete deux arguments appelés "x" et "digits". "x" est le nombre que nous voulons arrondir et "digits" est le nombre de chiffres apres la virgules que nous voulons.
 
 
 
-
-
-
-
-From its help page we can see that this function accepts two arguments called 
-"x" and "digits". "x" is the number we want to round, and "digits" is the 
-number of decimal points we want to round to. 
-
-> Use these examples to understand more about how functions work:
+> A l'aide de ces exemples, comprenez mieux comment utiliser les arguments dans les fonctions: 
 
 ```{r}
 round(x = 2.72, digits = 1)
@@ -151,4 +144,4 @@ round(1, 2.72)
 ```
 
 
-
+## Scripts
