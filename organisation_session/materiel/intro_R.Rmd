@@ -155,6 +155,30 @@ Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités tell
 
 
 
+# Importer des données dans R
+
+Pour importer des données dans _R_, nous devons tout d'abord savoir comment dire à R où se site notre document dans nos dossiers.
+
+Pour cela nous devons indiquer le **chemin** du document dans les dossiers. Comme une adresse du document sur notre ordinateur.
+
+Les chemins sont écrit ainsi:
+
+`dossier/sous_dossier/autre_sous°dossier/document.txt`
+
+* Les dossiers sont séparés par `/`. 
+
+* Le nom du document est à la fin (incluant l'extension).
+
+* Les espaces doivent être évités. 
+
+Mais quel est le début du *chemin*?
+
+Cela peut varier d'un ordinateur à un autre, mais un bon moyen de savoir est de regarder quel est le **dossier de travail** que _R_ utilise. C'est le *chemin* que _R_ utilise comme référence quand vous l'utilisez.
+
+## Identifier et comprendre le dossier de travail de R
+
+
+
 
 
 
@@ -167,7 +191,6 @@ Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités tell
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
-<br>
 
 ******
 
