@@ -26,13 +26,11 @@ Lors de cette séance nous allons apprendre:
 Nous allons utiliser Rstudio, qui est un logiciel qui permet d'utiliser une interface facile d'utilisation quand nous travaillons avec ``R``.
 
 
-Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, de-zippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `script_introR_lesson.R` qui est dans le répertoire `organisation_session/materiel`.
-
 Voici à quoi ressemble RStudio:
 
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/rstudio-screenshot.png)
 
-## Coder dans R
+# Coder dans R
 
 
 Concentrons nous sur la partie _en bas à gauche_ qui est la **console**. C'est l'endroit où les commandes R sont exécutées et où les outputs de la commande sont montrés. 
@@ -53,11 +51,11 @@ Nous pouvons par exemple utiliser R pour faire des calculs:
 Notez que les lignes commençant avec le symbole `#` sont des "Commentaires" que R ignore et ne les exécute pas pas comme du code. 
 
 
-## Créer des objets dans R
+# Créer des objets dans R
 
 Dans R, nous pouvons conserver l'output d'une commande dans un _objet_, et lui donner un nom.
 
-Pour cela, il faut utiliser `<-` avec le nom de l'objet à gauche et la commande à doite (attention, ne pas inclure d'espace entre `<` et `-`)
+Pour cela, il faut utiliser `<-` avec le nom de l'objet à gauche et la commande à droite (attention, ne pas inclure d'espace entre `<` et `-`)
 
 
 ```{r}
@@ -95,13 +93,13 @@ mon_objet <- mon_objet + 1
 
 
 
-## Fonctions
+# Fonctions
 
-Un des atous de R réside dans ces fonctions, qui permettent d'effectuer des operations (parfois très compliquées) avec une seule commande.
+Un des atouts de R réside dans ces fonctions, qui permettent d'effectuer des opérations (parfois très compliquées) avec une seule commande.
 
 Pour utiliser des fonctions, nous utilisons toujours la même structure de code:
 `fonction(inputs)`
-Tout d'abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (_arguments_) qui donnent les informations necessaire à la fonction pour effectuer ses opérations.
+Tout d'abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (_arguments_) qui donnent les informations nécessaire à la fonction pour effectuer ses opérations.
 
 
 Vous allez découvrir de nombreuses fonctions tout au long de ce cours, mais tout d'abord voici un exemple avec des fonctions assez simple:
@@ -130,7 +128,7 @@ Mais comment connaitre les arguments d'une fonction et leurs nom?  **En regardan
 
 Chaque fonction a une page d'aide que l'on peut appeler en utilisant `?` suivi du nom de la fonction. Par exemple `?round`.
 
-Sur la page d'aide, nous pouvons voir que la fonction `round()` accpete deux arguments appelés "x" et "digits". "x" est le nombre que nous voulons arrondir et "digits" est le nombre de chiffres apres la virgules que nous voulons.
+Sur la page d'aide, nous pouvons voir que la fonction `round()` accepte deux arguments appelés "x" et "digits". "x" est le nombre que nous voulons arrondir et "digits" est le nombre de chiffres après la virgules que nous voulons.
 
 
 
@@ -144,4 +142,33 @@ round(1, 2.72)
 ```
 
 
-## Scripts
+# Scripts
+
+Les codes R peuvent être sauvées dans des documents textes, appelés scripts (sauvés avec l'extension `.R`). Il est mieux d'utiliser des scripts, que d'écrire directement dans la console, car ainsi vous gardez une trace des codes contenant les opérations et analyses des données. Ces codes peuvent être réutilisés, modifiés ou partagés, permettant une analyse reproductible des données.
+
+Pour commencer un nouveau script, cliquez sur le bouton avec un "plus" vert dans le menu en haut à gauche, et sélectionnés "R script". Un nouveau document va s'ouvrir dans la partie _en haut à gauche_ de Rstudio.
+
+Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités telles que l'auto-complétion ou la détection de certaines erreurs de code.
+
+**Il est fortement recommandé de sauver les codes de vos analyses dans un script.**
+
+
+
+
+
+
+
+
+
+# Ressources et liens utiles
+
+
+******
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+******
+
+
