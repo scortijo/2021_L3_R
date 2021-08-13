@@ -163,7 +163,7 @@ Pour cela nous devons indiquer le **chemin** du document dans les dossiers. Comm
 
 Les chemins sont écrit ainsi:
 
-`dossier/sous_dossier/autre_sous°dossier/document.txt`
+`dossier/sous_dossier/autre_sous_dossier/document.txt`
 
 * Les dossiers sont séparés par `/`. 
 
