@@ -178,6 +178,28 @@ Cela peut varier d'un ordinateur à un autre, mais un bon moyen de savoir est de
 ## Identifier et comprendre le dossier de travail de R
 
 
+Tout d'abord, voyons quel est le _dossier de travail_ de R:
+
+
+```{r, eval=FALSE}
+getwd()
+```
+
+L'output de cette commande va dépondre du système d'exploitation et du nom de l'utilisateur.
+
+
+
+Par exemple, avec un utilisateur appelé sandra, le dossier de travail par défaul est: 
+
+
+
+`/Users/sandra/`
+
+Et sur un Windows:
+
+`C:/Users/sandra/Documents`
+
+
 
 
 
