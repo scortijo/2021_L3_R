@@ -28,7 +28,7 @@ Nous allons utiliser Rstudio, qui est un logiciel qui permet d'utiliser une inte
 
 Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, dezippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `script_introR_lesson.R` qui est dans le répertoire `organisation_session/materiel`.
 
-Voici à quoi RStudio ressemble:
+Voici à quoi ressemble RStudio:
 
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/rstudio-screenshot.png)
 
