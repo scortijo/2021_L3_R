@@ -27,7 +27,7 @@ Les différentes séances sont:
 
 [Matériel organisation des données](organisation_session/materiel/organisation_session.html)  
 
-[Matériel intro à R](organisation_session/materiel/intro_R_session.html)  
+[Matériel intro à R](organisation_session/materiel/intro_R.html)  
 
 
 ### Séance 2: Réaliser des graphiques
