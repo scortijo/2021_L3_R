@@ -404,6 +404,30 @@ summary {
 <pre><code>## [1] 9</code></pre>
 <p>Notez que les lignes commençant avec le symbole <code>#</code> sont des “Commentaires” que R ignore et ne les exécute pas pas comme du code.</p>
 </div>
+<div id="créer-des-objets-dans-r" class="section level2">
+<h2>Créer des objets dans R</h2>
+<p>Dans R, nous pouvons conserver l’output d’une commande dans un <em>objet</em>, et lui donner un nom.</p>
+<p>Pour cela, il faut utiliser <code>&lt;-</code> avec le nom de l’objet à gauche et la commande à doite (attention, ne pas inclure d’espace entre <code>&lt;</code> et <code>-</code>)</p>
+<pre class="r"><code># Conserver le résultat de l'opération dans un objet appelé &quot;mon_objet&quot; 
+mon_objet &lt;- 3 + 2</code></pre>
+<p>Nous pouvons ensuite réutiliser ce qui est stocké dans l’objet pour différentes opérations. Par exemple:</p>
+<pre class="r"><code>mon_objet + 1</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>mon_objet + 2</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>mon_objet * 2 + 3</code></pre>
+<pre><code>## [1] 13</code></pre>
+<p>Notez que la valeur de <code>mon_objet</code> n’a pas changé:</p>
+<pre class="r"><code>mon_objet</code></pre>
+<pre><code>## [1] 5</code></pre>
+<p>Cependant, il est possible de changer la valeur de <code>mon_objet</code> en y sauvant une nouvelle valeur:</p>
+<pre class="r"><code>mon_objet &lt;- 6</code></pre>
+<p>La valeur précédente de <code>mon_objet</code> est maintenant perdue, et il faudrait réutiliser la commande précédente pour la retrouver.</p>
+<blockquote>
+<p>Quelle est la valeur de <code>mon_objet</code> après la commande suivante?</p>
+</blockquote>
+<pre class="r"><code>mon_objet &lt;- mon_objet + 1</code></pre>
+</div>
 
 
 
