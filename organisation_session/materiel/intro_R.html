@@ -428,6 +428,37 @@ mon_objet &lt;- 3 + 2</code></pre>
 </blockquote>
 <pre class="r"><code>mon_objet &lt;- mon_objet + 1</code></pre>
 </div>
+<div id="fonctions" class="section level2">
+<h2>Fonctions</h2>
+<p>Un des atous de R réside dans ces fonctions, qui permettent d’effectuer des operations (parfois très compliquées) avec une seule commande.</p>
+<p>Pour utiliser des fonctions, nous utilisons toujours la même structure de code: <code>fonction(inputs)</code> Tout d’abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (<em>arguments</em>) qui donnent les informations necessaire à la fonction pour effectuer ses opérations.</p>
+<p>Vous allez découvrir de nombreuses fonctions tout au long de ce cours, mais tout d’abord voici un exemple avec des fonctions assez simple:</p>
+<pre class="r"><code># racine carrée de 3
+sqrt(3)</code></pre>
+<pre><code>## [1] 1.732051</code></pre>
+<pre class="r"><code># Arrondi de 3.14
+round(3.14)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>La fonction round() a arrondi le nombre à l’entier le plus proche (pas de chiffre après la virgule). Cependant, nous pourrions vouloir arrondir en gardant un, deux (ou plus) chiffres après la virgule. C’est possible en utilisant l’ <em>argument</em> “digits” de la fonction <code>round()</code>:</p>
+<pre class="r"><code># Arrondir 3.14 en gardant un chiffre après la virgule
+round(3.14, digits = 1)</code></pre>
+<pre><code>## [1] 3.1</code></pre>
+<p>Les arguments dans les fonction sont séparés par une virgule <code>,</code>.</p>
+<p>Mais comment connaitre les arguments d’une fonction et leurs nom? <strong>En regardant la documentation de la fonction.</strong></p>
+<p>Chaque fonction a une page d’aide que l’on peut appeler en utilisant <code>?</code> suivi du nom de la fonction. Par exemple <code>?round</code>.</p>
+<p>From its help page we can see that this function accepts two arguments called “x” and “digits”. “x” is the number we want to round, and “digits” is the number of decimal points we want to round to.</p>
+<blockquote>
+<p>Use these examples to understand more about how functions work:</p>
+</blockquote>
+<pre class="r"><code>round(x = 2.72, digits = 1)</code></pre>
+<pre><code>## [1] 2.7</code></pre>
+<pre class="r"><code>round(digits = 1, x = 2.72)</code></pre>
+<pre><code>## [1] 2.7</code></pre>
+<pre class="r"><code>round(2.72, 1)</code></pre>
+<pre><code>## [1] 2.7</code></pre>
+<pre class="r"><code>round(1, 2.72)</code></pre>
+<pre><code>## [1] 1</code></pre>
+</div>
 
 
 
