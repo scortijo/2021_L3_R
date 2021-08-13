@@ -23,7 +23,9 @@ Pour cette formation, nous allons utiliser une version légèrement modifée du 
 # Mise en place
 
 
-Lors de cette formation nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
+Ouvrez avec `Rstudio` le fichier `Script_ggplot_lesson.R` qui est dans le répertoire `ggplot_session/materiel`.
+
+Lors de cette séance nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
 - `tidyverse` qui contient plusiers packages dont `ggplot2`  
 - `visdat`  qui permet une représentation rapide des données  
 - `plotly` pour faire des graphiques interactifs  
