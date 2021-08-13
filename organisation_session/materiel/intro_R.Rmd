@@ -19,3 +19,17 @@ Lors de cette séance nous allons apprendre:
 
 2. Des bases de codage avec ``R`` 
 
+<br>
+
+``R`` est un logiciel de statistique et un language de programmation. Afin de faire quoi que ce soit avec ``R`` nous devons écrire des instructions avec un code spécifique.
+
+Nous allons utiliser Rstudio, qui est un logiciel qui permet d'utiliser une interface facile d'utilisation quand nous travaillons avec ``R``.
+
+
+Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, dezippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `script_introR_lesson.R` qui est dans le répertoire `organisation_session/materiel`.
+
+Voici à quoi RStudio ressemble:
+
+![](http://www.datacarpentry.org/R-ecology-lesson/img/rstudio-screenshot.png)
+
+
