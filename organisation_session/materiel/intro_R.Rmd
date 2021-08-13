@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
-## Intro à R
+
 
 
 Lors de cette séance nous allons apprendre:
@@ -31,5 +31,8 @@ Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant 
 Voici à quoi ressemble RStudio:
 
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/rstudio-screenshot.png)
+
+## Coder dans R
+
 
 
