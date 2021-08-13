@@ -21,12 +21,12 @@ Lors de cette séance nous allons apprendre:
 
 <br>
 
-``R`` est un logiciel de statistique et un language de programmation. Afin de faire quoi que ce soit avec ``R`` nous devons écrire des instructions avec un code spécifique.
+``R`` est un logiciel de statistique et un langage de programmation. Afin de faire quoi que ce soit avec ``R`` nous devons écrire des instructions avec un code spécifique.
 
 Nous allons utiliser Rstudio, qui est un logiciel qui permet d'utiliser une interface facile d'utilisation quand nous travaillons avec ``R``.
 
 
-Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, dezippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `script_introR_lesson.R` qui est dans le répertoire `organisation_session/materiel`.
+Avant d'aller plus loin, téléchargez le matériel de la formation en cliquant sur `Download.zip` ou `Download.tar.gz`, de-zippez le répertoire et ensuite placer vous dedans. Ouvrez avec `Rstudio` le fichier `script_introR_lesson.R` qui est dans le répertoire `organisation_session/materiel`.
 
 Voici à quoi ressemble RStudio:
 
@@ -34,5 +34,22 @@ Voici à quoi ressemble RStudio:
 
 ## Coder dans R
 
+
+Concentrons nous sur la partie _en bas à gauche_ qui est la **console**. C'est l'endroit où les commandes R sont exécutées et où les outputs de la commande sont montrés. 
+
+
+Nous pouvons par exemple utiliser R pour faire des calculs:
+
+
+```{r}
+# Opérations basiques avec R
+3 + 2    # somme
+3 - 2    # soustraction
+3 * 2    # multiplication
+3 / 2    # division
+3 ^ 2    # exponentiel
+```
+
+Notez que les lignes commençant avec le symbole `#` sont des "Commentaires" que R ignore et ne les exécute pas pas comme du code. 
 
 
