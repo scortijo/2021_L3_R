@@ -94,3 +94,61 @@ mon_objet <- mon_objet + 1
 ```
 
 
+
+## Fonctions
+
+Un des atous de R réside dans ces fonctions, qui permettent d'effectuer des operations (parfois très compliquées) avec une seule commande.
+
+Pour utiliser des fonctions, nous utilisons toujours la même structure de code:
+`fonction(inputs)`
+Tout d'abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (_arguments_) qui donnent les informations necessaire à la fonction pour effectuer ses opérations.
+
+
+Vous allez découvrir de nombreuses fonctions tout au long de ce cours, mais tout d'abord voici un exemple avec des fonctions assez simple:
+
+
+```{r}
+# racine carrée de 3
+sqrt(3)
+
+# Arrondi de 3.14
+round(3.14)
+```
+
+La fonction round() a arrondi le nombre à l'entier le plus proche (pas de chiffre après la virgule). Cependant, nous pourrions vouloir arrondir en gardant un, deux (ou plus) chiffres après la virgule. C'est possible en utilisant l' _argument_ "digits" de la fonction `round()`: 
+
+
+```{r}
+# Arrondir 3.14 en gardant un chiffre après la virgule
+round(3.14, digits = 1)
+```
+
+
+Les arguments dans les fonction sont séparés par une virgule `,`. 
+
+Mais comment connaitre les arguments d'une fonction et leurs nom?  **En regardant la documentation de la fonction.**
+
+Chaque fonction a une page d'aide que l'on peut appeler en utilisant `?` suivi du nom de la fonction. Par exemple `?round`.
+
+
+
+
+
+
+
+
+From its help page we can see that this function accepts two arguments called 
+"x" and "digits". "x" is the number we want to round, and "digits" is the 
+number of decimal points we want to round to. 
+
+> Use these examples to understand more about how functions work:
+
+```{r}
+round(x = 2.72, digits = 1)
+round(digits = 1, x = 2.72)
+round(2.72, 1)
+round(1, 2.72)
+```
+
+
+
