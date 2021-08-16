@@ -32,7 +32,7 @@ Les différentes séances sont:
 
 ### Séance 2: Réaliser des graphiques
 
-[Matériel réaliser des graphiques](session2_ggplotmateriel/ggplot_session.html)  
+[Matériel réaliser des graphiques](session2_ggplot/materiel/ggplot_session.html)  
 
 Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
 [Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
