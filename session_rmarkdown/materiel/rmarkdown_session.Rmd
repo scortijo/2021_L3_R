@@ -1,0 +1,29 @@
+---
+title: "Réaliser des rapports d'analyses en ``Rmarkdown``"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+# Réaliser des rapports d'analyses en ``Rmarkdown``
+
+Lors de cette séance nous allons apprendre à  
+
+# Extras
+
+# Ressources et liens utiles
+
+-------
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
