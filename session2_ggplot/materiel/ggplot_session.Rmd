@@ -23,7 +23,7 @@ Pour cette formation, nous allons utiliser une version légèrement modifée du 
 # Mise en place
 
 
-Ouvrez avec `Rstudio` le fichier `Script_ggplot_lesson.R` qui est dans le répertoire `ggplot_session/materiel`.
+Ouvrez avec `Rstudio` le fichier `Script_ggplot_lesson.R` qui est dans le répertoire `session2_ggplot/materiel`.
 
 Lors de cette séance nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
 - `tidyverse` qui contient plusiers packages dont `ggplot2`  
@@ -43,16 +43,16 @@ Vous devez aussi vous assurer que le répertoire de travail de R est bien le dos
 Pour spécifier le répertoire de travail de R utilisez la fonction ``setwd()``:
 
 ``` {r}
-setwd("~/Desktop/2021_L3_R/ggplot_session/materiel")
+setwd("~/Desktop/2021_L3_R/session2_ggplot/materiel")
 ```
 
 
 # Import et vérification des données
 
-Ouvrez avec `Rstudio` le fichier `Script_ggplot_session.R` qui est dans le répertoire `ggplot_session/materiel`. Nous allons coder ensemble dans ce script, qui est quasiment vide pour le moment. 
+Ouvrez avec `Rstudio` le fichier `Script_ggplot_session.R` qui est dans le répertoire `session2_ggplot/materiel`. Nous allons coder ensemble dans ce script, qui est quasiment vide pour le moment. 
 
 
-La version simplifiée des données est dans le dossier ``ggplot_session/data`` (`burghardt_et_al_2015_expt1.txt`). Il s'agit de données pour des phénotypes associés au temps nécessaire à des plantes de différents génotypes pour fleurir dans différentes conditions.
+La version simplifiée des données est dans le dossier ``session2_ggplot/data`` (`burghardt_et_al_2015_expt1.txt`). Il s'agit de données pour des phénotypes associés au temps nécessaire à des plantes de différents génotypes pour fleurir dans différentes conditions.
 
 Comme notre répertoire de travail est le dossier `materiel` , nous devons importer les données ainsi:
 
