@@ -249,6 +249,28 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
     - Utilisez le symbole `../` pour indiquer le répértoire _avant_ votre répertoire de travail actuel
 
 
+
+## Importer des données dans R
+
+Afin de pouvoir importer des données dans R, il faut connaitre leur format. S'agit-il de données `.txt` avec les colonnes séparées par _tabulation_ ou de données `.csv` avec les colonnes séparées par des _virgules_ ou des _point-virgules_? Il est important de connaitre la réponse à cette question car nous allons utiliser des fonctions différentes pour lire chaque type de données
+
+Pour importer des données `.txt` avec les colonnes séparées par _tabulation_ nous allons utiliser la fonction `read_tsv()`. 
+
+Cette fonction est incluse dans un package appelé `tidyverse`. Il
+
+
+This function is part of a package called `tidyverse`, which you will need to load 
+first using the `library()` function:
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+_Note:_ there is another function called `read.csv()`, which is the usual 
+default function to read CSV files, and is very similar to `read_csv()`. 
+During the workshops we will use `read_csv()`, as it is more convenient.
+
+
 # Ressources et liens utiles
 
 
