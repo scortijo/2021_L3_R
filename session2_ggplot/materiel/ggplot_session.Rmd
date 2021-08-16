@@ -31,7 +31,7 @@ Lors de cette séance nous allons utiliser plusieurs packages qui contiennent le
 - `plotly` pour faire des graphiques interactifs  
 
 
-Ces packages sont normalement déjà installé. Pour les importer dans votre session, utilisez la fonction ``library()`` : 
+Ces packages sont normalement déjà installés. Pour les importer dans votre session, utilisez la fonction ``library()`` : 
 
 ```{r load packages, eval = TRUE, message = FALSE}
 library(tidyverse)
