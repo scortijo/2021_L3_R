@@ -25,20 +25,20 @@ Les différentes séances sont:
 
 ### Séance 1: Organisation des données et intro à **R**
 
-[Matériel organisation des données](organisation_session/materiel/organisation_session.html)  
+[Matériel organisation des données](session1_organisation/materiel/organisation_session.html)  
 
-[Matériel intro à R](organisation_session/materiel/intro_R.html)  
+[Matériel intro à R](session1_organisation/materiel/intro_R.html)  
 
 
 ### Séance 2: Réaliser des graphiques
 
-[Matériel réaliser des graphiques](ggplot_session/materiel/ggplot_session.html)  
+[Matériel réaliser des graphiques](session2_ggplotmateriel/ggplot_session.html)  
 
 Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
 [Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
 
 
-[Solution des exercices](ggplot_sessopn/materiel/ggplot_exercise_solutions.html)
+[Solution des exercices](session2_ggplot/materiel/ggplot_exercise_solutions.html)
 
 
 
