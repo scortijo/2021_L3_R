@@ -1,0 +1,248 @@
+---
+title: "Intro à R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+
+
+Lors de cette séance nous allons apprendre:
+
+1. Ce que sont R et Rstudio et comment y importer des données
+
+2. Des bases de codage avec ``R`` 
+
+<br>
+
+``R`` est un logiciel de statistique et un langage de programmation. Afin de faire quoi que ce soit avec ``R`` nous devons écrire des instructions avec un code spécifique.
+
+Nous allons utiliser Rstudio, qui est un logiciel qui permet d'utiliser une interface facile d'utilisation quand nous travaillons avec ``R``.
+
+
+Voici à quoi ressemble RStudio:
+
+![](http://www.datacarpentry.org/R-ecology-lesson/img/rstudio-screenshot.png)
+
+# Coder dans R
+
+
+Concentrons nous sur la partie _en bas à gauche_ qui est la **console**. C'est l'endroit où les commandes R sont exécutées et où les outputs de la commande sont montrés. 
+
+
+Nous pouvons par exemple utiliser R pour faire des calculs:
+
+
+```{r}
+# Opérations basiques avec R
+3 + 2    # somme
+3 - 2    # soustraction
+3 * 2    # multiplication
+3 / 2    # division
+3 ^ 2    # exponentiel
+```
+
+Notez que les lignes commençant avec le symbole `#` sont des "Commentaires" que R ignore et ne les exécute pas pas comme du code. 
+
+
+# Créer des objets dans R
+
+Dans R, nous pouvons conserver l'output d'une commande dans un _objet_, et lui donner un nom.
+
+Pour cela, il faut utiliser `<-` avec le nom de l'objet à gauche et la commande à droite (attention, ne pas inclure d'espace entre `<` et `-`)
+
+
+```{r}
+# Conserver le résultat de l'opération dans un objet appelé "mon_objet" 
+mon_objet <- 3 + 2
+```
+
+Nous pouvons ensuite réutiliser ce qui est stocké dans l'objet pour différentes opérations. Par exemple:
+
+```{r}
+mon_objet + 1
+mon_objet + 2
+mon_objet * 2 + 3
+```
+
+Notez que la valeur de `mon_objet` n'a pas changé:
+
+```{r}
+mon_objet
+```
+
+Cependant, il est possible de changer la valeur de `mon_objet` en y sauvant une nouvelle valeur:
+
+```{r}
+mon_objet <- 6
+```
+
+La valeur précédente de `mon_objet` est maintenant perdue, et il faudrait réutiliser la commande précédente pour la retrouver. 
+
+> Quelle est la valeur de `mon_objet` après la commande suivante?
+
+```{r, eval = FALSE}
+mon_objet <- mon_objet + 1
+```
+
+
+
+# Fonctions
+
+Un des atouts de R réside dans ces fonctions, qui permettent d'effectuer des opérations (parfois très compliquées) avec une seule commande.
+
+Pour utiliser des fonctions, nous utilisons toujours la même structure de code:
+`fonction(inputs)`
+Tout d'abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (_arguments_) qui donnent les informations nécessaire à la fonction pour effectuer ses opérations.
+
+
+Vous allez découvrir de nombreuses fonctions tout au long de ce cours, mais tout d'abord voici un exemple avec des fonctions assez simple:
+
+
+```{r}
+# racine carrée de 3
+sqrt(3)
+
+# Arrondi de 3.14
+round(3.14)
+```
+
+La fonction round() a arrondi le nombre à l'entier le plus proche (pas de chiffre après la virgule). Cependant, nous pourrions vouloir arrondir en gardant un, deux (ou plus) chiffres après la virgule. C'est possible en utilisant l' _argument_ "digits" de la fonction `round()`: 
+
+
+```{r}
+# Arrondir 3.14 en gardant un chiffre après la virgule
+round(3.14, digits = 1)
+```
+
+
+Les arguments dans les fonction sont séparés par une virgule `,`. 
+
+Mais comment connaitre les arguments d'une fonction et leurs nom?  **En regardant la documentation de la fonction.**
+
+Chaque fonction a une page d'aide que l'on peut appeler en utilisant `?` suivi du nom de la fonction. Par exemple `?round`.
+
+Sur la page d'aide, nous pouvons voir que la fonction `round()` accepte deux arguments appelés "x" et "digits". "x" est le nombre que nous voulons arrondir et "digits" est le nombre de chiffres après la virgules que nous voulons.
+
+
+
+> A l'aide de ces exemples, comprenez mieux comment utiliser les arguments dans les fonctions: 
+
+```{r}
+round(x = 2.72, digits = 1)
+round(digits = 1, x = 2.72)
+round(2.72, 1)
+round(1, 2.72)
+```
+
+
+# Scripts
+
+Les codes R peuvent être sauvées dans des documents textes, appelés scripts (sauvés avec l'extension `.R`). Il est mieux d'utiliser des scripts, que d'écrire directement dans la console, car ainsi vous gardez une trace des codes contenant les opérations et analyses des données. Ces codes peuvent être réutilisés, modifiés ou partagés, permettant une analyse reproductible des données.
+
+Pour commencer un nouveau script, cliquez sur le bouton avec un "plus" vert dans le menu en haut à gauche, et sélectionnés "R script". Un nouveau document va s'ouvrir dans la partie _en haut à gauche_ de Rstudio.
+
+Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités telles que l'auto-complétion ou la détection de certaines erreurs de code.
+
+**Il est fortement recommandé de sauver les codes de vos analyses dans un script.**
+
+
+
+
+# Importer des données dans R
+
+Pour importer des données dans _R_, nous devons tout d'abord savoir comment dire à R où se site notre document dans nos dossiers.
+
+Pour cela nous devons indiquer le **chemin** du document dans les dossiers. Comme une adresse du document sur notre ordinateur.
+
+Les chemins sont écrit ainsi:
+
+`dossier/sous_dossier/autre_sous_dossier/document.txt`
+
+* Les dossiers sont séparés par `/`. 
+
+* Le nom du document est à la fin (incluant l'extension).
+
+* Les espaces doivent être évités. 
+
+Mais quel est le début du *chemin*?
+
+Cela peut varier d'un ordinateur à un autre, mais un bon moyen de savoir est de regarder quel est le **dossier de travail** que _R_ utilise. C'est le *chemin* que _R_ utilise comme référence quand vous l'utilisez.
+
+## Identifier et comprendre le dossier de travail de R
+
+
+Tout d'abord, voyons quel est le _dossier de travail_ de R:
+
+
+```{r, eval=FALSE}
+getwd()
+```
+
+L'output de cette commande va dépondre du système d'exploitation et du nom de l'utilisateur.
+
+
+
+Par exemple, avec un utilisateur appelé sandra, le dossier de travail par défaul est: 
+
+
+
+`/Users/sandra/`
+
+Et sur un Windows:
+
+`C:/Users/sandra/Documents`
+
+
+
+Quand vous faites des analyses sur R, il peut être pratique de définir le répertoire de travail de R pour qu'il soit le dossier où vous avez le projet en cours d'analyse.
+
+Si le matériel du cours est sur le bureau de l'ordinateur, les données pour cette séance sont dans le dossier:
+
+
+```
+Desktop
+  |
+  |_2021_L3_R
+      |
+      |_session1_organisation
+          |
+          |_data
+             |
+             |_dataset_tidy.csv
+```
+
+Il est donc plus pratique si le répertoire de travail est `session1_organisation`. 
+
+Pour changer le répertoire de travaul, nous utilisons la fonction `setwd()`. 
+For our previous example this might be something like:
+
+```{r, eval=FALSE}
+# Sur Mac
+setwd("/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
+
+# Sur Windows
+setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
+```
+
+
+
+
+
+# Ressources et liens utiles
+
+
+******
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+******
+
+
