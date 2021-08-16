@@ -232,7 +232,21 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
 ```
 
 
+> ### Exercice
+>
+> Changez votre répertoire de travail pour le dossier où est le cours en suivant les exemples ci-dessus. Confirmez que vous êtes dans le bon dossier en utilisant la commande `getwd()`.
 
+
+**Conseils:**
+
+- Quand vous ecrivez un chemin de dossiers dans R, utilisez des guillemets `"`
+
+- Utilisez la touche `Tab` quand vous écrivez le chemin du dossier, - _RStudio_ complètera le chemin pour vous 
+
+
+- Le chemin peut être _relatif_ à votre répertoir de travail actuel. Pour cela utilisez le symbole e moment
+    - Utilisez le symbole `./` pour indiquer votre répertoire de travail actuel
+    - Utilisez le symbole `../` pour indiquer le répértoire _avant_ votre répertoire de travail actuel
 
 
 # Ressources et liens utiles
