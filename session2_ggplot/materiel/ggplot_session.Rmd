@@ -20,6 +20,23 @@ Lors de cette séance nous allons apprendre à visualiser des jeux de données t
 
 Pour cette formation, nous allons utiliser une version légèrement modifée du jeu de donnée publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
 
+
+# Quels types de graphiques pouvons nous faire avec ggplot2?
+
+
+Il est possible de représenter les données de différentes manières et ggplot2 offre de nombreuses options de visualisation.
+
+Parmis les plus connues:
+
+- [Des barplots](https://www.r-graph-gallery.com/barplot.html) 
+
+- [Des boxplots](https://www.r-graph-gallery.com/boxplot.html) 
+
+- [Des histogrammes](https://www.r-graph-gallery.com/histogram.html) 
+
+Et encore plus. Pour toutes les découvrir, voir [cette galerie de graphiques avec ggplot2](https://www.r-graph-gallery.com/index.html)
+
+
 # Mise en place
 
 
@@ -351,80 +368,11 @@ En conclusion, **il est possible de représenter de nombreuses informations en c
 >**Indice**: facet le graphique avec `day.length` et `temperature` et colorer l'intérieur des boxplot en fonction de `fluctuation`.
 
 
-## Interactivité!
-
-Pour aller plus loin, il est même possible de créer des graphiques intéractifs en utilsant le package `plotly`.  
-
-Il faut d'abord mettre le graphique dans un objet, puis d'utiliser cet objet dans la fonction `ggplotly()`.
-
-
-```{r go interactive}
-# Mettre le graphique dans l'objet p1
-p1 <- ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = fluctuation)) + 
-  geom_point() +
-  facet_wrap(~genotype)
-
-# Utiliser la fonction ggplotly pour faire un graphique intéractif
-ggplotly(p1)
-```
-
-
-## Themes
-
-Tous les élépments d'un ggplot sont modifiables. Les themes permettent de modifier l'apparence du graphique. Ce n'est pas le sujet de cette formation, mais voici quelques exemples. 
-
-
-
-```{r}
-# Example de thèmes existants dans ggplot2 
-ggplot(expt1, aes(genotype, days.to.flower)) +
-  geom_boxplot() +
-  theme_bw() +
-  labs(title = "Black and white theme")
-
-ggplot(expt1, aes(genotype, days.to.flower)) +
-  geom_boxplot() +
-  theme_classic() +
-  labs(title = "Classic theme")
-
-ggplot(expt1, aes(genotype, days.to.flower)) +
-  geom_boxplot() +
-  theme_minimal() +
-  labs(title = "Minimal theme")
-```
-
-
-La fonction `theme()` peut être utilisée pour modifier des éléments en particulier du graphique. Il y a tellement de possibilités que le mieux est de rechercher sur internet la modification que vous voulez faire.  
-
-
-Par exemple, en recherchant "vertical labels x axis ggplot2" nous obtenons [cette solution](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2): 
-
-```{r}
-ggplot(expt1, aes(genotype, days.to.flower)) +
-  geom_boxplot() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
-Rechercher "altering plot colours ggplot2" donne 
-[ceci](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually), qui apporte cette solution:
-
-```{r}
-ggplot(expt1, aes(genotype, days.to.flower, fill = fluctuation)) +
-  geom_boxplot() +
-  scale_fill_brewer(palette="Dark2")
-```
-
-
 
 # Extras
 
 D'autres packages qui peuvent apporter un plus à `ggplot2`:
 
-- [`gridExtra`](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html) 
-ou [`patchwork`](https://github.com/thomasp85/patchwork) 
-pour combiner des graphiques ensemble
-- [`ggthemes`](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html) 
-pour ajouter des thèmes et géométries en plus
 - [`ggridges`](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html) 
 pour faire des graphiques "ridge" 
 - [`GGally`](https://ggobi.github.io/ggally/) pour représenter automatiquement les relations entre des données  
@@ -434,8 +382,6 @@ pour faire des graphiques "ridge"
 
 - [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
 - [Antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-- [Antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
-- [D'autres antisèches!](https://www.rstudio.com/resources/cheatsheets/)
 
 
 -------
