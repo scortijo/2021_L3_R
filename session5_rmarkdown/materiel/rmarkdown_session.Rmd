@@ -29,11 +29,11 @@ Il est possible d'y inclure du code R et ses sorties, en les encapsulant dans un
 
 + La **reproductibilité** des analyses est garantie, car le code ayant généré les résultats montrés est présent, et peut être réexécuté par toute personne possédant le document.
 
-
+En résumé, ce format de rapport favorise l'intégrité scientifique des travaux de recherche faisant appel à R.
 
 ## Structure d'un document et fonctionnement
 
-Un document  comprend trois types de contenu : 
+Un document ``Rmarkdown`` comprend 3 types de contenu : 
 
 + Un **header** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, html), l'auteur, la date, le thème, des paramètres pour le code R, un fichier de bibliographie...). Il est entouré des délimiteurs --- .
 
@@ -49,28 +49,35 @@ Vous avez par exemple ici un aperçu de ces trois composants, c'est à dire un h
 
 ![Rmarkdown workflow.](./Images/chunk_example.png)
 
-La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](<https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf>), vous pouvez garder ce document ouvert au cours du TP.
+La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf), vous pouvez garder ce document ouvert au cours du TP.
 
 
-
-Pour créer le document fini, on utilise le bouton **Knit**. Le logiciel knitr est alors utilisé pour créer un document markdown contenant le code et ses sorties, avec le reste du texte, puis le logiciel pandoc se charge de donner au document son format et apparence finale (html, pdf...). 
-
-![Rmarkdown workflow.](./Images/rmarkdownflow.png)
 
 # Mise en place
 
 
-Ouvrez avec `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``
+Ouvrez `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``. Dans la séance d'aujourd'hui, nous allons nous consacrer sur la création de rapports de type HTML (permettant de l'intéractivité contrairement aux PDFs). Pour ceci, dans le menu haut de Rstudio, choisissez Fichier/Nouveau fichier/R markdown, acceptez et laissez les valeurs par défaut.
+
+Comme vous le constatez, RStudio propose déjà un petit exemple fonctionnel de document Rmarkdown. Sauvegardez le dans le répertoire `session5_rmarkdown/materiel`. Remarquez l'extension du fichier, `.Rmd`, qui diffère des `.R` des séances précédantes.
+
+Pour créer le document html à partir du notebook, on utilise le bouton **Knit** (ou le raccourci clavier `Ctrl+Maj+K`). Le logiciel knitr est alors utilisé pour créer un document contenant le code et ses sorties, avec le reste du texte, puis le logiciel pandoc se charge de donner au document son format et apparence finale (html, pdf...). 
+
+![Rmarkdown workflow.](./Images/rmarkdownflow.png)
+
+> **Challenge** Compilez votre document avec bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent au header, aux chunks, et à du markdown.
+
+
+Personnalisez l'entête (header) YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vos modifications ont bien modifié le nom d'auteur, le titre, et la date dans le document html.
 
 # Extras
 
+
+- [Des conseils de mise en forme pratiques et esthétiques](https://holtzy.github.io/Pimp-my-rmd/)
+
+
 # Ressources et liens utiles
 
-- [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
-- [Antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-- [Antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
-- [D'autres antisèches!](https://www.rstudio.com/resources/cheatsheets/)
-
+- [Antisèche pour Rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf)
 
 -------
 
