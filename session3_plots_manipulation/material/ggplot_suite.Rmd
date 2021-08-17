@@ -201,7 +201,7 @@ ggplotly(p1)
 Plutôt que d'avoir un graphique par génotype, il est possible d'ajouer un curseur pour montrer les données des génotypes de manière interaction en utilisant l'argument 'frame':
 
 
-```{r go interactive, warning=FALSE}
+```{r  warning=FALSE}
 # Mettre le graphique dans l'objet p1
 p2 <- ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation, frame=genotype)) + 
   geom_point() 
