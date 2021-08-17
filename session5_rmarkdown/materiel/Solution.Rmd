@@ -7,10 +7,9 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)
-library(ggpubr)
 library(plotly)
 library(tidyverse)
+library(DT)
 ```
 
 # Contexte
@@ -21,9 +20,10 @@ Les données analysées dans ce rapport sont issues d'une [publication intitulé
 
 ## Import et affichage des données
 
-Import des données et chargement dans l'objet expt1.
+Import des données et chargement dans l'objet expt1. Avec `datatable`, il est possible de parcourir les données de manière interactive et même de les filtrer dynamiquement.
 
-```{r read data}
+```{r read data, message=FALSE}
 expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+datatable(expt1, filter="top", options = list(pageLength = 10, scrollX=T))
 ```
 
