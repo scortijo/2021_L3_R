@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 
-Dans cette seconde partie de la section dédiée à la vidualisation de données vous allez:
+Dans cette seconde partie de la section dédiée à la visualisation de données vous allez:
 - Changer l'apparence des graphiques 
 - Combiner plusieurs graphiques dans une même figure
 - Inclure du dynamisme et de l'interactivité à vos graphique
@@ -48,9 +48,9 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 Nous sommes maintenant prêt!
 
 
-# Changer l'apparence d'un graphique en utilisant les themes
+# Changer l'apparence d'un graphique en utilisant les thèmes
 
-Tous les élépments d'un ggplot sont modifiables. Les **themes** permettent de modifier l'apparence du graphique. Voici quelques exemples. 
+Tous les éléments d'un ggplot sont modifiables. Les **themes** permettent de modifier l'apparence du graphique. Voici quelques exemples. 
 
 
 
@@ -108,9 +108,9 @@ Par exemple le graphique que vous avez reproduit hier correspond aux panels B et
 
 Nous allons faire quelque chose de similaire avec un scatterplot en panel A, et des boxplots en panel B.
 
-Pour cela nous allons utiliser la fonction `ggarrange()` qui est dans le packqge `ggpubr`.
+Pour cela nous allons utiliser la fonction `ggarrange()` qui est dans le package `ggpubr`.
 
-Tout d'abord, nous devons charger cette librarie dans R:
+Tout d'abord, nous devons charger cette librairie dans R:
 
 
 ```{r}
@@ -118,9 +118,9 @@ library(ggpubr)
 ```
 
 
-Ensuite, faisons chaque graphique indépendament et sauvons les dans un objet:
+Ensuite, faisons chaque graphique indépendamment et sauvons les dans un objet:
 
-- Un scatterplot montrant la relation entre le nombre de feuilles et le nombre de jours jusqu'a floraison, coloré en fonction du traitement: 
+- Un scatterplot montrant la relation entre le nombre de feuilles et le nombre de jours jusqu’à floraison, coloré en fonction du traitement: 
 
 
 ```{r}
@@ -129,7 +129,7 @@ panelA <- ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation
 ```
 
 
-- Des boxplots du nombre de jours jusqu'a floraison pour les différent génotypes, séparés en fonction de la témpérature, et colorés en fonction du traitement (fluctuation ou non):
+- Des boxplots du nombre de jours jusqu’à floraison pour les différent génotypes, séparés en fonction de la température, et colorés en fonction du traitement (fluctuation ou non):
 
 ```{r}
 panelB <- ggplot(expt1, aes(genotype, days.to.bolt, fill = fluctuation)) +
@@ -176,7 +176,7 @@ L'animation peut ensuite être sauvée en utilisant la fonction anim_save()
 
 ## Interactivité!
 
-Pour aller plus loin, il est même possible de créer des graphiques intéractifs en utilsant le package  `plotly`.  
+Pour aller plus loin, il est même possible de créer des graphiques interactifs en utilisant le package  `plotly`.  
 
 
 ```{r}
@@ -198,7 +198,7 @@ ggplotly(p1)
 ```
 
 
-Plutôt que d'avoir un graphique par génotype, il est possible d'ajouer un curseur pour montrer les données des génotypes de manière interaction en utilisant l'argument 'frame':
+Plutôt que d'avoir un graphique par génotype, il est possible d’ajouter un curseur pour montrer les données des génotypes de manière interaction en utilisant l'argument 'frame':
 
 
 ```{r  warning=FALSE}
@@ -228,7 +228,7 @@ barplot
 
 boxplot, violin plot ou point?
 
-Axes coupés ou qui ne commencent pas à zero
+Axes coupés ou qui ne commencent pas à zéro
 
 ### Comment faire ressortir le message des données
 
