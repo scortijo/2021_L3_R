@@ -56,5 +56,6 @@ plot <- ggplot(expt1, aes(x = days.to.flower,
 
 ggplotly(plot)
 ```
+Interprêtation à écrire
 
 # Références
