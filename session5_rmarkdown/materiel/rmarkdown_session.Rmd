@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction à ``Rmarkdown``
 
-Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple).
+Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple). Nous allons donc illustrer les possibilités offertes par le langage ``Rmarkdown``, en faisant une courte analyse en R des données connues de burghardt_et_al_2015, et en exportant ces analyses dans un rapport complet et documenté.
 
 
 Plus précisément, [Rmarkdown](http://rmarkdown.rstudio.com) est une syntaxe permettant la rédaction de documents HTML, PDF, parmi d'autres formats.
@@ -55,6 +55,7 @@ La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, es
 
 # Mise en place
 
+## Création du document
 
 Ouvrez `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``. Dans la séance d'aujourd'hui, nous allons nous consacrer sur la création de rapports de type HTML (permettant de l'intéractivité contrairement aux PDFs). Pour ceci, dans le menu haut de Rstudio, choisissez Fichier/Nouveau fichier/R markdown, acceptez et laissez les valeurs par défaut.
 
@@ -64,10 +65,61 @@ Pour créer le document html à partir du notebook, on utilise le bouton **Knit*
 
 ![Rmarkdown workflow.](./Images/rmarkdownflow.png)
 
+## Prise en main
+
 > **Challenge** Compilez votre document avec bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent au header, aux chunks, et à du markdown.
 
-
 Personnalisez l'entête (header) YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vos modifications ont bien modifié le nom d'auteur, le titre, et la date dans le document html.
+
+Le premier chunk doit être conservé. Il permet de configurer des options gloable pour les chunks du documents, nous y reviendrons plus tard dans la séance. Dans ce premier chunk, rajoutez l'import des packages que nous allons utiliser: "ggplot2", "ggpubr", "gglm", "equatiomatic", "papeR", "knitr", "plotly". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
+
+Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
+
+
+> **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
+
+# Créer une section de contexte en `markdown`
+
+A la suite du premier chunk, créez une première section nommée "Contexte" comme suit :`# Contexte`.
+
+L'opérateur `#` permet d'indiquer un titre. Pour un sous titre, `##` peut être utilisé.
+
+Décrivez plus bas la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si celà vous paraît pertinent.
+
+Compilez pour vous assurer que votre section apparaît dans le document.
+
+## Mettre à profit la syntaxe markdown (liens, apparence du texte)
+
+Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour celà, la syntaxe markdown est la suivante ```[Label de votre lien clickable](url de la référence en ligne)```. 
+
+Pour obtenir le résultat suivant :
+Les données analysées sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799).
+
+ 
+
+Il vous faut écrire dans la syntaxe markdown les lignes suivantes :
+
+```{}
+Les données analysées sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799)
+```
+
+
+Ajoutez ce lien à votre section de contexte et recompilez.
+
+
+
+Les noms d'espèce végétales comme *Arabidopsis thaliana* doivent être écrits en italique. L'opérateur `*` placé de chaque côté des mots désirés permet d'utiliser de l'italique. Ajoutez le nom de l'organisme étudié à votre contexte (si ce n'est pas déjà fait), et placez le en italique.
+
+> **Challenge** Comment mettre des mots en gras? (Indice: parcourez la [documentation de  Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352))
+
+# Import et affichage des données
+
+Créez maintenant une nouvelle section intitulée "Analyse de la floraison", et une sous-section "Import et affichage des données".
+Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`). A l'intérieur, importez le jeu de données comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier.
+
+Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la sortie de la fonction.
+
+
 
 # Extras
 
@@ -79,8 +131,19 @@ Personnalisez l'entête (header) YAML pour y ajouter votre nom, la date, et le t
 
 - [Antisèche pour Rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf)
 
+- [Syntaxe Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352)
+
 -------
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
+```{r}
+# lien vers publi
+# image html
+# DT
+# plotly
+
+
+# référence bib
+```
 

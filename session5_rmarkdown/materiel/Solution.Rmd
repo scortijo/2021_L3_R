@@ -1,5 +1,5 @@
 ---
-title: "Rapport d'analyses relatives à la floraison chez Arabidopsis thaliana"
+title: "Analyse de la floraison chez *Arabidopsis thaliana*"
 author: "Océane"
 date: "8/17/2021"
 output: html_document
@@ -7,24 +7,23 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+library(tidyverse)
 ```
 
-## R Markdown
+# Contexte
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Analyse de la floraison
 
-```{r cars}
-summary(cars)
+## Import et affichage des données
+
+Import des données et chargement dans l'objet expt1.
+
+```{r read data}
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
