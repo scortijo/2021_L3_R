@@ -43,6 +43,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 ### Séance 3, partie 1: Réaliser des graphiques - Suite
 
+[Matériel réaliser des graphiques - suite](session3_plots_manipulation/materiel/ggplot_suite.html)  
 
 
 ### Séance 3, pârtie 2: Manipulation de données
