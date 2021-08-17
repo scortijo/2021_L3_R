@@ -11,13 +11,13 @@
 
 Ce cours va vous apprendre comment exporer des données et réaliser des graphiques dans **R**. 
 Les différentes séances sont:
-- 14/10/2021 8h-11h15 : Organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
-- 21/10/2021 8h-11h15: Réaliser des graphiques en utilisant **ggplot2** dans **R**. 
-- 28/10/2021 8h-11h15: Reflexion meilleurs graphs pour representer donnees. Manipulation des données dans **R** (filtrer, sélectionner, modifier données, extraire statistiques descriptive)
-- 11/11/2021 8h-11h15: Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
-- 18/11/2021 8h-11h15: Créer des notebooks dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
-- 25/11/2021 8h-11h15: Exploration d'un jeu de données (exam blanc)
-- 02/12/2021 9h45-11h15: Correction de l'exam blanc et trucs et astuces
+- 14/10/2021 8h-11h15 : **Séance 1** Organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
+- 21/10/2021 8h-11h15: **Séance 2** Réaliser des graphiques en utilisant **ggplot2** dans **R**. 
+- 28/10/2021 8h-11h15: **Séance 3** Reflexion meilleurs graphs pour representer donnees. Manipulation des données dans **R** (filtrer, sélectionner, modifier données, extraire statistiques descriptive)
+- 11/11/2021 8h-11h15: **Séance 4** Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
+- 18/11/2021 8h-11h15: **Séance 5** Créer des notebooks dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
+- 25/11/2021 8h-11h15: **Séance 7** Exploration d'un jeu de données (exam blanc)
+- 02/12/2021 9h45-11h15: **Séance 8** Correction de l'exam blanc et trucs et astuces
 
 
 

@@ -520,9 +520,48 @@ setwd(&quot;C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/&quot;)</cod
 </ul></li>
 </ul>
 </div>
+<div id="importer-des-données-dans-r-1" class="section level2">
+<h2>Importer des données dans R</h2>
+<p>Afin de pouvoir importer des données dans R, il faut connaitre leur format. S’agit-il de données <code>.txt</code> avec les colonnes séparées par <em>tabulation</em> ou de données <code>.csv</code> avec les colonnes séparées par des <em>virgules</em> ou des <em>point-virgules</em>? Il est important de connaitre la réponse à cette question car nous allons utiliser des fonctions différentes pour lire chaque type de données</p>
+<p>Pour importer des données <code>.txt</code> avec les colonnes séparées par <em>tabulation</em> nous allons utiliser la fonction <code>read_tsv()</code>.</p>
+<p>Cette fonction est incluse dans un package appelé <code>tidyverse</code>. Il faut donc d’abord charger <code>tidyverse</code> dans R en utilisant la fonction <code>library()</code>:</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p>Pour importer les données, il existe différentes fonctions qui sont adaptées aux formats du fichier:</p>
+<ul>
+<li><p><code>read_tsv()</code> pour les données <code>.txt</code> avec les colonnes séparées par <em>une tabulation</em></p></li>
+<li><p><code>read_csv()</code> pour les données <code>.csv</code> avec les colonnes séparées par <em>une virgule</em></p></li>
+<li><p><code>read_csv2()</code> pour les données <code>.csv</code> avec les colonnes séparées par <em>un point virgule</em></p></li>
+</ul>
+<p><br></p>
+<p><em>Note:</em> Il existe aussi une fonction <code>read.csv()</code>, qui est la fonction par défault pour importer des données csv, et qui est très similaire à <code>read_csv()</code>. Pour ce cours, nous allons utiliser les fonctions <code>read_tsv()</code> ou <code>read_csv()</code> du package <code>tidyverse</code> car elles sont plus pratiques.</p>
+<hr />
+<blockquote>
+<h3 id="exercice-1">Exercice</h3>
+<p>Créez un <strong>script</strong> qui:</p>
+<ul>
+<li>Charge le package <code>tidyverse</code> (en utilisant <code>library()</code>)</li>
+<li>Défini votre répertoire de travail dans le dossier <code>session1_organisations</code> (en utilisant <code>setwd()</code>)</li>
+<li>Importe le fichier <em>dataset_tidy_all.txt</em> qui est dans le dossier <em>data</em> (en utilisant <code>read_csv()</code>)</li>
+</ul>
+<p><strong>Conseil:</strong> Si besoin consultez la page d’aide des fonctions en utilisant <code>?</code> (par exemple <code>?library()</code> pour consulter la page d’aide de la fonction <code>library()</code>)</p>
+</blockquote>
+</div>
 </div>
 <div id="ressources-et-liens-utiles" class="section level1">
 <h1>Ressources et liens utiles</h1>
+<ul>
+<li><a href="http://readr.tidyverse.org/">Les fonctions pour importer les différents formats dans R</a></li>
+</ul>
+<hr />
+</div>
+<div id="a-faire-pour-la-prochaine-séance" class="section level1">
+<h1><span style="color: blue;">A faire pour la prochaine séance </span></h1>
+<p>A partir ce ce que nous avons vu aujourd’hui:</p>
+<ul>
+<li><p>Installez R et Rstudio sur votre orginateur (<a href="https://cran.biotools.fr/">Installer R</a>, <a href="https://rstudio.com/products/rstudio/download/">Installer Rstudio</a>)</p></li>
+<li><p>Organiser un de vos tableur excel avec les Les colonnes qui contiennent les variables (ce qui est mesuré) et les lignes qui contiennent les observations (les unités de l’étude). Sauvez le en format <code>.txt</code> avec les colonnes séparées par <em>tabulation</em></p></li>
+<li><p>Importez vos données (sauvées au format <code>.txt</code>) dans R</p></li>
+</ul>
 <hr />
 <p><a href="https://scortijo.github.io/2021_L3_R/">Retour à la page d’accueil</a></p>
 <hr />

@@ -249,7 +249,66 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
     - Utilisez le symbole `../` pour indiquer le répértoire _avant_ votre répertoire de travail actuel
 
 
+
+## Importer des données dans R
+
+Afin de pouvoir importer des données dans R, il faut connaitre leur format. S'agit-il de données `.txt` avec les colonnes séparées par _tabulation_ ou de données `.csv` avec les colonnes séparées par des _virgules_ ou des _point-virgules_? Il est important de connaitre la réponse à cette question car nous allons utiliser des fonctions différentes pour lire chaque type de données
+
+Pour importer des données `.txt` avec les colonnes séparées par _tabulation_ nous allons utiliser la fonction `read_tsv()`. 
+
+Cette fonction est incluse dans un package appelé `tidyverse`. Il faut donc d'abord charger `tidyverse` dans R en utilisant la fonction `library()`:
+
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+Pour importer les données, il existe différentes fonctions qui sont adaptées aux formats du fichier:
+
+- `read_tsv()` pour les données `.txt` avec les colonnes séparées par _une tabulation_
+
+- `read_csv()` pour les données `.csv` avec les colonnes séparées par _une virgule_
+
+- `read_csv2()` pour les données `.csv` avec les colonnes séparées par _un point virgule_
+
+<br>
+
+
+_Note:_ Il existe aussi une fonction `read.csv()`, qui est la fonction par défault pour importer des données csv, et qui est très similaire à `read_csv()`. Pour ce cours, nous allons utiliser les fonctions `read_tsv()` ou  `read_csv()` du package `tidyverse` car elles sont plus pratiques.
+
+
+--------
+
+> ### Exercice
+> 
+> Créez un **script** qui: 
+> 
+> - Charge le package `tidyverse` (en utilisant `library()`)
+> - Défini votre répertoire de travail dans le dossier `session1_organisations`  (en utilisant `setwd()`)
+> - Importe le fichier _dataset_tidy_all.txt_ qui est dans le dossier _data_ (en utilisant `read_csv()`)
+> 
+>
+> **Conseil:** 
+> Si besoin consultez la page d'aide des fonctions en utilisant `?` (par exemple `?library()` pour consulter la page d'aide de la fonction `library()`)
+
+
 # Ressources et liens utiles
+
+- [Les fonctions pour importer les différents formats dans R](http://readr.tidyverse.org/)
+
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+A partir ce ce que nous avons vu aujourd'hui:
+
+- Installez R et Rstudio sur votre orginateur ([Installer R](https://cran.biotools.fr/), [Installer Rstudio](https://rstudio.com/products/rstudio/download/))
+
+- Organiser un de vos tableur excel avec les Les colonnes qui contiennent  les variables (ce qui est mesuré) et les lignes qui contiennent les observations (les unités de l'étude). Sauvez le en format `.txt` avec les colonnes séparées par _tabulation_
+
+- Importez vos données (sauvées au format `.txt`)  dans R
+
 
 
 ******
