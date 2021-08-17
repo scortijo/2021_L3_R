@@ -41,6 +41,12 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 [Solution des exercices](session2_ggplot/materiel/ggplot_exercise_solutions.html)
 
 
+### Séance 3, partie 1: Réaliser des graphiques - Suite
+
+
+
+### Séance 3, pârtie 2: Manipulation de données
+
 
 
 ## Si vous voulez utiliser R chez vous: 
