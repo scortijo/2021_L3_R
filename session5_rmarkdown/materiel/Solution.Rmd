@@ -1,0 +1,29 @@
+---
+title: "Analyse de la floraison chez *Arabidopsis thaliana*"
+author: "Océane"
+date: "8/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+library(tidyverse)
+```
+
+# Contexte
+
+Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison.
+
+# Analyse de la floraison
+
+## Import et affichage des données
+
+Import des données et chargement dans l'objet expt1.
+
+```{r read data}
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+```
+
