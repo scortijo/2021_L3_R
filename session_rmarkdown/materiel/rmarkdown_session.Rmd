@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction à ``Rmarkdown``
 
-Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown`` L'idée n'est plus de produire de simples scripts au (documents ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y compris les non-utilisateurs de R, qui contiendront des explications, du contexte, vos lignes de et leurs sorties (les graphiques générés par exemple).
+Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple).
 
 
 Plus précisément, [Rmarkdown](http://rmarkdown.rstudio.com) est une syntaxe permettant la rédaction de documents HTML, PDF, parmi d'autres formats.
@@ -30,11 +30,14 @@ Il est possible d'y inclure du code R et ses sorties, en les encapsulant dans un
 + La **reproductibilité** des analyses est garantie, car le code ayant généré les résultats montrés est présent, et peut être réexécuté par toute personne possédant le document.
 
 
-### Structure d'un document
 
-+ Un **header** au format YAML (Yet Another Markup Langage) qui donne les paramètres du document (type de format (pdf, html), l'auteur, la date, le thème, des paramètres pour le code R, un fichier de bibliographie...). Il est entouré des délimiteurs --- .
+## Structure d'un document et fonctionnement
 
-+ Des morceaux de code appelés **chunks**, dans lesquels les analyses et les calculs en R sont menés. Un chunck prend en option le langage utilisé, ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
+Un document  comprend trois types de contenu : 
+
++ Un **header** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, html), l'auteur, la date, le thème, des paramètres pour le code R, un fichier de bibliographie...). Il est entouré des délimiteurs --- .
+
++ Des morceaux de code appelés **chunks**, dans lesquels les analyses et les calculs en R sont menés. Un chunk prend en option le langage utilisé, ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
 
 Généralement, le premier chunk contient la fonction ```knitr::opts_chunk$set(echo = TRUE)```, qui peut être utilisée pour préciser des paramètres qui seront utilisés pour tous les chunks du document.
 
@@ -42,16 +45,12 @@ Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown]
 
 + Des parties rédigées avec la syntaxe **markdown**. Il s'agit de texte brut enrichi de titres, sous titres, listes, insertion d'images, de liens, etc. Une description de cette syntaxe est également disponible dans la [documentation](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352). De plus, la [syntaxe Latex](https://en.wikibooks.org/wiki/LaTeX/Mathematics) peut être utilisée pour faire le rendu d'équations mathématiques.
 
-Vous avez par exemple ici un aperçu de ces trop composants, c'est à dire un header au format YAML, un chunck de code, et une partie textuelle en markdown : 
+Vous avez par exemple ici un aperçu de ces trois composants, c'est à dire un header au format YAML, un chunk de code, et une partie textuelle en markdown : 
 
 ![Rmarkdown workflow.](./Images/chunk_example.png)
 
-La syntaxe complère de Rmarkdown dont vous allez avoir besoin par la suite est dans cette [antisèche](<https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf>), vous pouvez garder ce document ouvert au cours du TP.
+La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](<https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf>), vous pouvez garder ce document ouvert au cours du TP.
 
-
-## Notions de fonctionnement
-
-L'édition de Rmarkdown se fait généralement sous RStudio, qui propose une interface de Notebook, permettant d'exécuter les chunks de code R souhaités, tout en rédigeant la partie textuelle en markdown. 
 
 
 Pour créer le document fini, on utilise le bouton **Knit**. Le logiciel knitr est alors utilisé pour créer un document markdown contenant le code et ses sorties, avec le reste du texte, puis le logiciel pandoc se charge de donner au document son format et apparence finale (html, pdf...). 
@@ -66,6 +65,12 @@ Ouvrez avec `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``
 # Extras
 
 # Ressources et liens utiles
+
+- [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
+- [Antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+- [Antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
+- [D'autres antisèches!](https://www.rstudio.com/resources/cheatsheets/)
+
 
 -------
 
