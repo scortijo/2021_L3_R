@@ -30,8 +30,6 @@ Avant de rentrer dans le vif du sujet il nous faut mettre en place notre environ
 
 ```{r load packages, eval = TRUE, message = FALSE}
 library(tidyverse)
-library(visdat)
-library(plotly)
 ```
 
 - changer votre répertoire de travail pour être dans le dossier `session3_plots_manipulation`:
@@ -56,7 +54,7 @@ Tous les élépments d'un ggplot sont modifiables. Les **themes** permettent de 
 
 
 
-```{r}
+```{r warning = FALSE}
 # Example de thèmes existants dans ggplot2 
 ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot() +
@@ -80,7 +78,7 @@ La fonction `theme()` peut être utilisée pour modifier des éléments en parti
 
 Par exemple, en recherchant "vertical labels x axis ggplot2" nous obtenons [cette solution](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2): 
 
-```{r}
+```{r warning = FALSE}
 ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
@@ -89,7 +87,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
 Rechercher "altering plot colours ggplot2" donne 
 [ceci](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually), qui apporte cette solution:
 
-```{r}
+```{r warning = FALSE}
 ggplot(expt1, aes(genotype, days.to.flower, fill = fluctuation)) +
   geom_boxplot() +
   scale_fill_brewer(palette="Dark2")
@@ -98,19 +96,100 @@ ggplot(expt1, aes(genotype, days.to.flower, fill = fluctuation)) +
 
 # Combiner plusieurs graphiques dans une même figure
 
-Parfois nous voulons crée une figure contenant plusieurs graphiques, c'est le cas dans la plupart des articles scientifiques
+Parfois nous voulons crée une figure contenant plusieurs graphiques, c'est le cas dans la plupart des articles scientifiques.
+
+Par exemple le graphique que vous avez reproduit hier correspond aux panels B et C d'une figure de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+
+![](https://nph.onlinelibrary.wiley.com/cms/asset/73c17ba2-4706-41b2-8dfd-cbe3ac8405dd/nph13799-fig-0002-m.jpg){width=60%}
 
 
-# Interactivité!
-
-Pour aller plus loin, il est même possible de créer des graphiques intéractifs en utilsant le package `plotly`.  
-
-Il faut d'abord mettre le graphique dans un objet, puis d'utiliser cet objet dans la fonction `ggplotly()`.
+<br>
 
 
-```{r go interactive}
+Nous allons faire quelque chose de similaire avec un scatterplot en panel A, et des boxplots en panel B.
+
+Pour cela nous allons utiliser la fonction `ggarrange()` qui est dans le packqge `ggpubr`.
+
+Tout d'abord, nous devons charger cette librarie dans R:
+
+
+```{r}
+library(ggpubr)
+```
+
+
+Ensuite, faisons chaque graphique indépendament et sauvons les dans un objet:
+
+- Un scatterplot montrant la relation entre le nombre de feuilles et le nombre de jours jusqu'a floraison, coloré en fonction du traitement: 
+
+
+```{r}
+panelA <- ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation)) +
+    geom_point() 
+```
+
+
+- Des boxplots du nombre de jours jusqu'a floraison pour les différent génotypes, séparés en fonction de la témpérature, et colorés en fonction du traitement (fluctuation ou non):
+
+```{r}
+panelB <- ggplot(expt1, aes(genotype, days.to.bolt, fill = fluctuation)) +
+    geom_boxplot() +
+    facet_grid(. ~ temperature) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+
+Nous pouvons maintenant utiliser la fonction `grid.arrange()` pour combiner les graphiques ensemble:
+
+
+```{r warning = FALSE}
+ggarrange(panelA, panelB, nrow=2, labels =c("A", "B"),heights = c(1.5, 2))
+```
+
+# Dynamisme et interactivité
+
+## Créer des graphiques avec des animations
+
+Si nous postons les graphiques en ligne, cela peut apporter un plus d'inclure une animation dans le graphique, à condition que cela apporte des informations supplémentaire. C'est possible avec le package `gganimate`!
+
+Tout d'abord, chargeons le package `gganimate`:
+
+
+```{r}
+library(gganimate)
+```
+
+Pour créer une animation, il faut utiliser la fonction `transition_states()` à notre graphique (avec un _+_)
+
+
+```{r warning=FALSE}
+ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation)) +
+    geom_point()  +
+  transition_states(states = genotype, wrap = FALSE, transition_length = 1, state_length = 3) +
+  ease_aes('linear') +
+  labs(subtitle = "{closest_state}") 
+
+```
+
+L'animation peut ensuite être sauvée en utilisant la fonction anim_save()
+
+
+## Interactivité!
+
+Pour aller plus loin, il est même possible de créer des graphiques intéractifs en utilsant le package  `plotly`.  
+
+
+```{r}
+library(plotly)
+```
+
+
+Il faut d'abord mettre le graphique dans un objet, puis utiliser cet objet dans la fonction `ggplotly()`.
+
+
+```{r go interactive, warning=FALSE}
 # Mettre le graphique dans l'objet p1
-p1 <- ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = fluctuation)) + 
+p1 <- ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation)) + 
   geom_point() +
   facet_wrap(~genotype)
 
@@ -119,11 +198,46 @@ ggplotly(p1)
 ```
 
 
+Plutôt que d'avoir un graphique par génotype, il est possible d'ajouer un curseur pour montrer les données des génotypes de manière interaction en utilisant l'argument 'frame':
 
-# Extras
 
-- [`gridExtra`](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html) 
-ou [`patchwork`](https://github.com/thomasp85/patchwork) 
-pour combiner des graphiques ensemble
-- [`ggthemes`](https://cran.r-project.org/web/packages/ggthemes/vignettes/ggthemes.html) 
-pour ajouter des thèmes et géométries en plus
+```{r go interactive, warning=FALSE}
+# Mettre le graphique dans l'objet p1
+p2 <- ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation, frame=genotype)) + 
+  geom_point() 
+
+# Utiliser la fonction ggplotly pour faire un graphique intéractif
+ggplotly(p2)
+```
+
+<br>
+
+# Bonnes pratiques de visualisation de données
+
+### Trouver le graphique approprié à nos données et à notre question
+
+https://www.data-to-viz.com/
+
+pie chart
+
+barplot
+
+
+
+### Etre le plus près des données et ne pas cacher ou modifier les données étranges
+
+boxplot, violin plot ou point?
+
+Axes coupés ou qui ne commencent pas à zero
+
+### Comment faire ressortir le message des données
+
+ordonner les données
+
+Eviter de mettre trop d'info dans un graph
+
+Bien utiliser les couleurs (+ palette daltoniens)
+
+
+
+
