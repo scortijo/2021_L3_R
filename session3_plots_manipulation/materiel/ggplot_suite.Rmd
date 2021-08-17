@@ -214,13 +214,39 @@ ggplotly(p2)
 
 # Bonnes pratiques de visualisation de données
 
-### Trouver le graphique approprié à nos données et à notre question
+### Trouver le graphique approprié à vos données et à votre question
 
-https://www.data-to-viz.com/
+Utiliser le graphique approprié à nos données et répondant à notre question est essentiel. Cependant cela n'est pas toujours intuitif et depend:
 
-pie chart
+- **Du type de données**. S'agit t'il de nombres ou de catégories, ou d'une combinaison des deux? Ou bien de séries chronologique?
 
-barplot
+-**Du nombre de variable à représenter**. Voulez vous montrer une seule variable ou plusieurs? Et s'il y en a deux, voulez vous les comparer directement (dans le cas de nombres)
+
+Comme il existe de nombreuses options, utiliser [ce guide avec un arbre de décision](https://www.data-to-viz.com/)
+
+
+> **Discussion de groupe**
+>
+> Discutez avec votre voisin des deux types de graphique suivant. 
+>
+> Les avez vous déjà utilisé? Si oui, pour représenter quel type de données?
+>
+> Sont ils appropriée à vos données et à votre question? Si non, quel autre
+> type de graphique utiliseriez vous maintenant que vous savez utiliser ggplot?
+>
+>
+> **1. Le pie chart**
+>
+> Pour vous aider, voici une comparaison de pie chart et barplot montrant les mêmes données 
+> ![](./barplot.png){width=70%}
+>
+>
+> **2. Le barplot avec des barrres d'erreur**
+>
+>
+
+
+
 
 
 
