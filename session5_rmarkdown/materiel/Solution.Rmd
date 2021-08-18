@@ -1,12 +1,15 @@
 ---
 title: "Analyse de la floraison chez *Arabidopsis thaliana*"
-author: "Océane"
+author: "Etudiant en bioinformatique"
 date: "8/17/2021"
 output:
   html_document:
     toc: yes
     toc_float: yes
     number_sections: TRUE
+    theme: united
+    highlight: kate
+bibliography: ../data/biblio.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +21,7 @@ library(DT)
 
 # Contexte
 
-Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison.
+Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison [@Burghardt2015].
 
 
 Cette partie de l'abstract détaille un peu plus les travaux réalisés et les résultats obtenus: "We identified 17 genotypes, many of which have high levels of the floral repressor FLOWERING LOCUS C (FLC), that bolted dramatically earlier in fluctuating – as opposed to constant – warm temperatures (mean = 22°C). This acceleration was not caused by transient VERNALIZATION INSENSITIVE 3-mediated vernalization, differential growth rates or exposure to high temperatures, and was not apparent when the average temperature was cool (mean = 12°C). Further, in constant temperatures, contrary to physiological expectations, these genotypes flowered more rapidly in cool than in warm environments. Fluctuating temperatures often reversed these responses, restoring faster bolting in warm conditions. Independently of bolting time, warm fluctuating temperature profiles also caused morphological changes associated with shade avoidance or ‘high-temperature’ phenotypes."

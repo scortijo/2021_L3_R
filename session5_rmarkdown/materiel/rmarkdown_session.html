@@ -373,19 +373,31 @@ output:
     toc: yes
     toc_float: yes
 ---</code></pre>
-<p>COmpilez et vérifiez qu’une table des matières est bien apparue.</p>
+<p>Compilez et vérifiez qu’une table des matières est bien apparue.</p>
 <blockquote>
-<p><strong>Challenge</strong> Jouez avec <code>toc</code> et <code>toc_float</code> en les passant à no pour découvrir quel est exactement leur rôle</p>
+<p><strong>Challenge</strong> Jouez avec <code>toc</code> et <code>toc_float</code> en les passant à no pour découvrir quel est exactement leur rôle.</p>
 </blockquote>
-<div id="position-comportement-numérotation-des-sections" class="section level2">
-<h2>Position, comportement, numérotation des sections</h2>
-</div>
-</div>
-<div id="changer-le-thème" class="section level1">
-<h1>Changer le thème</h1>
+<p>Il est également possible de numéroter les sections avec <code>number_sections: TRUE</code></p>
 </div>
 <div id="ajouter-un-référence-bibliographique-au-format-standard" class="section level1">
 <h1>Ajouter un référence bibliographique au format standard</h1>
+</div>
+<div id="personnaliser-lapparence-du-document" class="section level1">
+<h1>Personnaliser l’apparence du document</h1>
+<p>Les couleurs gloables du document (liens, couleur de fond, table des matières, etc) peuvent être modifiées. Ceci aura de nouveau lieu dans l’entête YAML de votre document, en utilisant les options <code>theme</code> et <code>highlight</code>.</p>
+<p>Plus précisément, vous avez le choix entre les thèmes <code>cerulean</code>, <code>cosmo</code>, <code>flatly</code>, <code>journal</code>, <code>lumen</code>, <code>paper</code>, <code>readable</code>, <code>sandstone</code>, <code>simplex</code>, <code>spacelab</code>, <code>united</code>, et <code>yeti</code>, dont un aperçu est disponible <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">ici</a>.</p>
+<p>Le <code>hihhlight</code> correspond à la coloration syntaxique du code R dans les chunks, vous avez le choix enrte les valeurs <code>default</code>, <code>tango</code>, <code>pygments</code>, <code>kate</code>, <code>monochrome</code>, <code>espresso</code>, <code>zenburn</code>, <code>haddock</code>, <code>breezedark</code>, and <code>textmate</code>.</p>
+<p>Choisissez vos valeurs de <code>theme</code> et <code>hihhlight</code> préférées et ajoutez les à votre document en vous inspirant de cette entête :</p>
+<pre class="yaml"><code>---
+title: &quot;Analyse de la floraison chez *Arabidopsis thaliana*&quot;
+author: &quot;Etudiant en bioinformatique&quot;
+date: &quot;8/17/2021&quot;
+output:
+  html_document:
+    theme: united
+    highlight: breezedark
+---</code></pre>
+<p>Changez le <code>theme</code> du document dans l’entête YAML.</p>
 </div>
 <div id="extras" class="section level1">
 <h1>Extras</h1>
@@ -396,8 +408,9 @@ output:
 <div id="ressources-et-liens-utiles" class="section level1">
 <h1>Ressources et liens utiles</h1>
 <ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/">Le guide officiel du Rmarkdown</a></p></li>
 <li><p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">Antisèche pour Rmarkdown</a></p></li>
-<li><p><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352">Syntaxe Rmakdown</a></p></li>
+<li><p><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352">Fiches de syntaxe Rmakdown</a></p></li>
 </ul>
 <hr />
 <p><a href="https://scortijo.github.io/2021_L3_R/">Retour à la page d’accueil</a></p>

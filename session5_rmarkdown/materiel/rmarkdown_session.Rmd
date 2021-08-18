@@ -167,7 +167,7 @@ Compilez et obervsez le résultat.
 Rendez ce graphique interactif au moyen de `ggplotly`, et admirez le résultat dans le document html.
 
 
-## Taille et légende de l'image et 
+## Taille et légende de l'image 
 
 L'image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l'agrandir. Donnez les valeurs 10 et 6 respectivement aux options `fig.width` et `fig.height` du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l'argument `fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"`
 
@@ -175,7 +175,6 @@ L'image est de taille assez petite. Grâce aux options de chunk, il va nous êtr
 
 Recompliez le document pour vérifier que le changement de taille a bien eu lieu.
 
-Vous pouvez aussi décrire le graphe et l’interpréter dans la partie markdown.
 
 
 # Ajouter une table des matières
@@ -197,10 +196,40 @@ output:
 
 Compilez et vérifiez qu'une table des matières est bien apparue.
 
-> **Challenge** Jouez avec `toc` et `toc_float` en les passant à no pour découvrir quel est exactement leur rôle.
+> **Challenge** Jouez avec `toc` et `toc_float` en les passant à la valeur no pour comprendre le rôle exact de chacun.
 
 
 Il est également possible de numéroter les sections avec `number_sections: TRUE`
+
+
+# Ajouter un référence bibliographique
+
+Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour celà, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé :  le format `.bib`. Ce fichier se trouve déjà dans le répertoire `session5_rmarkdown/data`. Ouvrez le dans rstudio et inspectez le rapidement.
+
++ Ajouter dans l'entête YAML un champs `bibliography`
+Comme dans cet exemple (notez l'utilisation du `../` pour remonter au répertoire parent `session5_rmarkdown`, car votre document se trouve dans `session5_rmarkdown/materiel`):
+
+```{yaml}
+---
+title: "Visualisation et analyse de données de biologie végétale"
+output:
+  html_document:
+    theme: united
+bibliography: ../data/biblio.bib
+---
+```
+
++ Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]`.
+
+
+Compilez le document. Vous devirez remarquer 
+
++ Ajoutez une dernière section `# Références` vide à la fin du document, car les références sont automatiquement ajoutées en fin de document.
+Recompilez et pour vérifier que la référence apparaît bien en fin de document, et qu'elle est bien référencée à l'endroit du contexte ou vous la citez.
+
+Plus de détails sur les  sont disponibles [ici](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+
+
 
 
 # Personnaliser l'apparence du document
@@ -232,8 +261,6 @@ Changez le `theme` du document dans l'entête YAML.
 
 
 
-# Ajouter un référence bibliographique au format standard
-
 
 
 # Extras
@@ -244,9 +271,11 @@ Changez le `theme` du document dans l'entête YAML.
 
 # Ressources et liens utiles
 
+- [Le guide officiel du Rmarkdown](https://bookdown.org/yihui/rmarkdown/)
+
 - [Antisèche pour Rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf)
 
-- [Syntaxe Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352)
+- [Fiches de syntaxe Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352)
 
 -------
 
