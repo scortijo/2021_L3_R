@@ -398,6 +398,11 @@ pour faire des graphiques "ridge"
 A partir ce ce que nous avons vu aujourd'hui:
 
 - Testez différents types de graphiques en utilisant ggplot sur l'un de vos jeux de données
+- Si vous n'avez jamais utilisé `tidyverse` sur R, vous aurez besoin de l'installer avant de le charger dans R. Pour cela utilisez la commande suivante:
+
+```{r eval = FALSE}
+install.packages("tidyverse")
+```
 
 
 ******
