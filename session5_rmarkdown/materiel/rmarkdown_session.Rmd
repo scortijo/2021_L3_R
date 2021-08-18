@@ -45,7 +45,7 @@ Un document ``Rmarkdown`` comprend 3 types de contenu :
 
 + Une **entête** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, HTML), l'auteur, la date, le thème, un fichier de bibliographie...). Il est entouré des délimiteurs ``---`` .
 
-+ Des morceaux de code appelés **chunks**, dans lesquels le code T est placé et peut être exécuté. 
++ Des morceaux de code appelés **chunks**, dans lesquels le code R est placé et peut être exécuté. 
 
 
 + Des parties rédigées avec la syntaxe **markdown**. Il s'agit de texte enrichi de titres, sous titres, listes, insertion d'images, de liens, etc. Une description de cette syntaxe est également disponible dans la [documentation](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352). De plus, la [syntaxe Latex](https://en.wikibooks.org/wiki/LaTeX/Mathematics) peut être utilisée pour faire le rendu d'équations mathématiques.
