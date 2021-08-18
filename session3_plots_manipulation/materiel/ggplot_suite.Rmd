@@ -174,12 +174,12 @@ ggplot(expt1, aes(rosette.leaf.num, days.to.bolt, colour = fluctuation)) +
 L'animation peut ensuite être sauvée en utilisant la fonction anim_save()
 
 
-## Interactivité!
+## Interactivité
 
 Pour aller plus loin, il est même possible de créer des graphiques interactifs en utilisant le package  `plotly`.  
 
 
-```{r include=FALSE}
+```{r message=FALSE}
 library(plotly)
 ```
 
@@ -218,7 +218,7 @@ ggplotly(p2)
 
 ## Trouver le graphique approprié à vos données et à votre question
 
-Utiliser le graphique approprié à nos données et répondant à notre question est essentiel. Cependant cela n'est pas toujours intuitif et depend:
+Utiliser le graphique approprié à nos données et répondant à notre question est essentiel. Cependant cela n'est pas toujours intuitif et dépend:
 
 - **Du type de données**. S'agit t'il de nombres ou de catégories, ou d'une combinaison des deux? Ou bien de séries chronologique?
 
@@ -239,11 +239,11 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 >
 > **1. Le camembert (pie chart)**
 >
-> Aidez vous de cette figure compararant des camemberts et des barplots montrant les mêmes données 
+> Aidez vous de cette figure comparant des camemberts et des barplots montrant les mêmes données 
 > ![](./camemberts.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/pie.html)
 >
 >
-> **2. Le barplot avec des barrres d'erreur**
+> **2. Le barplot avec des barres d'erreur**
 >
 > Les barplots avec barre d'erreur permettent de représenter la moyenne d'une population (barplot) ainsi que 
 > la dispersion des données (barre d'erreur). 
@@ -262,7 +262,7 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 De manière générale il est recommandé d'être au plus près des données quand nous réalisons des graphiques.
 - Choisissez de présenter toutes vos données, sans les modifier ou en supprimer une partie (si vous le faites, vous devez expliquer ce que vous avez fait et pourquoi). 
 
-- Idéalement, et si cela se prête à votre question, montrez les données plutôt que des résumés. Choisissez des nuages de points plutôt que des parplots avec des barres d'erreur. 
+- Idéalement, et si cela se prête à votre question, montrez les données plutôt que des résumés. Choisissez des nuages de points plutôt que des barplots avec des barres d'erreur. 
 
 - Toujours indiquer la taille des effectifs, soit en l'écrivant dans le graphique, soit en le rendant visible (nuage de point, densité etc)
 
@@ -271,7 +271,10 @@ Pour aller plus loin, nous allons regarder de plus prêt deux cas en particulier
 #### 1. Comparer des distributions
 
 Pour rappel, le boxplot permet de montrer un bon résumé des données:
-![](./boxplot.png){width=70%} [source de l'image](https://www.leansigmacorporation.com/box-plot-with-minitab/)
+![](./boxplot.png){width=70%} 
+
+[source de l'image](https://www.leansigmacorporation.com/box-plot-with-minitab/)
+
 
 Cependant, faire un résumé des données peut cacher des informations:
 
@@ -283,15 +286,37 @@ Cependant, faire un résumé des données peut cacher des informations:
 Des alternatives existent pour représenter les données, afin d'éviter ces problèmes:
 
 - Si vous n'avez pas trop de points, vous pouvez les représenter au dessus des boxplots:
-![](./boxplot_jitter.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
+![](./boxplot_jitter.png){width=70%} 
 
+[source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
-- - Si vous avez trop de points pour les représenter dans le graphique, vous pouvez utiliser un violin plot  en indiquand la taille de l'effectif de chaque groupe:
-![](./violin.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
+- Si vous avez trop de points pour les représenter dans le graphique, vous pouvez utiliser un violin plot  en indiquant la taille de l'effectif de chaque groupe:
+![](./violin.png){width=70%} 
 
+[source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
 #### 2. Axes coupés ou non?
-Axes coupés ou qui ne commencent pas à zéro
+
+Si vous avez des données numériques avec des valeurs très éloignées de zéro il peut être tentant de ne pas faire commencer l'axe y à zéro mais plus proche de vos valeurs. Attention, cela peut cependant changer la conclusion!
+
+Voici un exemple avec deux graphiques, l'un avec l'axe des y commençant à zéro et l'autre non. Le deuxième peut donner l'impression qu'il y a une grande différence entre les deux groupes, même si ce n'est pas forcement le cas.
+
+
+![](./plot_axis_1.png){width=70%} ![](./plot_axis_2.png){width=70%}
+
+[source des images](https://rkabacoff.github.io/datavis/Advice.html)
+
+
+De manière générale:
+- Si vous utilisez des barplot ou des points avec différentes catégories à comparer, faites commencer l'axe y à zéro.
+- Si vous utilisez des lignes (comme dans le cas de séries chronologiques), il n'est pas nécessaire de faire commencer l'axe des y à zéro. En effet ce type de graphique permet de montrer l'évolution d'une observation par exemple au cours du temps. Alors que les barplots sont utilisés pour montrer la différence entre deux (ou plusieurs) groupes
+
+
+<br>
+
+Si vous avez des données numériques avec certains points très éloignés des autres il peut être tentant de couper l'axe y entre les groupes de points. Ne le faites jamais!! Il existe d'autres alternatives comme par exemple utiliser une échelle logarithmique. 
+
+
 
 ## Comment faire ressortir le message des données
 
