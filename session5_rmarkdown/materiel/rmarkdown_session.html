@@ -292,9 +292,9 @@ div.tocify {
 <blockquote>
 <p><strong>Challenge</strong> A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?</p>
 </blockquote>
-<p>Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (<code>r</code>), un nom éventuel (ici <code>setup</code>), ainsi qu’un certain nombre de paramètres. Par example, <code>include = FALSE</code> ne fait pas apparaître le code ni les résultats dans le document fini. <code>echo = FALSE</code> montre les sorties du code mais pas le code lui même. <code>fig.cap = &quot;Ma figure&quot;</code> attribue la légende désirée à une figure générée par le chunk. Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352">documentation de Rmarkdown</a>.</p>
-<p>Le premier chunk doit être conservé. Sa fonction <code>knitr::opts_chunk$set</code> permet de configurer des options communes pour les chunks du documents. En l’occurrence, par défaut, cette fonction impose <code>echo = TRUE</code> pour tous les chunks du document.</p>
-<p>Dans ce premier chunk, à la suite de <code>knitr::opts_chunk$set</code>, rajoutez en code R l’import des packages que nous allons utiliser: “tidyverse”, “plotly”, “DT”. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec <code>Ctrl+Shift+Enter</code>.</p>
+<p>Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (<code>r</code>), un nom éventuel (ici <code>setup</code>), ainsi qu’un certain nombre de paramètres. Par example, <code>include = FALSE</code> ne fait pas apparaître le code ni les résultats dans le document fini. <code>echo = FALSE</code> montre les sorties du code mais pas le code lui même. Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352">documentation de Rmarkdown</a>.</p>
+<p>Le premier chunk doit être conservé. Sa fonction <code>knitr::opts_chunk$set</code> permet de configurer des options communes aux chunks du documents. En l’occurrence, par défaut, cette fonction impose <code>echo = TRUE</code> pour tous les chunks du document.</p>
+<p>Dans ce premier chunk, à la suite de <code>knitr::opts_chunk$set</code>, rajoutez en code R l’import des packages que nous allons utiliser: <code>&quot;tidyverse&quot;, &quot;plotly&quot;, &quot;DT&quot;</code>. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec <code>Ctrl+Shift+Enter</code>.</p>
 <p>Vous pouvez ensuite supprimer la suite du document (l’exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.</p>
 </div>
 </div>
@@ -302,11 +302,11 @@ div.tocify {
 <h1>Créer une section de contexte en <code>markdown</code></h1>
 <p>A la suite du premier chunk, créez une première section nommée “Contexte” comme suit :<code># Contexte</code>.</p>
 <p>L’opérateur <code>#</code> permet d’indiquer un titre. Pour un sous titre, <code>##</code> peut être utilisé.</p>
-<p>Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l’abstract ou de la publication si celà vous paraît pertinent.</p>
+<p>Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l’abstract ou de la publication si cela vous paraît pertinent.</p>
 <p>Compilez pour vous assurer que votre section apparaît dans le document.</p>
 <div id="inclure-un-lien-vers-une-ressource-en-ligne" class="section level2">
 <h2>Inclure un lien vers une ressource en ligne</h2>
-<p>Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour celà, la syntaxe markdown est la suivante <code>[Label de votre lien clickable](url de la référence en ligne)</code>.</p>
+<p>Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour cela, la syntaxe markdown est la suivante <code>[Label de votre lien clickable](url de la référence en ligne)</code>.</p>
 <p>Pour obtenir le résultat suivant : Les données analysées sont issues d’une <a href="https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799">publication intitulée “Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana”</a>.</p>
 <p>Il vous faut écrire dans la syntaxe markdown les lignes suivantes :</p>
 <pre><code>Les données analysées sont issues d&#39;une [publication intitulée &quot;Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana&quot;](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799)</code></pre>
@@ -337,24 +337,26 @@ div.tocify {
 <blockquote>
 <p><strong>Challenge</strong> Supprimez également les messages du chunk de setup relatifs à l’import des libraries</p>
 </blockquote>
-<p>Dans le chunk d’import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données vues en cours précédants.</p>
-<p>L’interactivité des rapports HTML permet d’inclure au rapport des tables de données interactives, grâce au package <code>DT</code> et sa fonction <code>datatable</code>. Affichez les données simplement, puis avec <code>datatable</code> comme suit et comparez le résultat dans le document compilé:</p>
-<pre class="r"><code>expt1
-datatable(expt1, filter=&quot;top&quot;, options = list(pageLength = 10, scrollX=T))</code></pre>
+<p>Nous souhaitons maintenant montrer les données brutes au lecteur du rapport. Dans le chunk d’import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données, comme vu dans les séances précédantes.</p>
+<p>Affichez les données de manière simple, en écrivant dans le chunk :</p>
+<pre class="r"><code>expt1</code></pre>
+<p>(`<code>expt1</code> étant le nom de la variable contenant les données)</p>
+<p>Compilez. Vous devriez voir les données (en partie), mais elles ne sont pas présentées d’une manière très agréable à lire.</p>
+<p>L’interactivité des rapports HTML permet d’inclure au rapport des tables de données interactives, grâce au package <code>DT</code> et sa fonction <code>datatable</code>. Remplacez l’affichage précédent par un appel à <code>datatable</code> comme suit et observez le résultat dans le document compilé:</p>
+<pre class="r"><code>datatable(expt1, filter=&quot;top&quot;, options = list(pageLength = 10, scrollX=T))</code></pre>
 <p>L’option <code>pageLength</code> permet d’afficher 10 lignes des données par page de tableau, et <code>scrollX=T</code> permet à la table interactive de ne pas dépasser la largeur maximale du document.</p>
 <blockquote>
-<p><strong>Challenge</strong> Parcourez les données, et testez le filtre pour les variables quantitatives, permis par <code>filter=&quot;top&quot;</code>.</p>
+<p><strong>Challenge</strong> Dans le document compilé, parcourez les données, et testez le filtre pour les variables quantitatives, permis par <code>filter=&quot;top&quot;</code>.</p>
 </blockquote>
-<p>Vous pouvez retirer de votre document l’affichage simple des données sans la fonction <code>datatable</code>, qui rendent bien moins bien et ne sont pas interactives.</p>
 </div>
 <div id="intégration-de-graphiques-ggplot-au-rapport" class="section level1">
 <h1>Intégration de graphiques <code>ggplot</code> au rapport</h1>
-<div id="création-du-graphique" class="section level2">
-<h2>Création du graphique</h2>
+<div id="création-dun-graphique" class="section level2">
+<h2>Création d’un graphique</h2>
 <p>Nous allons maintenant réaliser une visualisation des données de floraison. Créez une sous-section “Visualisation des données de floraison”. Annoncez en markdown que vous allez retirer les valeurs manquantes, et faites-le dans un chunk au dessous.</p>
-<p>En dehors du chunk, décrivez le visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable <code>rosette.leaf.num</code>) en fonction du nombre de jours jusqu’à floraison (variable <code>days.to.flower</code>), et séparer les observations par une la couleur correspondant à la photopériode (variable <code>day.length</code>). Réalisez ce graphe avec <code>ggplot2</code> (n’oubliez pas de lui donner un titre).</p>
-<p>En dessous du chunk permettant de générer le graphe, interprêtez la visualisation. Comment le nombre de feuilles des rosettes varie-t-il en fonction du nombre de jours jusqu’à floraison? Quel est l’effet de la photopériode sur cette relation?</p>
-<p>Compilez et obervsez le résultat.</p>
+<p>En dehors du chunk, décrivez la visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable <code>rosette.leaf.num</code>) en fonction du nombre de jours jusqu’à floraison (variable <code>days.to.flower</code>), et séparer les observations par une la couleur correspondant à la photopériode (variable <code>day.length</code>). Réalisez ce graphe avec <code>ggplot2</code> (n’oubliez pas de lui donner un titre) dans un nouveau chunk.</p>
+<p>Compilez et observez le résultat.</p>
+<p>En dessous du chunk permettant de générer le graphe, interprétez la visualisation. Comment le nombre de feuilles des rosettes varie-t-il en fonction du nombre de jours jusqu’à floraison? Quel est l’effet de la photopériode sur cette relation?</p>
 </div>
 <div id="graphe-interactif" class="section level2">
 <h2>Graphe interactif</h2>
@@ -362,8 +364,8 @@ datatable(expt1, filter=&quot;top&quot;, options = list(pageLength = 10, scrollX
 </div>
 <div id="taille-et-légende-de-limage" class="section level2">
 <h2>Taille et légende de l’image</h2>
-<p>L’image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l’agrandir. Donnez les valeurs 10 et 6 respectivement aux options <code>fig.width</code> et <code>fig.height</code> du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l’argument <code>fig.cap=&quot;Représentation des données de floraison du papier de Burghardt et Al. (2015)&quot;</code></p>
-<p>De manière globale à tout le document, demandez des images de hauteur 8 et de largeur 12. Pour cela, ajoutez des paramètres à <code>knitr::opts_chunk$set(echo = TRUE)</code> dans le premier chunk.</p>
+<p>L’image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l’agrandir. Donnez les valeurs 9 et 6 respectivement aux options <code>fig.width</code> et <code>fig.height</code> du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l’argument <code>fig.cap=&quot;Représentation des données de floraison du papier de Burghardt et Al. (2015)&quot;</code></p>
+<p>Note : cela pourrait être fait de manière globale au document en ajoutant des paramètres à <code>knitr::opts_chunk$set(echo = TRUE)</code> dans le tout premier chunk.</p>
 <p>Recompliez le document pour vérifier que le changement de taille a bien eu lieu.</p>
 </div>
 </div>
@@ -387,9 +389,9 @@ output:
 </div>
 <div id="ajouter-un-référence-bibliographique" class="section level1">
 <h1>Ajouter un référence bibliographique</h1>
-<p>Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour celà, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé : le format <code>.bib</code>. Ce fichier se trouve déjà dans le répertoire <code>session5_rmarkdown/data</code>. Ouvrez le dans rstudio et inspectez le rapidement.</p>
+<p>Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour cela, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé : le format <code>.bib</code>. Ce fichier se trouve déjà dans le répertoire <code>session5_rmarkdown/data</code>. Ouvrez le dans <code>Rstudio</code> et inspectez le rapidement. Vous noterez que la référence est identifiée par le label Burghardt2015 (premier champs).</p>
 <ul>
-<li>Ajouter dans l’entête YAML un champs <code>bibliography</code> Comme dans cet exemple (notez l’utilisation du <code>../</code> pour remonter au répertoire parent <code>session5_rmarkdown</code>, car votre document se trouve dans <code>session5_rmarkdown/materiel</code>):</li>
+<li>Ajoutez dans l’entête YAML un champs <code>bibliography</code> Comme dans cet exemple (notez l’utilisation du <code>../</code> pour remonter au répertoire parent <code>session5_rmarkdown</code>, car votre document se trouve dans <code>session5_rmarkdown/materiel</code>):</li>
 </ul>
 <pre class="yaml"><code>---
 title: &quot;Visualisation et analyse de données de biologie végétale&quot;
@@ -399,13 +401,12 @@ output:
 bibliography: ../data/biblio.bib
 ---</code></pre>
 <ul>
-<li>Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: <code>[@Burghardt2015]</code>.</li>
+<li>Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: <code>[@Burghardt2015]</code> (en effet, la syntaxe de citation est <code>[@label de la référence dans le .bib]</code>.</li>
 </ul>
-<p>Compilez le document. Vous devriez remarquer qu’à l’endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence complète et détaillée a du apparaître en bas du rapport.</p>
+<p>Compilez le document. Vous devriez remarquer qu’à l’endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence détaillée a du apparaître en bas du rapport.</p>
 <ul>
 <li>Ajoutez une dernière section <code># Références</code> vide à la fin du document, pour que les références automatiquement ajoutées en fin de document aient leur section. Recompilez et pour vérifier que tout est comme souhaité.</li>
 </ul>
-<p>Plus de détails sur les citations sont disponibles <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.HTML">ici</a>.</p>
 </div>
 <div id="personnaliser-lapparence-du-document" class="section level1">
 <h1>Personnaliser l’apparence du document</h1>
@@ -426,7 +427,8 @@ output:
 <div id="extras" class="section level1">
 <h1>Extras</h1>
 <ul>
-<li><a href="https://holtzy.github.io/Pimp-my-rmd/">Des conseils de mise en forme pratiques et esthétiques de documents Rmarkdown</a></li>
+<li><p><a href="https://holtzy.github.io/Pimp-my-rmd/">Des conseils de mise en forme pratiques et esthétiques de documents Rmarkdown</a></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.HTML">Plus de détails sur les citations</a></p></li>
 </ul>
 </div>
 <div id="ressources-et-liens-utiles" class="section level1">

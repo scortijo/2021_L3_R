@@ -74,14 +74,12 @@ Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du d
 > **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
 
 
-
-
-Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
+Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. 
 Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352).
 
-Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes pour les chunks du documents. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document.
+Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes aux chunks du documents. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document.
 
-Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: "tidyverse", "plotly", "DT". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
+Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: ``"tidyverse", "plotly", "DT"``. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
 
 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
@@ -93,7 +91,7 @@ A la suite du premier chunk, créez une première section nommée "Contexte" com
 
 L'opérateur `#` permet d'indiquer un titre. Pour un sous titre, `##` peut être utilisé.
 
-Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si celà vous paraît pertinent.
+Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si cela vous paraît pertinent.
 
 Compilez pour vous assurer que votre section apparaît dans le document.
 
@@ -101,7 +99,7 @@ Compilez pour vous assurer que votre section apparaît dans le document.
 ## Inclure un lien vers une ressource en ligne
 
 
-Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour celà, la syntaxe markdown est la suivante ```[Label de votre lien clickable](url de la référence en ligne)```. 
+Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour cela, la syntaxe markdown est la suivante ```[Label de votre lien clickable](url de la référence en ligne)```. 
 
 Pour obtenir le résultat suivant :
 Les données analysées sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799).
@@ -146,36 +144,47 @@ Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la so
 
 > **Challenge** Supprimez également les messages du chunk de setup relatifs à l'import des libraries
 
-Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données vues en cours précédants.
+Nous souhaitons maintenant montrer les données brutes au lecteur du rapport. Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données, comme vu dans les séances précédantes.
 
-L'interactivité des rapports HTML permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Affichez les données simplement, puis avec `datatable` comme suit et comparez le résultat dans le document compilé:
+Affichez les données de manière simple, en écrivant dans le chunk :
 
 ```{r, eval=FALSE}
 expt1
+```
+
+(``expt1` étant le nom de la variable contenant les données)
+
+
+Compilez. Vous devriez voir les données (en partie), mais elles ne sont pas présentées d'une manière très agréable à lire.
+
+L'interactivité des rapports HTML permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Remplacez l'affichage précédent par un appel à `datatable` comme suit et observez le résultat dans le document compilé:
+
+```{r, eval=FALSE}
 datatable(expt1, filter="top", options = list(pageLength = 10, scrollX=T))
 ```
 
 
 L'option `pageLength` permet d'afficher 10 lignes des données par page de tableau, et `scrollX=T` permet à la table interactive de ne pas dépasser la largeur maximale du document.
 
-> **Challenge** Parcourez les données, et testez le filtre pour les variables quantitatives, permis par `filter="top"`.
+> **Challenge** Dans le document compilé, parcourez les données, et testez le filtre pour les variables quantitatives, permis par `filter="top"`.
 
-Vous pouvez retirer de votre document l'affichage simple des données sans la fonction `datatable`, qui rendent bien moins bien et ne sont pas interactives.
 
 # Intégration de graphiques `ggplot` au rapport
 
 
-## Création du graphique
+## Création d'un graphique
 
 Nous allons maintenant réaliser une visualisation des données de floraison. Créez une sous-section "Visualisation des données de floraison". Annoncez en markdown que vous allez retirer les valeurs manquantes, et faites-le dans un chunk au dessous. 
 
-En dehors du chunk, décrivez le visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable `rosette.leaf.num`) en fonction du nombre de jours jusqu'à floraison (variable `days.to.flower`), et séparer les observations par une la couleur correspondant à la photopériode (variable `day.length`). Réalisez ce graphe avec `ggplot2` (n'oubliez pas de lui donner un titre).
+En dehors du chunk, décrivez la visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable `rosette.leaf.num`) en fonction du nombre de jours jusqu'à floraison (variable `days.to.flower`), et séparer les observations par une la couleur correspondant à la photopériode (variable `day.length`). Réalisez ce graphe avec `ggplot2` (n'oubliez pas de lui donner un titre) dans un nouveau chunk.
 
 
-En dessous du chunk permettant de générer le graphe, interprêtez la visualisation. Comment le nombre de feuilles des rosettes varie-t-il en fonction du nombre de jours jusqu'à floraison? Quel est l'effet de la photopériode sur cette relation?
+Compilez et observez le résultat.
 
 
-Compilez et obervsez le résultat.
+En dessous du chunk permettant de générer le graphe, interprétez la visualisation. Comment le nombre de feuilles des rosettes varie-t-il en fonction du nombre de jours jusqu'à floraison? Quel est l'effet de la photopériode sur cette relation?
+
+
 
 ## Graphe interactif
 
@@ -185,9 +194,9 @@ Rendez ce graphique interactif au moyen de `ggplotly`, et admirez le résultat d
 
 ## Taille et légende de l'image 
 
-L'image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l'agrandir. Donnez les valeurs 10 et 6 respectivement aux options `fig.width` et `fig.height` du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l'argument `fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"`
+L'image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l'agrandir. Donnez les valeurs 9 et 6 respectivement aux options `fig.width` et `fig.height` du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l'argument `fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"`
 
- De manière globale à tout le document, demandez des images de hauteur 8 et de largeur 12. Pour cela, ajoutez des paramètres  à ```knitr::opts_chunk$set(echo = TRUE)``` dans le premier chunk.
+Note : cela pourrait être fait de manière globale au document en ajoutant des paramètres  à ```knitr::opts_chunk$set(echo = TRUE)``` dans le tout premier chunk.
 
 Recompliez le document pour vérifier que le changement de taille a bien eu lieu.
 
@@ -220,9 +229,9 @@ Il est également possible de numéroter les sections avec `number_sections: TRU
 
 # Ajouter un référence bibliographique
 
-Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour celà, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé :  le format `.bib`. Ce fichier se trouve déjà dans le répertoire `session5_rmarkdown/data`. Ouvrez le dans rstudio et inspectez le rapidement.
+Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour cela, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé :  le format `.bib`. Ce fichier se trouve déjà dans le répertoire `session5_rmarkdown/data`. Ouvrez le dans `Rstudio` et inspectez le rapidement. Vous noterez que la référence est identifiée par le label Burghardt2015 (premier champs).
 
-+ Ajouter dans l'entête YAML un champs `bibliography`
++ Ajoutez dans l'entête YAML un champs `bibliography`
 Comme dans cet exemple (notez l'utilisation du `../` pour remonter au répertoire parent `session5_rmarkdown`, car votre document se trouve dans `session5_rmarkdown/materiel`):
 
 ```{yaml}
@@ -235,14 +244,14 @@ bibliography: ../data/biblio.bib
 ---
 ```
 
-+ Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]`.
++ Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]` (en effet, la syntaxe de citation est `[@label de la référence dans le .bib]`.
 
 
-Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence complète et détaillée a du apparaître en bas du rapport.
+Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence détaillée a du apparaître en bas du rapport.
 
 + Ajoutez une dernière section `# Références` vide à la fin du document, pour que les références automatiquement ajoutées en fin de document aient leur section. Recompilez et pour vérifier que tout est comme souhaité.
 
-Plus de détails sur les citations sont disponibles [ici](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.HTML).
+
 
 
 # Personnaliser l'apparence du document
@@ -276,6 +285,10 @@ output:
 
 
 - [Des conseils de mise en forme pratiques et esthétiques de documents Rmarkdown](https://holtzy.github.io/Pimp-my-rmd/)
+
+
+- [Plus de détails sur les citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.HTML)
+
 
 
 # Ressources et liens utiles
