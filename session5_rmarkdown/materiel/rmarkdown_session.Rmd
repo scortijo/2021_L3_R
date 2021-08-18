@@ -16,11 +16,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction à ``Rmarkdown``
 
-Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple). Nous allons donc illustrer les possibilités offertes par le langage ``Rmarkdown``, en faisant une courte analyse en R des données connues de burghardt_et_al_2015, et en exportant ces analyses dans un rapport complet et documenté.
-
+Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple). 
 
 Plus précisément, [Rmarkdown](http://rmarkdown.rstudio.com) est une syntaxe permettant la rédaction de documents HTML, PDF, parmi d'autres formats.
 Il est possible d'y inclure du code R et ses sorties, en les encapsulant dans un rapport en structuré et fourni en descriptions , interprétations textuelles, liens, images...
+
+
+Nous allons donc illustrer les possibilités offertes par ce langage en faisant une courte analyse en R des données de Burghardt et Al. (2015), et en exportant ces analyses dans un rapport complet et documenté.
+
 
 
 ## Pourquoi utliliser du Rmarkdown?
@@ -37,7 +40,7 @@ Un document ``Rmarkdown`` comprend 3 types de contenu :
 
 + Un **header** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, html), l'auteur, la date, le thème, des paramètres pour le code R, un fichier de bibliographie...). Il est entouré des délimiteurs --- .
 
-+ Des morceaux de code appelés **chunks**, dans lesquels les analyses et les calculs en R sont menés. Un chunk prend en option le langage utilisé, ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
++ Des morceaux de code appelés **chunks**, dans lesquels les analyses et les calculs en R sont menés. 
 
 Généralement, le premier chunk contient la fonction ```knitr::opts_chunk$set(echo = TRUE)```, qui peut être utilisée pour préciser des paramètres qui seront utilisés pour tous les chunks du document.
 
@@ -49,7 +52,7 @@ Vous avez par exemple ici un aperçu de ces trois composants, c'est à dire un h
 
 ![Rmarkdown workflow.](./Images/chunk_example.png)
 
-La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf), vous pouvez garder ce document ouvert au cours du TP.
+La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf), que vous pouvez garder ouverte au cours du TP.
 
 
 
@@ -71,12 +74,18 @@ Pour créer le document html à partir du notebook, on utilise le bouton **Knit*
 
 Personnalisez l'entête (header) YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vos modifications ont bien modifié le nom d'auteur, le titre, et la date dans le document html.
 
-Le premier chunk doit être conservé. Il permet de configurer des options gloable pour les chunks du documents, nous y reviendrons plus tard dans la séance. Dans ce premier chunk, rajoutez l'import des packages que nous allons utiliser: "ggplot2", "ggpubr", "gglm", "equatiomatic", "papeR", "knitr", "plotly". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
+> **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
+
+
+Le premier chunk doit être conservé. Il permet de configurer des options gloable pour les chunks du documents, nous y reviendrons plus tard dans la séance. Dans ce premier chunk, rajoutez l'import des packages que nous allons utiliser: "tidyverse", "plotly". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
+
+
+Obervez la première ligne du chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
+Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé.
+
 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
 
-
-> **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
 
 # Créer une section de contexte en `markdown`
 
@@ -112,19 +121,101 @@ Les noms d'espèce végétales comme *Arabidopsis thaliana* doivent être écrit
 
 > **Challenge** Comment mettre des mots en gras? (Indice: parcourez la [documentation de  Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352))
 
-# Import et affichage des données
+# Import et affichage des données avec `datatable`
 
 Créez maintenant une nouvelle section intitulée "Analyse de la floraison", et une sous-section "Import et affichage des données".
 Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`). A l'intérieur, importez le jeu de données comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier.
 
-Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la sortie de la fonction.
+Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la sortie de la fonction d'import des données si elle retourne des messages. Si vous ne souhaitez pas voir apparaître ces messages dans le document compilé, donnez un argument au chunk afin de supprimer les messages générés par le code R : `message=FALSE`. Recompilez pour vérifier le résultat.
+
+> **Challenge** Supprimez également les messages du chunk de setup relatifs à l'import des libraries
+
+Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données vues en cours précédants.
+
+L'interactivité des rapports html permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Affichez les données simplement, puis avec `datatable` comme suit et comparez le résultat dans le document compilé:
+
+```{r, eval=FALSE}
+expt1
+datatable(expt1, filter="top", options = list(pageLength = 10, scrollX=T))
+```
+
+
+L'option `pageLength` permet d'afficher 10 lignes des données par page de tableau, et `scrollX=T` permet à la table interactive de ne pas dépasser la largeur maximale du document.
+
+> **Challenge** Parcourez les données, et testez le filtre pour les variables quantitatives, permis par `filter="top"`.
+
+Vous pouvez retirer de votre document l'affichage simple des données sans la fonction `datatable`, qui rendent bien moins bien et ne sont pas interactives.
+
+# Intégration de graphiques `ggplot` au rapport
+
+
+## Création du graphique
+
+Nous allons maintenant réaliser une visualisation des données de floraison. Créez une sous-section "Visualisation des données de floraison". Annoncez en markdown que vous allez retirer les valeurs manquantes, et faites-le dans un chunk au dessous. 
+
+En dehors du chunk, décrivez le visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable `rosette.leaf.num`) en fonction du nombre de jours jusqu'à floraison (variable `days.to.flower`), et séparer les observations par une la couleur correspondant à la photopériode (variable `day.length`). Réalisez ce graphe avec `ggplot2` (n'oubliez pas de lui donner un titre).
+
+
+En dessous du chunk permettant de générer le graphe, interprêtez la visualisation. Comment le nombre de feuilles des rosettes varie-t-il en fonction du nombre de jours jusqu'à floraison? Quel est l'effet de la photopériode sur cette relation?
+
+
+Compilez et obervsez le résultat.
+
+## Graphe interactif
+
+
+Rendez ce graphique interactif au moyen de `ggplotly`, et admirez le résultat dans le document html.
+
+
+## Taille et légende de l'image et 
+
+L'image est de taille assez petite. Grâce aux options de chunk, il va nous être possible de l'agrandir. Donnez les valeurs 10 et 6 respectivement aux options `fig.width` et `fig.height` du chunk dans lequel vous réalisez le graphique. Compilez et vérifiez le changement de taille. Nous allons également rajouter une légende en utilisant l'argument `fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"`
+
+ De manière globale à tout le document, demandez des images de hauteur 8 et de largeur 12. Pour cela, ajoutez des paramètres  à ```knitr::opts_chunk$set(echo = TRUE)``` dans le premier chunk.
+
+Recompliez le document pour vérifier que le changement de taille a bien eu lieu.
+
+Vous pouvez aussi décrire le graphe et l’interpréter dans la partie markdown.
+
+
+# Ajouter une table des matières
+
+Pour ajouter une table des matières clickable au document (comme sur ce sujet de travaux pratiques), il faut modifier l'entête YAML du document. Vous pouvez vous inspirer de cet exemple :
+
+```{yaml}
+---
+title: "Analyse de la floraison chez *Arabidopsis thaliana*"
+author: "Etudiant en bioinformatique"
+date: "8/17/2021"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+```
+
+
+Compilez et vérifiez qu'une table des matières est bien apparue.
+
+> **Challenge** Jouez avec `toc` et `toc_float` en les passant à no pour découvrir quel est exactement leur rôle.
+
+
+Il est également possible de numéroter les sections avec `number_sections: TRUE`
+## Position, comportement, numérotation des sections
+
+
+# Changer le thème
+
+
+
+# Ajouter un référence bibliographique au format standard
 
 
 
 # Extras
 
 
-- [Des conseils de mise en forme pratiques et esthétiques](https://holtzy.github.io/Pimp-my-rmd/)
+- [Des conseils de mise en forme pratiques et esthétiques de documents Rmarkdown](https://holtzy.github.io/Pimp-my-rmd/)
 
 
 # Ressources et liens utiles
@@ -142,7 +233,7 @@ Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la so
 # image html
 # DT
 # plotly
-
+# table des matières
 
 # référence bib
 ```

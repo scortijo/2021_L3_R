@@ -2,28 +2,60 @@
 title: "Analyse de la floraison chez *Arabidopsis thaliana*"
 author: "Océane"
 date: "8/17/2021"
-output: html_document
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    number_sections: TRUE
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)
-library(ggpubr)
 library(plotly)
 library(tidyverse)
+library(DT)
 ```
 
 # Contexte
 
 Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison.
 
+
+Cette partie de l'abstract détaille un peu plus les travaux réalisés : "We identified 17 genotypes, many of which have high levels of the floral repressor FLOWERING LOCUS C (FLC), that bolted dramatically earlier in fluctuating – as opposed to constant – warm temperatures (mean = 22°C). This acceleration was not caused by transient VERNALIZATION INSENSITIVE 3-mediated vernalization, differential growth rates or exposure to high temperatures, and was not apparent when the average temperature was cool (mean = 12°C). Further, in constant temperatures, contrary to physiological expectations, these genotypes flowered more rapidly in cool than in warm environments. Fluctuating temperatures often reversed these responses, restoring faster bolting in warm conditions. Independently of bolting time, warm fluctuating temperature profiles also caused morphological changes associated with shade avoidance or ‘high-temperature’ phenotypes."
+
 # Analyse de la floraison
 
 ## Import et affichage des données
 
-Import des données et chargement dans l'objet expt1.
+Import des données et chargement dans l'objet expt1. Avec `datatable`, il est possible de parcourir les données de manière interactive et même de les filtrer dynamiquement.
 
-```{r read data}
+```{r read data, message=FALSE}
 expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+datatable(expt1, filter="top", options = list(pageLength = 10, scrollX=T))
 ```
 
+
+
+## Visualisation des données de floraison
+
+Nous commençons par retirer les valeurs manquantes du jeu de données : 
+
+```{r drop missing}
+expt1 <- drop_na(expt1)
+```
+
+
+Puis, nous affichons le nombre de feuilles des rosettes en fonction du nombre de jours jusqu'à floraison.
+
+```{r visualisation, fig.width=10, fig.height=6, fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"}
+plot <- ggplot(expt1, aes(x = days.to.flower, 
+                 y = rosette.leaf.num, 
+                 color = day.length)) + 
+  geom_point() +
+  ggtitle("Nombre de feuilles en fonction du nombre de jours jusqu'à floraison")
+
+ggplotly(plot)
+```
+Interprêtation à écrire
+
+# Références
