@@ -179,7 +179,7 @@ L'animation peut ensuite être sauvée en utilisant la fonction anim_save()
 Pour aller plus loin, il est même possible de créer des graphiques interactifs en utilisant le package  `plotly`.  
 
 
-```{r}
+```{r include=FALSE}
 library(plotly)
 ```
 
@@ -235,13 +235,25 @@ Comme il existe de nombreuses options, utiliser [ce guide avec un arbre de déci
 > type de graphique utiliseriez vous maintenant que vous savez utiliser ggplot?
 >
 >
-> **1. Le pie chart**
+> **1. Le camembert (pie chart)**
 >
-> Pour vous aider, voici une comparaison de pie chart et barplot montrant les mêmes données 
-> ![](./barplot.png){width=70%}
+> Aidez vous de cette figure compararant des camemberts et des barplots montrant les mêmes données 
+> ![](./camemberts.png){width=70%}
 >
 >
 > **2. Le barplot avec des barrres d'erreur**
+>
+> Les barplots avec barre d'erreur permettent de représenter la moyenne d'une population (barplot) ainsi que 
+> la dispersion des données (barre d'erreur). 
+>
+> Mais est-ce idéal pour montrer nos données? Discutez en avec votre voisin en vous aidant 
+> de la figure ci-dessous extraite de
+> [Weissgerber et al., 2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).
+>
+> ![](./barplot_distribution.png){width=70%}
+> 
+>
+>
 >
 >
 
