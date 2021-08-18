@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Lors de cette séance nous allons apprendre à visualiser des jeux de données tabulaires avec [``ggplot2``](http://ggplot2.org/).
 
-Pour cette formation, nous allons utiliser une version légèrement modifée du jeu de donnée publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
+Pour cette formation, nous allons utiliser une version légèrement modifiée du jeu de donnée publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
 
 
 # Quels types de graphiques pouvons nous faire avec ggplot2?
@@ -26,7 +26,7 @@ Pour cette formation, nous allons utiliser une version légèrement modifée du 
 
 Il est possible de représenter les données de différentes manières et ggplot2 offre de nombreuses options de visualisation.
 
-Parmis les plus connues:
+Parmi les plus connues:
 
 - [Des barplots](https://www.r-graph-gallery.com/barplot.html) 
 
@@ -43,7 +43,7 @@ Et encore plus. Pour toutes les découvrir, voir [cette galerie de graphiques av
 Ouvrez avec `Rstudio` le fichier `Script_ggplot_lesson.R` qui est dans le répertoire `session2_ggplot/materiel`.
 
 Lors de cette séance nous allons utiliser plusieurs packages qui contiennent les fonctions dont nous avons besoin:  
-- `tidyverse` qui contient plusiers packages dont `ggplot2`  
+- `tidyverse` qui contient plusieurs packages dont `ggplot2`  
 - `visdat`  qui permet une représentation rapide des données  
 - `plotly` pour faire des graphiques interactifs  
 
@@ -91,7 +91,7 @@ expt1
 
 Cela va montrer les 10 premières lignes du tableau ainsi que les colonnes qui rentrent dans l'écran. 
 
-> **Challenge:** Combien y a t'il de lignes et colonnes dans les données?
+> **Challenge:** Combien y a-t-il de lignes et colonnes dans les données?
 
 Une autre option est d'utiliser la fonction  ``View()`` pour accéder à une table interactive où il est possible de trier et filtrer les données sans modifier l'objet:
 
@@ -119,7 +119,7 @@ dim(expt1)
 summary(expt1)
 ```
 
-Nous avons déjà utilisé de noubreuses fonctions:
+Nous avons déjà utilisé de nombreuses fonctions:
 
 - ``install.packages()``
 - ``library()``
@@ -130,7 +130,7 @@ Nous avons déjà utilisé de noubreuses fonctions:
 - ``dim()``
 
 Il est bien sûr difficile de ce souvenir du nom de toutes ces fonctions, ce qu'elles font et comment les utiliser. 
-Heuresement, pour nous aider, une aide est disponible dans R en tapant le nom d'une fonction précédé de `?`
+Heureusement, pour nous aider, une aide est disponible dans R en tapant le nom d'une fonction précédé de `?`
 
 ```{r get help}
 ?summary
@@ -146,17 +146,17 @@ Bien sur, une recherche sur internet est aussi une solution très efficace pour 
 
 ## Inspection visuelle des données
 
-Pour avoir une vue d'ensemble du jeu de données et détecter des problèmes, nous allons ustiliser la fonction  ``vis_dat()``.
+Pour avoir une vue d'ensemble du jeu de données et détecter des problèmes, nous allons utiliser la fonction  ``vis_dat()``.
 
 ```{r}
 vis_dat(expt1)
 ```
 
-> **Challenge** Quel est le type de données le plus courrant dans le jeu de données ? 
-Y a t'il des problème?
+> **Challenge** Quel est le type de données le plus courant dans le jeu de données ? 
+Y a-t-il des problème?
 
 
-## Données maquantes
+## Données manquantes
 
 Le gris dans la figure générée par ``vis_dat()`` sont des données manquantes. Plusieurs stratégies peuvent être utilisées:
 
@@ -175,28 +175,33 @@ expt1 <- drop_na(expt1)
 
 # Plots! Plots! Plots!
 
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png){width=70%} 
+
+
 Maintenant que nous avons vérifié la qualité de notre jeu de donnée, nous pouvons générer des graphiques afin d'en apprendre plus sur les données générées par l'expérience. 
 
 Nous allons utiliser le package R `ggplot2`, qui utilise le principe de "grammar or graphics". Il s'agit des briques du graphique. Cette méthode permettant de combiner et superposer différentes couches de briques:
 
 - data (données)
 - aesthetics
-- objet geometrique (type de graphique)
+- objet géométrique (type de graphique)
 - transformations statistiques
 - ajustements positionels
 - faceting
 
-Les trois premières briques sont essentielles: data, aesthetics et objet geometrique. 
+Les trois premières briques sont essentielles: data, aesthetics et objet géométrique. 
 
 - **data** - Vos données
 - **aesthetics** - Ce que l'on veux montrer sur le graphique et qui dépend des données. Par exemple ce qui est en x et y, la couleur, forme, type de ligne, taille, etc... 
 Pour cela nous utilisons la fonction `aes()`. 
 - **geom_objects** - les objets que nous voulons dans le graphique. Un graphique doit avoir au moins un `geom_object`, et peut en avoir plusieurs. Par exemple:
     - points (`geom_point` pour des scatter plots, dot plots)
-    - lignes (`geom_line` pour des tendance, time series)    
+    - lignes (`geom_line` pour des tendance, séries chronologiques)    
 
 
 Pour plus d'information sur la création de graphique avec `ggplot2`, voir [cette antisèche très utile](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf).
+
+
 
 ## Faire un graphique avec ggplot2
 
@@ -210,7 +215,7 @@ ggplot(expt1)
 
 Mais cela ne produit qu'un canevas gris! 
 
-Il nous manque des briques. En l'occurence nous devons indiquer quelle _aesthetics_ (c'est la terminologie de `ggplot2`) nous voulons sur ce canevas gris. 
+Il nous manque des briques. En l’occurrence nous devons indiquer quelle _aesthetics_ (c'est la terminologie de `ggplot2`) nous voulons sur ce canevas gris. 
 Nous devons indiquer quelles sont les variables  _x_ et _y_ du boxplot.
 
 ```{r}
@@ -218,9 +223,9 @@ ggplot(expt1, aes(x = genotype, y = days.to.flower))
 ```
  
 `ggplot` indique maintenant les variables `genotype` et `days.to.flower` 
-de nos données sur les axes _x_ and _y_ du graphique. 
+de nos données sur les axes _x_ et _y_ du graphique. 
 
-Mais toujours pas de graphique. C'est parce que nous pas indiqué à `ggplot` quelle _geometrie_ nous voulons dessiner sur le canevas. Pour faire un boxplot, nous ajoutons au canevas (littéralement avec un `+`) ``geom_boxplot()``:
+Mais toujours pas de graphique. C'est parce que nous pas indiqué à `ggplot` quelle _géométrie_ nous voulons dessiner sur le canevas. Pour faire un boxplot, nous ajoutons au canevas (littéralement avec un `+`) ``geom_boxplot()``:
 
 ```{r}
 ggplot(expt1, aes(genotype, days.to.flower)) +
@@ -253,7 +258,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot(colour = "red")
 ```
 
-Ou la couleur à l'interieur ( _fill_) des boxplots:
+Ou la couleur à l’intérieur ( _fill_) des boxplots:
 
 ```{r}
 ggplot(expt1, aes(genotype, days.to.flower)) +
@@ -290,7 +295,7 @@ ggplot(expt1, aes(genotype, days.to.flower, colour = fluctuation)) +
 
 Ce n'est pas ce que nous voulons. L'aesthetique `colour` a été liée à _toutes_ les géométries du graphique. C'est parce qu'elle a été définie dans la fonction `ggplot()`, qui affecte tous les `geom_object` qui viennent après.  
 
-Mais nous pouvons aussi définir l'aesthetique dans chaque géometrie:
+Mais nous pouvons aussi définir l'aesthetique dans chaque géométrie:
 
 ```{r}
 ggplot(expt1, aes(genotype, days.to.flower)) +
@@ -298,7 +303,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot(aes(fill = fluctuation), alpha = 0.5)
 ```
 
->**Exercice:** Nous voulons étudier la relation entre le nombre de feuille de rosette et la longueur la limbe des feuilles (en mm) pour les genotypes. 
+>**Exercice:** Nous voulons étudier la relation entre le nombre de feuille de rosette et la longueur la limbe des feuilles (en mm) pour les génotypes. 
 >
 > Pour cela, dessinez un scatter plot (`geom_point()`) entre `blade.length.mm` et `rosette.leaf.num` en colorant les points en fonction de `genotype`. 
 >
@@ -309,7 +314,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
 
 Souvent trop de variables, ou de groupes, sont dans nos données pour pouvoir uniquement utiliser les couleurs pour les discriminer.  
 
-C'est le cas par example du scatterplot produit dans l'exercice précédent, où les points sont colorés en fonction du génotype. Il est difficile de bien discerner les données pour chaque génotype car ils sont très rapprochés. L'idéal serait d'avoir un scatterplot par génotype.   
+C'est le cas par exemple du scatterplot produit dans l'exercice précédent, où les points sont colorés en fonction du génotype. Il est difficile de bien discerner les données pour chaque génotype car ils sont très rapprochés. L'idéal serait d'avoir un scatterplot par génotype.   
 
 Ceci est assez facile à faire avec`ggplot2`, il suffit d'ajouter une couche au graphique appelée "facet":  
 
@@ -324,9 +329,9 @@ ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = genotype)) +
     facet_grid(genotype ~ temperature)
 ```
 
-Dans `facet_grid()`, nous utilisons la notation `(ligne ~ colonne)` pour definir les variables qui sont utilisées pour séparer les panneaux en ligne et colonnes.
+Dans `facet_grid()`, nous utilisons la notation `(ligne ~ colonne)` pour définir les variables qui sont utilisées pour séparer les panneaux en ligne et colonnes.
 
->**Exercice:** Les couleurs n'apportent plus d'information supplementaire. Pensez à une utilisation plus interessante des couleurs dans ce graphque. 
+>**Exercice:** Les couleurs n'apportent plus d'information supplémentaire. Pensez à une utilisation plus intéressante des couleurs dans ce graphique. 
 
 Il est possible de ne préciser qu'une variable dans `facet_grid()` :
 
@@ -350,7 +355,7 @@ ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = fluctuation)) +
     facet_wrap( ~ genotype)
 ```
 
->**Exercice:** Modifiez le graphiqe précédent afin de séparer les données (facet) en fonction de `fluctuation` en ligne, et `day.length` en colonne et de colorer les points en fonction du génotype.
+>**Exercice:** Modifiez le graphique précédent afin de séparer les données (facet) en fonction de `fluctuation` en ligne, et `day.length` en colonne et de colorer les points en fonction du génotype.
 
 ```{r, echo = FALSE}
 ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = genotype)) +
@@ -383,6 +388,19 @@ pour faire des graphiques "ridge"
 - [Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
 - [Antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
 
+
+
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+A partir ce ce que nous avons vu aujourd'hui:
+
+- Testez différents types de graphiques en utilisant ggplot sur l'un de vos jeux de données
+
+
+******
 
 -------
 
