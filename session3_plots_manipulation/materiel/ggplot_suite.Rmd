@@ -341,18 +341,8 @@ Vous pouvez changer l'ordre des catégories de vos variable sur R (nous verrons 
 Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec des catégories ordonnées. La version avec les catégories ordonnées est beaucoup plus facile à interpréter.
 
 
-```{r  echo=FALSE, message=FALSE, warning=FALSE}
-
-
-library(cowplot)
-library(ggplot2)
-
-p1 <- ggdraw() + draw_image("images/lollipot_non_ordonne.png", scale = 0.9)
-p2 <- ggdraw() + draw_image("images/lollipot_ordonne.png", scale = 0.9)
-
-plot_grid(p1, p2)
-
-```
+![](./images/lollipot_non_ordonne.png){width=60%}
+![](./images/lollipot_ordonne.png){width=60%}
 
 
 [source des images](https://www.data-to-viz.com/caveat/order_data.html)
@@ -365,22 +355,12 @@ Il est tentant de vouloir faire rentrer toutes vos données dans un même graphi
 
 - Pour des graphiques avec des lignes, montrer plus de quelques (5?) lignes peut rendre le graphique illisible. Sauf si vous voulez montrer que toutes les lignes se comportent de la même manière.
 
-![](./images/spaghetti.png){width=70%}
+![](./images/spaghetti.png){width=90%}
 
 Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre en valeur une ligne en particulier.
 
-```{r  echo=FALSE, message=FALSE, warning=FALSE}
-
-
-library(cowplot)
-library(ggplot2)
-
-p1 <- ggdraw() + draw_image("images/spaghetti_solution_separees.png", scale = 0.9)
-p2 <- ggdraw() + draw_image("images/spaghetti_solution_couleur.png", scale = 0.9)
-
-plot_grid(p1, p2,rel_widths = c(1.5, 2))
-
-```
+![](./images/spaghetti_solution_separees.png){width=60%}
+![](./images/spaghetti_solution_couleur.png){width=80%}
 
 [source des images](https://www.data-to-viz.com/caveat/spaghetti.html)
 
@@ -391,20 +371,17 @@ plot_grid(p1, p2,rel_widths = c(1.5, 2))
 
 Pour inclure l'information de la densité en points vous pouvez utiliser la transparence des points, ou montrer la densité en 2D ou 3D
 
+Graphique avec trop de points cachant la densité
 
-```{r  echo=FALSE, message=FALSE, warning=FALSE}
+![](./images/point_sature.png){width=50%}
 
+Graphique avec une densité 2D
 
-library(cowplot)
-library(ggplot2)
+![](./images/densite_2D.png){width=50%}
 
-p4 <- ggdraw() + draw_image("images/point_sature.png", scale = 0.9)
-p5 <- ggdraw() + draw_image("images/densite_2D.png", scale = 0.9)
-p6 <- ggdraw() + draw_image("images/densite_3D.png", scale = 0.9)
+Graphique avec une densité 3D
 
-plot_grid(p4, p5, p6, ncol=3, nrow=1, rel_widths = c(1,1, 1.8) )
-
-```
+![](./images/densite_3D.png){width=60%}
 
 [source des images](https://www.data-to-viz.com/caveat/overplotting.html)
 
