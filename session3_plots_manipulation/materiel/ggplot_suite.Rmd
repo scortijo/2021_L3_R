@@ -50,7 +50,7 @@ Nous sommes maintenant prêt!
 
 # Changer l'apparence d'un graphique en utilisant les thèmes
 
-Tous les éléments d'un ggplot sont modifiables. Les **themes** permettent de modifier l'apparence du graphique. Voici quelques exemples. 
+Tous les éléments d'un ggplot sont modifiables. Les **thèmes** permettent de modifier l'apparence du graphique. Voici quelques exemples. 
 
 
 
@@ -220,7 +220,7 @@ ggplotly(p2)
 
 Utiliser le graphique approprié à nos données et répondant à notre question est essentiel. Cependant cela n'est pas toujours intuitif et dépend:
 
-- **Du type de données**. S'agit t'il de nombres ou de catégories, ou d'une combinaison des deux? Ou bien de séries chronologique?
+- **Du type de données**. S'agit t-il de nombres ou de catégories, ou d'une combinaison des deux? Ou bien de séries chronologique?
 
 -**Du nombre de variable à représenter**. Voulez vous montrer une seule variable ou plusieurs? Et s'il y en a deux, voulez vous les comparer directement (dans le cas de nombres)
 
@@ -318,13 +318,35 @@ Si vous avez des données numériques avec certains points très éloignés des 
 
 
 
-## Comment faire ressortir le message des données
+## Comment bien faire ressortir le message des graphiques
 
-ordonner les données
+Maintenant que nous avons vu les erreurs à éviter quand nous créons des graphique, passons aux méthodes permettant de bien faire ressortir le message des graphiques. Cela permettra de faciliter l'interprétation des graphique. 
 
-Eviter de mettre trop d'info dans un graph
+De manière générale, évitez de faire des graphiques trop compliqués avec des fioritures. Concentrez vous sur l'essentiel. 
 
-Bien utiliser les couleurs (+ palette daltoniens)
+Voyons trois méthodes plus en détail:
+
+
+#### 1. Ordonner les données
+
+Par défaut, R va ordonner les catégories de vos variable par ordre alphabétique. Sur excel, l'ordre des variable dans le tableau est utilisé. Cependant cet ordre n'est pas toujours optimal.
+
+Vous pouvez changer l'ordre des catégories de vos variable sur R (nous verrons comment en séance 5). Voici quelques conseils pour bien choisir l’ordre dans lequel représenter les données.
+
+- Si vous comparez des données pour un (ou des) mutant à un wild type, ou si vous comparez un (ou plusieurs) traitement à un contrôle, **commencez toujours par la référence**, c.a.d le wild type ou le contrôle.
+
+- S'il n'y a pas de référence (wild type ou contrôle) et que vous voulez comparer différents conditions, dans ce cas **ordonnez vos catégories en fonction de leur valeur**, par exemple du plus grand au plus petit. Cela permettra facilement d'identifier les catégories avec les valeurs les plus grandes ou plus petites, ou les catégories avec des valeurs similaires.
+Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec des catégories ordonnées. La version avec les catégories ordonnées est beaucoup plus facile à interprêter.
+
+
+![](./lollipot_non_ordonne.png){width=70%} ![](./lollipot_ordonne.png){width=70%}
+
+[source des images](https://www.data-to-viz.com/caveat/order_data.html)
+
+
+#### 2. Eviter de mettre trop d'information dans vos graphiques
+
+#### 3. Bien utiliser les couleurs (+ palette daltoniens)
 
 
 
