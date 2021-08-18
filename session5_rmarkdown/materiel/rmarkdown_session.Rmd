@@ -249,10 +249,10 @@ bibliography: ../data/biblio.bib
 ---
 ```
 
-+ Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]` (en effet, la syntaxe de citation est `[@label de la référence dans le .bib]`.
++ Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]` (en effet, la syntaxe de citation est `[@label de la référence dans le .bib]`).
 
 
-Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence détaillée a du apparaître en bas du rapport.
+Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence détaillée a dû apparaître en bas du rapport.
 
 + Ajoutez une dernière section `# Références` vide à la fin du document, pour que les références automatiquement ajoutées en fin de document aient leur section. Recompilez et pour vérifier que tout est comme souhaité.
 
@@ -267,7 +267,7 @@ Les couleurs globales du document (liens, couleur de fond, table des matières, 
 Plus précisément, vous avez le choix entre les thèmes  `cerulean`, `cosmo`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandstone`, `simplex`, `spacelab`, `united`, et `yeti`, dont un aperçu est disponible [ici](https://www.datadreaming.org/post/r-markdown-theme-gallery/).
 
 
-Le `hihhlight` correspond à la coloration syntaxique du code R dans les chunks, vous avez le choix enrte les valeurs `default`, `tango`, `pygments`, `kate`, `monochrome`, `espresso`, `zenburn`, `haddock`, `breezedark`, and `textmate`.
+Le `hihhlight` correspond à la coloration syntaxique du code R dans les chunks, vous avez le choix entre les valeurs `default`, `tango`, `pygments`, `kate`, `monochrome`, `espresso`, `zenburn`, `haddock`, `breezedark`, and `textmate`.
 
 Choisissez vos valeurs de `theme` et `hihhlight` préférées et ajoutez les à votre document en vous inspirant de cette entête :
 
