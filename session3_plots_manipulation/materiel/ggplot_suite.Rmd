@@ -240,7 +240,9 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 > **1. Le camembert (pie chart)**
 >
 > Aidez vous de cette figure comparant des camemberts et des barplots montrant les mêmes données 
-> ![](./camemberts.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/pie.html)
+> ![](./images/camemberts.png){width=70%} 
+>
+> [source de l'image](https://www.data-to-viz.com/caveat/pie.html)
 >
 >
 > **2. Le barplot avec des barres d'erreur**
@@ -252,7 +254,7 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 > de la figure ci-dessous extraite de
 > [Weissgerber et al., 2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).
 >
-> ![](./barplot_distribution.png){width=70%} 
+> ![](./images/barplot_distribution.png){width=70%} 
 > 
 
 
@@ -271,7 +273,7 @@ Pour aller plus loin, nous allons regarder de plus prêt deux cas en particulier
 #### 1. Comparer des distributions
 
 Pour rappel, le boxplot permet de montrer un bon résumé des données:
-![](./boxplot.png){width=70%} 
+![](./images/boxplot.png){width=70%} 
 
 [source de l'image](https://www.leansigmacorporation.com/box-plot-with-minitab/)
 
@@ -286,12 +288,12 @@ Cependant, faire un résumé des données peut cacher des informations:
 Des alternatives existent pour représenter les données, afin d'éviter ces problèmes:
 
 - Si vous n'avez pas trop de points, vous pouvez les représenter au dessus des boxplots:
-![](./boxplot_jitter.png){width=70%} 
+![](./images/boxplot_jitter.png){width=70%} 
 
 [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
 - Si vous avez trop de points pour les représenter dans le graphique, vous pouvez utiliser un violin plot  en indiquant la taille de l'effectif de chaque groupe:
-![](./violin.png){width=70%} 
+![](./images/violin.png){width=70%} 
 
 [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
@@ -302,7 +304,7 @@ Si vous avez des données numériques avec des valeurs très éloignées de zér
 Voici un exemple avec deux graphiques, l'un avec l'axe des y commençant à zéro et l'autre non. Le deuxième peut donner l'impression qu'il y a une grande différence entre les deux groupes, même si ce n'est pas forcement le cas.
 
 
-![](./plot_axis_1.png){width=70%} ![](./plot_axis_2.png){width=70%}
+![](./images/plot_axis_1.png){width=70%} ![](./images/plot_axis_2.png){width=70%}
 
 [source des images](https://rkabacoff.github.io/datavis/Advice.html)
 
@@ -322,7 +324,7 @@ Si vous avez des données numériques avec certains points très éloignés des 
 
 Maintenant que nous avons vu les erreurs à éviter quand nous créons des graphique, passons aux méthodes permettant de bien faire ressortir le message des graphiques. Cela permettra de faciliter l'interprétation des graphique. 
 
-De manière générale, évitez de faire des graphiques trop compliqués avec des fioritures. Evitez la 3D, les axes doubles et les lignes de grille. Concentrez vous sur l'essentiel! 
+De manière générale, évitez de faire des graphiques trop compliqués avec des fioritures. Évitez la 3D, les axes doubles et les lignes de grille. Concentrez vous sur l'essentiel! 
 
 Voyons trois méthodes plus en détail:
 
@@ -336,7 +338,7 @@ Vous pouvez changer l'ordre des catégories de vos variable sur R (nous verrons 
 - Si vous comparez des données pour un (ou des) mutant à un wild type, ou si vous comparez un (ou plusieurs) traitement à un contrôle, **commencez toujours par la référence**, c.a.d le wild type ou le contrôle.
 
 - S'il n'y a pas de référence (wild type ou contrôle) et que vous voulez comparer différents conditions, dans ce cas **ordonnez vos catégories en fonction de leur valeur**, par exemple du plus grand au plus petit. Cela permettra facilement d'identifier les catégories avec les valeurs les plus grandes ou plus petites, ou les catégories avec des valeurs similaires.
-Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec des catégories ordonnées. La version avec les catégories ordonnées est beaucoup plus facile à interprêter.
+Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec des catégories ordonnées. La version avec les catégories ordonnées est beaucoup plus facile à interpréter.
 
 
 ```{r  echo=FALSE, message=FALSE, warning=FALSE}
@@ -345,8 +347,8 @@ Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec d
 library(cowplot)
 library(ggplot2)
 
-p1 <- ggdraw() + draw_image("lollipot_non_ordonne.png", scale = 0.9)
-p2 <- ggdraw() + draw_image("lollipot_ordonne.png", scale = 0.9)
+p1 <- ggdraw() + draw_image("images/lollipot_non_ordonne.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("images/lollipot_ordonne.png", scale = 0.9)
 
 plot_grid(p1, p2)
 
@@ -356,16 +358,16 @@ plot_grid(p1, p2)
 [source des images](https://www.data-to-viz.com/caveat/order_data.html)
 
 
-#### 2. Evitez de mettre trop d'information dans vos graphiques
+#### 2. Évitez de mettre trop d'information dans vos graphiques
 
-Il est tentant de vouloir faire rentrer toutes nvs données dans un même graphique, surtout qu'avec R vous pouvez jouer avec les couleurs, les formes et la taille des points. Mais pour que le message ressorte bien, il vaut mieux présenter moins de données et se concentrer sur **un message par graphique**. 
+Il est tentant de vouloir faire rentrer toutes vos données dans un même graphique, surtout qu'avec R vous pouvez jouer avec les couleurs, les formes et la taille des points. Mais pour que le message ressorte bien, il vaut mieux présenter moins de données et se concentrer sur **un message par graphique**. 
 
 
 - Pour des graphiques avec des lignes, montrer plus de quelques (5?) lignes peut rendre le graphique illisible. Sauf si vous voulez montrer que toutes les lignes se comportent de la même manière.
 
-![](./spaghetti.png){width=70%}
+![](./images/spaghetti.png){width=70%}
 
-Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre en valeur une ligne en particuler.
+Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre en valeur une ligne en particulier.
 
 ```{r  echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -373,8 +375,8 @@ Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre e
 library(cowplot)
 library(ggplot2)
 
-p1 <- ggdraw() + draw_image("spaghetti_solution_separees.png", scale = 0.9)
-p2 <- ggdraw() + draw_image("spaghetti_solution_couleur.png", scale = 0.9)
+p1 <- ggdraw() + draw_image("images/spaghetti_solution_separees.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("images/spaghetti_solution_couleur.png", scale = 0.9)
 
 plot_grid(p1, p2,rel_widths = c(1.5, 2))
 
@@ -396,9 +398,9 @@ Pour inclure l'information de la densité en points vous pouvez utiliser la tran
 library(cowplot)
 library(ggplot2)
 
-p4 <- ggdraw() + draw_image("point_sature.png", scale = 0.9)
-p5 <- ggdraw() + draw_image("densite_2D.png", scale = 0.9)
-p6 <- ggdraw() + draw_image("densite_3D.png", scale = 0.9)
+p4 <- ggdraw() + draw_image("images/point_sature.png", scale = 0.9)
+p5 <- ggdraw() + draw_image("images/densite_2D.png", scale = 0.9)
+p6 <- ggdraw() + draw_image("images/densite_3D.png", scale = 0.9)
 
 plot_grid(p4, p5, p6, ncol=3, nrow=1, rel_widths = c(1,1, 1.8) )
 
@@ -411,7 +413,7 @@ plot_grid(p4, p5, p6, ncol=3, nrow=1, rel_widths = c(1,1, 1.8) )
 #### 3. Bien utiliser les couleurs 
 
 Un avantage de ggplot est qu'il offre une large palette de couleur. 
-Il existe d'ailleurs la librarie `RColorBrewer` qui contient de nombreuses palettes prédéfinies qui vous aideront beaucoup. 
+Il existe d'ailleurs la libraire `RColorBrewer` qui contient de nombreuses palettes prédéfinies qui vous aideront beaucoup. 
 
 ```{r  echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -429,7 +431,7 @@ display.brewer.all()
 ```
 
 
-Surtout vous pouvez facilement y selectionner les palettes de couleurs qui sont aussi visible pour les daltoniens avec la commande:
+Surtout vous pouvez facilement y sélectionner les palettes de couleurs qui sont aussi visible pour les daltoniens avec la commande:
 
 
 ```{r  }
@@ -438,4 +440,60 @@ display.brewer.all(colorblindFriendly = TRUE)
 
 ```
 
+
+Maintenant que nous avons accès à toutes ces couleurs, encore faut-il bien les utiliser. 
+
+> **Discussion de groupe**
+>
+> Discutez avec votre voisin des graphiques suivant. 
+>
+> A votre avis, lesquels font une bonne ou une mauvaise utilisation des couleurs? Pourquoi?
+> (chaque exemple contient 2 graphiques)
+>
+> Exemple 1
+> ![](images/exemple_graph_1.png)
+>
+> Exemple2
+> ![](images/exemple_graph_2.png)
+>
+> Exemple 3
+> ![](images/exemple_graph_3.png)
+>
+> [source des graphiques](https://blog.datawrapper.de/colors/)
+
+
+Voici quelques conseils pour que la couleur dans les graphiques soit votre allié et non l'inverse.
+
+- **N'utilisez des couleurs que si cela est nécessaire** au graphique et ajoute des informations. Sinon cela va juste créer une distraction et compliquer le graphique. Vous pouvez utiliser des couleurs pour représenter différents groupes, montrer un gradient ou insister sur certains points.
+De même ne colorez pas le fond des graphiques.
+
+- **N'utilisez pas plus de 7 couleurs dans un graphique**, sinon cela va créer de la confusion. Dans ce cas, choisissez un autre type de graphique qui permet de réduire le nombre de couleurs utilisées.
+
+- Si vous avez plusieurs graphiques qui contiennent les même variables, **soyez cohérent** et utilisez toujours les même couleurs pour ces variables.
+
+- **Assurez vous d'avoir une légende** qui indique à quoi correspondent les couleurs et mettez la au même endroit pour tous vos graphiques.
+
+- Si vous avez des données moins importantes dans un graphique, colorez les en gris et n'utilisez de la couleur pour les données que vous voulez faire ressortir. 
+
+- Assurez vous qu'il y a assez de contraste entre vos couleurs dans un graphique. Et aussi entre le texte et le fond pour que le texte soit bien lisible.
+
+- **Certaines couleurs sont associées à des idées dans notre culture**. Par exemple le rouge pour _non_ ou _mauvais_ et le vert pour _oui_ ou _bon_. Allez dans ce sens pour rendre vos graphiques plus facile à lire. 
+
+- Si vous utilisez un gradient, **associez les couleurs claires aux faibles valeurs et les couleurs foncées aux valeurs élevées**. Par contre n'utilisez pas de gradients de couleurs pour des catégories, gardez les pour des valeurs numériques.
+
+Vous pouvez trouver des exemples de chaque cas et quelques points supplémentaires [ici](https://blog.datawrapper.de/colors/)
+
+
+
+
+# Ressources et liens utiles
+
+- [Aide au choix du type de graphique](https://www.data-to-viz.com/)
+- [Les erreurs à éviter lors de la création de graphiques](https://www.data-to-viz.com/caveats.html)
+- [Antisèche pour faire des graphiques intéractifs](https://images.plot.ly/plotly-documentation/images/r_cheat_sheet.pdf)
+
+
+-------
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
