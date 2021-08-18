@@ -322,12 +322,12 @@ Si vous avez des données numériques avec certains points très éloignés des 
 
 Maintenant que nous avons vu les erreurs à éviter quand nous créons des graphique, passons aux méthodes permettant de bien faire ressortir le message des graphiques. Cela permettra de faciliter l'interprétation des graphique. 
 
-De manière générale, évitez de faire des graphiques trop compliqués avec des fioritures. Concentrez vous sur l'essentiel. 
+De manière générale, évitez de faire des graphiques trop compliqués avec des fioritures. Evitez la 3D, les axes doubles et les lignes de grille. Concentrez vous sur l'essentiel! 
 
 Voyons trois méthodes plus en détail:
 
 
-#### 1. Ordonner les données
+#### 1. Ordonnez les données
 
 Par défaut, R va ordonner les catégories de vos variable par ordre alphabétique. Sur excel, l'ordre des variable dans le tableau est utilisé. Cependant cet ordre n'est pas toujours optimal.
 
@@ -339,15 +339,103 @@ Vous pouvez changer l'ordre des catégories de vos variable sur R (nous verrons 
 Voici un exemple d'un graphique avec des catégories non ordonnées, puis avec des catégories ordonnées. La version avec les catégories ordonnées est beaucoup plus facile à interprêter.
 
 
-![](./lollipot_non_ordonne.png){width=70%} ![](./lollipot_ordonne.png){width=70%}
+```{r  echo=FALSE, message=FALSE, warning=FALSE}
+
+
+library(cowplot)
+library(ggplot2)
+
+p1 <- ggdraw() + draw_image("lollipot_non_ordonne.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("lollipot_ordonne.png", scale = 0.9)
+
+plot_grid(p1, p2)
+
+```
+
 
 [source des images](https://www.data-to-viz.com/caveat/order_data.html)
 
 
-#### 2. Eviter de mettre trop d'information dans vos graphiques
+#### 2. Evitez de mettre trop d'information dans vos graphiques
 
-#### 3. Bien utiliser les couleurs (+ palette daltoniens)
+Il est tentant de vouloir faire rentrer toutes nvs données dans un même graphique, surtout qu'avec R vous pouvez jouer avec les couleurs, les formes et la taille des points. Mais pour que le message ressorte bien, il vaut mieux présenter moins de données et se concentrer sur **un message par graphique**. 
 
 
+- Pour des graphiques avec des lignes, montrer plus de quelques (5?) lignes peut rendre le graphique illisible. Sauf si vous voulez montrer que toutes les lignes se comportent de la même manière.
+
+![](./spaghetti.png){width=70%}
+
+Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre en valeur une ligne en particuler.
+
+```{r  echo=FALSE, message=FALSE, warning=FALSE}
+
+
+library(cowplot)
+library(ggplot2)
+
+p1 <- ggdraw() + draw_image("spaghetti_solution_separees.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("spaghetti_solution_couleur.png", scale = 0.9)
+
+plot_grid(p1, p2,rel_widths = c(1.5, 2))
+
+```
+
+[source des images](https://www.data-to-viz.com/caveat/spaghetti.html)
+
+
+
+- Pour les graphiques avec des points, si vous avez trop de points il est difficile de bien l'interpréter. 
+
+
+Pour inclure l'information de la densité en points vous pouvez utiliser la transparence des points, ou montrer la densité en 2D ou 3D
+
+
+```{r  echo=FALSE, message=FALSE, warning=FALSE}
+
+
+library(cowplot)
+library(ggplot2)
+
+p4 <- ggdraw() + draw_image("point_sature.png", scale = 0.9)
+p5 <- ggdraw() + draw_image("densite_2D.png", scale = 0.9)
+p6 <- ggdraw() + draw_image("densite_3D.png", scale = 0.9)
+
+plot_grid(p4, p5, p6, ncol=3, nrow=1, rel_widths = c(1,1, 1.8) )
+
+```
+
+[source des images](https://www.data-to-viz.com/caveat/overplotting.html)
+
+
+
+#### 3. Bien utiliser les couleurs 
+
+Un avantage de ggplot est qu'il offre une large palette de couleur. 
+Il existe d'ailleurs la librarie `RColorBrewer` qui contient de nombreuses palettes prédéfinies qui vous aideront beaucoup. 
+
+```{r  echo=FALSE, message=FALSE, warning=FALSE}
+
+library(RColorBrewer)
+
+```
+
+Voici toutes les palettes de couleur de `RColorBrewer`
+
+
+```{r  echo=FALSE, message=FALSE, warning=FALSE}
+
+display.brewer.all()
+
+```
+
+
+Surtout vous pouvez facilement y selectionner les palettes de couleurs qui sont aussi visible pour les daltoniens avec la commande:
+
+
+```{r  }
+
+display.brewer.all(colorblindFriendly = TRUE)
+
+```
 
 
