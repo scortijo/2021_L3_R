@@ -214,7 +214,9 @@ ggplotly(p2)
 
 # Bonnes pratiques de visualisation de données
 
-### Trouver le graphique approprié à vos données et à votre question
+<br>
+
+## Trouver le graphique approprié à vos données et à votre question
 
 Utiliser le graphique approprié à nos données et répondant à notre question est essentiel. Cependant cela n'est pas toujours intuitif et depend:
 
@@ -222,7 +224,7 @@ Utiliser le graphique approprié à nos données et répondant à notre question
 
 -**Du nombre de variable à représenter**. Voulez vous montrer une seule variable ou plusieurs? Et s'il y en a deux, voulez vous les comparer directement (dans le cas de nombres)
 
-Comme il existe de nombreuses options, utiliser [ce guide avec un arbre de décision](https://www.data-to-viz.com/)
+Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de décision](https://www.data-to-viz.com/) pour choisir la meilleure méthode de visualisation
 
 
 > **Discussion de groupe**
@@ -238,7 +240,7 @@ Comme il existe de nombreuses options, utiliser [ce guide avec un arbre de déci
 > **1. Le camembert (pie chart)**
 >
 > Aidez vous de cette figure compararant des camemberts et des barplots montrant les mêmes données 
-> ![](./camemberts.png){width=70%}
+> ![](./camemberts.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/pie.html)
 >
 >
 > **2. Le barplot avec des barrres d'erreur**
@@ -250,25 +252,48 @@ Comme il existe de nombreuses options, utiliser [ce guide avec un arbre de déci
 > de la figure ci-dessous extraite de
 > [Weissgerber et al., 2015](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128).
 >
-> ![](./barplot_distribution.png){width=70%}
+> ![](./barplot_distribution.png){width=70%} 
 > 
->
->
->
->
 
 
 
+## Etre le plus près des données et ne pas cacher ou modifier les données étranges
+
+De manière générale il est recommandé d'être au plus près des données quand nous réalisons des graphiques.
+- Choisissez de présenter toutes vos données, sans les modifier ou en supprimer une partie (si vous le faites, vous devez expliquer ce que vous avez fait et pourquoi). 
+
+- Idéalement, et si cela se prête à votre question, montrez les données plutôt que des résumés. Choisissez des nuages de points plutôt que des parplots avec des barres d'erreur. 
+
+- Toujours indiquer la taille des effectifs, soit en l'écrivant dans le graphique, soit en le rendant visible (nuage de point, densité etc)
+
+Pour aller plus loin, nous allons regarder de plus prêt deux cas en particulier:
+
+#### 1. Comparer des distributions
+
+Pour rappel, le boxplot permet de montrer un bon résumé des données:
+![](./boxplot.png){width=70%} [source de l'image](https://www.leansigmacorporation.com/box-plot-with-minitab/)
+
+Cependant, faire un résumé des données peut cacher des informations:
+
+- effectifs de différente taille dans certains groupes
+- distribution unimodale vs bimodale
+
+<br>
+
+Des alternatives existent pour représenter les données, afin d'éviter ces problèmes:
+
+- Si vous n'avez pas trop de points, vous pouvez les représenter au dessus des boxplots:
+![](./boxplot_jitter.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
 
+- - Si vous avez trop de points pour les représenter dans le graphique, vous pouvez utiliser un violin plot  en indiquand la taille de l'effectif de chaque groupe:
+![](./violin.png){width=70%} [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
-### Etre le plus près des données et ne pas cacher ou modifier les données étranges
 
-boxplot, violin plot ou point?
-
+#### 2. Axes coupés ou non?
 Axes coupés ou qui ne commencent pas à zéro
 
-### Comment faire ressortir le message des données
+## Comment faire ressortir le message des données
 
 ordonner les données
 
