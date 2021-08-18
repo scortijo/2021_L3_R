@@ -201,10 +201,34 @@ Compilez et vérifiez qu'une table des matières est bien apparue.
 
 
 Il est également possible de numéroter les sections avec `number_sections: TRUE`
-## Position, comportement, numérotation des sections
 
 
-# Changer le thème
+# Personnaliser l'apparence du document
+
+Les couleurs gloables du document (liens, couleur de fond, table des matières, etc) peuvent être modifiées. Ceci aura de nouveau lieu dans l'entête YAML de votre document, en utilisant les options `theme` et `highlight`. 
+
+
+Plus précisément, vous avez le choix entre les thèmes  `cerulean`, `cosmo`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandstone`, `simplex`, `spacelab`, `united`, et `yeti`, dont un aperçu est disponible [ici](https://www.datadreaming.org/post/r-markdown-theme-gallery/).
+
+
+Le `hihhlight` correspond à la coloration syntaxique du code R dans les chunks, vous avez le choix enrte les valeurs `default`, `tango`, `pygments`, `kate`, `monochrome`, `espresso`, `zenburn`, `haddock`, `breezedark`, and `textmate`.
+
+Choisissez vos valeurs de `theme` et `hihhlight` préférées et ajoutez les à votre document en vous inspirant de cette entête :
+
+```{yaml}
+---
+title: "Analyse de la floraison chez *Arabidopsis thaliana*"
+author: "Etudiant en bioinformatique"
+date: "8/17/2021"
+output:
+  html_document:
+    theme: united
+    highlight: breezedark
+---
+```
+
+Changez le `theme` du document dans l'entête YAML.
+
 
 
 
