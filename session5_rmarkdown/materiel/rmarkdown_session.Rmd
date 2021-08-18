@@ -16,13 +16,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction à ``Rmarkdown``
 
-Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse R en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais des documents lisibles par tout le monde, y les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple). 
+Lors de cette séance nous allons apprendre à rédiger des rapports d'analyse en ``Rmarkdown``. L'idée n'est plus de produire de simples scripts (des documents en ``.R`` comme jusqu'à présent), mais **des documents partageables et lisibles par tout le monde**, y compris les personnes ne sachant pas programmer en R. Ces documents contiendront des explications, du contexte, vos lignes de code R, et leurs sorties (les graphiques générés par exemple). 
 
-Plus précisément, [Rmarkdown](http://rmarkdown.rstudio.com) est une syntaxe permettant la rédaction de documents HTML, PDF, parmi d'autres formats.
-Il est possible d'y inclure du code R et ses sorties, en les encapsulant dans un rapport en structuré et fourni en descriptions , interprétations textuelles, liens, images...
+Plus précisément, [Rmarkdown](http://rmarkdown.rstudio.com) est une syntaxe permettant la rédaction de documents HTML, PDF, MS World, ou d'autres formats.
+Il est possible d'y inclure du code R comme dans un script classique, mais également ses sorties, et en les encapsulant dans un rapport en structuré et fourni en descriptions, interprétations textuelles, liens, images...
 
 
-Nous allons donc illustrer les possibilités offertes par ce langage en faisant une courte analyse en R des données de Burghardt et Al. (2015), et en exportant ces analyses dans un rapport complet et documenté.
+Nous allons illustrer les possibilités offertes par ce langage en faisant une courte analyse en R des données de Burghardt et Al. (2015), et en exportant ces analyses sous forme d'un rapport complet et documenté.
 
 
 
@@ -32,27 +32,24 @@ Nous allons donc illustrer les possibilités offertes par ce langage en faisant 
 
 + La **reproductibilité** des analyses est garantie, car le code ayant généré les résultats montrés est présent, et peut être réexécuté par toute personne possédant le document.
 
-En résumé, ce format de rapport favorise l'intégrité scientifique des travaux de recherche faisant appel à R.
+En résumé, ce format favorise l'intégrité scientifique des travaux de recherche impliquant du code R.
 
 ## Structure d'un document et fonctionnement
 
 Un document ``Rmarkdown`` comprend 3 types de contenu : 
 
-+ Un **header** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, html), l'auteur, la date, le thème, des paramètres pour le code R, un fichier de bibliographie...). Il est entouré des délimiteurs --- .
++ Une **entête** au format YAML (Yet Another Markup Langage), au tout début du document, qui donne les paramètres du document (type de format (pdf, HTML), l'auteur, la date, le thème, un fichier de bibliographie...). Il est entouré des délimiteurs ``---`` .
 
-+ Des morceaux de code appelés **chunks**, dans lesquels les analyses et les calculs en R sont menés. 
++ Des morceaux de code appelés **chunks**, dans lesquels le code T est placé et peut être exécuté. 
 
-Généralement, le premier chunk contient la fonction ```knitr::opts_chunk$set(echo = TRUE)```, qui peut être utilisée pour préciser des paramètres qui seront utilisés pour tous les chunks du document.
 
-Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352).
++ Des parties rédigées avec la syntaxe **markdown**. Il s'agit de texte enrichi de titres, sous titres, listes, insertion d'images, de liens, etc. Une description de cette syntaxe est également disponible dans la [documentation](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352). De plus, la [syntaxe Latex](https://en.wikibooks.org/wiki/LaTeX/Mathematics) peut être utilisée pour faire le rendu d'équations mathématiques.
 
-+ Des parties rédigées avec la syntaxe **markdown**. Il s'agit de texte brut enrichi de titres, sous titres, listes, insertion d'images, de liens, etc. Une description de cette syntaxe est également disponible dans la [documentation](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352). De plus, la [syntaxe Latex](https://en.wikibooks.org/wiki/LaTeX/Mathematics) peut être utilisée pour faire le rendu d'équations mathématiques.
+Vous avez ci-dessous un aperçu de ces trois composants, c'est à dire une entête, un chunk de code R, et une partie textuelle en markdown : 
 
-Vous avez par exemple ici un aperçu de ces trois composants, c'est à dire un header au format YAML, un chunk de code, et une partie textuelle en markdown : 
+![](./Images/chunk_example.png)
 
-![Rmarkdown workflow.](./Images/chunk_example.png)
-
-La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf), que vous pouvez garder ouverte au cours du TP.
+La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, est dans cette [antisèche](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), que vous pouvez garder ouverte au cours du TP.
 
 
 
@@ -60,28 +57,31 @@ La syntaxe complète de Rmarkdown, dont vous allez avoir besoin par la suite, es
 
 ## Création du document
 
-Ouvrez `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``. Dans la séance d'aujourd'hui, nous allons nous consacrer sur la création de rapports de type HTML (permettant de l'intéractivité contrairement aux PDFs). Pour ceci, dans le menu haut de Rstudio, choisissez Fichier/Nouveau fichier/R markdown, acceptez et laissez les valeurs par défaut.
+Ouvrez `Rstudio`. Nous allons créer un nouveau document ``Rmarkdown``. Dans la séance d'aujourd'hui, nous allons nous consacrer sur la création de rapports de type HTML (permettant de l’interactivité contrairement aux PDFs). Pour ceci, dans le menu haut de Rstudio, choisissez Fichier/Nouveau fichier/R markdown, acceptez et laissez les valeurs par défaut.
 
-Comme vous le constatez, RStudio propose déjà un petit exemple fonctionnel de document Rmarkdown. Sauvegardez le dans le répertoire `session5_rmarkdown/materiel`. Remarquez l'extension du fichier, `.Rmd`, qui diffère des `.R` des séances précédantes.
+Comme vous le constatez, `RStudio` propose déjà un petit exemple fonctionnel de document ``Rmarkdown``. Sauvegardez le dans le répertoire `session5_rmarkdown/materiel`. Remarquez l'extension du fichier, `.Rmd`, qui diffère des `.R` des séances précédentes.
 
-Pour créer le document html à partir du notebook, on utilise le bouton **Knit** (ou le raccourci clavier `Ctrl+Maj+K`). Le logiciel knitr est alors utilisé pour créer un document contenant le code et ses sorties, avec le reste du texte, puis le logiciel pandoc se charge de donner au document son format et apparence finale (html, pdf...). 
+Pour créer le document HTML à partir du script ouvert dans `RStudio`, on utilise le bouton ![](./Images/knit.PNG) (ou le raccourci clavier `Ctrl+Maj+K`). Le logiciel `knitr` est alors utilisé pour créer un document contenant le code et ses sorties, avec le reste du texte, puis le logiciel `pandoc` se charge de donner au document son format et apparence finale (HTML, PDF...). 
 
 ![Rmarkdown workflow.](./Images/rmarkdownflow.png)
 
 ## Prise en main
 
-> **Challenge** Compilez votre document avec bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent au header, aux chunks, et à du markdown.
+> **Challenge** Compilez votre document avec bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent à l'entête, aux chunks, et à du markdown.
 
-Personnalisez l'entête (header) YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vos modifications ont bien modifié le nom d'auteur, le titre, et la date dans le document html.
+Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vous avez bien modifié le nom d'auteur, le titre, et la date dans le document HTML.
 
 > **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
 
 
-Le premier chunk doit être conservé. Il permet de configurer des options gloable pour les chunks du documents, nous y reviendrons plus tard dans la séance. Dans ce premier chunk, rajoutez l'import des packages que nous allons utiliser: "tidyverse", "plotly". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
 
 
-Obervez la première ligne du chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
-Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé.
+Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. ```fig.cap = "Ma figure"``` attribue la légende désirée à une figure générée par le chunk. 
+Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352).
+
+Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes pour les chunks du documents. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document.
+
+Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: "tidyverse", "plotly", "DT". Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
 
 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
@@ -93,18 +93,18 @@ A la suite du premier chunk, créez une première section nommée "Contexte" com
 
 L'opérateur `#` permet d'indiquer un titre. Pour un sous titre, `##` peut être utilisé.
 
-Décrivez plus bas la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si celà vous paraît pertinent.
+Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si celà vous paraît pertinent.
 
 Compilez pour vous assurer que votre section apparaît dans le document.
 
-## Mettre à profit la syntaxe markdown (liens, apparence du texte)
+
+## Inclure un lien vers une ressource en ligne
+
 
 Nous voulons ajouter un lien pointant vers la publication que nous utilisons. Pour celà, la syntaxe markdown est la suivante ```[Label de votre lien clickable](url de la référence en ligne)```. 
 
 Pour obtenir le résultat suivant :
 Les données analysées sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799).
-
- 
 
 Il vous faut écrire dans la syntaxe markdown les lignes suivantes :
 
@@ -115,16 +115,32 @@ Les données analysées sont issues d'une [publication intitulée "Fluctuating, 
 
 Ajoutez ce lien à votre section de contexte et recompilez.
 
+## Mise en italique/gras
 
-
-Les noms d'espèce végétales comme *Arabidopsis thaliana* doivent être écrits en italique. L'opérateur `*` placé de chaque côté des mots désirés permet d'utiliser de l'italique. Ajoutez le nom de l'organisme étudié à votre contexte (si ce n'est pas déjà fait), et placez le en italique.
+Les noms d'espèces végétales comme *Arabidopsis thaliana* doivent être écrits en italique. L'opérateur `*` placé de chaque côté des mots désirés permet de mettre du texte en l'italique. Ajoutez le nom de l'organisme étudié à votre contexte (si ce n'est pas déjà fait), et placez le en italique.
 
 > **Challenge** Comment mettre des mots en gras? (Indice: parcourez la [documentation de  Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352))
+
+
+## Ajouter une image
+
+
+Pour illustrer le sujet d'étude, on se propose d'inclure un image de fleurs d'Arabidopsis. De manière très similaire à l'ajout de lien, ajouter une image peut être fait avec la syntaxe ```[Label de votre image](url de l'image en ligne)```. Par exemple, les lignes ce dessous importent une image de fleurs d'Arabidopsis, et citent en dessous la source avec un lien. Utilisez ces lignes pour ajouter l'image proposée.
+
+
+```{}
+![Images de fleurs d'Arabidopsis](https://www.researchgate.net/profile/Hong-Ma-22/publication/7876365/figure/fig1/AS:278635790520332@1443443357444/Arabidopsis-flower-A-An-intact-mature-stage-13-Arabidopsis-flower-with-four-types_W640.jpg)
+
+[Source de l'image](https://www.researchgate.net/publication/7876365_Molecular_genetic_analyses_of_microsporogenesis_and_microgametogenesis_in_flowering_plants)
+```
+
+
+> **Challenge** Si vous le souhaitez, choisissez une autre image en lien avec le sujet et remplacez l'image précédente par votre nouvelle image (n'oubliez pas de mettre à jour la source également).
 
 # Import et affichage des données avec `datatable`
 
 Créez maintenant une nouvelle section intitulée "Analyse de la floraison", et une sous-section "Import et affichage des données".
-Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`). A l'intérieur, importez le jeu de données comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier.
+Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`, ou le bouton de l'interface ![](./Images/newChunk.PNG)). A l'intérieur, importez le jeu de données comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier.
 
 Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la sortie de la fonction d'import des données si elle retourne des messages. Si vous ne souhaitez pas voir apparaître ces messages dans le document compilé, donnez un argument au chunk afin de supprimer les messages générés par le code R : `message=FALSE`. Recompilez pour vérifier le résultat.
 
@@ -132,7 +148,7 @@ Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la so
 
 Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données vues en cours précédants.
 
-L'interactivité des rapports html permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Affichez les données simplement, puis avec `datatable` comme suit et comparez le résultat dans le document compilé:
+L'interactivité des rapports HTML permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Affichez les données simplement, puis avec `datatable` comme suit et comparez le résultat dans le document compilé:
 
 ```{r, eval=FALSE}
 expt1
@@ -164,7 +180,7 @@ Compilez et obervsez le résultat.
 ## Graphe interactif
 
 
-Rendez ce graphique interactif au moyen de `ggplotly`, et admirez le résultat dans le document html.
+Rendez ce graphique interactif au moyen de `ggplotly`, et admirez le résultat dans le document HTML.
 
 
 ## Taille et légende de l'image 
@@ -187,7 +203,7 @@ title: "Analyse de la floraison chez *Arabidopsis thaliana*"
 author: "Etudiant en bioinformatique"
 date: "8/17/2021"
 output:
-  html_document:
+  HTML_document:
     toc: yes
     toc_float: yes
 ---
@@ -213,7 +229,7 @@ Comme dans cet exemple (notez l'utilisation du `../` pour remonter au répertoir
 ---
 title: "Visualisation et analyse de données de biologie végétale"
 output:
-  html_document:
+  HTML_document:
     theme: united
 bibliography: ../data/biblio.bib
 ---
@@ -222,19 +238,16 @@ bibliography: ../data/biblio.bib
 + Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]`.
 
 
-Compilez le document. Vous devirez remarquer 
+Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence complète et détaillée a du apparaître en bas du rapport.
 
-+ Ajoutez une dernière section `# Références` vide à la fin du document, car les références sont automatiquement ajoutées en fin de document.
-Recompilez et pour vérifier que la référence apparaît bien en fin de document, et qu'elle est bien référencée à l'endroit du contexte ou vous la citez.
++ Ajoutez une dernière section `# Références` vide à la fin du document, pour que les références automatiquement ajoutées en fin de document aient leur section. Recompilez et pour vérifier que tout est comme souhaité.
 
-Plus de détails sur les  sont disponibles [ici](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
-
-
+Plus de détails sur les citations sont disponibles [ici](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.HTML).
 
 
 # Personnaliser l'apparence du document
 
-Les couleurs gloables du document (liens, couleur de fond, table des matières, etc) peuvent être modifiées. Ceci aura de nouveau lieu dans l'entête YAML de votre document, en utilisant les options `theme` et `highlight`. 
+Les couleurs globales du document (liens, couleur de fond, table des matières, etc) peuvent être modifiées. Ceci aura de nouveau lieu dans l'entête YAML de votre document, en utilisant les options `theme` et `highlight`. 
 
 
 Plus précisément, vous avez le choix entre les thèmes  `cerulean`, `cosmo`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandstone`, `simplex`, `spacelab`, `united`, et `yeti`, dont un aperçu est disponible [ici](https://www.datadreaming.org/post/r-markdown-theme-gallery/).
@@ -250,15 +263,11 @@ title: "Analyse de la floraison chez *Arabidopsis thaliana*"
 author: "Etudiant en bioinformatique"
 date: "8/17/2021"
 output:
-  html_document:
+  HTML_document:
     theme: united
     highlight: breezedark
 ---
 ```
-
-Changez le `theme` du document dans l'entête YAML.
-
-
 
 
 
@@ -273,21 +282,10 @@ Changez le `theme` du document dans l'entête YAML.
 
 - [Le guide officiel du Rmarkdown](https://bookdown.org/yihui/rmarkdown/)
 
-- [Antisèche pour Rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf)
+- [Antisèche pour Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
 - [Fiches de syntaxe Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352)
 
 -------
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
-
-```{r}
-# lien vers publi
-# image html
-# DT
-# plotly
-# table des matières
-
-# référence bib
-```
-
