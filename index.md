@@ -59,7 +59,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Partie 1 - Matériel réaliser des graphiques - suite](session3_plots_reorganisation/materiel/ggplot_suite.html)  
 
-[Partie 2 - Manipulation de données](session3_plots_reorganisation/materiel/reorganisation_donnees.html)  
+[Partie 2 - Réorganisation de données](session3_plots_reorganisation/materiel/reorganisation_donnees.html)  
 
 
 ### Séance 5
