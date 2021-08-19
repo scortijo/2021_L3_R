@@ -1,12 +1,15 @@
 ---
 title: "Analyse de la floraison chez *Arabidopsis thaliana*"
-author: "Océane"
+author: "Etudiant en bioinformatique"
 date: "8/17/2021"
 output:
   html_document:
     toc: yes
     toc_float: yes
     number_sections: TRUE
+    theme: united
+    highlight: kate
+bibliography: ../data/biblio.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -18,10 +21,14 @@ library(DT)
 
 # Contexte
 
-Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison.
+Les données analysées dans ce rapport sont issues d'une [publication intitulée "Fluctuating, warm temperatures decrease the effect of a key floral repressor on flowering time in Arabidopsis thaliana"](https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.13799), de 2015. Il s'agit de données de phénotypes pour plusieurs génotypes d'*Arabidopsis thaliana* visant à comprendre les mécanismes et gènes gouvernant la floraison [@Burghardt2015].
 
 
-Cette partie de l'abstract détaille un peu plus les travaux réalisés : "We identified 17 genotypes, many of which have high levels of the floral repressor FLOWERING LOCUS C (FLC), that bolted dramatically earlier in fluctuating – as opposed to constant – warm temperatures (mean = 22°C). This acceleration was not caused by transient VERNALIZATION INSENSITIVE 3-mediated vernalization, differential growth rates or exposure to high temperatures, and was not apparent when the average temperature was cool (mean = 12°C). Further, in constant temperatures, contrary to physiological expectations, these genotypes flowered more rapidly in cool than in warm environments. Fluctuating temperatures often reversed these responses, restoring faster bolting in warm conditions. Independently of bolting time, warm fluctuating temperature profiles also caused morphological changes associated with shade avoidance or ‘high-temperature’ phenotypes."
+Cette figure montre des fleurs d'Arabidopsis sous plusieurs angles : 
+
+![](https://www.researchgate.net/profile/Hong-Ma-22/publication/7876365/figure/fig1/AS:278635790520332@1443443357444/Arabidopsis-flower-A-An-intact-mature-stage-13-Arabidopsis-flower-with-four-types_W640.jpg)
+
+[Source de l'image](https://www.researchgate.net/publication/7876365_Molecular_genetic_analyses_of_microsporogenesis_and_microgametogenesis_in_flowering_plants)
 
 # Analyse de la floraison
 
@@ -35,8 +42,7 @@ datatable(expt1, filter="top", options = list(pageLength = 10, scrollX=T))
 ```
 
 
-
-## Visualisation des données de floraison
+## Visualisation des données
 
 Nous commençons par retirer les valeurs manquantes du jeu de données : 
 
@@ -47,7 +53,7 @@ expt1 <- drop_na(expt1)
 
 Puis, nous affichons le nombre de feuilles des rosettes en fonction du nombre de jours jusqu'à floraison.
 
-```{r visualisation, fig.width=10, fig.height=6, fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"}
+```{r visualisation, fig.width=9, fig.height=6, fig.cap="Représentation des données de floraison du papier de Burghardt et Al. (2015)"}
 plot <- ggplot(expt1, aes(x = days.to.flower, 
                  y = rosette.leaf.num, 
                  color = day.length)) + 
@@ -56,6 +62,10 @@ plot <- ggplot(expt1, aes(x = days.to.flower,
 
 ggplotly(plot)
 ```
-Interprêtation à écrire
+
+
+
+On constate que le nombre de feuilles des rosettes est très corrélé au nombre de jours jusqu'à floraison. Cette corrélation positive reste conservée quelle que soit la photopériode.
+
 
 # Références
