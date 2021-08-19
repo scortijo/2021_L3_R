@@ -25,7 +25,7 @@ Reflexion meilleurs graphs pour representer donnees. Manipulation des données d
 Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
 
 - **Séance 5** 18/11/2021 8h-11h15: 
-Créer des notebooks dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
+Créer des Rmarkdown dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
 
 - **Séance 6** 25/11/2021 8h-11h15: 
 Exploration d'un jeu de données (exam blanc)
@@ -62,7 +62,9 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 [Partie 2 - Manipulation de données](session3_plots_manipulation/materiel/manipulation_donnees.html)  
 
 
+### Séance 5
 
+[Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
 
 
 ## Si vous voulez utiliser R chez vous: 
