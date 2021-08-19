@@ -15,9 +15,9 @@ knitr::opts_chunk$set(echo = TRUE)
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 
-Dans cette partie du cours vous allez apprendre à réorganiser et changer la structure de tables dans R. 
+Dans cette partie du cours vous allez apprendre à réorganiser des tables dans R. 
 Cela peur être utile si vous ne devez travailler que sur une partie des données.
-De plus ces changement sont parfois nécessaire pour mettre les données dans le format adapté au graphique que vous voulez réaliser.
+
 
 Aujourd’hui nous allons voir:
 - Comment filtrer des lignes ou des colonnes dans un tableau

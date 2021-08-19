@@ -13,3 +13,142 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+Dans cette partie du cours vous allez apprendre à restructurer des tables dans R. 
+Ces changement sont parfois nécessaire pour mettre les données dans le format adapté au graphique que vous voulez réaliser.
+
+Aujourd’hui nous allons voir:
+- Comment reformater des données 
+- Combiner plusieurs tableaux en un seul
+- Ordonner les valeaur d'une colonne
+- Exporter le nouveau tableau crée dans R
+
+Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
+
+
+```{r}
+# Chargez la librairie `tidyverse`
+
+# Changez votre répertoire de travail pour être dans `session3_plots_reorganisation`
+
+# Importer `burghardt_et_al_2015_expt1.txt` et mettez le dans un objet appelé `expt1`
+
+```
+
+
+```{r,  eval = TRUE,message=FALSE, echo=FALSE}
+# Chargez la librairie `tidyverse` (aide: utilisez la fonction `library()`)
+library(tidyverse)
+
+# Importer `burghardt_et_al_2015_expt1.txt` et mettez le dans un objet appelé `expt1`
+#(aide: utilisez la fonction `read_tsv()`)
+
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+
+```
+
+
+
+## Reformater des données avec `spread()` et `gather()`
+
+Parfois, le format de vos données ne vous permet pas de faire l'analyse ou le graphique que vous voulez.
+
+Par exemple, essayons de reproduire le graphique suivant extrait de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+
+ ![](images/Burghard_2015_fig2_a.png)
+
+Pour faire cette figure il nous faut une colonne avec le temps de floraison pour les plantes en conditions constante et une autre colonne avec le temps de floraison pour les plantes en condition variable. 
+Le temps de floraison pour toutes les plantes sont dans la même colonne dans notre tableau. Par contre, l'information sur le type de traitement (variable ou constant) est dans une autre colonne. Ce n'est pas ce que nous voulons! 
+Heureusement, nous pouvons utiliser la fonction `spread()` pour reformater notre tableau.
+
+
+Tout d'abord, pour y voir plus clair, ne gardons que les colonnes qui vons nous être utile à la création du tableau:
+
+
+
+
+Often, we might have data in what is sometimes called a "wide" format. 
+
+For example, in the `iris` dataset, we have classic data of petal and sepal 
+lengths and widths in three Iris species. 
+In this table, each organ's measurement has its own column:
+
+```{r}
+# For convenience convert the iris dataset to a tibble (so it doesn't print out of the screen!)
+iris <- as_tibble(iris)
+iris
+```
+
+This format is convenient if we wanted to plot the correlation between these 
+measurements, for example:
+
+```{r}
+ggplot(iris, aes(Petal.Length, Sepal.Length, colour = Species)) + 
+  geom_point()
+```
+
+But what if we wanted to plot the distribution (as boxplots) of each organ's length
+and width?
+
+We would instead want our table to be in a "long" format, like this:
+
+```{r, echo = FALSE}
+set.seed(11)
+iris %>% 
+  gather(trait, size, -Species) %>% 
+  sample_n(10) %>% 
+  arrange(Species, trait) %>% 
+  knitr::kable()
+```
+
+There is a pair of `dplyr` functions that can convert data from one format to 
+the other. They are called `gather()` and `spread()`.
+
+Here is a schematic representation of what these two functions do:
+
+![](http://www.datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
+
+![](http://www.datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
+
+To "gather" data (i.e. from a "wide" to a "long" format), we do:
+
+```{r}
+iris_long <- iris %>% 
+  mutate(flower_id = 1:n()) %>%         # Make an identifier for each flower
+  gather(trait, size, -Species, -flower_id)
+iris_long
+```
+
+`gather()` needs three things:
+
+- the name of the new column containing the old column names (in this case 
+`trait`)
+- the name of the new column containing the values of the old columns (in this 
+case `size`)
+- the name of all the old columns we want to gather together
+
+Notice that `gather()` takes care of filling in the `id` column with the values 
+corresponding to each new row of this table (in this case, each flower ID now appears 
+four times - because we have four measurements per flower). 
+
+Now we can do the plot we wanted:
+
+```{r}
+ggplot(iris_long, aes(trait, size, fill = Species)) + 
+  geom_boxplot()
+```
+
+To "spread" the data (long --> wide), we would do:
+
+```{r}
+iris_long %>% 
+  spread(trait, size)
+```
+
+`spread()` only needs two things:
+
+- the name of the column that contains the values that will become the new column 
+names
+- the name of the column that contains the values of interest
+

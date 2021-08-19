@@ -25,7 +25,8 @@ Reflexion meilleurs graphs pour representer donnees. Manipulation des données d
 Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
 
 - **Séance 5** 18/11/2021 8h-11h15: 
-Créer des Rmarkdown dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
+partie 1: Créer des Rmarkdown dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
+partie 2: Utiliser des graphs de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799) pour les améliorer. Utiliser group_by et summarise pour ajouter le nombre d'individu. factor pour changer ordre categories axe x. Ajouter les correlations aux scatterplots. Paufiner les graphs. 
 
 - **Séance 6** 25/11/2021 8h-11h15: 
 Exploration d'un jeu de données (exam blanc)
