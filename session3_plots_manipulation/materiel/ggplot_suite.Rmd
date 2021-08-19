@@ -237,13 +237,16 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 > type de graphique utiliseriez vous maintenant que vous savez utiliser ggplot?
 >
 >
+> <br>
+>
 > **1. Le camembert (pie chart)**
 >
-> Aidez vous de cette figure comparant des camemberts et des barplots montrant les mêmes données 
+> Aidez vous de cette figure comparant des camemberts et des barplots 
+> montrant les mêmes données 
+> 
 > ![](./images/camemberts.png){width=70%} 
->
+> 
 > [source de l'image](https://www.data-to-viz.com/caveat/pie.html)
->
 >
 > **2. Le barplot avec des barres d'erreur**
 >
