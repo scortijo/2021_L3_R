@@ -300,13 +300,28 @@ colnames(expt1.separated)
 > - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
 
 
-
+<br>
 
 ## Ressources et liens utiles:
 
 - [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 - [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
 
+
+<br>
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+A partir ce ce que nous avons vu aujourd'hui:
+
+- Utilisez `mutate`, `filter`, `select`, `unite` ou `separate` pour réorganiser vos données. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sur les données non réorganisées?
+- N'oubliez pas d'utiliser des pipes (` %>% `) pour faire des chaines de commandes si vous utilisez plus d'une fonction sur vos données
+
+
+
+******
 
 
 -------
