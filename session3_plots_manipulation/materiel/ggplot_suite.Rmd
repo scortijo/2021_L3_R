@@ -6,6 +6,7 @@ output:
     toc_float: yes
   pdf_document:
     toc: yes
+    
 ---
 
 ```{r setup, include=FALSE}
@@ -42,7 +43,7 @@ setwd("~/Desktop/2021_L3_R/session3_plots_manipulation/")
 - Importez les données dans R:
 
 ```{r read data}
-expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+expt1 <- read_tsv("")
 ```
 
 Nous sommes maintenant prêt!
