@@ -192,6 +192,25 @@ expt1 %>%
 
 
 
+### Combiner avec un graphique 
+
+Avec le pipe nous pouvons aussi utiliser l'output d'une commande (ou d'une chaîne de commandes) comme un input pour `ggplot` afin de faire un graphique sur les données sélectionnées.
+Ceci est très utile lors de la phase d'exploration des données (sans avoir à créer de nouveaux objets avec en permanence `<-`).
+
+Nous pouvons par exemple faire un box plot pour le temps de floraison en fonction de la fluctuation de température, mais celle fois uniquement pour les plantes qui ont été vernalisées:
+
+
+```{r, warning=FALSE}
+expt1 %>% 
+  filter(vernalization == "V") %>% 
+  ggplot(aes(fluctuation, days.to.flower)) + 
+  geom_boxplot()
+```
+
+> **Exercice:**
+> Faite un violon plot du temps de floraison pour les différents génotypes, mais uniquement pour les plantes ayant poussées en jours court (8h de jour).
+
+
 
 -------
 
