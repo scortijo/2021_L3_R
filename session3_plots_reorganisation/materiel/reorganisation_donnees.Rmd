@@ -214,10 +214,10 @@ expt1 %>%
 
 ### Modifier ou ajouter des colonnes avec `mutate()`
 
-La fonction `mutate() permet d'ajouter de nouvelles vatiables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
+La fonction `mutate()` permet d'ajouter de nouvelles vatiables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
 
 
-![](images/dplyr_mutate.png){width=90%}
+![](images/dplyr_mutate.png){width=70%}
 
 [source de l'image](https://github.com/allisonhorst/stats-illustrations)
 
@@ -275,8 +275,10 @@ colnames(expt1.separated)
 ```
 
 
+<br>
 
 -------
+
 
 > **Exercice:** 
 > 
