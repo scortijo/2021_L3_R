@@ -20,6 +20,7 @@ Cela peur être utile si vous ne devez travailler que sur une partie des donnée
 
 
 Aujourd’hui nous allons voir:
+
 - Comment filtrer des lignes ou des colonnes dans un tableau
 
 - Combiner ces réorganisations avec des graphiques
