@@ -63,10 +63,45 @@ Le temps de floraison pour toutes les plantes sont dans la même colonne dans no
 Heureusement, nous pouvons utiliser la fonction `spread()` pour reformater notre tableau.
 
 
-Tout d'abord, pour y voir plus clair, ne gardons que les colonnes qui vons nous être utile à la création du tableau:
+Pour y voir plus clair, ne gardons que les colonnes qui vons nous être utile à la création du tableau:
 
 
 
+```{r}
+
+expt1_subset <- select(expt1, plant_nb:vernalization, days.to.bolt)
+
+
+```
+
+Maintenant nous devons changer la structure de la table pour avoir une colonne avec le temps de floraison pour les plantes en conditions constante et une autre colonne avec le temps de floraison pour les plantes en condition variable. Un peu comme dans le schéma ci-dessous (pour aller du format "long" au format "wide").
+
+![](http://www.datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
+
+Dans notre cas, la colonne `fluctuation` va permettre de créer les noms de colonnes dans la nouvelle table. Et la colonne `days.to.bolt` contient les valeurs qui vont remplir les nouvelles colonnes. 
+Voici la commande à utiliser:
+
+
+
+
+```{r}
+
+expt1_wide <- spread(expt1_subset, key=fluctuation, value = days.to.bolt)
+
+
+```
+
+
+
+
+```{r}
+
+unite(expt1_wide, "treatment", temperature, day.length) %>% 
+ggplot(aes(x=Con, y=Var, color=treatment)) +
+  geom_point()
+
+
+```
 
 Often, we might have data in what is sometimes called a "wide" format. 
 
