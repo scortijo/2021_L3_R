@@ -27,9 +27,9 @@ Aujourd’hui nous allons voir comment:
 
 - Ordonner un tableau en utilisant les valeurs d'une colonne 
 
-- Exporter le nouveau tableau créé dans R
-
 - Combiner plusieurs tableaux en un seul
+
+- *Extraire des statistiques résumant les données (group_by et summarise s'il y a le temps)*
 
 
 
@@ -288,10 +288,6 @@ arrange(expt1, desc(days.to.flower))
 
 
 <br>
-
-
-
-## Exporter le nouveau tableau créé dans R
 
 
 

@@ -24,6 +24,8 @@ Aujourd’hui nous allons voir:
 
 - Combiner ces réorganisations avec des graphiques
 
+- Exporter le nouveau tableau créé dans R
+
 Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
 
 
@@ -213,6 +215,28 @@ expt1 %>%
 
 <br>
 
+
+## Exporter le nouveau tableau créé dans R
+
+Aujourd'hui, nous avons fortement restructuré notre tableau. Nous pouvons le sauver pour le réutiliser ultérieurement.
+
+Pour cela nous utilisons la fonction `write_tsv()`
+
+Par exemple, imaginons qie nous voulons enlever des données manquantes et partager les données avec un collaborateurs (ou les réutiliser nous même plus tard):
+
+Let’s say that we were to remove some missing data from our data to share 
+it with a collaborator (or later use in R ourselves):
+
+```{r, eval = FALSE}
+expt1.days.to.flower.clean <- expt1 %>% 
+  filter(!is.na(days.to.flower))
+
+write_tsv(expt1.days.to.flower.clean, file = "../data/expt1_days_to_flower_clean.txt")
+```
+
+
+<br>
+
 ## Ressources et liens utiles:
 
 - [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
@@ -235,6 +259,5 @@ A partir ce ce que nous avons vu aujourd'hui:
 ******
 
 
--------
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
