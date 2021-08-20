@@ -63,9 +63,18 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 [Partie 2 - Réorganisation de données](session3_plots_reorganisation/materiel/reorganisation_donnees.html)  
 
 
+
+### Séance 3 
+
+[Restructurer de données](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
+
+
 ### Séance 5
 
 [Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
+
+[Partie 2 - Mise en pratique, améliorons des graphiques existants]() 
+
 
 
 ## Si vous voulez utiliser R chez vous: 
