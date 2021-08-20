@@ -222,10 +222,8 @@ Aujourd'hui, nous avons fortement restructuré notre tableau. Nous pouvons le sa
 
 Pour cela nous utilisons la fonction `write_tsv()`
 
-Par exemple, imaginons qie nous voulons enlever des données manquantes et partager les données avec un collaborateurs (ou les réutiliser nous même plus tard):
+Par exemple, imaginons que nous voulons enlever des données manquantes et partager les données avec un collaborateurs (ou les réutiliser nous même plus tard):
 
-Let’s say that we were to remove some missing data from our data to share 
-it with a collaborator (or later use in R ourselves):
 
 ```{r, eval = FALSE}
 expt1.days.to.flower.clean <- expt1 %>% 

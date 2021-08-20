@@ -29,7 +29,7 @@ Aujourd’hui nous allons voir comment:
 
 - Combiner plusieurs tableaux en un seul
 
-- *Extraire des statistiques résumant les données (group_by et summarise s'il y a le temps)*
+- **Extraire des statistiques résumant les données (group_by et summarise s'il y a le temps)?**
 
 
 
@@ -62,7 +62,7 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 
 ## Modifier ou ajouter des colonnes avec `mutate()`
 
-La fonction `mutate()` permet d'ajouter de nouvelles vatiables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
+La fonction `mutate()` permet d'ajouter de nouvelles variables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
 
 
 ![](images/dplyr_mutate.png){width=70%}
@@ -96,9 +96,9 @@ colnames(expt1.cm)
 **Attention!!** Si vous utilisez le nom d'une colonne déjà existante, vous allez la modifier et non créer une nouvelle colonne.
 
 
-## Concatener ou séparer des colonnes avec `unite()` et `separate()`
+## Concaténer ou séparer des colonnes avec `unite()` et `separate()`
 
-Pour concantener deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
+Pour concaténer deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
 
 
 ```{r}
@@ -162,7 +162,7 @@ Le temps de floraison pour toutes les plantes sont dans la même colonne dans no
 Heureusement, nous pouvons utiliser la fonction `spread()` pour reformater notre tableau.
 
 
-Pour y voir plus clair, ne gardons que les colonnes qui vons nous être utile à la création du tableau:
+Pour y voir plus clair, ne gardons que les colonnes qui vont nous être utile à la création du tableau:
 
 
 
@@ -186,7 +186,7 @@ La fonction `spread()` a besoin de deux informations:
 
 
 
-Voici comment re-structure notre tableau avec `spread()`:
+Voici comment restructurer notre tableau avec `spread()`:
 
 
 ```{r}
@@ -196,7 +196,7 @@ expt1_wide <- spread(expt1_subset, key=fluctuation, value = days.to.bolt)
 
 ```
 
-Afin de pouvoir reproduire les couleurs du graphique, nous devons concatener les colonnes `temperature` et `day.length`.
+Afin de pouvoir reproduire les couleurs du graphique, nous devons concaténer les colonnes `temperature` et `day.length`.
 Et nous pouvons enfin faire le graphique:
 
 
@@ -209,7 +209,7 @@ ggplot(aes(x=Con, y=Var, color=treatment)) +
 
 ```
 
-Comme vous avez vu, changer la structure du tableau nous a permis de faire un graphique que nous n'aurions pas pu faire autrement. Cela peut aussi permettre de faire des analyses supplémtaires.
+Comme vous avez vu, changer la structure du tableau nous a permis de faire un graphique que nous n'aurions pas pu faire autrement. Cela peut aussi permettre de faire des analyses supplémentaires.
 
 <br>
 <br>
@@ -219,7 +219,7 @@ A l'inverse la fonction `gather()` permet de passer d'un format "wide" à un for
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 
 
-Dans ce cas, le nom des colonnes sélectionnées devient la "clé", c'est à dire les catégories dans la première colonne crée (en violet dans l'illustration). Et les valeurs de toutes ces colonnes sélectionnées vont remplir la deuxième colonne crée (en blue dans l'illustration).
+Dans ce cas, le nom des colonnes sélectionnées devient la "clé", c'est à dire les catégories dans la première colonne crée (en violet dans l'illustration). Et les valeurs de toutes ces colonnes sélectionnées vont remplir la deuxième colonne crée (en bleu dans l'illustration).
 
 
 Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `days.to.flower`. Il nous faut réorganiser le tableau pour avoir les données pour ces deux mesures dans la même colonnes (`trait`) et une colonne indiquant s'il s'agit de la mesure de `days.to.bolt` ou `days.to.flower` (`time.in.days`). 
@@ -234,7 +234,7 @@ Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `day
 
 - le nom des anciennes colonnes que l'ont veut rassembler 
 
-Voici comment re-structure notre tableau avec `gather()`:
+Voici comment restructurer notre tableau avec `gather()`:
 
 ```{r}
 expt1_long <- gather(expt1, "trait", "time.in.days", days.to.bolt, days.to.flower)
@@ -292,7 +292,7 @@ arrange(expt1, desc(days.to.flower))
 
 
 
-## Combinier plusieurs tableaux en un
+## Combiner plusieurs tableaux en un
 
 
 
