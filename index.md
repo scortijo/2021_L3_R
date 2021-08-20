@@ -13,25 +13,32 @@ Ce cours va vous apprendre comment exporer des données et réaliser des graphiq
 Les différentes séances sont:
 
 - **Séance 1** 14/10/2021 8h-11h15 : 
+
 Organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
 
 - **Séance 2**  21/10/2021 8h-11h15: 
+
 Réaliser des graphiques en utilisant **ggplot2** dans **R**. 
 
 - **Séance 3** 28/10/2021 8h-11h15: 
+
 Reflexion meilleurs graphs pour representer donnees. Manipulation des données dans **R** (filtrer, sélectionner, modifier données, extraire statistiques descriptive)
 
 - **Séance 4** 11/11/2021 8h-11h15: 
+
 Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
 
 - **Séance 5** 18/11/2021 8h-11h15: 
+
 partie 1: Créer des Rmarkdown dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
 partie 2: Utiliser des graphs de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799) pour les améliorer. Utiliser group_by et summarise pour ajouter le nombre d'individu. factor pour changer ordre categories axe x. Ajouter les correlations aux scatterplots. Paufiner les graphs. 
 
 - **Séance 6** 25/11/2021 8h-11h15: 
+
 Exploration d'un jeu de données (exam blanc)
 
 - **Séance 7** 02/12/2021 9h45-11h15: 
+
 Correction de l'exam blanc et trucs et astuces
 
 
