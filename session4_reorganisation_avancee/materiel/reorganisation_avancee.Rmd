@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
+<br>
 
 Dans cette partie du cours vous allez apprendre à **restructurer des tables dans R**. 
 Ces changement sont parfois nécessaire pour mettre les données dans le format adapté au graphique que vous voulez réaliser.
