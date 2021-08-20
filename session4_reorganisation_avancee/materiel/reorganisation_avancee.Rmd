@@ -15,14 +15,22 @@ knitr::opts_chunk$set(echo = TRUE)
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 
-Dans cette partie du cours vous allez apprendre à restructurer des tables dans R. 
+Dans cette partie du cours vous allez apprendre à **restructurer des tables dans R**. 
 Ces changement sont parfois nécessaire pour mettre les données dans le format adapté au graphique que vous voulez réaliser.
 
-Aujourd’hui nous allons voir:
-- Comment reformater des données 
+
+Aujourd’hui nous allons voir comment:
+
+- Ajouter ou modifier des colonnes
+
+- Reformater des données 
+
 - Combiner plusieurs tableaux en un seul
-- Ordonner les valeaur d'une colonne
-- Exporter le nouveau tableau crée dans R
+
+- Ordonner les valeusr d'une colonne
+
+- Exporter le nouveau tableau créé dans R
+
 
 Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
 
@@ -48,7 +56,96 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 
 ```
 
+<br>
 
+## Modifier ou ajouter des colonnes avec `mutate()`
+
+La fonction `mutate()` permet d'ajouter de nouvelles vatiables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
+
+
+![](images/dplyr_mutate.png){width=70%}
+
+[source de l'image](https://github.com/allisonhorst/stats-illustrations)
+
+
+Par exemple, ajoutons une colonne `leaf.length.cm` qui va contenir la longueur des feuilles en cm. Pour cela nous devons créer une nouvelle colonne en utilisant la colonne `leaf.length.mm` qui existe dans la table.
+
+
+```{r}
+# Créez une nouvelle table avec la colonne supplémentare  
+expt1.cm <- mutate(expt1, total.leaf.length.cm = total.leaf.length.mm/10)
+
+# Vérifier que la nouvelle colonne est bien là
+colnames(expt1.cm)
+```
+
+Nous pouvons aussi créer et modifier plus d'une colonne à la fois, en les séparant pas une virgule (`,`) dans la fonction `mutate()`:
+
+```{r}
+# Créez deux nouvelles colonnes
+expt1.cm <- mutate(expt1, 
+                   blade.length.cm = blade.length.mm/10,
+                   total.leaf.length.cm = total.leaf.length.mm/10)
+
+# Vérifier que les nouvelles colonnes sont bien là
+colnames(expt1.cm)
+```
+
+**Attention!!** Si vous utilisez le nom d'une colonne déjà existante, vous allez la modifier et non créer une nouvelle colonne.
+
+
+## Concatener ou séparer des colonnes avec `unite()` et `separate()`
+
+Pour concantener deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
+
+
+```{r}
+# Créez deux nouvelles colonnes
+expt1.concatenated <- unite(expt1, "Vern_survival_bolt",vernalization,survival.bolt,bolt)
+
+# Vérifier que la nouvelles colonnes sont bien là
+colnames(expt1.concatenated)
+```
+
+
+
+A contrario, pour séparer une colonne en deux ou plusieurs colonnes, utilisez la fonction `separate()`. Par exemple, pour séparer la colonne `barkground` :
+
+
+```{r warning=FALSE}
+# Créez deux nouvelles colonnes
+expt1.separated <- separate(expt1, background, into=c("genotype", "FRI mutation"))
+
+# Vérifier que la nouvelles colonnes sont bien là
+colnames(expt1.separated)
+```
+
+
+<br>
+
+-------
+
+
+> **Exercice:** 
+> 
+> Reproduisez cette figure de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+> 
+> ![](images/Burghard_2015_figS8_a.png)
+> 
+> 
+> Aide: 
+> 
+> - Créez une nouvelle colonne avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
+> 
+> - Créez une nouvelle colonne (nommée par exemple `condition`) en concaténant `day.length`, `temperature` et `fluctuation`
+> 
+> - Sélectionnez les background  `Col ` et `Ler`
+> 
+> - Faites un boxplot du ratio de `blade.length.mm` et `total.leaf.length.mm` en fonction de la `condition`, en créant des facets en fonction du background
+> 
+> - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
+
+<br>
 
 ## Reformater des données avec `spread()` et `gather()`
 
@@ -78,10 +175,16 @@ Maintenant nous devons changer la structure de la table pour avoir une colonne a
 
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
 
-Dans notre cas, la colonne `fluctuation` va permettre de créer les noms de colonnes dans la nouvelle table. Et la colonne `days.to.bolt` contient les valeurs qui vont remplir les nouvelles colonnes. 
-Voici la commande à utiliser:
+
+La fonction `spread()` a besoin de deux informations:
+
+- Le nom de la colonne qui va permettre de créer les noms de colonnes dans la nouvelle table. Dans notre cas `fluctuation`
+
+- Le nom de la colonne qui contient les valeurs qui vont remplir les nouvelles colonnes. Dans notre cas `days.to.bolt`
 
 
+
+Voici comment re-structure notre tableau avec `spread()`:
 
 
 ```{r}
@@ -91,7 +194,8 @@ expt1_wide <- spread(expt1_subset, key=fluctuation, value = days.to.bolt)
 
 ```
 
-
+Afin de pouvoir reproduire les couleurs du graphique, nous devons concatener les colonnes `temperature` et `day.length`.
+Et nous pouvons enfin faire le graphique:
 
 
 ```{r}
@@ -103,87 +207,63 @@ ggplot(aes(x=Con, y=Var, color=treatment)) +
 
 ```
 
-Often, we might have data in what is sometimes called a "wide" format. 
+Comme vous avez vu, changer la structure du tableau nous a permis de faire un graphique que nous n'aurions pas pu faire autrement. Cela peut aussi permettre de faire des analyses supplémtaires.
 
-For example, in the `iris` dataset, we have classic data of petal and sepal 
-lengths and widths in three Iris species. 
-In this table, each organ's measurement has its own column:
+<br>
+<br>
 
-```{r}
-# For convenience convert the iris dataset to a tibble (so it doesn't print out of the screen!)
-iris <- as_tibble(iris)
-iris
-```
 
-This format is convenient if we wanted to plot the correlation between these 
-measurements, for example:
-
-```{r}
-ggplot(iris, aes(Petal.Length, Sepal.Length, colour = Species)) + 
-  geom_point()
-```
-
-But what if we wanted to plot the distribution (as boxplots) of each organ's length
-and width?
-
-We would instead want our table to be in a "long" format, like this:
-
-```{r, echo = FALSE}
-set.seed(11)
-iris %>% 
-  gather(trait, size, -Species) %>% 
-  sample_n(10) %>% 
-  arrange(Species, trait) %>% 
-  knitr::kable()
-```
-
-There is a pair of `dplyr` functions that can convert data from one format to 
-the other. They are called `gather()` and `spread()`.
-
-Here is a schematic representation of what these two functions do:
-
+A l'inverse la fonction `gather()` permet de passer d'un format "wide" à un format "long".
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 
-![](http://www.datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
 
-To "gather" data (i.e. from a "wide" to a "long" format), we do:
+Dans ce cas, le nom des colonnes sélectionnées devient la "clé", c'est à dire les catégories dans la première colonne crée (en violet dans l'illustration). Et les valeurs de toutes ces colonnes sélectionnées vont remplir la deuxième colonne crée (en blue dans l'illustration).
+
+
+Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `days.to.flower`. Il nous faut réorganiser le tableau pour avoir les données pour ces deux mesures dans la même colonnes (`trait`) et une colonne indiquant s'il s'agit de la mesure de `days.to.bolt` ou `days.to.flower` (`time.in.days`). 
+
+
+`gather()` à besoin de trois informations:  
+
+- le nom de la nouvelle colonne contenant les nom des vieilles colonnes (dans notre cas
+`trait`)
+
+- le nom de la nouvelle colonne contenant les valeurs des anciennes colonnes (dans notre cas `time.in.days`) 
+
+- le nom des anciennes colonnes que l'ont veut rassembler 
+
+Voici comment re-structure notre tableau avec `gather()`:
 
 ```{r}
-iris_long <- iris %>% 
-  mutate(flower_id = 1:n()) %>%         # Make an identifier for each flower
-  gather(trait, size, -Species, -flower_id)
-iris_long
+expt1_long <- gather(expt1, "trait", "time.in.days", days.to.bolt, days.to.flower)
 ```
 
-`gather()` needs three things:
+Nous pouvons maintenant faire notre boxplot
 
-- the name of the new column containing the old column names (in this case 
-`trait`)
-- the name of the new column containing the values of the old columns (in this 
-case `size`)
-- the name of all the old columns we want to gather together
-
-Notice that `gather()` takes care of filling in the `id` column with the values 
-corresponding to each new row of this table (in this case, each flower ID now appears 
-four times - because we have four measurements per flower). 
-
-Now we can do the plot we wanted:
 
 ```{r}
-ggplot(iris_long, aes(trait, size, fill = Species)) + 
+ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
   geom_boxplot()
 ```
 
-To "spread" the data (long --> wide), we would do:
 
-```{r}
-iris_long %>% 
-  spread(trait, size)
-```
 
-`spread()` only needs two things:
+> **Exercice:** 
+> 
+> Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par la température
+> 
+> 
 
-- the name of the column that contains the values that will become the new column 
-names
-- the name of the column that contains the values of interest
+
+
+
+
+
+
+
+
+
+
+
+
 

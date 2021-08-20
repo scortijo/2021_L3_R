@@ -21,7 +21,7 @@ Cela peur être utile si vous ne devez travailler que sur une partie des donnée
 
 Aujourd’hui nous allons voir:
 - Comment filtrer des lignes ou des colonnes dans un tableau
-- Ajouter ou modifier des colonnes
+
 - Combiner ces réorganisations avec des graphiques
 
 Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
@@ -211,95 +211,6 @@ expt1 %>%
 > Faite un violon plot du temps de floraison pour les différents génotypes, mais uniquement pour les plantes ayant poussées en jours court (8h de jour).
 
 
-
-### Modifier ou ajouter des colonnes avec `mutate()`
-
-La fonction `mutate()` permet d'ajouter de nouvelles vatiables (i.e. nouvelles colonnes) dans une table, ou de modifier des colonnes déjà existantes.
-
-
-![](images/dplyr_mutate.png){width=70%}
-
-[source de l'image](https://github.com/allisonhorst/stats-illustrations)
-
-
-Par exemple, ajoutons une colonne `leaf.length.cm` qui va contenir la longueur des feuilles en cm. Pour cela nous devons créer une nouvelle colonne en utilisant la colonne `leaf.length.mm` qui existe dans la table.
-
-
-```{r}
-# Créez une nouvelle table avec la colonne supplémentare  
-expt1.cm <- mutate(expt1, total.leaf.length.cm = total.leaf.length.mm/10)
-
-# Vérifier que la nouvelle colonne est bien là
-colnames(expt1.cm)
-```
-
-Nous pouvons aussi créer et modifier plus d'une colonne à la fois, en les séparant pas une virgule (`,`) dans la fonction `mutate()`:
-
-```{r}
-# Créez deux nouvelles colonnes
-expt1.cm <- mutate(expt1, 
-                   blade.length.cm = blade.length.mm/10,
-                   total.leaf.length.cm = total.leaf.length.mm/10)
-
-# Vérifier que les nouvelles colonnes sont bien là
-colnames(expt1.cm)
-```
-
-**Attention!!** Si vous utilisez le nom d'une colonne déjà existante, vous allez la modifier et non créer une nouvelle colonne.
-
-
-### Concatener ou séparer des colonnes avec `unite()` et `separate()`
-
-Pour concantener deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
-
-
-```{r}
-# Créez deux nouvelles colonnes
-expt1.concatenated <- unite(expt1, "Vern_survival_bolt",vernalization,survival.bolt,bolt)
-
-# Vérifier que la nouvelles colonnes sont bien là
-colnames(expt1.concatenated)
-```
-
-
-
-A contrario, pour séparer une colonne en deux ou plusieurs colonnes, utilisez la fonction `separate()`. Par exemple, pour séparer la colonne `barkground` :
-
-
-```{r warning=FALSE}
-# Créez deux nouvelles colonnes
-expt1.separated <- separate(expt1, background, into=c("genotype", "FRI mutation"))
-
-# Vérifier que la nouvelles colonnes sont bien là
-colnames(expt1.separated)
-```
-
-
-<br>
-
--------
-
-
-> **Exercice:** 
-> 
-> Reproduisez cette figure de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
-> 
-> ![](images/Burghard_2015_figS8_a.png)
-> 
-> 
-> Aide: 
-> 
-> - Créez une nouvelle colonne avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
-> 
-> - Créez une nouvelle colonne (nommée par exemple `condition`) en concaténant `day.length`, `temperature` et `fluctuation`
-> 
-> - Sélectionnez les background  `Col ` et `Ler`
-> 
-> - Faites un boxplot du ratio de `blade.length.mm` et `total.leaf.length.mm` en fonction de la `condition`, en créant des facets en fonction du background
-> 
-> - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
-
-
 <br>
 
 ## Ressources et liens utiles:
@@ -316,7 +227,7 @@ colnames(expt1.separated)
 
 A partir ce ce que nous avons vu aujourd'hui:
 
-- Utilisez `mutate`, `filter`, `select`, `unite` ou `separate` pour réorganiser vos données. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sur les données non réorganisées?
+- Utilisez `filter` et `select` pour sélectionner vos données. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sur les données non sélectionnées?
 - N'oubliez pas d'utiliser des pipes (` %>% `) pour faire des chaines de commandes si vous utilisez plus d'une fonction sur vos données
 
 
