@@ -71,9 +71,9 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 
 
-### Séance 3 
+### Séance 4 
 
-[Restructurer de données](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
+[Réorganisation de données avancée](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
 
 
 ### Séance 5

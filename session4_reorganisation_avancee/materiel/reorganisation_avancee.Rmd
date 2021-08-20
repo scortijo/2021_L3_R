@@ -25,11 +25,13 @@ Aujourd’hui nous allons voir comment:
 
 - Reformater des données 
 
-- Combiner plusieurs tableaux en un seul
-
-- Ordonner les valeusr d'une colonne
+- Ordonner un tableau en utilisant les valeurs d'une colonne 
 
 - Exporter le nouveau tableau créé dans R
+
+- Combiner plusieurs tableaux en un seul
+
+
 
 
 Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
@@ -257,7 +259,44 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 
 
 
+## Ordonner un tableau en utilisant les valeurs d'une colonne 
 
+
+Parfois, nous voulons ordonnées nos données en fonction des valeurs d'une colonne.
+
+Pour cela, nous pouvons utiliser la fonction `arrange()`: 
+
+
+```{r}
+
+arrange(expt1, days.to.flower)
+
+
+```
+
+
+Par défaut, les valeurs sont ordonnées de la plus basse à la plus haute.
+
+Pour ordonner les valeurs de la plus haute à la plus basse, nous devons le spécifier en utilisant `desc()`:
+
+
+```{r}
+
+arrange(expt1, desc(days.to.flower))
+
+```
+
+
+<br>
+
+
+
+## Exporter le nouveau tableau créé dans R
+
+
+
+
+## Combinier plusieurs tableaux en un
 
 
 
