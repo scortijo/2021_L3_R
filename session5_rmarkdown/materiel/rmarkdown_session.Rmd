@@ -90,7 +90,7 @@ Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
 
 
-> **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `set_wd`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répoertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
+> **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `setwd()`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répoertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
 
 # Créer une section de contexte en `markdown`
 
@@ -287,6 +287,11 @@ output:
 
 
 
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+A partir de ce que nous avons vu aujourd'hui, choisissez le script `.R` d'une session précédante, comme par exemple la séance de découverte de `ggplot`, et créez un rapport en `Rmarkdown` à partir de ce sript. Vous pouvez par exemple créer un chunk par question ou notion principale de la séance, rdécrire ce que fait chaque chunk au dessus ou en dessous, et créer une architecture (sections, sous-section) pertinente au rapport.
 
 # Extras
 
