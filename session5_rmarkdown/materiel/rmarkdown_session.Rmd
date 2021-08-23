@@ -82,9 +82,9 @@ Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du d
 Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. 
 Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352).
 
-Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes aux chunks du documents. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document.
+Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes aux chunks du document. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document. Cela fera apparaître dans le document compilé le code ayant généré l'ouput (à part si vous spécifiez explicitement le contraire dans les options d'un chunk en particulier).
 
-Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: ``"tidyverse", "plotly", "DT"``. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
+Dans ce premier chunk, à la suite de l'appel à la fonction`knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: ``"tidyverse", "plotly", "DT"``. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
 
 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
