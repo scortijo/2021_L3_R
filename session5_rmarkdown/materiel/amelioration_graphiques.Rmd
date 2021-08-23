@@ -41,7 +41,7 @@ Tout d'abord, créez un nouveau _Rmarkdown_, sauvez le dans `session5_rmarkdown`
 ```{r}
 # Chargez la librairie `tidyverse`
 
-# Par besoin de spécifier le repertoire de travail car il s'agit de celui du Rmarkdown
+# Pas besoin de spécifier le repertoire de travail car il s'agit de celui du Rmarkdown
 
 # Importer `burghardt_et_al_2015_expt1.txt` et mettez le dans un objet appelé `expt1`
 
@@ -66,6 +66,14 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 
 
 
+
+
+<br>
+
+## Changer l'ordre des catégories dans un graphique en utilisant des `facteurs`
+
+
+## Améliorons des graphiques de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
 
 
 
