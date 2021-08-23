@@ -76,7 +76,7 @@ Pour créer le document HTML à partir du script ouvert dans `RStudio`, on utili
 
 Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vous avez bien modifié le nom d'auteur, le titre, et la date dans le document HTML.
 
-> **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML?
+> **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML? (Vous pouvez faire cette modification, compiler pour voir la différence sur le fichier compilé, mais revenez sur du HTML pour la suite du TP).
 
 
 Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. 
@@ -89,6 +89,9 @@ Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code 
 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
 
+
+
+> **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `set_wd`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répoertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
 
 # Créer une section de contexte en `markdown`
 
