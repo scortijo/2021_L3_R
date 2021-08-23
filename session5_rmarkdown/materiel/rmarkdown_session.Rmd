@@ -90,7 +90,6 @@ Dans ce premier chunk, à la suite de `knitr::opts_chunk$set`, rajoutez en code 
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
 
 
-
 > **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `set_wd`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répoertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
 
 # Créer une section de contexte en `markdown`

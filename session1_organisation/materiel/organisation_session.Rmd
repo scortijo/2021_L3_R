@@ -26,7 +26,7 @@ Plusieurs scandales montrent l'importance d'une recherche reproductible et trans
 
 - [Une erreur dans un fichier excel](https://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt) qui change la conclusion d'un papier sur le lien entre niveau d'endettement d'un pays et sa croissance 
 
-- [Une erreur de programmation](https://people.ligo-wa.caltech.edu/~michael.landry/calibration/S5/getsignright.pdf) dans un logiciel qui interverti deux colonnes et change ainsi la structure de protéine déduite à partir de données de cristallographie. 5 articles ont dû être rétracté à cause de cette erreur
+- [Une erreur de programmation](https://people.ligo-wa.caltech.edu/~michael.landry/calibration/S5/getsignright.pdf) dans un logiciel qui interverti deux colonnes et change ainsi la structure de protéine déduite à partir de données de cristallographie. 5 articles ont dû être rétractés à cause de cette erreur
 
 - [Excel qui change les noms de gènes en date](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7) (SEPT2 (Septin 2) en sept-02 ou 01/09/2002)
 
@@ -46,7 +46,7 @@ Adapté de [ce cours](https://rpubs.com/minebocek/user2017-ors)
 
 -> **Bien organiser et nommer vos fichiers et dossiers vous évitera bien des problèmes.** 
 
-Faites le pour vous, et surtout votre future vous (qui a déjà eu des difficulté à retrouver un ancien fichier?), et aussi pour vos collègues, collaborateurs et encadrants.
+Faites le pour vous, et surtout votre futur vous (qui a déjà eu des difficultés à retrouver un ancien fichier?), et aussi pour vos collègues, collaborateurs et encadrants.
 
 ![](https://imgs.xkcd.com/comics/documents.png )
 
@@ -79,10 +79,10 @@ Exemple de structure d'un projet
 
 ### Bien nommer ses fichiers
 
-Les principes principaux pour nommer vos fichiers et qu'ils doivent être:
+Les principes principaux pour nommer vos fichiers sont qu'ils doivent être:
 
-1. lisible par un ordinateur
-2. lisible par un humain
+1. lisibles par un ordinateur
+2. lisibles par un humain
 3. ordonnés de manière logique dans vos fichiers
 
 <br>
@@ -120,7 +120,7 @@ Pour cela:
 Des noms de fichiers lisibles par des humains doivent: 
 
 
-- contenir des information sur ce que le fichier contient 
+- contenir des informations sur ce que le fichier contient 
 
 - ne pas contenir d’abréviations et codes qui ne sont pas connus de tous 
 
@@ -171,7 +171,7 @@ La plupart d'entre nous utilisent à un moment donné ou à un autre, un tableur
 
 - les bonnes habitudes pour organiser les données
 
-- les différents formats et leurs compatibilité avec d'autres programmes (comme ``R``)
+- les différents formats et leur compatibilité avec d'autres programmes (comme ``R``)
 
 
 
@@ -206,8 +206,8 @@ La plupart d'entre nous utilisent à un moment donné ou à un autre, un tableur
 >
 > Une étude a été faite pour déterminer le sexe et le poids des animaux attrapés dans différentes parcelles expérimentales. L'expérience a été répétées sur deux années.      
 >
-> - Ouvrez le fichier "dataset_messy.xls" situé dans le dossier "session1_organisation/data". Ce fichier contient >les données enregistrés lors de l'étude.
-> - A partir des bonne habitude d'organisation indiquées plus haut, identifiez les problèmes de format dans ces >données. Discutez-en avec votre voisin.e
+> - Ouvrez le fichier "dataset_messy.xls" situé dans le dossier "session1_organisation/data". Ce fichier contient >les données enregistrées lors de l'étude.
+> - A partir des bonnes habitudes d'organisation indiquées plus haut, identifiez les problèmes de format dans ces >données. Discutez-en avec votre voisin.e
 >
 
 ## Problèmes dans l'organisation des données
@@ -221,16 +221,16 @@ La plupart d'entre nous utilisent à un moment donné ou à un autre, un tableur
 
 - Ne pas utiliser de caractères spéciaux (comme `!`, `#`, `*`).
 
-- Avoid special characters  in the column names (such as `!`, `#`, `*`). Pour que ce soit compatible avec R, utiliser `_` plutôt que des espaces entre les mots.
+- Pour que ce soit compatible avec R, utiliser `_` plutôt que des espaces entre les mots.
 
-- *Attention aux dates!* Cela peut causer des problèmes de format d'un tableaur à un autre. Le mieux est de garder le jours, le mois et l'années commes des variables (colonnes) séparées
+- *Attention aux dates!* Cela peut causer des problèmes de format d'un tableaur à un autre. Le mieux est de garder le jour, le mois et l'années commes des variables (colonnes) séparées
     
 
 
 
 ## Exporter les données
 
-Bien que excel est souvent utilisé, sont format de fichier par défault n'est malheureusement pas compatible avec d'autres programmes, y compris ``R``. Pour cela le mieux est d'enregistrer les données tabulaires dans un format texte.  
+Bien que excel est souvent utilisé, son format de fichier par défault n'est malheureusement pas compatible avec d'autres programmes, y compris ``R``. Pour cela le mieux est d'enregistrer les données tabulaires dans un format texte.  
 
 Les deux formats les plus utilisés sont:
 
@@ -240,9 +240,9 @@ _CSV_ (séparateur: virgule (UK, US) ou point-virgule (EU))
 _TXT_ (séparateur: tabulation)
 
 
-**Attention**: les documents avec un format _CSV_ qui ont un séparateur virgule ou un séparetur point-virgule ne pas la même chose. Les coinfondre peut poser des problèmes lors de l'import des données dans ``R``. C'est pourquoi nous recommendons de sauver les données en format _TXT_ (séparateur: tabulation) pour ensuite pouvoir les importer dans  ``R`.
+**Attention**: les documents avec un format _CSV_ qui ont un séparateur virgule ou un séparetur point-virgule ne sont pas la même chose. Les confondre peut poser des problèmes lors de l'import des données dans ``R``. C'est pourquoi nous recommendons de sauver les données en format _TXT_ (séparateur: tabulation) pour ensuite pouvoir les importer dans  ``R`.
 
-Pour cela, dans escel, choisissez "Enregistrez sous" et ensuite sélectionnez le format _TXT_ (séparateur: tabulation) .
+Pour cela, dans excel, choisissez "Enregistrez sous" et ensuite sélectionnez le format _TXT_ (séparateur: tabulation) .
 
 
 >### Exercice:
