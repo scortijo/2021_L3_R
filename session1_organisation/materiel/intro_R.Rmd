@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Lors de cette séance nous allons apprendre:
 
-1. Ce que sont R et Rstudio et comment y importer des données
+1. Ce que sont ``R`` et Rstudio et comment y importer des données
 
 2. Des bases de codage avec ``R`` 
 
@@ -104,7 +104,7 @@ Un des atouts de R réside dans ces fonctions, qui permettent d'effectuer des op
 
 Pour utiliser des fonctions, nous utilisons toujours la même structure de code:
 `fonction(inputs)`
-Tout d'abord le nom de la fonction, puis des parenthèse (sans espace avec le nom de la fonction) et enfin dans les parenthèse la liste des inputs (_arguments_) qui donnent les informations nécessaire à la fonction pour effectuer ses opérations.
+Tout d'abord le nom de la fonction, puis des parenthèses (sans espace avec le nom de la fonction) et enfin dans les parenthèses la liste des inputs (_arguments_) qui donnent les informations nécessaires à la fonction pour effectuer ses opérations.
 
 
 Vous allez découvrir de nombreuses fonctions tout au long de ce cours, mais tout d'abord voici un exemple avec des fonctions assez simple:
@@ -129,7 +129,7 @@ round(3.14, digits = 1)
 
 Les arguments dans les fonction sont séparés par une virgule `,`. 
 
-Mais comment connaitre les arguments d'une fonction et leurs nom?  **En regardant la documentation de la fonction.**
+Mais comment connaître les arguments d'une fonction et leurs nom?  **En regardant la documentation de la fonction.**
 
 Chaque fonction a une page d'aide que l'on peut appeler en utilisant `?` suivi du nom de la fonction. Par exemple `?round`.
 
@@ -149,9 +149,9 @@ round(1, 2.72)
 
 # Scripts
 
-Les codes R peuvent être sauvées dans des documents textes, appelés scripts (sauvés avec l'extension `.R`). Il est mieux d'utiliser des scripts, que d'écrire directement dans la console, car ainsi vous gardez une trace des codes contenant les opérations et analyses des données. Ces codes peuvent être réutilisés, modifiés ou partagés, permettant une analyse reproductible des données.
+Les codes R peuvent être sauvés dans des documents textes, appelés scripts (sauvés avec l'extension `.R`). Il est mieux d'utiliser des scripts, que d'écrire directement dans la console, car ainsi vous gardez une trace des codes contenant les opérations et analyses des données. Ces codes peuvent être réutilisés, modifiés ou partagés, permettant une analyse reproductible des données.
 
-Pour commencer un nouveau script, cliquez sur le bouton avec un "plus" vert dans le menu en haut à gauche, et sélectionnés "R script". Un nouveau document va s'ouvrir dans la partie _en haut à gauche_ de Rstudio.
+Pour commencer un nouveau script, cliquez sur le bouton avec un "plus" vert dans le menu en haut à gauche, et sélectionnez "R script". Un nouveau document va s'ouvrir dans la partie _en haut à gauche_ de Rstudio.
 
 Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités telles que l'auto-complétion ou la détection de certaines erreurs de code.
 
@@ -162,11 +162,11 @@ Cette zone dans Rstudio est un éditeur de texte, avec des fonctionnalités tell
 
 # Importer des données dans R
 
-Pour importer des données dans _R_, nous devons tout d'abord savoir comment dire à R où se site notre document dans nos dossiers.
+Pour importer des données dans _R_, nous devons tout d'abord savoir comment dire à R où se situe notre document dans nos dossiers.
 
 Pour cela nous devons indiquer le **chemin** du document dans les dossiers. Comme une adresse du document sur notre ordinateur.
 
-Les chemins sont écrit ainsi:
+Les chemins sont écrits ainsi:
 
 `dossier/sous_dossier/autre_sous_dossier/document.txt`
 
@@ -248,7 +248,7 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
 - Utilisez la touche `Tab` quand vous écrivez le chemin du dossier, - _RStudio_ complétera le chemin pour vous 
 
 
-- Le chemin peut être _relatif_ à votre répertoire de travail actuel. Pour cela utilisez le symbole e moment
+- Le chemin peut être _relatif_ à votre répertoire de travail actuel. Pour cela :
     - Utilisez le symbole `./` pour indiquer votre répertoire de travail actuel
     - Utilisez le symbole `../` pour indiquer le répertoire _avant_ votre répertoire de travail actuel
 
@@ -256,7 +256,7 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
 
 ## Importer des données dans R
 
-Afin de pouvoir importer des données dans R, il faut connaitre leur format. S'agit-il de données `.txt` avec les colonnes séparées par _tabulation_ ou de données `.csv` avec les colonnes séparées par des _virgules_ ou des _point-virgules_? Il est important de connaitre la réponse à cette question car nous allons utiliser des fonctions différentes pour lire chaque type de données
+Afin de pouvoir importer des données dans R, il faut connaître leur format. S'agit-il de données `.txt` avec les colonnes séparées par _tabulation_ ou de données `.csv` avec les colonnes séparées par des _virgules_ ou des _point-virgules_? Il est important de connaitre la réponse à cette question car nous allons utiliser des fonctions différentes pour lire chaque type de données
 
 Pour importer des données `.txt` avec les colonnes séparées par _tabulation_ nous allons utiliser la fonction `read_tsv()`. 
 
