@@ -151,9 +151,7 @@ Afin que les fichiers soient ordonnés de manière logique dans vos dossiers, co
 > 
 > Quelle méthode utiliseriez vous pour organiser et nommer les fichiers pour que ce soit lisible pour un ordinateur et un humain. Proposez des noms de fichiers  
 
-<br>
 
-# <span style="color: red;">Ajouter version control?</span>
 
 <br>
 

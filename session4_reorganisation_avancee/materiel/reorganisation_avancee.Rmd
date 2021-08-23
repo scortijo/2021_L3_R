@@ -288,8 +288,105 @@ arrange(expt1, desc(days.to.flower))
 <br>
 
 
-
-
 ## Combiner plusieurs tableaux en un (`*_join()`)
+
+Quand nous analysons des données, il n'est pas rare que nous ayons plusieurs tableaux contenant des informations de différents types mais qui sont liées les unes aux autres. Afin de répondre à certaines questions, nous devons parfois combiner ces différents tableau en un seul, à l'aide d'une certaine colonne. 
+
+Pour cela nous pouvons utiliser une des fonction de la famille `*_join`.
+
+Toutes ces fonctions ont besoin de trois choses:
+- Le nom du premier tableau (celui de gauche)
+- Le nom du second tableau (celui de droite)
+- Le nom de la colonne qui est utilisée pour combiner les tableaux ensemble (il est aussi possible d'utiliser plus d'une colonne)
+
+Afin de comprendre comment ces fonctions marchent, nous allons utiliser deux jeux de données qui sont déjà présent dans R:
+
+- `band_members` 
+```{r}
+band_members
+```
+- `band_instruments`
+```{r}
+band_instruments
+```
+
+
+La fonction `full_join()`, permet de garder toutes les lignes et toutes les colonnes des deux tableaux dans le nouveau tableau créé en les combinant. Dans notre cas, pour avoir toutes les information sur le groupe de musique et l'instrument pour chaque musicien, nous utilisons:
+
+
+```{r full_join2}
+full_join(band_members, band_instruments, by="name")
+```
+
+Vous pouvez voir que quand le groupe de musique ou l'instrument d'un musicien est manquante, un 'NA' est utilisé à la place.
+
+
+Regardons les autres fonctions de la famille `*_join()`
+
+
+- Pour garder les données uniquement pour les musiciens présents dans ``band_members`` (table de gauche dans la fonction), nous utilisons `left_join()`:
+
+
+```{r}
+left_join(band_members, band_instruments, by="name")
+```
+
+- Pour garder les données uniquement pour les musiciens présents dans ``band_instruments`` (table de droite dans la fonction), nous utilisons `right_join()`:
+
+```{r}
+right_join(band_instruments, band_members, by="name")
+```
+
+- Pour garder uniquement les musiciens qui sont les deux tableaux, nous utilisons `inner_join()`:
+
+```{r}
+inner_join(band_members, band_instruments, by="name")
+```
+Dans ce cas il n'y a pas de 'NA'
+
+
+Ces fonctions peuvent être utiles pour comparer de gros jeux de données :
+
+- `inner_join()` est l'équivalent de _l'intersection_ entre deux jeux de données.
+
+- `full_join()` est l'équivalent de  _l'union_ de deux jeux de données.
+
+
+<br>
+
+## Ressources et liens utiles:
+
+- [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
+
+
+<br>
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+A partir ce ce que nous avons vu aujourd'hui:
+
+- Utilisez `mutate`,  `gather` ou `spread` pour reformater vos données. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sur les données non reformatées?
+
+- Utiliser une ou plusieurs fonctions de la famille `*_join()` pour combiner des tableaux ensemble. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sans combiner les tableaux?
+
+- N'oubliez pas d'utiliser des pipes (` %>% `) pour faire des chaines de commandes si vous utilisez plus d'une fonction sur vos données
+
+
+
+******
+
+
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+
+
+
+
+
 
 

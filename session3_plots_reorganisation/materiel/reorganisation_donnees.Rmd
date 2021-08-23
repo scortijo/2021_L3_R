@@ -251,6 +251,7 @@ write_tsv(expt1.days.to.flower.clean, file = "../data/expt1_days_to_flower_clean
 A partir ce ce que nous avons vu aujourd'hui:
 
 - Utilisez `filter` et `select` pour sélectionner vos données. Est-ce que cela vous permet de faire de nouveaux graphiques qui n'étaient pas possibles sur les données non sélectionnées?
+
 - N'oubliez pas d'utiliser des pipes (` %>% `) pour faire des chaines de commandes si vous utilisez plus d'une fonction sur vos données
 
 
