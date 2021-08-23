@@ -1,0 +1,71 @@
+---
+title: "Mise en pratique"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+
+
+
+Dans cette partie du cours vous allez mettre en pratique ce que vous avez vu et apprendre de nouvelles fonction pour **ajouter des informations à des graphiques**. 
+Ajouter des informations sur les données ou personnaliser un graphique sont parfois essentiel pour bien faire ressortir le message d'un graphique.
+
+
+
+Aujourd’hui nous allons voir comment:
+
+- Ajouter des statistiques descriptives à des graphiques
+
+- Changer l'ordre des catégories dans un graphique
+
+- <span style="color: red;">**Ajouter correlation scatterplot??** </span>  
+
+
+
+
+Tout d'abord, créez un nouveau _Rmarkdown_, sauvez le dans `session5_rmarkdown` et préparez votre environnement de travail:
+
+
+```{r}
+# Chargez la librairie `tidyverse`
+
+# Par besoin de spécifier le repertoire de travail car il s'agit de celui du Rmarkdown
+
+# Importer `burghardt_et_al_2015_expt1.txt` et mettez le dans un objet appelé `expt1`
+
+```
+
+
+```{r,  eval = TRUE,message=FALSE, echo=FALSE}
+# Chargez la librairie `tidyverse` (aide: utilisez la fonction `library()`)
+library(tidyverse)
+
+# Importer `burghardt_et_al_2015_expt1.txt` et mettez le dans un objet appelé `expt1`
+#(aide: utilisez la fonction `read_tsv()`)
+
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+
+```
+
+<br>
+
+## Ajouter des statistiques descriptives à des graphiques avec `group_by()` et `summarise()`
+
+
+
+
+
+
+
