@@ -270,6 +270,7 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 ## Etre le plus près des données et ne pas cacher ou modifier les données étranges
 
 De manière générale il est recommandé d'être au plus près des données quand nous réalisons des graphiques.
+
 - Choisissez de présenter toutes vos données, sans les modifier ou en supprimer une partie (si vous le faites, vous devez expliquer ce que vous avez fait et pourquoi). 
 
 - Idéalement, et si cela se prête à votre question, montrez les données plutôt que des résumés. Choisissez des nuages de points plutôt que des barplots avec des barres d'erreur. 
@@ -301,6 +302,7 @@ Des alternatives existent pour représenter les données, afin d'éviter ces pro
 [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
 
 - Si vous avez trop de points pour les représenter dans le graphique, vous pouvez utiliser un violin plot  en indiquant la taille de l'effectif de chaque groupe:
+
 ![](./images/violin.png){width=70%} 
 
 [source de l'image](https://www.data-to-viz.com/caveat/boxplot.html)
@@ -318,7 +320,9 @@ Voici un exemple avec deux graphiques, l'un avec l'axe des y commençant à zér
 
 
 De manière générale:
+
 - Si vous utilisez des barplot ou des points avec différentes catégories à comparer, faites commencer l'axe y à zéro.
+
 - Si vous utilisez des lignes (comme dans le cas de séries chronologiques), il n'est pas nécessaire de faire commencer l'axe des y à zéro. En effet ce type de graphique permet de montrer l'évolution d'une observation par exemple au cours du temps. Alors que les barplots sont utilisés pour montrer la différence entre deux (ou plusieurs) groupes
 
 
@@ -372,7 +376,8 @@ Pour éviter ce problème, vous pouvez faire un graphique par ligne, ou mettre e
 
 [source des images](https://www.data-to-viz.com/caveat/spaghetti.html)
 
-
+<br>
+<br>
 
 - Pour les graphiques avec des points, si vous avez trop de points il est difficile de bien l'interpréter. 
 
