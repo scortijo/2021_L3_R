@@ -26,9 +26,9 @@ Ajouter des informations sur les données ou personnaliser un graphique sont par
 
 Aujourd’hui nous allons voir comment:
 
-- Ajouter des statistiques descriptives à des graphiques
+1. Ajouter des statistiques descriptives à des graphiques
 
-- Changer l'ordre des catégories dans un graphique
+2. Changer l'ordre des catégories dans un graphique
 
 
 
@@ -134,6 +134,14 @@ count(expt1, genotype)
 
 **Attention:** Quand vous utilisez la fonction `group_by()`, les lignes du tableau restent groupées en fonction de la variable utilisée. Les opération suivantes vont utiliser ces groupes, ce qui peut poser problème. Pensez à utiliser la fonction `ungroup()` pour enlever les groupes quand vous avez fini avec `group_by()` et `summarise()`
 
+
+> **Exercice:**
+>
+> Calculez la médiane, la moyenne et l'écart-type de `blade.length.mm` et `total.leaf.length.mm` pour chaque `genotype` au différentes `day.length`. Ajoutez aussi le nombre d'observations de chaque groupe 
+>
+>
+
+<br>
 
 #### Insérer les statistiques descriptives à un graphique
 
@@ -274,7 +282,7 @@ Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour c
 >
 > Représenter des violin plot de `cauline.leaf.num` pour les génotypes de `background` "Col", colorés par la température et ce uniquement pour les plantes sans fluctuation de température et qui sont en jours longs (16 h). 
 >
-> Ordonnez les génotypes selon ces deux cas (un graphique pas cas):
+> Ordonnez les génotypes selon ces deux cas (un graphique par cas):
 >
 > -1 Dans l'ordre suivant: "Col Ama", "ld-1", "fve-3", "flk-1"
 >
@@ -287,6 +295,7 @@ Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour c
 Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)  que vous avez reproduit à la fin de la séance 2
 ![](images/Burghard_fig2BC.png)
 
+<br>
 
 > **Mise en pratique**
 >
@@ -295,8 +304,8 @@ Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onli
 > Ensuite, en utilisant les outils que vous avez vu ces dernières semaines, effectuez ces changements.
 >
 >
-> Rappel: utilisez filter() pour sélectionner une partie des données, mutate() pour ajouter ou changer des colonnes, une fonction de la famille *_join() pour combiner deux tableaux et la combinaison de group_by() et summarise() pour extraire des statistiques descriptives.
->
+> Rappel: utilisez `filter()` pour sélectionner une partie des données, `mutate()` pour ajouter ou changer des colonnes, une fonction de la famille `*_join()` pour combiner deux tableaux et la combinaison de `group_by()` et `summarise()` pour extraire des statistiques descriptives. 
+> N'oubliez pas d'utiliser des pipes (`%>%`) pour faire des chaines de commandes
 >
 
 
