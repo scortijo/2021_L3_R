@@ -16,11 +16,15 @@ knitr::opts_chunk$set(echo = TRUE)
 [Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
 
 
-Dans cette seconde partie de la section dédiée à la visualisation de données vous allez:
-- Changer l'apparence des graphiques 
-- Combiner plusieurs graphiques dans une même figure
-- Inclure du dynamisme et de l'interactivité à vos graphique
-- Apprendre les meilleures pratique pour visualiser des données
+Dans cette seconde partie de la section dédiée à la visualisation de données vous allez apprendre à:
+
+1. Changer l'apparence des graphiques 
+
+2. Combiner plusieurs graphiques dans une même figure
+
+3. Inclure du dynamisme et de l'interactivité à vos graphique
+
+4. Apprendre les meilleures pratique pour visualiser des données
 
 
 # Mise en place
@@ -36,14 +40,14 @@ library(tidyverse)
 - changer votre répertoire de travail pour être dans le dossier `session3_plots_manipulation`:
 
 
-``` {r}
+``` {r eval=FALSE}
 setwd("~/Desktop/2021_L3_R/session3_plots_manipulation/")
 ```
 
 - Importez les données dans R:
 
 ```{r read data}
-expt1 <- read_tsv("")
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 ```
 
 Nous sommes maintenant prêt!
