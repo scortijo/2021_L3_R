@@ -30,8 +30,6 @@ Aujourd’hui nous allons voir comment:
 
 - Changer l'ordre des catégories dans un graphique
 
-- <span style="color: red;">**Ajouter correlation scatterplot??** </span>  
-
 
 
 
@@ -284,10 +282,55 @@ Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour c
 
 
 
+## Retravailler un graphique pour suivre les règles de bonne pratique 
 
-## Améliorons des graphiques de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)  que vous avez reproduit à la fin de la séance 2
+![](images/Burghard_fig2BC.png)
+
+
+> **Mise en pratique**
+>
+> En utilisant les [règles de bonne pratique pour des graphiques](session3_plots_reorganisation/materiel/ggplot_suite.html) que nous avons vu lors de la séance 3, discutez en groupes des améliorations possibles de ce graphique.
+>
+> Ensuite, en utilisant les outils que vous avez vu ces dernières semaines, effectuez ces changements.
+>
+>
+> Rappel: utilisez filter() pour sélectionner une partie des données, mutate() pour ajouter ou changer des colonnes, une fonction de la famille *_join() pour combiner deux tableaux et la combinaison de group_by() et summarise() pour extraire des statistiques descriptives.
+>
+>
+
+
+## Ressources et liens utiles:
+
+- [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
+
+
+<br>
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+La semaine prochaine nous allons faire un examen blanc, vous demandant d'explorer un jeu de donnée. Il s'agira d'une mise en pratique des fonctions que nous avons vu jusqu'ici. Vous devrez écrire l'ensemble dans un format Rmarkdown.
+
+**Afin de vous y préparer, nous vous recommandons de reprendre l'ensemble des cours et de vous exercer à refaire les exercices (sans avoir recours aux solutions si possible).**
+
+Lors de l'examen blanc (et de l'examen final) vous aurez accès au cours et à vos scripts. Vous allez être évalué sur votre capacité à utiliser les différentes fonctions et à comprendre leur utilité, et non sur de la connaissance pure.
 
 
 
-## Ajouter une corrélation à un scatterplot
+******
+
+
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+
+
+
+
+
+
 
