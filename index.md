@@ -80,7 +80,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
 
-[Partie 2 - Mise en pratique, améliorons des graphiques existants](session5_rmarkdown/materiel/amelioration_graphiques.html) 
+[Partie 2 - Mise en pratique, ajouter des informations sur des graphiques](session5_rmarkdown/materiel/amelioration_graphiques.html) 
 
 
 
