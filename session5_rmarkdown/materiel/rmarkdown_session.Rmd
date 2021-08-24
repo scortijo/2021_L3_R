@@ -291,7 +291,7 @@ output:
   
 #   <span style="color: blue;">A faire pour la prochaine séance </span>
 
-A partir de ce que nous avons vu aujourd'hui, choisissez le script `.R` d'une session précédante, comme par exemple la séance de découverte de `ggplot`, et créez un rapport en `Rmarkdown` à partir de ce sript. Vous pouvez par exemple créer un chunk par question ou notion principale de la séance, rdécrire ce que fait chaque chunk au dessus ou en dessous, et créer une architecture (sections, sous-section) pertinente au rapport.
+A partir de ce que nous avons vu aujourd'hui, choisissez le script `.R` d'une session précédante, comme par exemple la séance 3 de réorganisation des données, et créez un rapport en `Rmarkdown` à partir de ce script. Vous pouvez par exemple créer un chunk par question ou notion principale de la séance, décrire la démarche de la séance et ce que fait chaque chunk, et créer une architecture (sections, sous-section) pertinente au rapport.
 
 # Extras
 
