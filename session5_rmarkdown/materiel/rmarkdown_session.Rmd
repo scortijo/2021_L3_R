@@ -72,9 +72,9 @@ Pour créer le document HTML à partir du script ouvert dans `RStudio`, on utili
 
 ## Prise en main
 
-> **Challenge** Compilez votre document avec bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent à l'entête, aux chunks, et à du markdown.
+> **Challenge** Compilez votre document avec le bouton Knit. Inspectez le résultat obtenu, ainsi que le code l'ayant généré. Repérez dans votre script quelles sont les parties qui correspondent à l'entête, aux chunks, et à du markdown.
 
-Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que vous avez bien modifié le nom d'auteur, le titre, et la date dans le document HTML.
+Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du document. Compilez avec **Knit** (ou le raccourci clavier `Ctrl+Maj+K`), pour vérifier que cela a bien modifié le nom d'auteur, le titre, et la date dans le document HTML.
 
 > **Challenge** A votre avis, comment faut-il modifier le document pour avoir un document compilé en PDF et non HTML? (Vous pouvez faire cette modification, compiler pour voir la différence sur le fichier compilé, mais revenez sur du HTML pour la suite du TP).
 
@@ -82,7 +82,7 @@ Personnalisez l'entête YAML pour y ajouter votre nom, la date, et le titre du d
 Observez la première ligne du premier chunk de code. Un chunk prend en option le langage utilisé (`r`), un nom éventuel (ici `setup`), ainsi qu'un certain nombre de paramètres. Par example, ```include = FALSE``` ne fait pas apparaître le code ni les résultats dans le document fini. ```echo = FALSE``` montre les sorties du code mais pas le code lui même. 
 Cela explique pourquoi on ne voit pas le contenu du premier chunk de code dans le document compilé. Toutes les options de chunks sont décrites dans la [documentation de Rmarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352).
 
-Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes aux chunks du document. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document. Cela fera apparaître dans le document compilé le code ayant généré l'ouput (à part si vous spécifiez explicitement le contraire dans les options d'un chunk en particulier).
+Le premier chunk doit être conservé. Sa fonction `knitr::opts_chunk$set` permet de configurer des options communes aux chunks du document. En l'occurrence, par défaut, cette fonction impose ```echo = TRUE``` pour tous les chunks du document. Cela fera apparaître dans le document compilé le code ayant généré l'output (à part si vous spécifiez explicitement le contraire dans les options d'un chunk en particulier).
 
 Dans ce premier chunk, à la suite de l'appel à la fonction`knitr::opts_chunk$set`, rajoutez en code R l'import des packages que nous allons utiliser: ``"tidyverse", "plotly", "DT"``. Exécutez le chunk, au moyen de la petite flèche verte en haut à droite du chunk, ou avec `Ctrl+Shift+Enter`.
 
@@ -90,7 +90,7 @@ Dans ce premier chunk, à la suite de l'appel à la fonction`knitr::opts_chunk$s
 Vous pouvez ensuite supprimer la suite du document (l'exemple fourni par défaut), car nous allons remplir le document de nos propres analyses.
 
 
-> **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `setwd()`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répoertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
+> **Attention** N'essayez pas dans la suite du TP de changer le répertoire du travail avec `setwd()`, car dans les documents Rmarkdown, le répertoire de travail est toujours le répertoire dans lequel le document Rmarkdown est enregistré. A l'avenir, nous nous déplacerons toujours de manière relative à ce répertoire là.
 
 # Créer une section de contexte en `markdown`
 
@@ -100,7 +100,7 @@ L'opérateur `#` permet d'indiquer un titre. Pour un sous titre, `##` peut être
 
 Décrivez ensuite la publication et les données que nous allons utiliser. Vous pouvez rappeler les auteurs, le titre de la publication, citez des phrases de l'abstract ou de la publication si cela vous paraît pertinent.
 
-Compilez pour vous assurer que votre section apparaît dans le document.
+Compilez pour vous assurer que votre section apparaît dans le document HTML.
 
 
 ## Inclure un lien vers une ressource en ligne
@@ -122,7 +122,7 @@ Ajoutez ce lien à votre section de contexte et recompilez.
 
 ## Mise en italique/gras
 
-Les noms d'espèces végétales comme *Arabidopsis thaliana* doivent être écrits en italique. L'opérateur `*` placé de chaque côté des mots désirés permet de mettre du texte en l'italique. Ajoutez le nom de l'organisme étudié à votre contexte (si ce n'est pas déjà fait), et placez le en italique.
+Les noms d'espèces végétales comme *Arabidopsis thaliana* doivent être écrits en italique. L'opérateur `*` placé de chaque côté des mots désirés permet de mettre du texte en l'italique. Ajoutez le nom de l'organisme étudié à votre contexte (si ce n'est pas déjà fait), et placez-le en italique.
 
 > **Challenge** Comment mettre des mots en gras? (Indice: parcourez la [documentation de  Rmakdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.116494478.901299713.1598125979-1765392125.1580035352))
 
@@ -140,19 +140,20 @@ Pour illustrer le sujet d'étude, on se propose d'inclure un image de fleurs d'A
 ```
 
 
-> **Challenge** Si vous le souhaitez, choisissez une autre image en lien avec le sujet et remplacez l'image précédente par votre nouvelle image (n'oubliez pas de mettre à jour la source également).
+> **Challenge** Si vous le souhaitez, choisissez une autre image en lien avec le sujet (comme une figure de l'article) et remplacez l'image précédente par votre nouvelle image (n'oubliez pas de mettre à jour la source également).
 
 # Import et affichage des données avec `datatable`
 
 Créez maintenant une nouvelle section intitulée "Analyse de la floraison", et une sous-section "Import et affichage des données".
-Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`, ou le bouton de l'interface ![](./Images/newChunk.PNG)). A l'intérieur, importez le jeu de données comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier.
+Créez un nouveau chunk ( `avec Ctrl + Alt + I`, ou sous OS X: `Cmd + Option + I`, ou avec le bouton de l'interface ![](./Images/newChunk.PNG)). A l'intérieur, importez le jeu de données `session5_rmarkdown/data/burghardt_et_al_2015_expt1.txt` comme appris dans les séances précédantes, avec une fonction adaptée au type du fichier (attention, vous devez naviguer jusqu'au fichier de données depuis le répertoire de travail, qui est le répertoire qui contient votre document Rmarkdown).
 
 Exécutez le chunk. Vous devriez voir apparaître en dessous un aperçu de la sortie de la fonction d'import des données si elle retourne des messages. Si vous ne souhaitez pas voir apparaître ces messages dans le document compilé, donnez un argument au chunk afin de supprimer les messages générés par le code R : `message=FALSE`. Recompilez pour vérifier le résultat.
 
 > **Challenge** Supprimez également les messages du chunk de setup relatifs à l'import des libraries
 
-Nous souhaitons maintenant montrer les données brutes au lecteur du rapport. Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données, comme vu dans les séances précédantes.
+Nous souhaitons maintenant montrer les données brutes au lecteur du rapport. Dans le chunk d'import des données, vous pouvez appliquer les fonctions que vous souhaitez pour inspecter les données, comme vu dans les séances précédantes (pour avoir un aperçu des stypes de données contenus dans le dataframe, par exemple).
 
+Nous aimerions maintenant exposer les données brutes au lecteur du rapport.
 Affichez les données de manière simple, en écrivant dans le chunk :
 
 ```{r, eval=FALSE}
@@ -162,7 +163,7 @@ expt1
 (``expt1` étant le nom de la variable contenant les données)
 
 
-Compilez. Vous devriez voir les données (en partie), mais elles ne sont pas présentées d'une manière très agréable à lire.
+Compilez. Vous devriez voir les données (en partie), mais elles ne sont pas présentées en entier, ni d'une manière très agréable à lire.
 
 L'interactivité des rapports HTML permet d'inclure au rapport des tables de données interactives, grâce au package `DT` et sa fonction `datatable`. Remplacez l'affichage précédent par un appel à `datatable` comme suit et observez le résultat dans le document compilé:
 
@@ -178,12 +179,11 @@ L'option `pageLength` permet d'afficher 10 lignes des données par page de table
 
 # Intégration de graphiques `ggplot` au rapport
 
-
 ## Création d'un graphique
 
-Nous allons maintenant réaliser une visualisation des données de floraison. Créez une sous-section "Visualisation des données de floraison". Annoncez en markdown que vous allez retirer les valeurs manquantes, et faites-le dans un chunk au dessous. 
+Nous allons maintenant réaliser une visualisation des données de floraison. Créez une sous-section "Visualisation des données de floraison". Annoncez en markdown dans cette sous-sectoin que vous allez retirer les valeurs manquantes, et faites-le dans un chunk au dessous. 
 
-En dehors du chunk, décrivez la visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable `rosette.leaf.num`) en fonction du nombre de jours jusqu'à floraison (variable `days.to.flower`), et séparer les observations par une la couleur correspondant à la photopériode (variable `day.length`). Réalisez ce graphe avec `ggplot2` (n'oubliez pas de lui donner un titre) dans un nouveau chunk.
+Puis, décrivez la visualisation que vous souhaitez faire. Ici, nous allons montrer le nombre de feuilles des rosettes (variable `rosette.leaf.num`) en fonction du nombre de jours jusqu'à floraison (variable `days.to.flower`), et séparer les observations par une couleur correspondant à la photopériode (variable `day.length`). Réalisez ce graphe avec `ggplot2` (n'oubliez pas de lui donner un titre) dans un nouveau chunk.
 
 
 Compilez et observez le résultat.
@@ -205,13 +205,13 @@ L'image est de taille assez petite. Grâce aux options de chunk, il va nous êtr
 
 Note : cela pourrait être fait de manière globale au document en ajoutant des paramètres  à ```knitr::opts_chunk$set(echo = TRUE)``` dans le tout premier chunk.
 
-Recompliez le document pour vérifier que le changement de taille a bien eu lieu.
+Recompliez le document pour vérifier que le changement de taille et l'ajout de la légende ont bien eu lieu.
 
 
 
 # Ajouter une table des matières
 
-Pour ajouter une table des matières clickable au document (comme sur ce sujet de travaux pratiques), il faut modifier l'entête YAML du document. Vous pouvez vous inspirer de cet exemple :
+Pour ajouter une table des matières clickable au document (comme sur ce sujet de travaux pratiques par exemple), il faut modifier l'entête YAML du document. Vous pouvez vous inspirer de cet exemple :
 
 ```{yaml}
 ---
@@ -238,8 +238,7 @@ Il est également possible de numéroter les sections avec `number_sections: TRU
 
 Nous souhaitons référencer correctement la publication sur laquelle nous travaillons. Pour cela, nous allons utiliser un fichier qui contient les informations de cette publication dans un format standardisé :  le format `.bib`. Ce fichier se trouve déjà dans le répertoire `session5_rmarkdown/data`. Ouvrez le dans `Rstudio` et inspectez le rapidement. Vous noterez que la référence est identifiée par le label Burghardt2015 (premier champs).
 
-+ Ajoutez dans l'entête YAML un champs `bibliography`
-Comme dans cet exemple (notez l'utilisation du `../` pour remonter au répertoire parent `session5_rmarkdown`, car votre document se trouve dans `session5_rmarkdown/materiel`):
++ Ajoutez dans l'entête YAML un champs `bibliography`, comme dans cet exemple (notez l'utilisation du `../` pour remonter au répertoire parent `session5_rmarkdown`, car votre document se trouve dans `session5_rmarkdown/materiel`):
 
 ```{yaml}
 ---
@@ -254,7 +253,7 @@ bibliography: ../data/biblio.bib
 + Citez cette référence dans votre section contexte, à la suite de la mention de la publication, comme suit: `[@Burghardt2015]` (en effet, la syntaxe de citation est `[@label de la référence dans le .bib]`).
 
 
-Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèse. De plus, la référence détaillée a dû apparaître en bas du rapport.
+Compilez le document. Vous devriez remarquer qu'à l'endroit de la citation dans le contexte, le nom et la date de la publication apparaissent entre parenthèses. De plus, la référence détaillée a dû apparaître en bas du rapport.
 
 + Ajoutez une dernière section `# Références` vide à la fin du document, pour que les références automatiquement ajoutées en fin de document aient leur section. Recompilez et pour vérifier que tout est comme souhaité.
 
@@ -291,7 +290,7 @@ output:
   
 #   <span style="color: blue;">A faire pour la prochaine séance </span>
 
-A partir de ce que nous avons vu aujourd'hui, choisissez le script `.R` d'une session précédante, comme par exemple la séance 3 de réorganisation des données, et créez un rapport en `Rmarkdown` à partir de ce script. Vous pouvez par exemple créer un chunk par question ou notion principale de la séance, décrire la démarche de la séance et ce que fait chaque chunk, et créer une architecture (sections, sous-section) pertinente au rapport.
+A partir de ce que nous avons vu aujourd'hui, choisissez le script `.R` d'une session précédante, comme celui de la séance 3 consacrée à réorganisation des données, et créez un rapport en `Rmarkdown` à partir de ce script. Vous pouvez par exemple créer un chunk par question ou notion principale de la séance, décrire la démarche et ce que fait chaque chunk, et créer une architecture (sections, sous-sections) pertinente au rapport.
 
 # Extras
 
