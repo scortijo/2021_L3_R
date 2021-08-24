@@ -204,8 +204,8 @@ La plupart d'entre nous utilisent à un moment donné ou à un autre, un tableur
 >
 > Une étude a été faite pour déterminer le sexe et le poids des animaux attrapés dans différentes parcelles expérimentales. L'expérience a été répétées sur deux années.      
 >
-> - Ouvrez le fichier "dataset_messy.xls" situé dans le dossier "session1_organisation/data". Ce fichier contient >les données enregistrées lors de l'étude.
-> - A partir des bonnes habitudes d'organisation indiquées plus haut, identifiez les problèmes de format dans ces >données. Discutez-en avec votre voisin.e
+> - Ouvrez le fichier "dataset_messy.xls" situé dans le dossier "session1_organisation/data". Ce fichier contient les données enregistrées lors de l'étude.
+> - A partir des bonnes habitudes d'organisation indiquées plus haut, identifiez les problèmes de format dans ces données. Discutez-en 
 >
 
 ## Problèmes dans l'organisation des données
