@@ -26,11 +26,9 @@ Ajouter des informations sur les données ou personnaliser un graphique sont par
 
 Aujourd’hui nous allons voir comment:
 
-- Ajouter des statistiques descriptives à des graphiques
+1. Ajouter des statistiques descriptives à des graphiques
 
-- Changer l'ordre des catégories dans un graphique
-
-- <span style="color: red;">**Ajouter correlation scatterplot??** </span>  
+2. Changer l'ordre des catégories dans un graphique
 
 
 
@@ -61,19 +59,287 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 
 <br>
 
-## Ajouter des statistiques descriptives à des graphiques avec `group_by()` et `summarise()`
+## Ajouter des statistiques descriptives à des graphiques 
+
+
+#### Extraire les statistiques descriptives avec `group_by()` et `summarise()`
+
+
+Parfois nous voulons résumé nos données dans une table plus petite et en extraire des statistiques descriptives (moyenne, médiane, nombre d'observations ...).
+
+Ce type d'opération peut être faite avec la combinaison de deux fonctions: `group_by()` et `summarise()`.
+
+Notez que `group_by()` ne change pas le format de la table de données. Cette fonction liste des lignes qui doivent être groupées. Nous pouvons ensuite utiliser `summarise()` pour extraire des statistiques descriptives de chaque groupe.
+
+
+![](images/group_by_summarise.png)
 
 
 
+Par exemple, nous pouvons extraire la moyenne pour le temps de floraison de chaque génotype:  
 
+```{r}
+
+group_by(expt1, genotype) %>% 
+summarise(mean.days.to.flower = mean(days.to.flower, na.rm = TRUE))
+
+```
+
+L'output contient deux colonnes:
+
+- `genotype` qui est la colonne qui a servi à grouper les données
+
+- `mean.days.to.flower` qui est la colonne crée par la fonction `summarise`
+
+Il n'y a que 10 lignes dans cette table, une par génotype.
+
+
+Il est possible de grouper les données par plus d'une variable.
+
+Par exemple nous pouvons mesurer la moyenne, la médiane et l'écart type pour chaque génotype aux différentes températures:
+
+
+```{r}
+
+group_by(expt1, genotype, temperature) %>% 
+summarise(mean.days.flower = mean(days.to.flower, na.rm = TRUE),
+          sd.days.flower = sd(days.to.flower, na.rm = TRUE),
+          median.days.flower = median(days.to.flower, na.rm = TRUE))
+```
+
+Il y a maintenant 20 lignes dans la table, car chaque génotype apparaît deux fois (12 et 22 degrés)
+
+
+Une autre information utile que nous pouvons extraire est le nombre d'observation pour chaque groupe. Pour cela nous devons utiliser la fonction `n()`, dans `summarise()`  qui compte le nombre de ligne pour chaque groupe.
+
+Par exemple, pour connaitre le nombre d'observations pour chaque génotype:
+
+
+```{r}
+
+group_by(expt1, genotype) %>% 
+summarise(n.obs = n())
+```
+
+Attention, `n()` ne peut être utilisé que dans la fonction `summarise()`. Il existe une autre fonction, `count()` qui permet de faire la même chose sans avoir besoin d'utiliser `group_by()` et `summarise()`:
+
+
+```{r}
+
+count(expt1, genotype)
+
+```
+
+
+
+**Attention:** Quand vous utilisez la fonction `group_by()`, les lignes du tableau restent groupées en fonction de la variable utilisée. Les opération suivantes vont utiliser ces groupes, ce qui peut poser problème. Pensez à utiliser la fonction `ungroup()` pour enlever les groupes quand vous avez fini avec `group_by()` et `summarise()`
+
+
+> **Exercice:**
+>
+> Calculez la médiane, la moyenne et l'écart-type de `blade.length.mm` et `total.leaf.length.mm` pour chaque `genotype` au différentes `day.length`. Ajoutez aussi le nombre d'observations de chaque groupe 
+>
+>
+
+<br>
+
+#### Insérer les statistiques descriptives à un graphique
+
+Maintenant que nous avons extrait des statistiques descriptives de nos données, nous pouvons les ajouter à un graphique.
+Pour cela, nous devons:
+
+- Utiliser `group_by()` et `summarise()` pour extraire les statistiques descriptives
+
+- Utiliser une fonction de la famille `*_join()` pour les combiner avec nos données
+
+- Nous pouvons maintenant faire un graphique contenant les données et les statistiques descriptives.
+
+Par exemple, prenons ce boxplot:
+
+
+```{r}
+
+  ggplot( expt1, aes(genotype, rosette.leaf.num)) +
+  geom_boxplot()
+```
+
+
+Si nous voulons y ajouter le nombre d'observation pour chaque groupe, nous utilisons le script suivant:
+
+```{r}
+
+group_by(expt1, genotype) %>% 
+  summarise(n.obs=n()) %>% 
+  mutate(n.obs=paste("n =",n.obs)) %>% 
+  full_join(expt1, by="genotype") %>% 
+  ggplot( aes(genotype, rosette.leaf.num)) +
+  geom_boxplot() +
+  geom_text(aes(label=n.obs, x=genotype, y=0))
+```
+
+<br>
+
+> **Exercice**
+>
+> Faites un voilin plot de `total.leaf.length.mm` pour chaque génotype et ajoutez la médiane pour chaque groupe (avec un point coloré) ainsi que le nombre d'observation de chaque groupe
+>
+>
 
 
 <br>
 
+Avec cette même méthode il est aussi possible d'ajouter des informations pour des groupes formés à partir de deux variables.
+
+Par exemple, si nous voulons faire un boxplot `rosette.leaf.num` pour chaque génotype en fonction de la température et y ajouter le nombre d'observations des différents groupes, nous utilisons le script suivant:
+
+
+
+```{r}
+
+group_by(expt1, genotype, fluctuation) %>% 
+  summarise(n.obs=n()) %>% 
+  mutate(n.obs=paste("n =",n.obs)) %>% 
+  full_join(expt1, by=c("genotype", "fluctuation")) %>% 
+  ggplot( aes(genotype, rosette.leaf.num, fill=fluctuation)) +
+  geom_boxplot() +
+  geom_text(aes(label=n.obs, x=genotype, y=-2),position=position_dodge(0.8), angle=45)
+```
+
+
+<br>
+
+
+
+
+
 ## Changer l'ordre des catégories dans un graphique en utilisant des `facteurs`
 
+Par défaut, les catégories dans un graphique sont ordonnées alphabétiquement. Bien souvent ce n'est pas l'ordre que nous voulons.
 
-## Améliorons des graphiques de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+Par exemple, essayons de reproduire le graphique suivant:
+
+![](images/Burghard_fig2B.png)
+
+
+
+
+```{r}
+filter(expt1, temperature==22, day.length==16) %>% 
+ggplot(aes(x=genotype, y=days.to.bolt, fill=fluctuation)) +
+  geom_boxplot()
+
+```
+
+Les génotypes ne sont pas dans le même ordre car ggplot a utilisé l'ordre alphabétique, même s'ils n'étaient pas dans cet ordre dans le tableau.
+
+Afin de changer l'ordre nous devons utiliser un autre type de variable, les **facteurs**. Les facteurs sont des variables spéciales de type caractère pour lesquels nous pouvons définir des niveaux ( _levels_ ), c'est à dire les modalités prédéfinies de cette variable. Ces niveaux sont les valeurs uniques de la variable auxquelles un ordre peut être attaché.
+
+
+Nous pouvons convertir une variable en facteurs en utilisant la fonction `factor()`:
+
+
+```{r}
+# Convertissons genotype dans expt1 en facteurs:
+factor(expt1$genotype)
+```
+
+Nous pouvons voir qu'il y a 10 niveaux, correspondant à chacun des génotypes, et qu'ils sont par ordre alphabétique. 
+
+Nous pouvons spécifier l'ordre des niveaux dans la fonction: 
+
+```{r}
+factor(expt1$genotype, levels = c("Ler-1", "fca-6", "Col Ama", "flc-3 FRI", "Col FRI", "ld-1", "flk-1",
+                                  "fve-3", "prmt5 FRI","vin3-4 FRI"))
+```
+
+Maintenant que nous avons converti la variable ne facteur avec l'ordre des niveaux que nous voulons, nous pouvons l'utiliser pour représenter les variables catégoriques avec l'ordre que nous voulons dans un graphique:
+
+
+
+```{r}
+
+mutate(expt1, genotype = factor(genotype, levels = c("Ler-1", "fca-6", "Col Ama", "flc-3 FRI", "Col FRI",
+                                                     "ld-1", "flk-1", "fve-3", "prmt5 FRI","vin3-4 FRI"))) %>% 
+  filter( temperature==22, day.length==16) %>%
+  ggplot(aes(x=genotype, y=days.to.bolt, fill=fluctuation)) +
+  geom_boxplot()
+```
+
+Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour cela nous utilisons la fonction `fct_reorder()` dans le package `forcats` (qui est inclus dans `tidyverse`)
+
+
+```{r}
+
+  filter(expt1, temperature==22, day.length==16) %>% 
+  mutate( genotype = fct_reorder(genotype, days.to.bolt)) %>% 
+  ggplot(aes(x=genotype, y=days.to.bolt, fill=fluctuation)) +
+  geom_boxplot()
+
+```
+
+
+> **Exercice**
+>
+> Représenter des violin plot de `cauline.leaf.num` pour les génotypes de `background` "Col", colorés par la température et ce uniquement pour les plantes sans fluctuation de température et qui sont en jours longs (16 h). 
+>
+> Ordonnez les génotypes selon ces deux cas (un graphique par cas):
+>
+> -1 Dans l'ordre suivant: "Col Ama", "ld-1", "fve-3", "flk-1"
+>
+> -2 Dans l'ordre de la valeur de `cauline.leaf.num`
+
+
+
+## Retravailler un graphique pour suivre les règles de bonne pratique 
+
+Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)  que vous avez reproduit à la fin de la séance 2
+![](images/Burghard_fig2BC.png)
+
+<br>
+
+> **Mise en pratique**
+>
+> En utilisant les [règles de bonne pratique pour des graphiques](session3_plots_reorganisation/materiel/ggplot_suite.html) que nous avons vu lors de la séance 3, discutez en groupes des améliorations possibles de ce graphique.
+>
+> Ensuite, en utilisant les outils que vous avez vu ces dernières semaines, effectuez ces changements.
+>
+>
+> Rappel: utilisez `filter()` pour sélectionner une partie des données, `mutate()` pour ajouter ou changer des colonnes, une fonction de la famille `*_join()` pour combiner deux tableaux et la combinaison de `group_by()` et `summarise()` pour extraire des statistiques descriptives. 
+> N'oubliez pas d'utiliser des pipes (`%>%`) pour faire des chaines de commandes
+>
+
+
+## Ressources et liens utiles:
+
+- [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
+
+
+<br>
+
+******
+  
+#   <span style="color: blue;">A faire pour la prochaine séance </span>
+
+La semaine prochaine nous allons faire un examen blanc, vous demandant d'explorer un jeu de donnée. Il s'agira d'une mise en pratique des fonctions que nous avons vu jusqu'ici. Vous devrez écrire l'ensemble dans un format Rmarkdown.
+
+**Afin de vous y préparer, nous vous recommandons de reprendre l'ensemble des cours et de vous exercer à refaire les exercices (sans avoir recours aux solutions si possible).**
+
+Lors de l'examen blanc (et de l'examen final) vous aurez accès au cours et à vos scripts. Vous allez être évalué sur votre capacité à utiliser les différentes fonctions et à comprendre leur utilité, et non sur de la connaissance pure.
+
+
+
+******
+
+
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+
+
+
+
+
 
 
 

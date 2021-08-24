@@ -91,7 +91,7 @@ expt1
 
 Cela va montrer les 10 premières lignes du tableau ainsi que les colonnes qui rentrent dans l'écran. 
 
-> **Challenge:** Combien y a-t-il de lignes et colonnes dans les données?
+> **Exercice:** Combien y a-t-il de lignes et colonnes dans les données?
 
 Une autre option est d'utiliser la fonction  ``View()`` pour accéder à une table interactive où il est possible de trier et filtrer les données sans modifier l'objet:
 
@@ -105,7 +105,7 @@ View(expt1)
 glimpse(expt1)
 ```
 
-> **Challenge** Quel est le type des variables dans les données ? 
+> **Exercice** Quel est le type des variables dans les données ? 
 
 - ``dim()`` indique les dimensions du jeu de données (nombre de lignes et colonnes).
 
@@ -139,9 +139,9 @@ Heureusement, pour nous aider, une aide est disponible dans R en tapant le nom d
 
 Bien sur, une recherche sur internet est aussi une solution très efficace pour trouver de l'aide! 
 
-> **Challenge** que fait la fonction ``head()`` ? 
+> **Exercice** que fait la fonction ``head()`` ? 
 
-> **Challenge** Comment regarder les dernières lignes de le notre jeu de données? (indice: ``?tail``)
+> **Exercice** Comment regarder les dernières lignes de le notre jeu de données? (indice: ``?tail``)
 
 
 ## Inspection visuelle des données
@@ -152,7 +152,7 @@ Pour avoir une vue d'ensemble du jeu de données et détecter des problèmes, no
 vis_dat(expt1)
 ```
 
-> **Challenge** Quel est le type de données le plus courant dans le jeu de données ? 
+> **Exercice** Quel est le type de données le plus courant dans le jeu de données ? 
 Y a-t-il des problème?
 
 
@@ -170,7 +170,7 @@ Pour la formation, nous allons enlever les lignes contenant des données manquan
 expt1 <- drop_na(expt1)
 ```
 
-> **Challenge** Combien de lignes nous reste-il? 
+> **Exercice** Combien de lignes nous reste-il? 
 
 
 # Plots! Plots! Plots!
