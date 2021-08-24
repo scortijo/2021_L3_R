@@ -247,7 +247,7 @@ Pour cela, dans excel, choisissez "Enregistrez sous" et ensuite sélectionnez le
 >
 >- Ouvrez le fichier "dataset_tidy.xls" dans le dossier "session1_organisation/data"
 >- Regardez le tableau, est-ce que vous pouvez comprendre ce qu'il contient?  
->- Exportez les données au format _TXT_ (séparateur: tabulation) et sauvez le dans le dossier >"session1_organisation/data"  
+>- Exportez les données au format _TXT_ (séparateur: tabulation) et sauvez le dans le dossier "session1_organisation/data"  
 
 
 
