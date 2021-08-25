@@ -49,7 +49,13 @@ Correction de l'exam blanc et trucs et astuces
 
 [Matériel organisation des données](session1_organisation/materiel/organisation_session.html)  
 
+[Solution des exercices](session1_organisation/materiel/organisation_session_solution_exercices.html)
+
+
+
 [Matériel intro à R](session1_organisation/materiel/intro_R.html)  
+
+[Solution des exercices](session1_organisation/materiel/intro_R_solution_exercices)
 
 
 ### Séance 2: Réaliser des graphiques
@@ -67,7 +73,11 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Partie 1 - Matériel réaliser des graphiques - suite](session3_plots_reorganisation/materiel/ggplot_suite.html)  
 
+
+
 [Partie 2 - Réorganisation de données](session3_plots_reorganisation/materiel/reorganisation_donnees.html)  
+
+[Solution des exercices](session3_plots_reorganisation/materiel/reorganisation_donnees_solution_exercices.html)
 
 
 
@@ -75,12 +85,23 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Réorganisation de données avancée](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
 
+[Solution des exercices](session4_reorganisation_avancee/materiel/reorganisation_avancee_solution_exercices.html)
+
+
+
 
 ### Séance 5
 
 [Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
 
+[Solution des exercices](session5_rmarkdown/materiel/Solution.html)
+
+
+
 [Partie 2 - Mise en pratique, ajouter des informations sur des graphiques](session5_rmarkdown/materiel/amelioration_graphiques.html) 
+
+[Solution des exercices](session5_rmarkdown/materiel/amelioration_graphiques_solution_exercices.html)
+
 
 
 
