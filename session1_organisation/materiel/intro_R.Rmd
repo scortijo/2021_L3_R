@@ -73,6 +73,8 @@ Pour cela, il faut utiliser `<-` avec le nom de l'objet à gauche et la commande
 mon_objet <- 3 + 2
 ```
 
+**Attention**: Ce que nous appelons ici un _objet_ peut aussi s'appeler une _variable_. Ces deux termes ne veulent pas dire exactement la même chose mais pour un soucis de simplicité nous avons fait le choix de toujours utiliser le terme _objet_ dans ce cours (même si ce n'est toujours le terme exact)
+
 Nous pouvons ensuite réutiliser ce qui est stocké dans l'objet pour différentes opérations. Par exemple:
 
 ```{r}
