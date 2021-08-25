@@ -80,7 +80,7 @@ expt1.cm <- mutate(expt1, total.leaf.length.cm = total.leaf.length.mm/10)
 colnames(expt1.cm)
 ```
 
-Nous pouvons aussi créer et modifier plus d'une colonne à la fois, en les séparant pas une virgule (`,`) dans la fonction `mutate()`:
+Nous pouvons aussi créer et modifier plus d'une colonne à la fois, en les séparant par une virgule (`,`) dans la fonction `mutate()`:
 
 ```{r}
 # Créez deux nouvelles colonnes
@@ -170,7 +170,7 @@ Le temps de floraison pour toutes les plantes sont dans la même colonne dans no
 Heureusement, nous pouvons utiliser la fonction `spread()` pour reformater notre tableau.
 
 
-Pour y voir plus clair, ne gardons que les colonnes qui vont nous être utile à la création du tableau:
+Pour y voir plus clair, ne gardons que les colonnes qui vont nous être utiles à la création du tableau:
 
 
 
@@ -269,7 +269,7 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 ## Ordonner un tableau en utilisant les valeurs d'une colonne 
 
 
-Parfois, nous voulons ordonnées nos données en fonction des valeurs d'une colonne.
+Parfois, nous voulons ordonner nos données en fonction des valeurs d'une colonne.
 
 Pour cela, nous pouvons utiliser la fonction `arrange()`: 
 
@@ -366,7 +366,7 @@ Ces fonctions peuvent être utiles pour comparer de gros jeux de données :
 ## Ressources et liens utiles:
 
 - [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-- [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
+- [Chapitre sur la réorganisation de données du livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
 
 
 <br>
