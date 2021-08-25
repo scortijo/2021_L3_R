@@ -24,7 +24,7 @@ Dans cette seconde partie de la section dédiée à la visualisation de données
 
 3. Inclure du dynamisme et de l'interactivité à vos graphique
 
-4. Apprendre les meilleures pratique pour visualiser des données
+4. Apprendre les meilleures pratiques pour visualiser des données
 
 
 # Mise en place
@@ -155,7 +155,7 @@ ggarrange(panelA, panelB, nrow=2, labels =c("A", "B"),heights = c(1.5, 2))
 
 ## Créer des graphiques avec des animations
 
-Si nous postons les graphiques en ligne, cela peut apporter un plus d'inclure une animation dans le graphique, à condition que cela apporte des informations supplémentaire. C'est possible avec le package `gganimate`!
+Si nous postons les graphiques en ligne, cela peut apporter un plus d'inclure une animation dans le graphique, à condition que cela apporte des informations supplémentaires. C'est possible avec le package `gganimate`!
 
 Tout d'abord, chargeons le package `gganimate`:
 
@@ -236,9 +236,9 @@ Comme il existe de nombreuses options, utilisez [ce guide avec un arbre de déci
 >
 > Discutez avec votre voisin des deux types de graphique suivant. 
 >
-> Les avez vous déjà utilisé? Si oui, pour représenter quel type de données?
+> Les avez vous déjà utilisés? Si oui, pour représenter quel type de données?
 >
-> Sont ils appropriée à vos données et à votre question? Si non, quel autre
+> Sont ils appropriés à vos données et à votre question? Si non, quel autre
 > type de graphique utiliseriez vous maintenant que vous savez utiliser ggplot?
 >
 >
@@ -321,7 +321,7 @@ Voici un exemple avec deux graphiques, l'un avec l'axe des y commençant à zér
 
 De manière générale:
 
-- Si vous utilisez des barplot ou des points avec différentes catégories à comparer, faites commencer l'axe y à zéro.
+- Si vous utilisez des barplots ou des points avec différentes catégories à comparer, faites commencer l'axe y à zéro.
 
 - Si vous utilisez des lignes (comme dans le cas de séries chronologiques), il n'est pas nécessaire de faire commencer l'axe des y à zéro. En effet ce type de graphique permet de montrer l'évolution d'une observation par exemple au cours du temps. Alors que les barplots sont utilisés pour montrer la différence entre deux (ou plusieurs) groupes
 
@@ -345,7 +345,7 @@ Voyons trois méthodes plus en détail:
 
 Par défaut, R va ordonner les catégories de vos variable par ordre alphabétique. Sur excel, l'ordre des variable dans le tableau est utilisé. Cependant cet ordre n'est pas toujours optimal.
 
-Vous pouvez changer l'ordre des catégories de vos variable sur R (nous verrons comment en séance 5). Voici quelques conseils pour bien choisir l’ordre dans lequel représenter les données.
+Vous pouvez changer l'ordre des catégories de vos variables sur R (nous verrons comment en séance 5). Voici quelques conseils pour bien choisir l’ordre dans lequel représenter les données.
 
 - Si vous comparez des données pour un (ou des) mutant à un wild type, ou si vous comparez un (ou plusieurs) traitement à un contrôle, **commencez toujours par la référence**, c.a.d le wild type ou le contrôle.
 
@@ -421,7 +421,7 @@ display.brewer.all()
 ```
 
 
-Surtout vous pouvez facilement y sélectionner les palettes de couleurs qui sont aussi visible pour les daltoniens avec la commande:
+Surtout vous pouvez facilement y sélectionner les palettes de couleurs qui sont aussi visibles pour les daltoniens avec la commande:
 
 
 ```{r  }
@@ -452,7 +452,7 @@ Maintenant que nous avons accès à toutes ces couleurs, encore faut-il bien les
 > [source des graphiques](https://blog.datawrapper.de/colors/)
 
 
-Voici quelques conseils pour que la couleur dans les graphiques soit votre allié et non l'inverse.
+Voici quelques conseils pour que la couleur dans les graphiques soit votre alliée et non l'inverse.
 
 - **N'utilisez des couleurs que si cela est nécessaire** au graphique et ajoute des informations. Sinon cela va juste créer une distraction et compliquer le graphique. Vous pouvez utiliser des couleurs pour représenter différents groupes, montrer un gradient ou insister sur certains points.
 De même ne colorez pas le fond des graphiques.
@@ -467,7 +467,7 @@ De même ne colorez pas le fond des graphiques.
 
 - Assurez vous qu'il y a assez de contraste entre vos couleurs dans un graphique. Et aussi entre le texte et le fond pour que le texte soit bien lisible.
 
-- **Certaines couleurs sont associées à des idées dans notre culture**. Par exemple le rouge pour _non_ ou _mauvais_ et le vert pour _oui_ ou _bon_. Allez dans ce sens pour rendre vos graphiques plus facile à lire. 
+- **Certaines couleurs sont associées à des idées dans notre culture**. Par exemple le rouge pour _non_ ou _mauvais_ et le vert pour _oui_ ou _bon_. Allez dans ce sens pour rendre vos graphiques plus faciles à lire. 
 
 - Si vous utilisez un gradient, **associez les couleurs claires aux faibles valeurs et les couleurs foncées aux valeurs élevées**. Par contre n'utilisez pas de gradients de couleurs pour des catégories, gardez les pour des valeurs numériques.
 
