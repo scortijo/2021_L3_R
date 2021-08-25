@@ -1,0 +1,103 @@
+---
+title: "organisation session - solution des execices"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+
+******
+
+> ### Exercice 1:
+> Vous avez collecté des données d'expression de deux gènes d'intérêt en réponse à la température dans différentes accessions d'Arabidopsis 
+>
+- Les gènes sont "X" et "Y". 
+- Vous avez mesuré leur expression à trois temps au cours d'une journée pour des plantes poussant à faible (15 C) ou haute (25 C) température. 
+- Vous avez deux accessions d'Arabidopsis: "Col-0" et "Ler-1".
+- Vous avez fait 3 réplicats biologiques. 
+- Comme l’expérience est assez importante, vous avez effectué les mesures d'expression à des dates différentes.  
+> 
+> Quelle méthode utiliseriez vous pour organiser et nommer les fichiers pour que ce soit lisible pour un ordinateur et un humain. Proposez des noms de fichiers  
+
+
+Il y a de nombreuses solutions à cet exercice. 
+Imaginons par exemple que vous ayez un fichier par réplicat et date. Vous pouvez avec des fichier du type:
+
+date1_geneXY_15c25c_col0_ler1_rep1.txt
+date1_geneXY_15c25c_col0_ler1_rep2.txt
+date1_geneXY_15c25c_col0_ler1_rep3.txt
+
+date2_geneXY_15c25c_col0_ler1_rep1.txt
+date2_geneXY_15c25c_col0_ler1_rep2.txt
+date2_geneXY_15c25c_col0_ler1_rep3.txt
+
+date"_geneXY_15c25c_col0_ler1_rep1.txt
+date3_geneXY_15c25c_col0_ler1_rep2.txt
+date3_geneXY_15c25c_col0_ler1_rep3.txt
+
+(en remplaçant date1, date2 et date3 par la vrai date de l'expérience)
+
+
+Ou peut être même que vous avez tous vos réplicat ensemble et vous avez un fichier par date:
+
+date1_geneXY_15c25c_col0_ler1_rep1_2_3.txt
+date2_geneXY_15c25c_col0_ler1_rep1_2_3.txt
+date3_geneXY_15c25c_col0_ler1_rep1_2_3.txt
+
+
+Ou alors vous avez un fichier par gène/température/accession/réplicat et date. Dans ce cas vous aurez beaucoup de fichier du type (uniquement les premiers sont indiqués):
+
+
+date1_geneX_15c_col0_rep1.txt
+date1_geneY_15c_col0_rep1.txt
+date1_geneX_25c_col0_rep1.txt
+date1_geneX_15c_ler1_rep1.txt
+etc...
+
+Certaines approches sont plus appropiées à vos données que d'autres. Le choix de l'organisation et du nom des fichiers se fera en fonction du type de données et de la manière dont elles sont collectées (souvenez vous, ne changez jamais les données brutes)
+
+
+<br>
+
+
+******
+
+<br>
+
+>### Exercice 2:
+>
+> Une étude a été faite pour déterminer le sexe et le poids des animaux attrapés dans différentes parcelles expérimentales. L'expérience a été répétées sur deux années.      
+>
+> - Ouvrez le fichier "dataset_messy.xls" situé dans le dossier "session1_organisation/data". Ce fichier contient les données enregistrées lors de l'étude.
+> - A partir des bonnes habitudes d'organisation indiquées plus haut, identifiez les problèmes de format dans ces données. Discutez-en 
+>
+
+Problèmes d'organisation des données:
+
+- Les données sont éparpillées dans plusieurs tableaux et onglets. De plus les différents tableaux sont organisés différemment les uns des autres.
+
+- Le formatage (gras, cellules colorées etc) et commentaires. Plutôt créer une colonne de type "calibration.de.l.appareil" avec comme options Oui ou Non.
+
+- L'unité (gramme) dans la même cellule que la valeur. Cette donnée doit être indiquée dans le nom de la colonne.
+
+- Le nom d'une espèce est "NA" qui va être identifié par R comme une données manquante. Le changer par une autre abbréviation.
+
+- Pour que ce soit compatible avec R, utiliser `_` plutôt que des espaces entre les mots.
+
+- *Attention aux dates!* Des méthodes différentes ont été utilisées pour rentrer les dates. En plus cela peut causer des problèmes de format d'un tableaur à un autre. Le mieux est de garder le jour, le mois et l'années commes des variables (colonnes) séparées
+
+Le fichier **"dataset_tidy.xls"** contient les mêmes données qui sont bien organisées.
+    
+
+<br>
+
+<br>
+
+

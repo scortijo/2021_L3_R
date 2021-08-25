@@ -236,7 +236,7 @@ setwd("C:/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
 ```
 
 
-> ### Exercice
+
 >
 > Changez votre répertoire de travail pour le dossier où est le cours en suivant les exemples ci-dessus. Confirmez que vous êtes dans le bon dossier en utilisant la commande `getwd()`.
 
@@ -283,7 +283,7 @@ _Note:_ Il existe aussi une fonction `read.csv()`, qui est la fonction par défa
 
 --------
 
-> ### Exercice
+> ### Exercice:
 > 
 > Créez un **script** qui: 
 > 

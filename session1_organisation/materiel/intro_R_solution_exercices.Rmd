@@ -1,0 +1,55 @@
+---
+title: "Intro à R - solution des exercices"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+
+******
+
+
+
+> ### Exercice:
+> 
+> Créez un **script** qui: 
+> 
+> - Charge le package `tidyverse` (en utilisant `library()`)
+> - Défini votre répertoire de travail dans le dossier `session1_organisations`  (en utilisant `setwd()`)
+> - Importe le fichier _dataset_tidy_all.txt_ qui est dans le dossier _data_ (en utilisant `read_csv()`)
+> 
+>
+> **Conseil:** 
+> Si besoin consultez la page d'aide des fonctions en utilisant `?` (par exemple `?library()` pour consulter la page d'aide de la fonction `library()`)
+
+
+Voici la solution de l'exercice (attention le chemin du répertoire de travail est valable uniquement pour le mac de l'instructrice, il peutr être légèrement différent dans votre cas):
+
+```{r, message=FALSE,eval=FALSE}
+
+# Tout d'abord chargez la librarie `tidyverse`:
+library(tidyverse)
+
+# vérifiez votre répertoire de travail. C'est le répertoire dans lequel R charge et sauve les fichiers: 
+getwd()
+
+# Changer le répertoire de travail pour être dans `session1_organisations`:  
+setwd("/Users/sandra/Desktop/2021_L3_R/session1_organisation/")
+
+# Chargez le fichier _dataset_tidy_all.txt_ avec la fonction `read_tsv()`. Utilisez la flèche `<-` pour de garder dans un objet "my_data"  
+my_data <- read_tsv("data/dataset_tidy_all.txt")
+
+# Regarder la table pour vérifier que tout va bien
+View(expt1)
+
+
+```
+
+
