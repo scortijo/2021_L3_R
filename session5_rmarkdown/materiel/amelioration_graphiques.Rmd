@@ -62,7 +62,7 @@ expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
 ## Ajouter des statistiques descriptives à des graphiques 
 
 
-#### Extraire les statistiques descriptives avec `group_by()` et `summarise()`
+### Extraire les statistiques descriptives avec `group_by()` et `summarise()`
 
 
 Parfois nous voulons résumé nos données dans une table plus petite et en extraire des statistiques descriptives (moyenne, médiane, nombre d'observations ...).
@@ -143,7 +143,7 @@ count(expt1, genotype)
 
 <br>
 
-#### Insérer les statistiques descriptives à un graphique
+### Insérer les statistiques descriptives à un graphique
 
 Maintenant que nous avons extrait des statistiques descriptives de nos données, nous pouvons les ajouter à un graphique.
 Pour cela, nous devons:
@@ -319,7 +319,7 @@ Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onli
 
 ******
   
-#   <span style="color: blue;">A faire pour la prochaine séance </span>
+##  <span style="color: blue;">A faire pour la prochaine séance </span>
 
 La semaine prochaine nous allons faire un examen blanc, vous demandant d'explorer un jeu de donnée. Il s'agira d'une mise en pratique des fonctions que nous avons vu jusqu'ici. Vous devrez écrire l'ensemble dans un format Rmarkdown.
 
