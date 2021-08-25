@@ -1,6 +1,11 @@
 ---
 title: "Organisation des données"
-output: html_document
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
