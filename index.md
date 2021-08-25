@@ -62,9 +62,6 @@ Correction de l'exam blanc et trucs et astuces
 
 [Matériel réaliser des graphiques](session2_ggplot/materiel/ggplot_session.html)  
 
-Le jeu de données que nous allons utiliser en exemple dans cette partie du cours a été publié par 
-[Burghardt .. Schmitt (2015)](https://doi.org/10.1111/nph.13799). 
-
 
 [Solution des exercices](session2_ggplot/materiel/ggplot_exercise_solutions.html)
 
