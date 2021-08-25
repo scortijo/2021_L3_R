@@ -373,7 +373,7 @@ Ces fonctions peuvent être utiles pour comparer de gros jeux de données :
 
 ******
   
-#   <span style="color: blue;">A faire pour la prochaine séance </span>
+##   <span style="color: blue;">A faire pour la prochaine séance </span>
 
 A partir ce ce que nous avons vu aujourd'hui:
 
