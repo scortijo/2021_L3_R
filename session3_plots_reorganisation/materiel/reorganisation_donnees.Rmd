@@ -79,7 +79,7 @@ Il est aussi possible de ne garder que les colonnes qui contiennent le mot "bolt
 select(expt1, contains("bolt"))
 ```
 
-> **Exercice** : Sélectionnez les colonnes qui contiennent des données mesurées en mm
+> **Exercice 1** : Sélectionnez les colonnes qui contiennent des données mesurées en mm
 
 
 # Sélectionner des lignes à partir de critères  avec la fonction `filter()`
@@ -151,12 +151,12 @@ Il est aussi possible de sélectionner les plantes qui ont poussées avec 8h de 
 filter(expt1, day.length == "8" | days.to.bolt > 85)
 ```
 
-> **Exercice:**
+> **Exercice 2:**
 > Filtrez les données pour garder les plantes selon les 3 cas de figures suivant (indépendants les uns des autres):
 >
 > 1. Plantes qui **ne sont pas du background Ler** et qui ont été traitées avec **une température fluctuante**.
-> 2. Plantes qui ont fleuries (bolt) en moins de  **57 jours** et qui ont **moins de 40 feuilles**
-> 3. Plantes du génotype **fca-6** pour qui le **blade.ratio n'est pas manquant**
+> 2. Plantes qui ont fleuries (bolt) en moins de  **57 jours** et qui ont **moins de 40 feuilles de rosette**
+> 3. Plantes du génotype **fca-6** pour qui le **blade.length.mm n'est pas manquant**
 
 
 
@@ -187,8 +187,8 @@ expt1 %>%
 ```
 
 
-> **Exercice:**
-> Utilisez `%>%` pour faire les sélections suivantes sur`expt1`:
+> **Exercice 3:**
+> Utilisez `%>%` pour faire la suite de sélections suivantes sur`expt1`:
 >
 > - Gardez les plantes qui _ne sont pas_ du background Ler, et qui ont été traitées avec la température fluctuante. 
 > - Ne gardez que les colonnes qui contiennent le génotype, la longueur de "blade" et des information sur le "bolting" (aide: utilisez `contains()`)
@@ -210,8 +210,8 @@ expt1 %>%
   geom_boxplot()
 ```
 
-> **Exercice:**
-> Faite un violon plot du temps de floraison pour les différents génotypes, mais uniquement pour les plantes ayant poussées en jours court (8h de jour).
+> **Exercice 4:**
+> Faite un violon plot du temps de floraison pour les différents génotypes, mais uniquement pour les plantes ayant poussées en jours court (8h de lumière).
 >
 > Aide: Utilisez `filter()` pour sélectionner les données et ensuite un pipe (`%>%`) pour utiliser l'output pour le graphique.
 
