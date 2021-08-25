@@ -170,7 +170,7 @@ Pour la formation, nous allons enlever les lignes contenant des données manquan
 expt1 <- drop_na(expt1)
 ```
 
-> **Exercice** Combien de lignes nous reste-il? 
+>  Combien de lignes nous reste-il? 
 
 
 # Plots! Plots! Plots!
@@ -232,7 +232,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot()
 ```
 
-> **Exercice:** Pouvez vous dessiner un violin plot? (indice: ``?geom_violin``)
+> **Exercice 1:** Pouvez vous dessiner un violin plot? (indice: ``?geom_violin``)
 
 
 ## Ajout de plusieurs couches
@@ -246,7 +246,7 @@ ggplot(expt1, aes(genotype, rosette.leaf.num)) +
   geom_boxplot()
 ```
 
->**Exercice:** Modifiez le graphique pour que les points soient devant plutôt que derrière les boxplots. 
+>**Exercice 2:** Modifiez le graphique pour que les points soient devant plutôt que derrière les boxplots. 
 
 
 ## Couleurs!
@@ -303,7 +303,7 @@ ggplot(expt1, aes(genotype, days.to.flower)) +
   geom_boxplot(aes(fill = fluctuation), alpha = 0.5)
 ```
 
->**Exercice:** Nous voulons étudier la relation entre le nombre de feuille de rosette et la longueur la limbe des feuilles (en mm) pour les génotypes. 
+>**Exercice 3:** Nous voulons étudier la relation entre le nombre de feuille de rosette et la longueur la limbe des feuilles (en mm) pour les génotypes. 
 >
 > Pour cela, dessinez un scatter plot (`geom_point()`) entre `blade.length.mm` et `rosette.leaf.num` en colorant les points en fonction de `genotype`. 
 >
@@ -331,7 +331,7 @@ ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = genotype)) +
 
 Dans `facet_grid()`, nous utilisons la notation `(ligne ~ colonne)` pour définir les variables qui sont utilisées pour séparer les panneaux en ligne et colonnes.
 
->**Exercice:** Les couleurs n'apportent plus d'information supplémentaire. Pensez à une utilisation plus intéressante des couleurs dans ce graphique. 
+>**Exercice 4:** Les couleurs n'apportent plus d'information supplémentaire. Pensez à une utilisation plus intéressante des couleurs dans ce graphique. 
 
 Il est possible de ne préciser qu'une variable dans `facet_grid()` :
 
@@ -355,7 +355,7 @@ ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = fluctuation)) +
     facet_wrap( ~ genotype)
 ```
 
->**Exercice:** Modifiez le graphique précédent afin de séparer les données (facet) en fonction de `fluctuation` en ligne, et `day.length` en colonne et de colorer les points en fonction du génotype.
+>**Exercice 5:** Modifiez le graphique précédent afin de séparer les données (facet) en fonction de `fluctuation` en ligne, et `day.length` en colonne et de colorer les points en fonction du génotype.
 
 ```{r, echo = FALSE}
 ggplot(expt1, aes(blade.length.mm, rosette.leaf.num, colour = genotype)) +
@@ -367,7 +367,7 @@ En conclusion, **il est possible de représenter de nombreuses informations en c
 
 -----
 
->**Exercice**: Reproduisez le graphique suivant (ou quelque chose d'approchant): 
+>**Exercice 6**: Reproduisez le graphique suivant (ou quelque chose d'approchant): 
 ![Fig. 2B-C of Burghard et al 2015](../materiel/Burghard_fig2BC.png). 
 >
 >**Indice**: facet le graphique avec `day.length` et `temperature` et colorer l'intérieur des boxplot en fonction de `fluctuation`.

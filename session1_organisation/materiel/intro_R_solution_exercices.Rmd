@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 > Si besoin consultez la page d'aide des fonctions en utilisant `?` (par exemple `?library()` pour consulter la page d'aide de la fonction `library()`)
 
 
-Voici la solution de l'exercice (attention le chemin du répertoire de travail est valable uniquement pour le mac de l'instructrice, il peutr être légèrement différent dans votre cas):
+Voici la solution de l'exercice (attention le chemin du répertoire de travail est valable uniquement pour le mac de l'instructrice, il peut être légèrement différent dans votre cas):
 
 ```{r, message=FALSE,eval=FALSE}
 

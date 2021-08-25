@@ -1,5 +1,5 @@
 ---
-title: "organisation session - solution des execices"
+title: "organisation session - solution des exercices"
 output: html_document
 ---
 
@@ -61,7 +61,7 @@ date1_geneX_25c_col0_rep1.txt
 date1_geneX_15c_ler1_rep1.txt
 etc...
 
-Certaines approches sont plus appropiées à vos données que d'autres. Le choix de l'organisation et du nom des fichiers se fera en fonction du type de données et de la manière dont elles sont collectées (souvenez vous, ne changez jamais les données brutes)
+Certaines approches sont plus appropriées à vos données que d'autres. Le choix de l'organisation et du nom des fichiers se fera en fonction du type de données et de la manière dont elles sont collectées (souvenez vous, ne changez jamais les données brutes)
 
 
 <br>
@@ -87,11 +87,11 @@ Problèmes d'organisation des données:
 
 - L'unité (gramme) dans la même cellule que la valeur. Cette donnée doit être indiquée dans le nom de la colonne.
 
-- Le nom d'une espèce est "NA" qui va être identifié par R comme une données manquante. Le changer par une autre abbréviation.
+- Le nom d'une espèce est "NA" qui va être identifié par R comme une données manquante. Le changer par une autre abréviation.
 
 - Pour que ce soit compatible avec R, utiliser `_` plutôt que des espaces entre les mots.
 
-- *Attention aux dates!* Des méthodes différentes ont été utilisées pour rentrer les dates. En plus cela peut causer des problèmes de format d'un tableaur à un autre. Le mieux est de garder le jour, le mois et l'années commes des variables (colonnes) séparées
+- *Attention aux dates!* Des méthodes différentes ont été utilisées pour rentrer les dates. En plus cela peut causer des problèmes de format d'un tableau à un autre. Le mieux est de garder le jour, le mois et l’année comme des variables (colonnes) séparées
 
 Le fichier **"dataset_tidy.xls"** contient les mêmes données qui sont bien organisées.
     
