@@ -135,9 +135,9 @@ count(expt1, genotype)
 **Attention:** Quand vous utilisez la fonction `group_by()`, les lignes du tableau restent groupées en fonction de la variable utilisée. Les opération suivantes vont utiliser ces groupes, ce qui peut poser problème. Pensez à utiliser la fonction `ungroup()` pour enlever les groupes quand vous avez fini avec `group_by()` et `summarise()`
 
 
-> **Exercice:**
+> **Exercice 1:**
 >
-> Calculez la médiane, la moyenne et l'écart-type de `blade.length.mm` et `total.leaf.length.mm` pour chaque `genotype` au différentes `day.length`. Ajoutez aussi le nombre d'observations de chaque groupe 
+> Calculez la médiane et l'écart-type de `blade.length.mm` et `total.leaf.length.mm` pour chaque `genotype` au différentes `day.length`. Ajoutez aussi le nombre d'observations de chaque groupe 
 >
 >
 
@@ -179,7 +179,7 @@ group_by(expt1, genotype) %>%
 
 <br>
 
-> **Exercice**
+> **Exercice 2**
 >
 > Faites un voilin plot de `total.leaf.length.mm` pour chaque génotype et ajoutez la médiane pour chaque groupe (avec un point coloré) ainsi que le nombre d'observation de chaque groupe
 >
@@ -278,7 +278,7 @@ Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour c
 ```
 
 
-> **Exercice**
+> **Exercice 3**
 >
 > Représenter des violin plot de `cauline.leaf.num` pour les génotypes de `background` "Col", colorés par la température et ce uniquement pour les plantes sans fluctuation de température et qui sont en jours longs (16 h). 
 >

@@ -95,9 +95,9 @@ colnames(expt1.cm)
 **Attention!!** Si vous utilisez le nom d'une colonne déjà existante, vous allez la modifier et non créer une nouvelle colonne.
 
 
-> **Exercice:**
+> **Exercice 1:**
 >
-> Créez une nouvelle colonne (blade_ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
+> Créez une nouvelle colonne (blade.ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
 >
 
 
@@ -134,7 +134,7 @@ colnames(expt1.separated)
 -------
 
 
-> **Exercice:** 
+> **Exercice 2:** 
 > 
 > Reproduisez cette figure de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
 > 
@@ -143,7 +143,7 @@ colnames(expt1.separated)
 > 
 > Aide: 
 > 
-> - Créez une nouvelle colonne (blade_ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
+> - Créez une nouvelle colonne (blade.ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
 > 
 > - Créez une nouvelle colonne (nommée par exemple `condition`) en concaténant `day.length`, `temperature` et `fluctuation`
 > 
@@ -152,6 +152,8 @@ colnames(expt1.separated)
 > - Faites un boxplot du ratio de `blade.length.mm` et `total.leaf.length.mm` en fonction de la `condition`, en créant des facets en fonction du background
 > 
 > - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
+>
+> - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
 
 <br>
 
@@ -256,7 +258,7 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 
 
 
-> **Exercice:** 
+> **Exercice 3:** 
 > 
 > Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
 > 

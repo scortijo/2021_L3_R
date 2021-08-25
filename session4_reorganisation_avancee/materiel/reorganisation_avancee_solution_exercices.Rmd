@@ -1,0 +1,115 @@
+---
+title: "Réorganisation des données avancée - solution des exercices"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+```{r echo=FALSE, message=FALSE}
+
+library(tidyverse)
+
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+```
+
+<br>
+
+******
+
+
+
+
+> **Exercice 1:**
+>
+> Créez une nouvelle colonne (blade.ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
+>
+
+
+```{r}
+
+mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm)
+
+```
+
+
+
+<br>
+
+******
+
+
+> **Exercice 2:** 
+> 
+> Reproduisez cette figure de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
+> 
+> ![](images/Burghard_2015_figS8_a.png)
+> 
+> 
+> Aide: 
+> 
+> - Créez une nouvelle colonne (blade.ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
+> 
+> - Créez une nouvelle colonne (nommée par exemple `condition`) en concaténant `day.length`, `temperature` et `fluctuation`
+> 
+> - Sélectionnez les background  `Col ` et `Ler`
+> 
+> - Faites un boxplot du ratio de `blade.length.mm` et `total.leaf.length.mm` en fonction de la `condition`, en créant des facets en fonction du background
+> 
+> - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
+>
+> - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
+
+<br>
+
+
+```{r}
+
+mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm) %>% 
+  unite("condition", day.length, temperature, fluctuation, sep=".") %>% 
+  filter(background%in%c("Col","Ler")) %>% 
+  ggplot(aes(x=condition, y=blade.ratio)) +
+  geom_boxplot()+
+  ylim(0,1) +
+  facet_grid(.~background) +
+  theme(axis.text.x=element_text(angle = 45))
+
+```
+
+
+
+
+<br>
+
+******
+
+
+
+> **Exercice 3:** 
+> 
+> Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
+> 
+> 
+
+
+```{r}
+
+gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>% 
+  ggplot(aes(x=trait, y=length.mm, color=fluctuation)) +
+  geom_boxplot()
+
+```
+
+
+
+
+<br>
+
+******
+

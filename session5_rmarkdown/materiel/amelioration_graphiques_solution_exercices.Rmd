@@ -1,0 +1,113 @@
+---
+title: "Mise en pratique - solution des exercices"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<br>
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+```{r echo=FALSE, message=FALSE}
+
+library(tidyverse)
+
+expt1 <- read_tsv("../data/burghardt_et_al_2015_expt1.txt")
+```
+
+<br>
+
+******
+
+> **Exercice 1:**
+>
+> Calculez la médiane et l'écart-type de `blade.length.mm` et `total.leaf.length.mm` pour chaque `genotype` au différentes `day.length`. Ajoutez aussi le nombre d'observations de chaque groupe 
+>
+>
+
+
+```{r}
+
+group_by(expt1, genotype, day.length) %>% 
+  summarise(mediane.blade.length.mm=median(blade.length.mm, na.rm = TRUE),
+            ecart.type.blade.length.mm=sd(blade.length.mm, na.rm = TRUE),
+            mediane.total.leaf.length.mm=median(total.leaf.length.mm, na.rm = TRUE),
+            ecart.type.total.leaf.length.mm=sd(total.leaf.length.mm, na.rm = TRUE),
+            n.obs=n())
+  
+  
+
+```
+
+
+<br>
+
+******
+
+
+
+> **Exercice 2**
+>
+> Faites un voilin plot de `total.leaf.length.mm` pour chaque génotype et ajoutez la médiane pour chaque groupe (avec un point coloré) ainsi que le nombre d'observation de chaque groupe
+>
+>
+
+```{r}
+
+group_by(expt1, genotype) %>% 
+  summarise( mediane.total.leaf.length.mm=median(total.leaf.length.mm, na.rm = TRUE),
+            n.obs=n()) %>% 
+  mutate(n.obs=paste("n =",n.obs)) %>% 
+  full_join(expt1, by="genotype") %>%
+  ggplot(aes(x=genotype, y=total.leaf.length.mm)) +
+  geom_violin() +
+  geom_point(aes(x=genotype, y=mediane.total.leaf.length.mm), col="red") +
+  geom_text(aes(label=n.obs, x=genotype, y=0))
+  
+  
+  
+
+```
+
+<br>
+
+******
+
+
+
+> **Exercice 3**
+>
+> Représenter des violin plot de `cauline.leaf.num` pour les génotypes de `background` "Col", colorés par la température et ce uniquement pour les plantes sans fluctuation de température et qui sont en jours longs (16 h). 
+>
+> Ordonnez les génotypes selon ces deux cas (un graphique par cas):
+>
+> -1 Dans l'ordre suivant: "Col Ama", "ld-1", "fve-3", "flk-1"
+>
+> -2 Dans l'ordre de la valeur de `cauline.leaf.num`
+
+
+
+
+
+```{r}
+
+# Ordonnez les génotypes dans l'ordre suivant: "Col Ama", "ld-1", "fve-3", "flk-1"
+
+  filter(expt1, background=="Col" & fluctuation=="Con" & day.length==16) %>% 
+  mutate(genotype = factor(genotype, levels = c("Col Ama", "ld-1", "fve-3", "flk-1"))) %>% 
+  ggplot(aes(x=genotype, y=cauline.leaf.num, fill=factor(temperature))) +
+  geom_violin()
+
+
+# Ordonnez les génotypes dans l'ordre de la valeur de `cauline.leaf.num`
+
+  filter(expt1, background=="Col" & fluctuation=="Con" & day.length==16) %>% 
+  mutate(genotype = fct_reorder(genotype, cauline.leaf.num)) %>% 
+  ggplot(aes(x=genotype, y=cauline.leaf.num, fill=factor(temperature))) +
+  geom_violin()
+
+```
