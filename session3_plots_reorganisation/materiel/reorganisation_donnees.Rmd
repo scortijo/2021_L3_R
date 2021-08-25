@@ -238,7 +238,7 @@ write_tsv(expt1.days.to.flower.clean, file = "../data/expt1_days_to_flower_clean
 
 <br>
 
-## Ressources et liens utiles:
+# Ressources et liens utiles:
 
 - [antisèche pour la réorganisation de données](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 - [Chapitre sur la réorganisation de données ddu livre 'R for Data Science'](http://r4ds.had.co.nz/transform.html)
