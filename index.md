@@ -51,7 +51,7 @@ Correction de l'exam blanc et trucs et astuces
 
 [Solution des exercices](session1_organisation/materiel/organisation_session_solution_exercices.html)
 
-
+<br>
 
 [Matériel intro à R](session1_organisation/materiel/intro_R.html)  
 
@@ -73,7 +73,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Partie 1 - Matériel réaliser des graphiques - suite](session3_plots_reorganisation/materiel/ggplot_suite.html)  
 
-
+<br>
 
 [Partie 2 - Réorganisation de données](session3_plots_reorganisation/materiel/reorganisation_donnees.html)  
 
@@ -96,7 +96,7 @@ Le jeu de données que nous allons utiliser en exemple dans cette partie du cour
 
 [Solution des exercices](session5_rmarkdown/materiel/Solution.html)
 
-
+<br>
 
 [Partie 2 - Mise en pratique, ajouter des informations sur des graphiques](session5_rmarkdown/materiel/amelioration_graphiques.html) 
 
