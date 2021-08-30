@@ -131,7 +131,7 @@ Des noms de fichiers lisibles par des humains doivent:
 
 - être courts et avoir du sens
 
-- contenir la version du fichier (par exemple ajouter v00, v01, v02 etc à la fin d'un fichier pour identifier les différentes modifications effectuées)
+- contenir la version du fichier (par exemple ajouter v00, v01, v02 etc à la fin d'un fichier pour identifier les différentes modifications effectuées) si un outil de versionnage différentiel n'est pas utilisé.
 
 
 <br>
