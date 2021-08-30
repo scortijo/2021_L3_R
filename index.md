@@ -102,6 +102,7 @@ Correction de l'exam blanc et trucs et astuces
 
 
 
+
 ## Si vous voulez utiliser R chez vous: 
 Il est recommandé d'utiliser R régulièrement pour bien comprendre et aprendre. Pour cela le mieux est d'installer **R** et **R studio** sur votre ordinateur:
 

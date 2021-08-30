@@ -34,12 +34,12 @@ Aujourd'hui, nous allons corriger ensemble l'examen blanc, mais également parta
 Lorsque vous utiliserez R en autonomie, n'oubliez pas qu'il existe une communauté très active et développée d'utilisateurs. De nombreux forums existent, comme [StackOverflow](https://stackoverflow.com/questions/tagged/r), [RStudioCommunity](https://community.rstudio.com/), dans lesquels il est très probable qui vous trouviez des réponses à vos questions.
 
 
-**Quelques conseils sur la manière de chercher de l'aide sur une question liée à de la programmation :**
+**Quelques conseils sur la manière de chercher de l'aide pour une question liée à de la programmation :**
 
-+ Les mots clés de votre recherche internet sont cruciaux, formulez votre requête en mentionnant 'R', éventuellement un package concerné, et ce que vous souhaitez faire. par exemple : `R ggplot2 renommer un axe`
++ Les mots clés de votre recherche internet sont cruciaux, formulez votre requête en mentionnant 'R', éventuellement un package concerné, et ce que vous souhaitez faire. Par exemple : `R ggplot2 renommer un axe`
 
 
-+ Il y a beaucoup plus d'échanges en lien avec la programmation en anglais, faire vos recherches et requêter google en anglais augmenteront donc fortement vos chances de trouver une aide rapide et pertinente, essayez plutôt : `R ggplot2 rename axis`
++ Il y a beaucoup plus d'échanges en lien avec la programmation en anglais, faire vos recherches et requêter google en anglais augmentera donc fortement vos chances de trouver une aide rapide et pertinente : `R ggplot2 rename axis`
 
  
  + Si vous souhaitez vous-même poser une question sur un forum, munissez-vous toujours d'un exemple reproductible. Si votre question concerne une erreur de fonctionnement, incluez à votre question les lignes de code qui permettent de reproduire votre erreur, cela permettra à vos interlocuteurs de mieux vous aider
