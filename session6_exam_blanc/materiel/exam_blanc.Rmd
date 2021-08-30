@@ -16,3 +16,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
+Aujourd'hui, vous allez analyser des données extraites de [Cortijo et al., 2017](https://www.sciencedirect.com/science/article/pii/S1674205217302459?via%3Dihub). 
+
+expliquer données simplement (avec images?) eviter jargon (eviter transcripoime, transcript, gene differentiellement exprimé etc)
+
+
+
