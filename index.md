@@ -1,6 +1,6 @@
 **Où:** A indiquer
 
-**Quand:** Du 14 Octobre 2021 au 2 Décembre 2021
+**Quand:** Du 7 Octobre 2021 au 2 Décembre 2021
 
 **Instructeurs:** 
 [Sandra Cortijo](mailto:sandra.cortijo@cnrs.fr), 
