@@ -100,10 +100,5 @@ Pour cela:
 
 
 
-[antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
-
-
-
-
 
 
