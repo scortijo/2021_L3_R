@@ -100,13 +100,6 @@ Pour cela:
 
 
 
-
-## Ressources 
-
-[Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
-
-[antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-
 [antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
 
 
