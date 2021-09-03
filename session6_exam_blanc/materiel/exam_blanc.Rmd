@@ -81,25 +81,57 @@ De plus **une colonne indique à quel cluster appartient chague gène**.
 
 ## Préparation de l'environnement de travail
 
-Pour commencer, créez un nouveau _fichier Rmarkdown_ et sauvez le dans le dossier _session6_exam_blanc_. Préparez votre environnement de travail:
-
-- Chargez les librairies dont vous aurez besoin. 
+>Pour commencer, ouvrez _exam_blanc.Rmd_ et sauvez le dans le dossier _session6_exam_blanc_ en y ajoutant votre nom. 
 
 
-- Chargez le fichier _data_expression_cortijo2017.txt_ dans R et sauvez le dans un objet
+Préparez votre environnement de travail:
+
+> Chargez les librairies dont vous aurez besoin. 
+
+
+> Chargez le fichier _data_expression_cortijo2017.txt_ dans R et sauvez le dans un objet
 *Aide*: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)
 
 
 ## Vérification des données
 
+#### Question 1
 
-Nombre de gènes
-Type de variables dans chaque colonne. Est-ce ce à quoi on s'attend?
-Nombre et nom de clusters
+
+Avant d'analyser les données, la première étape consiste à vérifier que le tableau importé dans _R_ contient bien les données attendues.
+
+> Est-ce que le tableau importé dans R contient le bon nombre de gènes?
+>
+> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? 
+
+<br>
+
+#### Question 2
+
+> Est-ce que les différentes variables (les colonnes) sont bien du type attendu? 
+
+<br>
+
+#### Question 3
+
+> Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus?
+> Quels sont leurs noms?
+
+<br>
+
+#### Question 4
+
+Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d'aller plus loin dans l'analyse, une dernière vérification consiste à vérifier que ces gènes se comportent comme attendu dans notre jeu de données.
+
+Ces gènes sont:
+
+
 
 
 Profile pour 2 gènes controls (pour lesquels nous connaissons les profils d'expression grâce à des expériences préalables)
 
+
+<br>
 
 
 ## Analyse de l'expression des gènes
