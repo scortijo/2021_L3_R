@@ -68,10 +68,10 @@ Les différentes séances sont (avec accès au cours):
 [Solution des exercices](session5_rmarkdown/materiel/amelioration_graphiques_solution_exercices.html)
 
 
-### Séance 6 (25/11/2021 8h-11h15): Exam blanc
+### Séance 6 (25/11/2021 8h-11h15): Exam blanc, Correction de l'exam blanc et trucs et astuces
 
 
-### Séance 7 (02/12/2021 9h45-11h15): Correction de l'exam blanc et trucs et astuces
+### Séance 7 (02/12/2021 9h45-11h15): Exam
 
 
 
