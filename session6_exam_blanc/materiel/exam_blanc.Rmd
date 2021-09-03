@@ -113,7 +113,7 @@ violin plots pour clusters aux différents temps. Tester 2 graphs différents: u
 ## Analyse de facteurs régulant d'expression des gènes
 
 
-Combien de gènes (du total) sont régulés par HSFA1a
+Combien de gènes de _data_expression_cortijo2017.txt_ sont régulés par HSFA1a
 
 Combien de gènes dans chaque cluster? Qu'est ce qu'on peut en conclure par rapport à la fonction de HSFA1a?
 
