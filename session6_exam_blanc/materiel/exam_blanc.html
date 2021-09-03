@@ -1564,16 +1564,49 @@ log_2(\frac{\text{expréssion à la température et temps étudiés}}{\text{expr
 </div>
 <div id="préparation-de-lenvironnement-de-travail" class="section level2">
 <h2>Préparation de l’environnement de travail</h2>
-<p>Pour commencer, créez un nouveau <em>fichier Rmarkdown</em> et sauvez le dans le dossier <em>session6_exam_blanc</em>. Préparez votre environnement de travail:</p>
-<ul>
-<li><p>Chargez les librairies dont vous aurez besoin.</p></li>
-<li><p>Chargez le fichier <em>data_expression_cortijo2017.txt</em> dans R et sauvez le dans un objet <em>Aide</em>: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)</p></li>
-</ul>
+<blockquote>
+<p>Pour commencer, ouvrez <em>exam_blanc.Rmd</em> et sauvez le dans le dossier <em>session6_exam_blanc</em> en y ajoutant votre nom.</p>
+</blockquote>
+<p>Préparez votre environnement de travail:</p>
+<blockquote>
+<p>Chargez les librairies dont vous aurez besoin.</p>
+</blockquote>
+<blockquote>
+<p>Chargez le fichier <em>data_expression_cortijo2017.txt</em> dans R et sauvez le dans un objet <em>Aide</em>: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)</p>
+</blockquote>
 </div>
 <div id="vérification-des-données" class="section level2">
 <h2>Vérification des données</h2>
-<p>Nombre de gènes Type de variables dans chaque colonne. Est-ce ce à quoi on s’attend? Nombre et nom de clusters</p>
+<div id="question-1" class="section level4">
+<h4>Question 1</h4>
+<p>Avant d’analyser les données, la première étape consiste à vérifier que le tableau importé dans <em>R</em> contient bien les données attendues.</p>
+<blockquote>
+<p>Est-ce que le tableau importé dans R contient le bon nombre de gènes?</p>
+<p>Est-ce que le tableau importé dans R contient les données d’expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l’information pour le cluster d’appartenance de chaque gène?</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="question-2" class="section level4">
+<h4>Question 2</h4>
+<blockquote>
+<p>Est-ce que les différentes variables (les colonnes) sont bien du type attendu?</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="question-3" class="section level4">
+<h4>Question 3</h4>
+<blockquote>
+<p>Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus? Quels sont leurs noms?</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="question-4" class="section level4">
+<h4>Question 4</h4>
+<p>Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d’aller plus loin dans l’analyse, une dernière vérification consiste à vérifier que ces gènes se comportent comme attendu dans notre jeu de données.</p>
+<p>Ces gènes sont:</p>
 <p>Profile pour 2 gènes controls (pour lesquels nous connaissons les profils d’expression grâce à des expériences préalables)</p>
+<p><br></p>
+</div>
 </div>
 <div id="analyse-de-lexpression-des-gènes" class="section level2">
 <h2>Analyse de l’expression des gènes</h2>
@@ -1582,7 +1615,7 @@ log_2(\frac{\text{expréssion à la température et temps étudiés}}{\text{expr
 </div>
 <div id="analyse-de-facteurs-régulant-dexpression-des-gènes" class="section level2">
 <h2>Analyse de facteurs régulant d’expression des gènes</h2>
-<p>Combien de gènes (du total) sont régulés par HSFA1a</p>
+<p>Combien de gènes de <em>data_expression_cortijo2017.txt</em> sont régulés par HSFA1a</p>
 <p>Combien de gènes dans chaque cluster? Qu’est ce qu’on peut en conclure par rapport à la fonction de HSFA1a?</p>
 </div>
 
