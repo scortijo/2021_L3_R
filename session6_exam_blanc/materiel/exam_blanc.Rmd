@@ -21,9 +21,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 A chaque fois expliquez ce que vous allez faire et pourquoi vous utilisez telle ou telle fonction.
 
-Utilisez les zones de code de Rmarkdown pour répondre à la question.
+Utilisez des zones de code de Rmarkdown pour répondre à la question à l'aide de commandes.
 
-Et finalement répondez à la question grâce au résultat de la ligne de code.
+Et finalement répondez à la question grâce au résultat des commandes.
 
 
 ## Description des données
@@ -121,7 +121,7 @@ Avant d'analyser les données, la première étape consiste à vérifier que le 
 
 #### Question 4
 
-Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d'aller plus loin dans l'analyse, une dernière vérification consiste à vérifier que ces gènes se comportent comme attendu dans notre jeu de données.
+Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d'aller plus loin dans l'analyse, une dernière vérification consiste à s'assurer que ces gènes se comportent comme attendu dans notre jeu de données.
 
 Ces gènes sont:
 
