@@ -125,6 +125,9 @@ Avant de faire cette expérience à grande échelle, les chercheurs ont étudié
 
 Ces gènes sont:
 
+- **AT3G12580**: Il s'agit d'une Heat Shock Proetin (HSP70) qui répond à la chaleur. Les chercheurs ont préalablement observé que l'expression de AT3G12580 augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre.
+
+- 
 
 
 
