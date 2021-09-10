@@ -4,7 +4,7 @@ Logiciels de base :
 R, RStudio, Logiciel de tableurs
 
 Packages R :
-install.packages(c("rmarkdown","tidyverse","knitr","visdat","plotly","ggpubr","gganimate","RColorBrewer","DT"))
+install.packages(c("rmarkdown","tidyverse","knitr","visdat","plotly","ggpubr","gganimate","RColorBrewer","DT", "av", "gifski"))
 
 
 Pour les packages que gganimate est susceptible d'utiliser mais n'installe pas automatiquement (tous ne sont peut être pas utiles) :
