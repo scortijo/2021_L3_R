@@ -1,6 +1,6 @@
 **Où:** A indiquer
 
-**Quand:** Du 14 Octobre 2021 au 2 Décembre 2021
+**Quand:** Du 7 Octobre 2021 au 2 Décembre 2021
 
 **Instructeurs:** 
 [Sandra Cortijo](mailto:sandra.cortijo@cnrs.fr), 
@@ -10,42 +10,10 @@
 ## Description
 
 Ce cours va vous apprendre comment exporer des données et réaliser des graphiques dans **R**. 
-Les différentes séances sont:
-
-- **Séance 1** 14/10/2021 8h-11h15 : 
-
-Organisation des données dans excel, nettoyage des données avec OpenRefine et intro à R (qu'est-ce que R, R studio, une variable, une fonction).
-
-- **Séance 2**  21/10/2021 8h-11h15: 
-
-Réaliser des graphiques en utilisant **ggplot2** dans **R**. 
-
-- **Séance 3** 28/10/2021 8h-11h15: 
-
-Reflexion meilleurs graphs pour representer donnees. Manipulation des données dans **R** (filtrer, sélectionner, modifier données, extraire statistiques descriptive)
-
-- **Séance 4** 11/11/2021 8h-11h15: 
-
-Manipulation avancée des données et combinaison avec des graphiques (combiner fichiers, changer leur organisation, combiner ou séparer colonnes, jouer sur les facteurs, ajouter données descriptives dans graph)
-
-- **Séance 5** 18/11/2021 8h-11h15: 
-
-partie 1: Créer des Rmarkdown dans **R**, afin de communiquer les scripts et résultats et aussi d'assurer la reproducibilité des résultats  
-partie 2: Utiliser des graphs de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799) pour les améliorer. Utiliser group_by et summarise pour ajouter le nombre d'individu. factor pour changer ordre categories axe x. Ajouter les correlations aux scatterplots. Paufiner les graphs. 
-
-- **Séance 6** 25/11/2021 8h-11h15: 
-
-Exploration d'un jeu de données (exam blanc)
-
-- **Séance 7** 02/12/2021 9h45-11h15: 
-
-Correction de l'exam blanc et trucs et astuces
+Les différentes séances sont (avec accès au cours):
 
 
-
-## Accès au cours
-
-### Séance 1: Organisation des données et intro à **R**
+### Séance 1 (07/10/2021 8h-11h15): Organisation des données et intro à **R**
 
 [Matériel organisation des données](session1_organisation/materiel/organisation_session.html)  
 
@@ -58,7 +26,7 @@ Correction de l'exam blanc et trucs et astuces
 [Solution des exercices](session1_organisation/materiel/intro_R_solution_exercices)
 
 
-### Séance 2: Réaliser des graphiques
+### Séance 2 (14/10/2021 8h-11h15): Réaliser des graphiques
 
 [Matériel réaliser des graphiques](session2_ggplot/materiel/ggplot_session.html)  
 
@@ -66,7 +34,7 @@ Correction de l'exam blanc et trucs et astuces
 [Solution des exercices](session2_ggplot/materiel/ggplot_exercise_solutions.html)
 
 
-### Séance 3 
+### Séance 3 (21/10/2021 8h-11h15): Réaliser des graphiques et réorganiser des données
 
 [Partie 1 - Matériel réaliser des graphiques - suite](session3_plots_reorganisation/materiel/ggplot_suite.html)  
 
@@ -78,7 +46,7 @@ Correction de l'exam blanc et trucs et astuces
 
 
 
-### Séance 4 
+### Séance 4 (28/10/2021 8h-11h15): Réorganisation avancée de données
 
 [Réorganisation de données avancée](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
 
@@ -87,7 +55,7 @@ Correction de l'exam blanc et trucs et astuces
 
 
 
-### Séance 5
+### Séance 5 (18/11/2021 8h-11h15): Créer un Rmarkdown et mise en pratique
 
 [Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
 
@@ -99,6 +67,11 @@ Correction de l'exam blanc et trucs et astuces
 
 [Solution des exercices](session5_rmarkdown/materiel/amelioration_graphiques_solution_exercices.html)
 
+
+### Séance 6 (25/11/2021 8h-11h15): Exam blanc, Correction de l'exam blanc et trucs et astuces
+
+
+### Séance 7 (02/12/2021 9h45-11h15): Exam
 
 
 
@@ -123,18 +96,6 @@ Pour cela:
 **contactez un des instructeurs**.
 
 ![capture d'écran d'un installation correcte](installation_package_instructions.png)
-
-
-
-
-
-## Ressources 
-
-[Gallerie de graphiques pouvant être réalisés avec ggplot2](https://www.r-graph-gallery.com/)
-
-[antisèche pour ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-
-[antisèche pour la réorganisation de données](module01_data_and_files/materials/data_organisation.md)
 
 
 
