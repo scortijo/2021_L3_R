@@ -13,7 +13,7 @@ Ce cours va vous apprendre comment exporer des données et réaliser des graphiq
 Les différentes séances sont (avec accès au cours):
 
 
-### Séance 1 (07/10/2021 8h-11h15): Organisation des données et intro à **R**
+### Séance 1 (14/10/2021 8h-11h15): Organisation des données et intro à **R**
 
 [Matériel organisation des données](session1_organisation/materiel/organisation_session.html)  
 
@@ -26,7 +26,7 @@ Les différentes séances sont (avec accès au cours):
 [Solution des exercices](session1_organisation/materiel/intro_R_solution_exercices)
 
 
-### Séance 2 (14/10/2021 8h-11h15): Réaliser des graphiques
+### Séance 2 (21/10/2021 8h-11h15): Réaliser des graphiques
 
 [Matériel réaliser des graphiques](session2_ggplot/materiel/ggplot_session.html)  
 
@@ -34,7 +34,7 @@ Les différentes séances sont (avec accès au cours):
 [Solution des exercices](session2_ggplot/materiel/ggplot_exercise_solutions.html)
 
 
-### Séance 3 (21/10/2021 8h-11h15): Réaliser des graphiques et réorganiser des données
+### Séance 3 (28/10/2021 8h-11h15): Réaliser des graphiques et réorganiser des données
 
 [Partie 1 - Matériel réaliser des graphiques - suite](session3_plots_reorganisation/materiel/ggplot_suite.html)  
 
@@ -46,7 +46,7 @@ Les différentes séances sont (avec accès au cours):
 
 
 
-### Séance 4 (28/10/2021 8h-11h15): Réorganisation avancée de données
+### Séance 4 (18/11/2021 8h-11h15): Réorganisation avancée de données
 
 [Réorganisation de données avancée](session4_reorganisation_avancee/materiel/reorganisation_avancee.html)  
 
@@ -55,7 +55,7 @@ Les différentes séances sont (avec accès au cours):
 
 
 
-### Séance 5 (18/11/2021 8h-11h15): Créer un Rmarkdown et mise en pratique
+### Séance 5 (25/11/2021 8h-11h15): Créer un Rmarkdown et mise en pratique
 
 [Partie 1 - Créer un Rmarkdown](session5_rmarkdown/materiel/rmarkdown_session.html) 
 
@@ -68,10 +68,10 @@ Les différentes séances sont (avec accès au cours):
 [Solution des exercices](session5_rmarkdown/materiel/amelioration_graphiques_solution_exercices.html)
 
 
-### Séance 6 (25/11/2021 8h-11h15): Exam blanc, Correction de l'exam blanc et trucs et astuces
+### Séance 6 (02/12/2021 8h-11h15): Exam blanc, Correction de l'exam blanc et trucs et astuces
 
 
-### Séance 7 (02/12/2021 9h45-11h15): Exam
+### Séance 7 (09/12/2021 9h45-11h15): Exam
 
 
 
