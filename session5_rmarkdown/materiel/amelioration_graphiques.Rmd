@@ -143,9 +143,41 @@ count(expt1, genotype)
 
 <br>
 
+### Faire un graphique avec les statistiques descriptives 
+
+Maintenant que nous savons extraire des statistiques descriptives de nos données, nous pouvons les utiliser pour faire des graphiques. 
+
+Par exemple, faisont un graphique avec la moyenne et la médiane du temps de floraison pour les différents génotypes:
+
+```{r}
+
+group_by(expt1, genotype) %>% 
+summarise(mean.days.flower = mean(days.to.flower, na.rm = TRUE),
+          sd.days.flower = sd(days.to.flower, na.rm = TRUE),
+          median.days.flower = median(days.to.flower, na.rm = TRUE)) %>% 
+  gather(key="stat_type",value="stat_days_to_flower", mean.days.flower,median.days.flower) %>% 
+  ggplot(aes(x=stat_type,y=stat_days_to_flower, col=genotype))+
+  geom_point(size=2)
+```
+
+Afin de voir le lien entre la moyenne et la médiane pour chaque génotype, nous pouvons ajouter une ligne les reliant avec `geom_line`. Attention pour cela nous devons ajouter dans `aes()` la variable par laquelle les points sont regroupés en utilisant `group=` 
+
+```{r}
+
+group_by(expt1, genotype) %>% 
+summarise(mean.days.flower = mean(days.to.flower, na.rm = TRUE),
+          sd.days.flower = sd(days.to.flower, na.rm = TRUE),
+          median.days.flower = median(days.to.flower, na.rm = TRUE)) %>% 
+  gather(key="stat_type",value="stat_days_to_flower", mean.days.flower,median.days.flower) %>% 
+  ggplot(aes(x=stat_type,y=stat_days_to_flower, col=genotype))+
+  geom_point(size=2) +
+  geom_line(aes(group=genotype))
+```
+
 ### Insérer les statistiques descriptives à un graphique
 
-Maintenant que nous avons extrait des statistiques descriptives de nos données, nous pouvons les ajouter à un graphique.
+Une autre possibilité est d'ajouter les statistiques descriptives à un graphique contenant les données.
+
 Pour cela, nous devons:
 
 - Utiliser `group_by()` et `summarise()` pour extraire les statistiques descriptives
