@@ -323,7 +323,7 @@ Reprenons le premier graphique extrait de [Burghard et al 2015](https://nph.onli
 
 La semaine prochaine nous allons faire un examen blanc, vous demandant d'explorer un jeu de donnée. Il s'agira d'une mise en pratique des fonctions que nous avons vu jusqu'ici. Vous devrez écrire l'ensemble dans un format Rmarkdown.
 
-**Afin de vous y préparer, nous vous recommandons de reprendre l'ensemble des cours et de vous exercer à refaire les exercices (sans avoir recours aux solutions si possible).**
+**Afin de vous y préparer, nous vous recommandons de reprendre l'ensemble des cours et de vous exercer à refaire les exercices (sans avoir recours aux solutions si possible). Le tout en format Rmarkdown**
 
 Lors de l'examen blanc (et de l'examen final) vous aurez accès au cours et à vos scripts. Vous allez être évalué sur votre capacité à utiliser les différentes fonctions et à comprendre leur utilité, et non sur de la connaissance pure.
 
