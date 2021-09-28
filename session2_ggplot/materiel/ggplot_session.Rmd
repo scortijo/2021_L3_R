@@ -18,8 +18,27 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Lors de cette séance nous allons apprendre à visualiser des jeux de données tabulaires avec [``ggplot2``](http://ggplot2.org/).
 
-Pour cette formation, nous allons utiliser une version légèrement modifiée du jeu de donnée publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
+Pour cette formation, nous allons utiliser une version légèrement modifiée du jeu de données publié par [Burghard et al 2015](http://datadryad.org/resource/doi:10.5061/dryad.65d76). 
 
+Il s'agit d'une expérience de phénotypage de plantes d'*Arabidopsis thaliana* qui ont poussé dans différentes conditions:
+
+- A 12°C ou à 22°C
+- Avec une température constante ou qui fluctue dans la journée
+- Avec une période de 8h de jour ou de 16h de jour par cycle de 24h
+- Avec un traitement de froid qui immite l'hiver (vernalisation)
+
+Des plantes de différents génotypes ont été analysées: des mutants et sauvages et des écotypes différents.
+
+Pour chaque plante dans chaque condition plusieurs phénotypes ont été mesurés (voir illustration ci-dessous pour mieux comprendre les termes):
+
+- Le nombre de jour pour que la tige (qui contient les fleurs) emmerge: _days to bolt_
+- Le nombre de jour pour que la première fleur s'ouvre: _days to flower_
+- Le nombre de feuilles dans la rosette à la fin de l'expérience: _rosette leaf num_
+- Le nombre de feuilles caulines à la fin de l’expérience: _cauline leaf num_
+- La longueur du limbe de la feuille: _blade lenght mm_
+- La longueur de la feuille (avec le pétiole et le limbe) _total leaf length mm_
+
+![](explication_data.png){width=70%} 
 
 # Quels types de graphiques pouvons nous faire avec ggplot2?
 
