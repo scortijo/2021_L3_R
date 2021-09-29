@@ -46,7 +46,7 @@ Pour chaque échantillon, l'expression pour l'ensemble des gènes d'*Arabidopsis
 
 <br>
 
-Nous sommes intéressés en particulier aux changements d'expression en réponse à la température et au cours du temps pour ces gènes. Afin de s'affranchir des niveaux d'expression différents entre les gènes (certains sont fortement ou faiblement exprimé peu importe la réponse à la température), et de se concentrer sur la réponse à la température les données ont été transformé avec la formule suivante:
+Nous sommes intéressés en particulier aux changements d'expression en réponse à la température et au cours du temps pour ces gènes. Afin de s'affranchir des niveaux d'expression différents entre les gènes (certains sont fortement ou faiblement exprimé peu importe la réponse à la température), et de se concentrer sur la réponse à la température les données ont été transformées avec la formule suivante:
 
 $$
 log_2(\frac{\text{expréssion à la température et temps étudiés}}{\text{expression au temps  zéro}})
@@ -62,7 +62,7 @@ Les valeurs obtenues sont centrées autour de zéro. Pour chaque gènes:
 
 <br>
 
-Pour aller plus loin, les auteurs ont regroupés ensemble les gènes qui ont des profils d'expression similaires au cours du temps. Par exemple tous les gènes qui ont une augmentation qui monte avec le temps en réponse à la chaleur ont été regroupé ensemble. De cette manières ils ont identtifié **7 groupes**, appelés **clusters**.
+Pour aller plus loin, les auteurs ont regroupé ensemble les gènes qui ont des profils d'expression similaires au cours du temps. Par exemple tous les gènes qui ont une augmentation qui monte avec le temps en réponse à la chaleur ont été regroupé ensemble. De cette manières ils ont identtifié **7 groupes**, appelés **clusters**.
 
 <br>
 
@@ -180,13 +180,13 @@ Les boxplot et violin plots sont deux types de graphique permettant de montrer d
 <br>
 
 
-> A partir des graphiques violin et boxplot des données, indiquez quels sont les clusters dont l'expression des gènes augmente, ou au contraire diminue, en réponde à la température.
+> A partir des graphiques violin et boxplot des données, indiquez quels sont les clusters dont l'expression des gènes augmente, ou au contraire diminue, en réponse à la température.
 >
 
 <br>
 
 
-Les chercheurs sont plus intéressé par le cluster 1 (qui contient AT1G04520) et le cluster 6A (qui contient AT3G12580).
+Les chercheurs sont plus intéressés par le cluster 1 (qui contient AT1G04520) et le cluster 6A (qui contient AT3G12580).
 
 > A partir de vos graphiques décrivez la réponse à la température au cours du temps de l'expression des gènes des clusters 1 et 6A 
 
@@ -194,9 +194,9 @@ Les chercheurs sont plus intéressé par le cluster 1 (qui contient AT1G04520) e
 
 ### Question 7
 
-Afin de s'assurer que le travail soit reproductible, toutes les informations necessaires doivent être inclus dans les graphiques.
+Afin de s'assurer que le travail soit reproductible, toutes les informations necessaires doivent être inclues dans les graphiques.
 
-> Pensez vous que les boxplot et violin plot crées dans la question 6 contiennent les informations necessaires? 
+> Pensez vous que les boxplot et violin plots créés dans la question 6 contiennent les informations necessaires? 
 > Quelles informations ajouteriez vous pour vous assurer que le travail soit reproductible? (pas besoin de changer le graphique)
 
 
