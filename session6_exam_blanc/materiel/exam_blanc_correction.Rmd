@@ -1,0 +1,223 @@
+---
+title: "Correction de l'exam blanc"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes 
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+## Préparation de l'environnement de travail
+
+On charge le tidyverse et DT pour manipuler les dataframes, faire des graphiques, et représenter interactivement des tables.
+
+```{r}
+library(tidyverse)
+library(DT)
+```
+
+Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec une tabulation comme séparateur.
+
+```{r}
+
+#expt1 <- read_tsv("2021_L3_R/session6_exam_blanc/data/data_expression_cortijo2017.txt")
+# ou, pour des questions de chemin, si l'exam est dans le repertoire de la session6/materiel:
+
+expt1 <- read_tsv("../data/data_expression_cortijo2017.txt")
+
+```
+
+## Vérification des données
+
+#### Question 1
+
+
+On utilise dim qui permet de voir le nombre de lignes et de colonnes d'u dataframe :
+
+```{r}
+
+dim(expt1)
+
+```
+
+On a bien 1035 lignes, donc 1035 gènes.
+
+Pour vérifier les données contenues, on utilise une fonction qui va nous montrer le nom des colonnes :
+
+```{r}
+
+head(expt1)
+#ou 
+names(exp1)
+
+```
+
+On a 8 colonnes : 
+
++ L'expression dans 6 conditions (en logFC)
++ Une colonne avec le nom du gène
++ Une colonne avec le cluster
+
+#### Question 2
+
+la fonction `glimpse` donne pour chaque colonne le type de donnée contenue (ou `visdat` qui donne cette info au format visuel):
+
+
+```{r}
+
+glimpse(expt1)
+# et/ou 
+
+vis_dat(data)
+```
+Les colonnes avec des valeurs d'expression sont des `dbl`, c'est à dire des nombres à virgule, tandis que les colonnes gene et cluster contiennent des `chr`, c'est à dire des chaines de charatères comme attendu. 
+
+
+#### Question 3
+
+On voudrait savoir quels sont les différents clusters possibles. Pour celà, on va récupérer cette colonne et montrer les valeurs uniques qu'elle contient :
+
+```{r}
+
+unique(expt1$cluster)
+
+```
+
+
+
+
+#### Question 4
+
+
+```{r}
+
+filter(expt1, gene%in%c("AT1G04520","AT3G12580")) %>% 
+  gather(key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
+  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
+  ggplot(aes(x=temps, y=expression,color=temperature, group=temperature)) +
+  geom_line() +
+  facet_wrap(~gene)
+
+```
+
+
+
+#### Question 5
+
+
+
+```{r}
+
+group_by(expt1, cluster) %>% 
+  summarise(n.obs=n())
+
+
+```
+
+
+
+
+#### Question 6
+
+
+
+```{r}
+
+
+gather(expt1, key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
+  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
+  ggplot(aes(x=temps, y=expression, fill=temperature )) +
+  geom_violin() +
+  facet_grid(~cluster)
+
+gather(expt1, key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
+  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
+  ggplot(aes(x=temps, y=expression, fill=temperature )) +
+  geom_boxplot() +
+  facet_grid(~cluster)
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+#### Question 8
+
+
+
+
+
+```{r}
+
+
+gene_fonction <- read_tsv("2021_L3_R/session6_exam_blanc/data/gene_fonction_cortijo2017.txt")
+
+```
+
+
+
+
+```{r}
+
+gene_expression_fonction <- inner_join(gene_fonction, expt1, by="gene")
+
+```
+
+
+
+
+```{r}
+
+filter(gene_expression_fonction, gene=="AT3G12580")
+  
+
+```
+
+
+
+
+```{r}
+
+filter(gene_expression_fonction, cluster=="cluster6A") %>% 
+  datatable(filter="top", options = list(pageLength = 100, scrollX=T))
+
+```
+
+
+
+
+
+```{r}
+
+
+datatable(gene_expression_fonction,filter="top", options = list(pageLength = 100, scrollX=T))
+
+```
+
+
+
+
+
+
+
+
+
+
