@@ -1,0 +1,44 @@
+---
+title: "Correction de l'exam blanc et astuces"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+
+
+# Chercher et demander de l'aide
+
+
+Lorsque vous utiliserez R en autonomie, n'oubliez pas qu'il existe une communauté très active et développée d'utilisateurs. De nombreux forums existent, comme [StackOverflow](https://stackoverflow.com/questions/tagged/r), [RStudioCommunity](https://community.rstudio.com/), dans lesquels il est très probable qui vous trouviez des réponses à vos questions.
+
+
+**Quelques conseils sur la manière de chercher de l'aide pour une question liée à de la programmation :**
+
++ Les mots clés de votre recherche internet sont cruciaux, formulez votre requête en mentionnant 'R', éventuellement un package concerné, et ce que vous souhaitez faire. Par exemple : `R ggplot2 renommer un axe`
+
+
++ Il y a beaucoup plus d'échanges en lien avec la programmation en anglais, faire vos recherches et requêter google en anglais augmentera donc fortement vos chances de trouver une aide rapide et pertinente : `R ggplot2 rename axis`
+
+ 
+ + Si vous souhaitez vous-même poser une question sur un forum, munissez-vous toujours d'un exemple reproductible. Si votre question concerne une erreur de fonctionnement, incluez à votre question les lignes de code qui permettent de reproduire votre erreur, cela permettra à vos interlocuteurs de mieux vous aider
+ 
+![](images/debugging.jpg){width=70%}
+ 
+ 
+# Ressources utiles
+
+[Toutes les anti-sèches](https://www.rstudio.com/resources/cheatsheets/)
+
+[Consiels de visualisation de données](https://www.data-to-viz.com/)

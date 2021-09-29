@@ -237,6 +237,7 @@ AT3G12580 fait parti du cluster 6A.
 
 
 
+*Aide: Si vous créez le html de votre fichier Rmarkdown, vous pouvez filtrer les données dans le tableau créé pour compter le nombre de gènes contenant "heat" dans leur nom.*
 
 
 

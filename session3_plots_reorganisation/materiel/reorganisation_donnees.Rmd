@@ -256,7 +256,7 @@ A partir ce ce que nous avons vu aujourd'hui:
 
 - N'oubliez pas d'utiliser des pipes (` %>% `) pour faire des chaines de commandes si vous utilisez plus d'une fonction sur vos données
 
-
+*Pour ceux qui n'ont pas de données, vous pouvez utiliser le tableau _Pan_Rui_2017_flowering time_raw_data.txt_ ([publié par Pan et Rui](https://doi.org/10.6084/m9.figshare.5675032.v1)) dans le dossier _data_ *
 
 ******
 
