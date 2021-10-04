@@ -57,7 +57,7 @@ Pour vérifier les données contenues, on utilise une fonction qui va nous montr
 
 head(expt1)
 #ou 
-names(exp1)
+names(expt1)
 
 ```
 
@@ -77,7 +77,7 @@ la fonction `glimpse` donne pour chaque colonne le type de donnée contenue (ou 
 glimpse(expt1)
 # et/ou 
 
-vis_dat(data)
+vis_dat(expt1)
 ```
 Les colonnes avec des valeurs d'expression sont des `dbl`, c'est à dire des nombres à virgule, tandis que les colonnes gene et cluster contiennent des `chr`, c'est à dire des chaines de charatères comme attendu. 
 
@@ -96,6 +96,11 @@ unique(expt1$cluster)
 
 
 #### Question 4
+
+
+Pour filtrer tout d'abord les données pour garder les deux gènes d'intérêt, on utilise `filter`, en demandant à ce que les valeurs de la colonne `gene` soient dans le vecteur `c("AT1G04520","AT3G12580")`.
+
+Pour changer le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression, on utilise `gather` sur les colonnes contenant l'expression dans les différentes conditions `Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr` 
 
 
 ```{r}
