@@ -20,9 +20,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 On charge le tidyverse et DT pour manipuler les dataframes, faire des graphiques, et représenter interactivement des tables.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(DT)
+library(visdat)
 ```
 
 Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec une tabulation comme séparateur.
@@ -128,10 +129,12 @@ filter(expt1, gene%in%c("AT1G04520","AT3G12580")) %>%
 
 Pour AT1G04520, on observe bien que l'expression diminue au cours du temps à 17°C et 27°C et que cette diminution est plus rapide est plus importante à 27°C (ligne bleue).
 
-Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre (courbe bleue). A 17°C, cette augmentation est présente mais moins forte (courbe rouge).
+Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre (ligne bleue). A 17°C, cette augmentation est présente mais moins forte (ligne rouge).
+
 
 #### Question 5
 
+Avec la syntaxte tidyverse, on commence par sélectionner la colonne `cluster` avec la fonction `select` appliquée à `expt1`.  On chaine la sortie de cette sélection avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage de chaque valeur de cluster. Cette fonction de comptage est `n()`.
 
 
 ```{r}
@@ -139,15 +142,29 @@ Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière r
 group_by(expt1, cluster) %>% 
   summarise(n.obs=n())
 
+# ou
 
+table(expt1$cluster)
 ```
 
-
+Alternativement, une fonction, `table` de la base de R permet également de faire cette opération.
 
 
 #### Question 6
 
 
+Changer le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale et une colonne contenant les valeurs d'expression, puis séparer la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes a déjà été réalisé en question 4. On peut donc reprendre le même code, c'est à dire chaîner les fonctions `gather` et `separate`, avec exactement avec les mêmes arguments. On omettra uniquement le `select` du début car on veut cette fois tous les gènes des données.
+
+
+
+On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axis x le temps, en axe y l'expression.
+On ajoute dans la fonction `aes` que la couleur de remplissage (`fill`) doit être liée à la température. 
+
+
+On ajoute ensuite la fonction `geom_violin`, puis un `facet_grid` sur la variable `cluster` car on veut un sous graphique pour chaque cluster.
+
+
+Pour obtenir un boxplot, vous avez uniquement besoin de remplacer `geom_violin` par `geom_boxplot`.
 
 ```{r}
 
@@ -168,30 +185,56 @@ gather(expt1, key="condition", value="expression", Log2FoldToZero_17c_15min:Log2
 ```
 
 
+Un boxplot montre les **statistiques résumées** d'un groupe d'observations (médiane, premier quartile, et troisième quartile. Les points qui dépassent des boxplots sont les valeurs prédites comme "extrêmes").
+
+Un violin plot montre la **distribution** d'un groupe d'observations (la forme de cette distribution est plus précise et montre comment sont réparties les observations).
+
+Utiliser un violin plot permet par exemple de contrôler qu'il n'y ait pas de distribution bimodale (deux pics dans la distribution) ce qui voudrait dire qu'il pourrait y avoir deux populations distinctes dans les observations récoltées. Pour comparer des groupes entre plusieurs conditions (comme la température), un boxplot est plus pratique car on peut par exemple comparer directement les médianes (trait central du boxplot).
 
 
+---
+
+Dans les **clusters 1 et 3**, on a des valeurs d'expression inférieures à 27 °C par rapport à 17 °C, ce sont des gènes diminuant avec la température. Dans le **cluster 5**, on observe également que les gènes sont moins exprimés à 27 qu'à 17 °C, indiquant qu'ils sont réprimés par la chaleur.
+
+Dans les **clusters 5, 6A et 6B**, on a une augmentation de l'expression à 27 °C comparé à 17 °C, il s'agit donc des gènes qui sont induits par une forte température.
+
+---
 
 
+Pour la réponse de la température au cours du temps, on constate une nette diminution de l'expression après transfert en condition de chaleur dans le **cluster 1**. Le log fold change est inférieur à 0, ce qui veut dire qu'on a une expression moins forte après un certain temps passé à 27 °C comparé à avant le transfert, et cette diminution d'expression s'accentue plus les plantes sont exposées à la chaleur longtemps (l'expression continue de chuter jusqu'à 4h). 
+
+Dans le **cluster 6A**, on a un pic d'expression jusqu'à 1 heure après transfert à la chaleur, puis une diminution de l'expression des gènes. Ce pic d'expression s'observe uniquement à 27 °C, et non à 17 °C, il est donc spécifique à une tempéreature élevée.
 
 
+#### Question 7
 
+
+Ce graphique pourrait être fortement amélioré pour une recherche plus reproductible.
+
+En particulier, on pourrait lui rajouter :
+
++ Un *titre* (précisant par exemple que l'expression est un log fold change entre le temps d'intérêt et le temps 0)
+
++ Le *nombre d'observations* par boxplot (c'est à dire le nombre de gènes dans les clusters).
 
 
 
 #### Question 8
 
 
+Pour ces nouvelles données, on utilise la fonction `read_tsv` qui est adaptée aux fichiers textes avec une tabulation comme séparateur.
 
 
 
 ```{r}
 
 
-gene_fonction <- read_tsv("2021_L3_R/session6_exam_blanc/data/gene_fonction_cortijo2017.txt")
+gene_fonction <- read_tsv("../data/gene_fonction_cortijo2017.txt")
 
 ```
 
 
+Ici, on veut créer un nouveau tableau de données qui sera la jointure de `gene_fonction` et `expt1`. Cette jointure de tableau de données se fait avec la fonction `inner_join` sur la base de la colonne `gene`, que les deux tableaux contiennent. Comme on ne veut pas les gènes qui ont une annotation mais qui ne seraient pas présents dans `expt1`, on utilise `inner_join` et non pas `outer_join` qui aurait conservé les gènes présentes dans au moins l'un des deux tableaux, mais pas les deux à la fois.
 
 
 ```{r}
@@ -201,7 +244,7 @@ gene_expression_fonction <- inner_join(gene_fonction, expt1, by="gene")
 ```
 
 
-
+On utilise `filter` sur le nouveau dataframe, avec la fonction de test `gene=="AT3G12580"` qui garde uniquement le gène qui nous intéresse. 
 
 ```{r}
 
@@ -210,30 +253,43 @@ filter(gene_expression_fonction, gene=="AT3G12580")
 
 ```
 
+La colonne rajoutée, nommée `Primary_Gene_Symbol` nous informe que ce gène est une protéine induite en réponse à un stress en chaleur (`HEAT SHOCK PROTEIN 70 (HSP70)`).
+
+---
 
 
+Ensuite, on utilise `filter` pour garder uniquement les gènes du cluster 6A. On chaine cette sélection avec `datatable` qui va permettre d’afficher de manière interactive le tableau filtré dans le document compilé en html. Comme vu en session de TD, on rajoute les arguments utiles pour pouvoir filtrer la table et la parcourir intéractivement (`filter="top", options = list(pageLength = 100, scrollX=T)`) : 
 
 ```{r}
 
 filter(gene_expression_fonction, cluster=="cluster6A") %>% 
-  datatable(filter="top", options = list(pageLength = 100, scrollX=T))
+  datatable(filter="top", options = list(pageLength = 20, scrollX=T))
 
 ```
 
+Cet affichage interactif doit vous permettre de chercher dans la table le terme "heat" et de compter combien de lignes apparaissent.
+
+Alternativement, nous pouvez utiliser de code pour faire ceci.
 
 
+On remarque que 12 gènes ont une annotation contenant "heat" dans le cluster 6A.
 
+---
+
+
+Pour comparer au nombre d’occurrences de "heat" dans tous les gènes des données, on réutilise la même fonction mais sans le `filter` sur l'appartenance au cluster :
 
 ```{r}
 
 
-datatable(gene_expression_fonction,filter="top", options = list(pageLength = 100, scrollX=T))
+datatable(gene_expression_fonction,filter="top", options = list(pageLength = 20, scrollX=T))
 
 ```
 
 
 
 
+On remarque que 13 gènes ont une annotation contenant "heat" dans toutes les données. **En conclusion, presque tous les gènes qui sont annotés avec "heat" sont dans le cluster 6A (sauf 1) : ce cluster est clairement enrichi en gènes de réponse à la chaleur.**
 
 
 

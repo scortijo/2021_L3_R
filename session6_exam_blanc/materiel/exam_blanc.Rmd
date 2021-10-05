@@ -140,7 +140,7 @@ Ces gènes sont:
 > *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
 >
 
-*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type ligne représentant l'expression au cours du temps en regroupant les données par température avec un facet par gène.*
+*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type ligne représentant l'expression au cours du temps en regroupant les données par température avec un facet par gène.*
 
 
 <br>
@@ -219,7 +219,7 @@ L'information sur la fonction des gènes se trouve dans la table _gene_fonction_
 <br>
 
 
-Parmis les gènes étudiés plus en détail, **AT3G12580** est interessant car son expression augmente rapidement en réponse au traitement à 27°C. 
+Parmi les gènes étudiés plus en détail, **AT3G12580** est intéressant car son expression augmente rapidement en réponse au traitement à 27°C. 
 
 > A partir de la nouvelle table combinée, trouvez le nom de AT3G12580. Quelle fonction ce nom suggère t-il pour AT3G12580 en réponse à la chaleur?
 
@@ -227,7 +227,7 @@ Parmis les gènes étudiés plus en détail, **AT3G12580** est interessant car s
 
 AT3G12580 fait parti du cluster 6A.
 
-> Filtrez la table combinée pour ne garder que le cluster 6A et affichez cette selection dans Rmarkdown.
+> Filtrez la table combinée pour ne garder que le cluster 6A et faîtes en sorte d'afficher cette selection (le nouveau dataframe filtré) de manière interactive dans le document compilé en html via Rmarkdown.
 >
 > Combien de gènes dans le cluster 6A contiennent le mot "heat" dans leur nom? 
 >
