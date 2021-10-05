@@ -84,7 +84,7 @@ Les colonnes avec des valeurs d'expression sont des `dbl`, c'est à dire des nom
 
 #### Question 3
 
-On voudrait savoir quels sont les différents clusters possibles. Pour celà, on va récupérer cette colonne et montrer les valeurs uniques qu'elle contient :
+On voudrait savoir quels sont les différents clusters possibles. Pour cela, on va récupérer cette colonne et montrer les valeurs uniques qu'elle contient :
 
 ```{r}
 
@@ -100,7 +100,19 @@ unique(expt1$cluster)
 
 Pour filtrer tout d'abord les données pour garder les deux gènes d'intérêt, on utilise `filter`, en demandant à ce que les valeurs de la colonne `gene` soient dans le vecteur `c("AT1G04520","AT3G12580")`.
 
-Pour changer le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression, on utilise `gather` sur les colonnes contenant l'expression dans les différentes conditions `Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr` 
+Pour changer le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression, on utilise `gather` sur les colonnes contenant l'expression dans les différentes conditions `Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr`. On appelle la nouvelle clé est nommée `condition` et la colonne valeur est nommée `expression`.
+
+
+Pour séparer la colonne des conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes, c'est la fonction `separate` qu'il nous faut. Elle va découper les conditions de part et d'autre des underscores. On nomme les 3 nouvelles colonnes crées `"normalisation", "temperature", "temps"`.
+
+
+On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axis x le temps, en axe y l'expression.
+On ajoute dans la fonction `aes` que la couleur doit être liée à la température. Comme on souhaite représenter une ligne par température différente, il faut préciser un `aes` supplémentaire, `group`, qui sera également associé à la température. 
+
+On ajoute ensuite au ggplot la fonction `geom_line` pour tracer les lignes d'expression. 
+
+Enfin, pour faire sous graphe par gène, on ajoute un `facet_wrap` sur la colonne gène.
+
 
 
 ```{r}
@@ -114,7 +126,9 @@ filter(expt1, gene%in%c("AT1G04520","AT3G12580")) %>%
 
 ```
 
+Pour AT1G04520, on observe bien que l'expression diminue au cours du temps à 17°C et 27°C et que cette diminution est plus rapide est plus importante à 27°C (ligne bleue).
 
+Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre (courbe bleue). A 17°C, cette augmentation est présente mais moins forte (courbe rouge).
 
 #### Question 5
 
