@@ -214,6 +214,16 @@ expt1 %>%
 > Faite un violon plot du temps de floraison pour les différents génotypes, mais uniquement pour les plantes ayant poussées en jours court (8h de lumière).
 >
 > Aide: Utilisez `filter()` pour sélectionner les données et ensuite un pipe (`%>%`) pour utiliser l'output pour le graphique.
+>
+>
+
+
+> **BONUS**
+>
+> Représentez, uniquement pour les plantes qui contiennent le mot "Col" dans le background, et qui ont poussée à 22°C, un box plot de _days.to.bolt_ en fonction du _day.length_, coloré en fonction de la _fluctuation_. Séparez les graphiques pour avoir une facet par _génotype_. Utilisez un thème de type _theme_bw_.
+>
+>
+> Interprétez le résultat: Est-ce que le temps de floraison de certains génotypes est affecté par la fluctuation de température. Si oui lesquels?
 
 
 <br>

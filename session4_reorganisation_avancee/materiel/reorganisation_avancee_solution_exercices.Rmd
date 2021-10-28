@@ -66,6 +66,7 @@ mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm)
 >
 > - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
 
+
 <br>
 
 
@@ -83,7 +84,30 @@ mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm) %>%
 ```
 
 
+>
+> **BONUS**: Ce bonus vous permettra d'avoir des valeurs de x plus proches du graphique
+>
+> - Avant de créer la nouvelle colonne en concaténant `day.length`, `temperature` et `fluctuation`, créer une colonne `LD.SD` dans laquelle vous aurez "LD" à la place de la valeur "16" de la colonne `day.length`, et "SD" à la place de la valeur "8" de la colonne `day.length`. Utulisez ensuite cette colonne `LD.SD` pour la concatenation avec `temperature` et `fluctuation` pour créer la colonne  `condition`
+> - Changez le thème du graphique pour enlever la grille et avoir un fond blanc.
 
+
+```{r}
+
+mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm) %>% 
+  mutate(LD.SD=str_replace(day.length, "16","LD"),
+         LD.SD=str_replace(LD.SD, "8","SD")) %>% 
+  unite("condition", LD.SD, temperature, fluctuation, sep=".") %>% 
+  filter(background%in%c("Col","Ler")) %>% 
+  ggplot(aes(x=condition, y=blade.ratio)) +
+  geom_boxplot()+
+  ylim(0,1) +
+  facet_grid(.~background) +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle = 45),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+
+```
 
 <br>
 
@@ -95,7 +119,10 @@ mutate(expt1, blade.ratio=blade.length.mm/total.leaf.length.mm) %>%
 > 
 > Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
 > 
-> 
+> **BONUS**
+>
+>
+>
 
 
 ```{r}
@@ -108,6 +135,19 @@ gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>%
 
 
 
+
+```{r}
+
+gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>% 
+  ggplot(aes(x=trait, y=length.mm, fill=fluctuation)) +
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set2", labels = c("Con"="Constant", "Var"="Variable"), 
+                    name="Fluctuation type") +
+  theme_bw() +
+  scale_x_discrete(name="",labels=c("blade.length.mm"="Blade","total.leaf.length.mm"="Total leaf")) +
+  ylab("Length (mm)")
+
+```
 
 <br>
 

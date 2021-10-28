@@ -113,6 +113,29 @@ filter(expt1,  day.length==8) %>%
 ```
 
 
+> **BONUS**
+>
+> Représentez, uniquement pour les plantes qui contiennent le mot "Col" dans le background, et qui ont poussée à 22°C, un box plot de _days.to.bolt_ en fonction du _day.length_, coloré en fonction de la _fluctuation_. Séparez les graphiques pour avoir une facet par _génotype_. Utilisez un thème de type _theme_bw_.
+>
+>
+> Interprétez le résultat: Est-ce que le temps de floraison de certains génotypes est affecté par la fluctuation de température. Si oui lesquels?
+
+
+
+```{r}
+
+filter(expt1, grepl("Col", background) & temperature == 22) %>% 
+  ggplot(aes(x=day.length, y=days.to.bolt, color=fluctuation)) +
+  geom_boxplot()+
+  facet_grid(.~genotype) +
+  theme_bw()
+
+
+```
+
+
+Interprétation du résultat: On peut voir un effet très marqué de la fluctuation de température pour certains génotypes, avec un temps de floraison plus précoce quand la température varie par rapport à quand elle ne varie pas.
+Cet effet est très marqué pour les génotypes Col FRI, prmt5 FRI et vin3-4 FRI.
 
 <br>
 

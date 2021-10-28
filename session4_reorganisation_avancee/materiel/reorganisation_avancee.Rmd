@@ -102,6 +102,7 @@ colnames(expt1.cm)
 
 
 
+
 ## Concaténer ou séparer des colonnes avec `unite()` et `separate()`
 
 Pour concaténer deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
@@ -154,6 +155,12 @@ colnames(expt1.separated)
 > - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
 >
 > - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
+
+>
+> **BONUS**: Ce bonus vous permettra d'avoir des valeurs de x plus proches du graphique
+>
+> - Avant de créer la nouvelle colonne en concaténant `day.length`, `temperature` et `fluctuation`, créer une colonne `LD.SD` dans laquelle vous aurez "LD" à la place de la valeur "16" de la colonne `day.length`, et "SD" à la place de la valeur "8" de la colonne `day.length`. Utulisez ensuite cette colonne `LD.SD` pour la concatenation avec `temperature` et `fluctuation` pour créer la colonne  `condition`
+> - Changez le thème du graphique pour enlever la grille et avoir un fond blanc.
 
 <br>
 
@@ -262,7 +269,24 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 > 
 > Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
 > 
-> 
+> **BONUS**
+> Optimisez le graphique optenu en jouant sur le thème, les couleurs utilisée (visibles par des daltoniens), le titre et la valeur des axes et de la légende, de manière à avoir un graphique similaire au graphqiue suivant:
+
+
+
+```{r,  eval = TRUE,message=FALSE, echo=FALSE, warning=FALSE}
+
+gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>% 
+  ggplot(aes(x=trait, y=length.mm, fill=fluctuation)) +
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set2", labels = c("Con"="Constant", "Var"="Variable"), 
+                    name="Fluctuation type") +
+  theme_bw() +
+  scale_x_discrete(name="",labels=c("blade.length.mm"="Blade","total.leaf.length.mm"="Total leaf")) +
+  ylab("Length (mm)")
+
+
+```
 
 <br>
 
