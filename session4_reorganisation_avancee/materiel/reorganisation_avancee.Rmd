@@ -154,12 +154,12 @@ colnames(expt1.separated)
 > 
 > - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
 >
-> - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
+> - N'essayez pas de reproduire l'ordre des conditions (sur l'axe x). Nous verrons comment le faire à la prochaine séance
 
 >
 > **BONUS**: Ce bonus vous permettra d'avoir des valeurs de x plus proches du graphique
 >
-> - Avant de créer la nouvelle colonne en concaténant `day.length`, `temperature` et `fluctuation`, créer une colonne `LD.SD` dans laquelle vous aurez "LD" à la place de la valeur "16" de la colonne `day.length`, et "SD" à la place de la valeur "8" de la colonne `day.length`. Utulisez ensuite cette colonne `LD.SD` pour la concatenation avec `temperature` et `fluctuation` pour créer la colonne  `condition`
+> - Avant de créer la nouvelle colonne en concaténant `day.length`, `temperature` et `fluctuation`, créer une colonne `LD.SD` dans laquelle vous aurez "LD" à la place de la valeur "16" de la colonne `day.length`, et "SD" à la place de la valeur "8" de la colonne `day.length`. Utilisez ensuite cette colonne `LD.SD` pour la concaténation avec `temperature` et `fluctuation` pour créer la colonne  `condition`
 > - Changez le thème du graphique pour enlever la grille et avoir un fond blanc.
 
 <br>
@@ -267,10 +267,15 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 
 > **Exercice 3:** 
 > 
-> Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
-> 
+> 1. Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
+
+> 2. Ajoutez aux boxplots des encoches indiquant l'étendue de l'intervalle de confiance à 95% de la médiane (voir l'option `notch` dans `geom_boxplot`). Si les encoches sont étroite, il y a peu d'incertitude sur la médiane, si les encoches sont large, il y a une forte incertitude sur la médiane. Si les encoches de boxplots que nous comparons se chevauchent, alors nous ne pouvons pas conclure à une différence de médiane entre les médiane des deux groupes.  
+
+> 3. Interprétez le graphique: Y a t'il un effet de la fluctuation de température sur la longueur de blade ou de la feuille? Pourquoi?
+
+>
 > **BONUS**
-> Optimisez le graphique optenu en jouant sur le thème, les couleurs utilisée (visibles par des daltoniens), le titre et la valeur des axes et de la légende, de manière à avoir un graphique similaire au graphqiue suivant:
+> Optimisez le graphique obtenu en jouant sur le thème, les couleurs utilisée (visibles par des daltoniens), le titre et la valeur des axes et de la légende, de manière à avoir un graphique similaire au graphique suivant:
 
 
 
@@ -278,7 +283,7 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 
 gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>% 
   ggplot(aes(x=trait, y=length.mm, fill=fluctuation)) +
-  geom_boxplot() +
+  geom_boxplot(notch=TRUE) +
   scale_fill_brewer(palette = "Set2", labels = c("Con"="Constant", "Var"="Variable"), 
                     name="Fluctuation type") +
   theme_bw() +
