@@ -134,7 +134,7 @@ Ces gènes sont:
 - **AT3G12580**: Les chercheurs ont préalablement observé que l'expression de AT3G12580 augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre.
 
 
-> Faites un graphique montrant l'évolution au cours du temps de l'expression de ces deux gènes à 17°C et 27°C. Obtenez vous des comportement d'expression correspondants aux résultats préliminaires effectués sur ces deux gènes?
+> Faites un graphique montrant l'évolution au cours du temps de l'expression de ces deux gènes à 17°C et 27°C. Afin de pouvoir facilement comparer les profils d'expression au cours du temps de ces gènes, assurez vous que les échelles soient indépendantes d'un graphique à l'autre (*aide: voir l'option _scales_ de facet_wrap*) Obtenez vous des comportement d'expression correspondants aux résultats préliminaires effectués sur ces deux gènes?
 >
 >
 > *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
