@@ -46,7 +46,6 @@ Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec 
 # ou, pour des questions de chemin, si l'exam est dans le repertoire de la session6/materiel:
 
 expt1 <- read_tsv("../data/data_expression_cortijo2017.txt")
-
 ```
 
 ## Vérification des données
