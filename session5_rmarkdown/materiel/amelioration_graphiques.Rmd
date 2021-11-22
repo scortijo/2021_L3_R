@@ -216,7 +216,11 @@ group_by(expt1, genotype) %>%
 > Faites un voilin plot de `total.leaf.length.mm` pour chaque génotype et ajoutez la médiane pour chaque groupe (avec un point coloré) ainsi que le nombre d'observation de chaque groupe
 >
 >
+> Exportez et sauvez le graphique obtenu au format `jpg`
 
+
+> **BONUS**
+> Lisez la partie du cours sur les facteurs (que nous n'aurons pas le temps de traiter) et faites l'exercice 3.
 
 <br>
 
@@ -319,6 +323,8 @@ Nous pouvons aussi ordonner les génotypes en fonction de `days.to.bolt`. Pour c
 > -1 Dans l'ordre suivant: "Col Ama", "ld-1", "fve-3", "flk-1"
 >
 > -2 Dans l'ordre de la valeur de `cauline.leaf.num`
+>
+
 
 
 

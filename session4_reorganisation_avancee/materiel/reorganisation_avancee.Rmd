@@ -102,6 +102,7 @@ colnames(expt1.cm)
 
 
 
+
 ## Concaténer ou séparer des colonnes avec `unite()` et `separate()`
 
 Pour concaténer deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
@@ -153,11 +154,19 @@ colnames(expt1.separated)
 > 
 > - Pas besoin de mettre de la couleur qui n'apporte rien au graphique
 >
-> - N'essayez pas de reproduire l'ordre des conditons (sur l'axe x). Nous verrons comment le faire à la prochaine séance
+> - N'essayez pas de reproduire l'ordre des conditions (sur l'axe x). Nous verrons comment le faire à la prochaine séance
+
+>
+> **BONUS**: Ce bonus vous permettra d'avoir des valeurs de x plus proches du graphique
+>
+> - Avant de créer la nouvelle colonne en concaténant `day.length`, `temperature` et `fluctuation`, créer une colonne `LD.SD` dans laquelle vous aurez "LD" à la place de la valeur "16" de la colonne `day.length`, et "SD" à la place de la valeur "8" de la colonne `day.length`. Utilisez ensuite cette colonne `LD.SD` pour la concaténation avec `temperature` et `fluctuation` pour créer la colonne  `condition`
+> - Changez le thème du graphique pour enlever la grille et avoir un fond blanc.
 
 <br>
 
 ## Reformater des données avec `spread()` et `gather()`
+
+### Passer au format large avec `spread()` 
 
 Parfois, le format de vos données ne vous permet pas de faire l'analyse ou le graphique que vous voulez.
 
@@ -211,7 +220,7 @@ Et nous pouvons enfin faire le graphique:
 ```{r}
 
 unite(expt1_wide, "treatment", temperature, day.length) %>% 
-ggplot(aes(x=Con, y=Var, color=treatment)) +
+ggplot(aes(x=Con, y=Var, col=treatment, shape=treatment)) +
   geom_point()
 
 
@@ -222,15 +231,31 @@ Comme vous avez vu, changer la structure du tableau nous a permis de faire un gr
 <br>
 <br>
 
+### Passer au format long avec `spread()` 
 
-A l'inverse la fonction `gather()` permet de passer d'un format "wide" à un format "long".
+
+Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `days.to.flower`. 
+
+
+```{r,  eval = TRUE,message=FALSE, echo=FALSE, warning=FALSE}
+gather(expt1, "trait", "time.in.days", days.to.bolt, days.to.flower) %>% 
+  ggplot(aes(x=trait, y=time.in.days, color=genotype)) +
+  geom_boxplot()
+```
+
+
+
+Pour faire ce boxplor il nous faut réorganiser le tableau pour avoir les données pour ces deux mesures dans la même colonnes (`trait`) et une colonne indiquant s'il s'agit de la mesure de `days.to.bolt` ou `days.to.flower` (`time.in.days`). 
+
+
+
+Pour cela nous utilisons la fonction `gather()` qui permet de passer d'un format "wide" à un format "long".
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 
 
 Dans ce cas, le nom des colonnes sélectionnées devient la "clé", c'est à dire les catégories dans la première colonne crée (en violet dans l'illustration). Et les valeurs de toutes ces colonnes sélectionnées vont remplir la deuxième colonne crée (en bleu dans l'illustration).
 
 
-Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `days.to.flower`. Il nous faut réorganiser le tableau pour avoir les données pour ces deux mesures dans la même colonnes (`trait`) et une colonne indiquant s'il s'agit de la mesure de `days.to.bolt` ou `days.to.flower` (`time.in.days`). 
 
 
 `gather()` à besoin de trois informations:  
@@ -257,12 +282,43 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 ```
 
 
+Afin d'exporter ce graphique et de le sauver, nous utilisons la fonction `ggsave()`:
+
+
+```{r}
+ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
+  geom_boxplot()
+
+ggsave("boxplot_daystobolt_daystoflower_genotypes.jpg")
+```
 
 > **Exercice 3:** 
 > 
-> Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
-> 
-> 
+> 1. Utilisez la fonction `gather()` pour restructurer le tableau afin de faire un boxplot de `blade.length.mm` et `total.leaf.length.mm`, coloré par  `fluctuation`.
+
+> 2. Ajoutez aux boxplots des encoches indiquant l'étendue de l'intervalle de confiance à 95% de la médiane (voir l'option `notch` dans `geom_boxplot`). Si les encoches sont étroite, il y a peu d'incertitude sur la médiane, si les encoches sont large, il y a une forte incertitude sur la médiane. Si les encoches de boxplots que nous comparons se chevauchent, alors nous ne pouvons pas conclure à une différence de médiane entre les médiane des deux groupes.  
+
+> 3. Interprétez le graphique: Y a t'il un effet de la fluctuation de température sur la longueur de blade ou de la feuille? Pourquoi?
+
+>
+> **BONUS**
+> Optimisez le graphique obtenu en jouant sur le thème, les couleurs utilisée (visibles par des daltoniens), le titre et la valeur des axes et de la légende, de manière à avoir un graphique similaire au graphique suivant:
+
+
+
+```{r,  eval = TRUE,message=FALSE, echo=FALSE, warning=FALSE}
+
+gather(expt1, "trait", "length.mm", blade.length.mm, total.leaf.length.mm) %>% 
+  ggplot(aes(x=trait, y=length.mm, fill=fluctuation)) +
+  geom_boxplot(notch=TRUE) +
+  scale_fill_brewer(palette = "Set2", labels = c("Con"="Constant", "Var"="Variable"), 
+                    name="Fluctuation type") +
+  theme_bw() +
+  scale_x_discrete(name="",labels=c("blade.length.mm"="Blade","total.leaf.length.mm"="Total leaf")) +
+  ylab("Length (mm)")
+
+
+```
 
 <br>
 
