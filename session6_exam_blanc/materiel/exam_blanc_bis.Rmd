@@ -307,7 +307,9 @@ Pour ces nouvelles données, on utilise la fonction `read_tsv` qui est adaptée 
 
 
 gene_fonction <- read_tsv("../data/gene_fonction_cortijo2017.txt")
-
+# gene_fonction$heatRelated <- ifelse(str_detect(gene_fonction$Primary_Gene_Symbol, "HEAT"), "Yes", "No")
+# write_tsv(gene_fonction, "../data/gene_fonction_cortijo2017.txt")
+head(gene_fonction)
 ```
 
 
