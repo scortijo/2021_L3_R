@@ -229,10 +229,14 @@ ggplot(aes(x=Con, y=Var, col=treatment, shape=treatment)) +
 Comme vous avez vu, changer la structure du tableau nous a permis de faire un graphique que nous n'aurions pas pu faire autrement. Cela peut aussi permettre de faire des analyses supplémentaires.
 
 <br>
+
 <br>
 
-### Passer au format long avec `spread()` 
+<br>
 
+### Passer au format long avec `gather()` 
+
+<br>
 
 Imaginons que nous souhaitons faire un boxplot pour le `days.to.bolt` et le `days.to.flower`. 
 
@@ -243,19 +247,20 @@ gather(expt1, "trait", "time.in.days", days.to.bolt, days.to.flower) %>%
   geom_boxplot()
 ```
 
-
+<br>
 
 Pour faire ce boxplor il nous faut réorganiser le tableau pour avoir les données pour ces deux mesures dans la même colonnes (`trait`) et une colonne indiquant s'il s'agit de la mesure de `days.to.bolt` ou `days.to.flower` (`time.in.days`). 
 
-
+<br>
 
 Pour cela nous utilisons la fonction `gather()` qui permet de passer d'un format "wide" à un format "long".
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 
+<br>
 
 Dans ce cas, le nom des colonnes sélectionnées devient la "clé", c'est à dire les catégories dans la première colonne crée (en violet dans l'illustration). Et les valeurs de toutes ces colonnes sélectionnées vont remplir la deuxième colonne crée (en bleu dans l'illustration).
 
-
+<br>
 
 
 `gather()` à besoin de trois informations:  
@@ -281,6 +286,7 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
   geom_boxplot()
 ```
 
+<br>
 
 Afin d'exporter ce graphique et de le sauver, nous utilisons la fonction `ggsave()`:
 
@@ -291,6 +297,8 @@ ggplot(expt1_long, aes(x=trait, y=time.in.days, color=genotype)) +
 
 ggsave("boxplot_daystobolt_daystoflower_genotypes.jpg")
 ```
+
+<br>
 
 > **Exercice 3:** 
 > 
