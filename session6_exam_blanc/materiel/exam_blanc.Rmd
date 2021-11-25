@@ -140,7 +140,7 @@ Ces gènes sont:
 > *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
 >
 
-*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type ligne représentant l'expression au cours du temps en regroupant les données par température avec un facet par gène.*
+*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale comme clé et une colonne contenant les valeurs d'expression comme valeur. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique avec des points représentant l'expression au cours du temps en regroupant les données par température, avec un facet par gène.*
 
 
 <br>

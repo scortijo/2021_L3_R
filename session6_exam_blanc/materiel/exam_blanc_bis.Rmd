@@ -139,7 +139,7 @@ Ces gènes sont:
 >
 > *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
 
-*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type ligne représentant l'expression au cours du temps en regroupant les données par température avec un facet par gène.*
+*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale comme clé et une colonne contenant les valeurs d'expression comme valeur. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique avec des points représentant l'expression au cours du temps en regroupant les données par température, avec un facet par gène.*
 
 Pour filtrer tout d'abord les données pour garder les deux gènes d'intérêt, on utilise `filter`, en demandant à ce que les valeurs de la colonne `gene` soient dans le vecteur `c("AT1G04520","AT3G12580")`.
 
@@ -148,24 +148,21 @@ Pour changer le format du tableau pour passer un format long avec une colonne co
 
 Pour séparer la colonne des conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes, c'est la fonction `separate` qu'il nous faut. Elle va découper les conditions de part et d'autre des underscores. On nomme les 3 nouvelles colonnes crées `"normalisation", "temperature", "temps"`.
 
-On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axis x le temps, en axe y l'expression.
-On ajoute dans la fonction `aes` que la couleur doit être liée à la température. Comme on souhaite représenter une ligne par température différente, il faut préciser un `aes` supplémentaire, `group`, qui sera également associé à la température. 
+On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axe x le temps, en axe y l'expression.
+On ajoute dans la fonction `aes` que la couleur doit être liée à la température.
 
-On ajoute ensuite au ggplot la fonction `geom_line` pour tracer les lignes d'expression. 
+On ajoute ensuite au ggplot la fonction `geom_point` pour tracer les points d'expression. 
 
-Enfin, pour faire sous graphe par gène, on ajoute un `facet_wrap` sur la colonne gène.
-
-
+Enfin, pour faire un sous-graphe par gène, on ajoute un `facet_wrap` sur la colonne `gene`.
 
 ```{r}
-
-filter(expt1, gene%in%c("AT1G04520","AT3G12580")) %>% 
+expt1 %>%
+  filter(gene%in%c("AT1G04520","AT3G12580")) %>% 
   gather(key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
   separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
-  ggplot(aes(x=temps, y=expression,color=temperature, group=temperature)) +
-  geom_line() +
+  ggplot(aes(x=temps, y=expression,color=temperature)) +
+  geom_point() +
   facet_wrap(~gene)
-
 ```
 
 Pour AT1G04520, on observe bien que l'expression diminue au cours du temps à 17°C et 27°C et que cette diminution est plus rapide est plus importante à 27°C (ligne bleue).
