@@ -85,22 +85,6 @@ On a 8 colonnes :
 + Une colonne avec le nom du gène
 + Une colonne avec le cluster
 
-#### Question 2
-
-> Est-ce que les différentes variables (les colonnes) sont bien du type attendu? 
-
-la fonction `glimpse` donne pour chaque colonne le type de donnée contenue (ou `visdat` qui donne cette info au format visuel):
-
-
-```{r}
-
-glimpse(expt1)
-# et/ou 
-
-vis_dat(expt1)
-```
-Les colonnes avec des valeurs d'expression sont des `dbl`, c'est à dire des nombres à virgule, tandis que les colonnes gene et cluster contiennent des `chr`, c'est à dire des chaines de charatères comme attendu. 
-
 
 #### Question 3
 

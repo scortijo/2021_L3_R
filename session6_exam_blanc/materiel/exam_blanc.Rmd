@@ -109,12 +109,6 @@ Avant d'analyser les données, la première étape consiste à vérifier que le 
 
 <br>
 
-### Question 2
-
-> Est-ce que les différentes variables (les colonnes) sont bien du type attendu? 
-
-<br>
-
 ### Question 3
 
 > Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus?
