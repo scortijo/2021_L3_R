@@ -22,10 +22,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Question 0
 
 
-> Chargez les librairies dont vous aurez besoin. 
+> Chargez les librairies dont vous aurez besoin.
 
 
-On charge le tidyverse et DT pour manipuler les dataframes, faire des graphiques, et représenter interactivement des tables.
+On charge le tidyverse pour manipuler les dataframes et faire des graphiques.
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -40,7 +40,6 @@ library(tidyverse)
 Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec une tabulation comme séparateur.
 
 ```{r}
-
 #expt1 <- read_tsv("2021_L3_R/session6_exam_blanc/data/data_expression_cortijo2017.txt")
 # ou, pour des questions de chemin, si l'exam est dans le repertoire de la session6/materiel:
 
