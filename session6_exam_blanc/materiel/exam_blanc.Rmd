@@ -85,7 +85,7 @@ De plus **une colonne indique à quel cluster appartient chague gène**.
 
 # Préparation de l'environnement de travail
 
-
+### Question 0
 
 Préparez votre environnement de travail:
 
@@ -93,6 +93,8 @@ Préparez votre environnement de travail:
 
 
 > Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _session6_exam_blanc/data_) dans R et sauvez le dans un objet
+
+
 *Aide*: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)
 
 
@@ -105,18 +107,18 @@ Avant d'analyser les données, la première étape consiste à vérifier que le 
 
 > Est-ce que le tableau importé dans R contient le bon nombre de gènes?
 >
-> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? 
+> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? (Répondez un expliquant quelle commande vous permet de répondre)
 
 <br>
 
-### Question 3
+### Question 2
 
 > Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus?
 > Quels sont leurs noms?
 
 <br>
 
-### Question 4
+### Question 3
 
 Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d'aller plus loin dans l'analyse, une dernière vérification consiste à s'assurer que ces gènes se comportent comme attendu dans notre jeu de données.
 
@@ -145,16 +147,17 @@ Ces gènes sont:
 Nous pouvons maintenant faire l'analyse à proprement parler des données. Chaque cluster représentant un type de réponse différente, nous allons les analyser plus en détail. 
 
 
-### Question 5
+### Question 4
 
 > Combien de gènes y a-t-il dans chaque cluster?
->
+
+*Aide*: groupez les données par cluster puis calculez la statistique résumée qu'est le nombre d'observations
 
 <br>
 
 # Analyse de la fonction des gènes
 
-### Question 8
+### Question 5
 
 Maintenant que nous connaissons la réponse de l'expression des gènes à la température, nous souhaitons en savoir plus sur leur fonction.
 
@@ -177,20 +180,13 @@ Parmi les gènes étudiés plus en détail, **AT3G12580** est intéressant car s
 
 <br>
 
-AT3G12580 fait parti du cluster 6A.
+AT3G12580 fait partie du cluster 6A.
 
-> Filtrez la table combinée pour ne garder que le cluster 6A et faîtes en sorte d'afficher cette selection (le nouveau dataframe filtré) de manière interactive dans le document compilé en html via Rmarkdown.
+> Filtrez la table combinée pour ne garder que le cluster 6A et déterminez combien de gènes de ce cluster répondent à la chaleur. 
 >
-> Combien de gènes dans le cluster 6A contiennent le mot "heat" dans leur nom? 
+> Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète répondent à la chaleur? 
 >
-> Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète contiennent le "heat" dans leur nom? 
->
-> Qu'est ce que le nombre de gènes contenant le mot "heat" dans leur nom dans le cluster 6A par rapport à la table entière indique-t-il?
-
-
-
-*Aide: Si vous créez le html de votre fichier Rmarkdown, vous pouvez filtrer les données dans le tableau créé pour compter le nombre de gènes contenant "heat" dans leur nom.*
-
+> Qu'est ce que le nombre de gènes répondant à la chaleur dans le cluster 6A par rapport à la table entière indique-t-il?
 
 
 
@@ -201,6 +197,6 @@ AT3G12580 fait parti du cluster 6A.
 
 ## FIN DE L'EXAMEN BLANC
 
-
+**Note** : contrairement à cet examen blanc, le réel examen contiendra aussi quelques questions sur les cours magistraux en plus des compétences en programmation.
 
 

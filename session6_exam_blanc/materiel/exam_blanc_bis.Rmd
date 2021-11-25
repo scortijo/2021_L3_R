@@ -19,6 +19,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Préparation de l'environnement de travail
 
+### Question 0
+
 
 > Chargez les librairies dont vous aurez besoin. 
 
@@ -27,8 +29,6 @@ On charge le tidyverse et DT pour manipuler les dataframes, faire des graphiques
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
-library(DT)
-library(visdat)
 ```
 
 
@@ -85,7 +85,7 @@ On a 8 colonnes :
 + Une colonne avec le cluster
 
 
-#### Question 3
+#### Question 2
 
 
 > Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus?
@@ -103,7 +103,7 @@ unique(expt1$cluster)
 
 
 
-#### Question 4
+#### Question 3
 
 
 
@@ -153,12 +153,13 @@ Pour AT1G04520, on observe bien que l'expression diminue au cours du temps à 17
 Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre (ligne bleue). A 17°C, cette augmentation est présente mais moins forte (ligne rouge).
 
 
-#### Question 5
+#### Question 4
 
 > Combien de gènes y a-t-il dans chaque cluster?
 
+*Aide*: groupez les données par cluster puis calculez la statistique résumée qu'est le nombre d'observations
 
-Avec la syntaxte tidyverse, on commence par grouper les observations suivant le `cluster` avec la fonction `group_by` appliquée à `expt1`.  On chaine la sortie de regroupement avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage du nombre d'observations dans chaque cluster. Cette fonction de comptage est `n()`.
+Avec la syntaxte tidyverse, on commence par grouper les observations suivant le `cluster` avec la fonction `group_by` appliquée à `expt1`.  On chaine la sortie de ce regroupement avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage du nombre d'observations dans chaque cluster. Cette fonction de comptage est `n()`.
 
 
 ```{r}
@@ -174,7 +175,7 @@ count(expt1, cluster)
 Alternativement, une fonction, `count` permet également de faire cette opération.
 
 
-#### Question 8
+#### Question 5
 
 Maintenant que nous connaissons la réponse de l'expression des gènes à la température, nous souhaitons en savoir plus sur leur fonction.
 
@@ -227,11 +228,11 @@ filter(gene_expression_fonction, gene=="AT3G12580")
 
 La colonne rajoutée, nommée `Primary_Gene_Symbol` nous informe que ce gène est une protéine induite en réponse à un stress en chaleur (`HEAT SHOCK PROTEIN 70 (HSP70)`), ce qui est conformé par le "Yes" de la colonne `heatRelated`.
 
-AT3G12580 fait parti du cluster 6A.
+AT3G12580 fait partie du cluster 6A.
 
 > Filtrez la table combinée pour ne garder que le cluster 6A et déterminez combien de gènes de ce cluster répondent à la chaleur. 
 
-On utilise `filter` pour garder uniquement les gènes du cluster 6A. On chaine ce filtre avec `datatable` qui va permettre d’afficher de manière interactive le tableau filtré dans le document compilé en html. Comme vu en session de TD, on rajoute les arguments utiles pour pouvoir filtrer la table et la parcourir intéractivement (`filter="top", options = list(pageLength = 100, scrollX=T)`) : 
+On utilise `filter` pour garder uniquement les gènes du cluster 6A ET qui répondent à la chaleur : 
 
 ```{r}
 
@@ -242,10 +243,10 @@ filter(gene_expression_fonction, cluster=="cluster6A" & heatRelated=="Yes")
 
 La table résultat contient 12 lignes, donc 12 gènes sont modulés par la chaleur dans le cluster 6A.
 
-> Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète contiennent le "heat" dans leur nom? 
+> Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète répondent à la chaleur? 
 
 
-Pour comparer au nombre d’occurrences de "heat" dans tous les gènes des données, on réutilise la même fonction mais sans le `filter` sur l'appartenance au cluster :
+Pour comparer au nombre d’occurrences de "heat" dans tous les gènes des données, on réutilise la même fonction mais sans la condition sur l'appartenance au cluster dans `filter`:
 
 ```{r}
 
@@ -260,8 +261,7 @@ La table résultat contient 13 lignes, donc 13 gènes sont modulés par la chale
 
 > Qu'est ce que le nombre de gènes répondant à la chaleur dans le cluster 6A par rapport à la table entière indique-t-il?
 
-**En conclusion, presque tous les gènes qui répondent à la chaleur sont dans le cluster 6A (sauf 1) : ce cluster est clairement enrichi en gènes de réponse à la chaleur.**
-
+**Le cluster 6A est très clairement enrichi en gènes de réponse à la chaleur.**
 
 ******
 
@@ -269,6 +269,6 @@ La table résultat contient 13 lignes, donc 13 gènes sont modulés par la chale
 
 ## FIN DE L'EXAMEN BLANC
 
-
+**Note** : contrairement à cet examen blanc, le réel examen contiendra aussi quelques questions sur les cours magistraux en plus des compétences en programmation.
 
 
