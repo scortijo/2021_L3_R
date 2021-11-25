@@ -31,7 +31,7 @@ Aujourd’hui nous allons voir comment:
 4. Combiner plusieurs tableaux en un seul
 
 
-
+<br>
 
 Tout d'abord, créez un nouveau _script R_ et préparez votre environnement de travail:
 
@@ -100,10 +100,12 @@ colnames(expt1.cm)
 > Créez une nouvelle colonne (blade.ratio) avec le ratio de `blade.length.mm` et `total.leaf.length.mm`
 >
 
-
+<br>
 
 
 ## Concaténer ou séparer des colonnes avec `unite()` et `separate()`
+
+<br>
 
 Pour concaténer deux ou plusieurs colonnes ensemble, utilisez la fonction `unite()`. Par exemple, pour concaténer `vernalization`, `survival.bolt` et `bolt`:
 
@@ -164,7 +166,12 @@ colnames(expt1.separated)
 
 <br>
 
+<br>
+
+
 ## Reformater des données avec `spread()` et `gather()`
+
+<br>
 
 ### Passer au format large avec `spread()` 
 
@@ -173,6 +180,8 @@ Parfois, le format de vos données ne vous permet pas de faire l'analyse ou le g
 Par exemple, essayons de reproduire le graphique suivant extrait de [Burghard et al 2015](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13799)
 
  ![](images/Burghard_2015_fig2_a.png)
+
+<br>
 
 Pour faire cette figure il nous faut une colonne avec le temps de floraison pour les plantes en conditions constante et une autre colonne avec le temps de floraison pour les plantes en condition variable. 
 Le temps de floraison pour toutes les plantes sont dans la même colonne dans notre tableau. Par contre, l'information sur le type de traitement (variable ou constant) est dans une autre colonne. Ce n'est pas ce que nous voulons! 
@@ -194,6 +203,7 @@ Maintenant nous devons changer la structure de la table pour avoir une colonne a
 
 ![](http://www.datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
 
+<br>
 
 La fonction `spread()` a besoin de deux informations:
 

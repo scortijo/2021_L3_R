@@ -75,6 +75,11 @@ Les différentes séances sont (avec accès au cours):
 
 
 
+### Liens  utiles
+
+
+[Antisèches](https://www.rstudio.com/resources/cheatsheets/)
+
 
 ## Si vous voulez utiliser R chez vous: 
 Il est recommandé d'utiliser R régulièrement pour bien comprendre et aprendre. Pour cela le mieux est d'installer **R** et **R studio** sur votre ordinateur:
