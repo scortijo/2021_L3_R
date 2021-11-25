@@ -150,49 +150,7 @@ Nous pouvons maintenant faire l'analyse à proprement parler des données. Chaqu
 > Combien de gènes y a-t-il dans chaque cluster?
 >
 
-
-### Question 6
-
-> Faites un graphique permettant de connaitre la distribution de l'expression des gènes de chaque cluster au cours du temps pour les deux température.
-> 
-> Faite une version du graphique avec des violin plots et une autre avec des boxplot. 
-
-
-*Aide: Pour effectuez ces graphique, changez le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type violin plot ou boxplot représentant l'expression au cours du temps en colorant les données par température avec un facet par cluster.*
-
-
 <br>
-
-
-Les boxplot et violin plots sont deux types de graphique permettant de montrer des distributions.
-
-> Expliquez ce que chacun de ces types de graphique représente. Quelles sont les différences entre boxplot et violin plot? 
->
-
-
-
-<br>
-
-
-> A partir des graphiques violin et boxplot des données, indiquez quels sont les clusters dont l'expression des gènes augmente, ou au contraire diminue, en réponse à la température.
->
-
-<br>
-
-
-Les chercheurs sont plus intéressés par le cluster 1 (qui contient AT1G04520) et le cluster 6A (qui contient AT3G12580).
-
-> A partir de vos graphiques décrivez la réponse à la température au cours du temps de l'expression des gènes des clusters 1 et 6A 
-
-
-
-### Question 7
-
-Afin de s'assurer que le travail soit reproductible, toutes les informations necessaires doivent être inclues dans les graphiques.
-
-> Pensez vous que les boxplot et violin plots créés dans la question 6 contiennent les informations necessaires? 
-> Quelles informations ajouteriez vous pour vous assurer que le travail soit reproductible? (pas besoin de changer le graphique)
-
 
 # Analyse de la fonction des gènes
 
@@ -202,8 +160,8 @@ Maintenant que nous connaissons la réponse de l'expression des gènes à la tem
 
 Malheureusement la table contenant les données d'expression ne contient que l'*AGI* des gènes qui est un identifiant unique pour chaque gène d'*Arabidopsis thaliana*, mais ne nous donne aucune information sur sa fonction.
 
-
-L'information sur la fonction des gènes se trouve dans la table _gene_fonction_cortijo2017.txt_
+L'information sur la fonction des gènes se trouve dans la table _gene_fonction_cortijo2017.txt_.
+Cette table contient dans sa colonne `gene` les gènes d'Arabidopsis, leur description dans la colonne `Primary_Gene_Symbol`, et la colonne `heatRelated` contient "Yes" si le gène est impliqué dans la réponse à la chaleur, "No" sinon.
 
 > Chargez la table _gene_fonction_cortijo2017.txt_ dans R.
 >

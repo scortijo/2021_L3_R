@@ -17,7 +17,6 @@ knitr::opts_chunk$set(echo = TRUE)
 <br>
 
 
-
 ## Préparation de l'environnement de travail
 
 
@@ -159,7 +158,7 @@ Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière r
 > Combien de gènes y a-t-il dans chaque cluster?
 
 
-Avec la syntaxte tidyverse, on commence par sélectionner la colonne `cluster` avec la fonction `select` appliquée à `expt1`.  On chaine la sortie de cette sélection avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage de chaque valeur de cluster. Cette fonction de comptage est `n()`.
+Avec la syntaxte tidyverse, on commence par grouper les observations suivant le `cluster` avec la fonction `group_by` appliquée à `expt1`.  On chaine la sortie de regroupement avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage du nombre d'observations dans chaque cluster. Cette fonction de comptage est `n()`.
 
 
 ```{r}
@@ -169,100 +168,10 @@ group_by(expt1, cluster) %>%
 
 # ou
 
-table(expt1$cluster)
+count(expt1, cluster)
 ```
 
-Alternativement, une fonction, `table` de la base de R permet également de faire cette opération.
-
-
-#### Question 6
-
-> Faites un graphique permettant de connaitre la distribution de l'expression des gènes de chaque cluster au cours du temps pour les deux température.
-> 
-> Faite une version du graphique avec des violin plots et une autre avec des boxplot. 
-
-
-*Aide: Pour effectuez ces graphique, changez le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique de type violin plot ou boxplot représentant l'expression au cours du temps en colorant les données par température avec un facet par cluster.*
-
-
-
-
-Changer le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale et une colonne contenant les valeurs d'expression, puis séparer la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes a déjà été réalisé en question 4. On peut donc reprendre le même code, c'est à dire chaîner les fonctions `gather` et `separate`, avec exactement avec les mêmes arguments. On omettra uniquement le `select` du début car on veut cette fois tous les gènes des données.
-
-
-
-On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axis x le temps, en axe y l'expression.
-On ajoute dans la fonction `aes` que la couleur de remplissage (`fill`) doit être liée à la température. 
-
-
-On ajoute ensuite la fonction `geom_violin`, puis un `facet_grid` sur la variable `cluster` car on veut un sous graphique pour chaque cluster.
-
-
-Pour obtenir un boxplot, vous avez uniquement besoin de remplacer `geom_violin` par `geom_boxplot`.
-
-```{r}
-
-
-gather(expt1, key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
-  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
-  ggplot(aes(x=temps, y=expression, fill=temperature )) +
-  geom_violin() +
-  facet_grid(~cluster)
-
-gather(expt1, key="condition", value="expression", Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr) %>% 
-  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
-  ggplot(aes(x=temps, y=expression, fill=temperature )) +
-  geom_boxplot() +
-  facet_grid(~cluster)
-
-
-```
-
-
-
-Les boxplot et violin plots sont deux types de graphique permettant de montrer des distributions.
-
-> Expliquez ce que chacun de ces types de graphique représente. Quelles sont les différences entre boxplot et violin plot? 
-
-
-
-Un boxplot montre les **statistiques résumées** d'un groupe d'observations (médiane, premier quartile, et troisième quartile. Les points qui dépassent des boxplots sont les valeurs prédites comme "extrêmes").
-
-Un violin plot montre la **distribution** d'un groupe d'observations (la forme de cette distribution est plus précise et montre comment sont réparties les observations).
-
-Utiliser un violin plot permet par exemple de contrôler qu'il n'y ait pas de distribution bimodale (deux pics dans la distribution) ce qui voudrait dire qu'il pourrait y avoir deux populations distinctes dans les observations récoltées. Pour comparer des groupes entre plusieurs conditions (comme la température), un boxplot est plus pratique car on peut par exemple comparer directement les médianes (trait central du boxplot).
-
-> A partir des graphiques violin et boxplot des données, indiquez quels sont les clusters dont l'expression des gènes augmente, ou au contraire diminue, en réponse à la température.
-
-Dans les **clusters 1 et 3**, on a des valeurs d'expression inférieures à 27 °C par rapport à 17 °C, ce sont des gènes diminuant avec la température. Dans le **cluster 5**, on observe également que les gènes sont moins exprimés à 27 qu'à 17 °C, indiquant qu'ils sont réprimés par la chaleur.
-
-Dans les **clusters 5, 6A et 6B**, on a une augmentation de l'expression à 27 °C comparé à 17 °C, il s'agit donc des gènes qui sont induits par une forte température.
-
-> A partir de vos graphiques décrivez la réponse à la température au cours du temps de l'expression des gènes des clusters 1 et 6A
-
-
-Pour la réponse de la température au cours du temps, on constate une nette diminution de l'expression après transfert en condition de chaleur dans le **cluster 1**. Le log fold change est inférieur à 0, ce qui veut dire qu'on a une expression moins forte après un certain temps passé à 27 °C comparé à avant le transfert, et cette diminution d'expression s'accentue plus les plantes sont exposées à la chaleur longtemps (l'expression continue de chuter jusqu'à 4h). 
-
-Dans le **cluster 6A**, on a un pic d'expression jusqu'à 1 heure après transfert à la chaleur, puis une diminution de l'expression des gènes. Ce pic d'expression s'observe uniquement à 27 °C, et non à 17 °C, il est donc spécifique à une tempéreature élevée.
-
-
-#### Question 7
-
-Afin de s'assurer que le travail soit reproductible, toutes les informations necessaires doivent être inclues dans les graphiques.
-
-> Pensez vous que les boxplot et violin plots créés dans la question 6 contiennent les informations necessaires? 
-> Quelles informations ajouteriez vous pour vous assurer que le travail soit reproductible? (pas besoin de changer le graphique)
-
-
-
-Ce graphique pourrait être fortement amélioré pour une recherche plus reproductible.
-
-En particulier, on pourrait lui rajouter :
-
-+ Un *titre* (précisant par exemple que l'expression est un log fold change entre le temps d'intérêt et le temps 0)
-
-+ Le *nombre d'observations* par boxplot (c'est à dire le nombre de gènes dans les clusters).
-
+Alternativement, une fonction, `count` permet également de faire cette opération.
 
 
 #### Question 8
@@ -273,6 +182,9 @@ Malheureusement la table contenant les données d'expression ne contient que l'*
 
 
 L'information sur la fonction des gènes se trouve dans la table _gene_fonction_cortijo2017.txt_
+
+Cette table contient dans sa colonne `gene` les gènes d'Arabidopsis, leur description dans la colonne `Primary_Gene_Symbol`, et la colonne `heatRelated` contient "Yes" si le gène est impliqué dans la réponse à la chaleur, "No" sinon.
+
 
 > Chargez la table _gene_fonction_cortijo2017.txt_ dans R.
 >
@@ -285,11 +197,7 @@ Pour ces nouvelles données, on utilise la fonction `read_tsv` qui est adaptée 
 
 
 ```{r}
-
-
 gene_fonction <- read_tsv("../data/gene_fonction_cortijo2017.txt")
-# gene_fonction$heatRelated <- ifelse(str_detect(gene_fonction$Primary_Gene_Symbol, "HEAT"), "Yes", "No")
-# write_tsv(gene_fonction, "../data/gene_fonction_cortijo2017.txt")
 head(gene_fonction)
 ```
 
@@ -317,30 +225,22 @@ filter(gene_expression_fonction, gene=="AT3G12580")
 
 ```
 
-La colonne rajoutée, nommée `Primary_Gene_Symbol` nous informe que ce gène est une protéine induite en réponse à un stress en chaleur (`HEAT SHOCK PROTEIN 70 (HSP70)`).
+La colonne rajoutée, nommée `Primary_Gene_Symbol` nous informe que ce gène est une protéine induite en réponse à un stress en chaleur (`HEAT SHOCK PROTEIN 70 (HSP70)`), ce qui est conformé par le "Yes" de la colonne `heatRelated`.
 
 AT3G12580 fait parti du cluster 6A.
 
-> Filtrez la table combinée pour ne garder que le cluster 6A et faîtes en sorte d'afficher cette selection (le nouveau dataframe filtré) de manière interactive dans le document compilé en html via Rmarkdown.
-
+> Filtrez la table combinée pour ne garder que le cluster 6A et déterminez combien de gènes de ce cluster répondent à la chaleur. 
 
 On utilise `filter` pour garder uniquement les gènes du cluster 6A. On chaine ce filtre avec `datatable` qui va permettre d’afficher de manière interactive le tableau filtré dans le document compilé en html. Comme vu en session de TD, on rajoute les arguments utiles pour pouvoir filtrer la table et la parcourir intéractivement (`filter="top", options = list(pageLength = 100, scrollX=T)`) : 
 
 ```{r}
 
-filter(gene_expression_fonction, cluster=="cluster6A") %>% 
-  datatable(filter="top", options = list(pageLength = 20, scrollX=T))
+filter(gene_expression_fonction, cluster=="cluster6A" & heatRelated=="Yes") 
 
 ```
 
-> Combien de gènes dans le cluster 6A contiennent le mot "heat" dans leur nom? 
 
-Cet affichage interactif doit vous permettre de chercher dans la table le terme "heat" et de compter combien de lignes apparaissent.
-
-Alternativement, nous pouvez utiliser de code pour faire ceci.
-
-
-On remarque que 12 gènes ont une annotation contenant "heat" dans le cluster 6A.
+La table résultat contient 12 lignes, donc 12 gènes sont modulés par la chaleur dans le cluster 6A.
 
 > Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète contiennent le "heat" dans leur nom? 
 
@@ -349,19 +249,18 @@ Pour comparer au nombre d’occurrences de "heat" dans tous les gènes des donn�
 
 ```{r}
 
-
-datatable(gene_expression_fonction,filter="top", options = list(pageLength = 20, scrollX=T))
+filter(gene_expression_fonction, heatRelated=="Yes") 
 
 ```
 
 
 
 
-On remarque que 13 gènes ont une annotation contenant "heat" dans toutes les données. 
+La table résultat contient 13 lignes, donc 13 gènes sont modulés par la chaleur parmi tous les gènes des données.
 
-> Qu'est ce que le nombre de gènes contenant le mot "heat" dans leur nom dans le cluster 6A par rapport à la table entière indique-t-il?
+> Qu'est ce que le nombre de gènes répondant à la chaleur dans le cluster 6A par rapport à la table entière indique-t-il?
 
-**En conclusion, presque tous les gènes qui sont annotés avec le terme"heat" sont dans le cluster 6A (sauf 1) : ce cluster est clairement enrichi en gènes de réponse à la chaleur.**
+**En conclusion, presque tous les gènes qui répondent à la chaleur sont dans le cluster 6A (sauf 1) : ce cluster est clairement enrichi en gènes de réponse à la chaleur.**
 
 
 ******
