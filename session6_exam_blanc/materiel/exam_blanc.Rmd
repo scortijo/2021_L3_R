@@ -107,7 +107,10 @@ De plus **une colonne indique à quel cluster appartient chague gène**.
 
 Préparez votre environnement de travail:
 
-> Chargez les librairies dont vous aurez besoin. 
+> Chargez les librairies dont vous aurez besoin.
+
+
+> Réglez votre répertoire de travail pour vous situer dans le dossier contenant l'examen blanc
 
 
 > Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _data_) dans R et sauvez le dans un objet
