@@ -79,6 +79,7 @@ Les différentes séances sont (avec accès au cours):
 
 
 [Antisèches](https://www.rstudio.com/resources/cheatsheets/)
+[Inclure des résultats de tests statistiques sur un graphique](https://scortijo.github.io/2021_M2_R/session2/materiel/session2.html)
 
 
 ## Si vous voulez utiliser R chez vous: 
