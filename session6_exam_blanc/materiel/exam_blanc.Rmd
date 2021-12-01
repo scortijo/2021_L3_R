@@ -18,15 +18,33 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-**Ouvrez _exam_blanc.Rmd_ et sauvez le dans le dossier _session6_exam_blanc_ en y ajoutant votre nom.** 
+**Téléchargez le dossier Exam_blanc dans Moodle qui contient:**
+
+**- Un fichier `exam_blanc.html` qui contient l'énoncé de l'exam blanc (une copie de cet énoncé) **
+
+**- Un fichier `exam_blanc.R` qui contient le script R dans lequel vous allez mettre vos scripts et réponses aux questions**
+
+**- Un dossier `data` qui contient les données**
+
+<br>
+
+**Ouvrez `exam_blanc.R` et sauvez le dans le même dossier sous le nom `Exam_blanc_numéro_etudiant.R` en remplaçant `numéro_etudiant` par votre propre numéro.** 
+
+<br>
 
 **Pour chaque question:**
 
-**- Expliquez ce que vous allez faire et pourquoi vous utilisez telle ou telle fonction.**
+**- Commentez le code (en utilisant #) pour expliquer ce que vous allez faire et pourquoi vous utilisez telle ou telle fonction**
 
-**- Ajoutez des zones de code de Rmarkdown pour répondre à la question à l'aide de commandes.**
+**- Utilisez des commandes appropriées pour répondre à la question**
 
-**- Et finalement répondez à la question grâce au résultat des commandes.**
+**- Et finalement répondez (en commentant avec un #) à la question grâce au résultat des commandes**
+
+<br>
+
+<span style="color: red;">**L'exam blanc fini à 9h30. Quand vous avez fini, envoyez votre script `Exam_blanc_numéro_etudiant.R` à sandra.cortijo@cnrs.fr** </span>
+
+
 
 <br>
 
@@ -49,7 +67,7 @@ Pour chaque échantillon, l'expression pour l'ensemble des gènes d'*Arabidopsis
 Nous sommes intéressés en particulier aux changements d'expression en réponse à la température et au cours du temps pour ces gènes. Afin de s'affranchir des niveaux d'expression différents entre les gènes (certains sont fortement ou faiblement exprimé peu importe la réponse à la température), et de se concentrer sur la réponse à la température les données ont été transformées avec la formule suivante:
 
 $$
-log_2(\frac{\text{expréssion à la température et temps étudiés}}{\text{expression au temps  zéro}})
+log_2(\frac{\text{expréssion à la température et temps étudiés}}{\text{expression au temps zéro}})
 $$
 
 Cette transformation des données est couramment utilisée dans ce domaine d'étude pour étudier la réponse de l'expression des gènes à un stimulus.
@@ -62,11 +80,11 @@ Les valeurs obtenues sont centrées autour de zéro. Pour chaque gènes:
 
 <br>
 
-Pour aller plus loin, les auteurs ont regroupé ensemble les gènes qui ont des profils d'expression similaires au cours du temps. Par exemple tous les gènes qui ont une augmentation qui monte avec le temps en réponse à la chaleur ont été regroupé ensemble. De cette manières ils ont identtifié **7 groupes**, appelés **clusters**.
+Pour aller plus loin, les auteurs ont regroupé ensemble les gènes qui ont des profils d'expression similaires au cours du temps. Par exemple tous les gènes qui ont une augmentation qui s'accroît avec le temps en réponse à la chaleur ont été regroupés ensemble. De cette manières ils ont identifié **7 groupes**, appelés **clusters**.
 
 <br>
 
-Les données sur lesquelles vous aller travailler sont dans le tableur _data_expression_cortijo2017.txt_ qui contient **une ligne pour chacun des 1035 gènes**, et **une colonne pour chaque condition**: 
+Les données sur lesquelles vous allez travailler sont dans le tableur _data_expression_cortijo2017.txt_ qui contient **une ligne pour chacun des 1035 gènes**, et **une colonne pour chaque condition**: 
 
 - 15 minutes à 17°C
 
@@ -92,7 +110,7 @@ Préparez votre environnement de travail:
 > Chargez les librairies dont vous aurez besoin. 
 
 
-> Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _session6_exam_blanc/data_) dans R et sauvez le dans un objet
+> Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _data_) dans R et sauvez le dans un objet
 
 
 *Aide*: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)
@@ -107,7 +125,7 @@ Avant d'analyser les données, la première étape consiste à vérifier que le 
 
 > Est-ce que le tableau importé dans R contient le bon nombre de gènes?
 >
-> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? (Répondez un expliquant quelle commande vous permet de répondre)
+> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? (Expliquez quelle commande vous permet de répondre)
 
 <br>
 
@@ -136,7 +154,7 @@ Ces gènes sont:
 > *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
 >
 
-*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale comme clé et une colonne contenant les valeurs d'expression comme valeur. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique avec des points représentant l'expression au cours du temps en regroupant les données par température, avec un facet par gène.*
+*Aide: Pour effectuer ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale comme clé et une colonne contenant les valeurs d'expression comme valeur. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique avec des points représentant l'expression au cours du temps en colorant les données par température, avec un facet par gène.*
 
 
 <br>
