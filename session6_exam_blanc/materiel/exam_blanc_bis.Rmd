@@ -31,6 +31,7 @@ On charge le tidyverse pour manipuler les dataframes et faire des graphiques.
 library(tidyverse)
 ```
 
+Réglez votre répertoire de travail avec `setwd()`, en donnant en argument le chemin vers le dossier décompressé qui contient l'examen blanc.
 
 > Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _session6_exam_blanc/data_) dans R et sauvez le dans un objet
 *Aide*: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)
@@ -39,13 +40,14 @@ library(tidyverse)
 
 Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec une tabulation comme séparateur.
 
-```{r}
-#expt1 <- read_tsv("2021_L3_R/session6_exam_blanc/data/data_expression_cortijo2017.txt")
-# ou, pour des questions de chemin, si l'exam est dans le repertoire de la session6/materiel:
-
-expt1 <- read_tsv("../data/data_expression_cortijo2017.txt")
+```{r, eval=FALSE}
+expt1 <- read_tsv("data/data_expression_cortijo2017.txt")
 ```
 
+
+```{r, echo=F}
+expt1 <- read_tsv("../data/data_expression_cortijo2017.txt")
+```
 ## Vérification des données
 
 #### Question 1

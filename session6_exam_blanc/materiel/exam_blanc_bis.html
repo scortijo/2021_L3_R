@@ -255,14 +255,12 @@ div.tocify {
 </blockquote>
 <p>On charge le tidyverse pour manipuler les dataframes et faire des graphiques.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
+<p>Réglez votre répertoire de travail avec <code>setwd()</code>, en donnant en argument le chemin vers le dossier décompressé qui contient l’examen blanc.</p>
 <blockquote>
 <p>Chargez le fichier <em>data_expression_cortijo2017.txt</em> (qui est dans le dossier <em>session6_exam_blanc/data</em>) dans R et sauvez le dans un objet <em>Aide</em>: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)</p>
 </blockquote>
 <p>Ici, on utilise la fonction <code>read_tsv</code> qui est adaptée aux fichiers texte avec une tabulation comme séparateur.</p>
-<pre class="r"><code>#expt1 &lt;- read_tsv(&quot;2021_L3_R/session6_exam_blanc/data/data_expression_cortijo2017.txt&quot;)
-# ou, pour des questions de chemin, si l&#39;exam est dans le repertoire de la session6/materiel:
-
-expt1 &lt;- read_tsv(&quot;../data/data_expression_cortijo2017.txt&quot;)</code></pre>
+<pre class="r"><code>expt1 &lt;- read_tsv(&quot;data/data_expression_cortijo2017.txt&quot;)</code></pre>
 <pre><code>## Rows: 1035 Columns: 8</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;\t&quot;
