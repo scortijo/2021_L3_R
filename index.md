@@ -75,6 +75,13 @@ Les différentes séances sont (avec accès au cours):
 
 
 
+### Liens  utiles
+
+
+[Antisèches](https://www.rstudio.com/resources/cheatsheets/)
+
+[Inclure des résultats de tests statistiques sur un graphique](https://scortijo.github.io/2021_M2_R/session2/materiel/session2.html)
+
 
 ## Si vous voulez utiliser R chez vous: 
 Il est recommandé d'utiliser R régulièrement pour bien comprendre et aprendre. Pour cela le mieux est d'installer **R** et **R studio** sur votre ordinateur:
