@@ -70,6 +70,12 @@ Les différentes séances sont (avec accès au cours):
 
 ### Séance 6 (02/12/2021 8h-11h15): Exam blanc, Correction de l'exam blanc et trucs et astuces
 
+[Ennoncé de l'exam blanc](session6_exam_blanc/materiel/exam_blanc.html)
+
+[Correction de l'exam blanc](session6_exam_blanc/materiel/exam_blanc_bis.html)
+
+[Astuces pour chercher de l'aide en ligne](session6_exam_blanc/materiel/astuces.html)
+
 
 ### Séance 7 (09/12/2021 9h45-11h15): Exam
 
