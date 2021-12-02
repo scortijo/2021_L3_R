@@ -1,0 +1,284 @@
+---
+title: "Correction de l'exam blanc"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes 
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Retour à la page d'accueil](https://scortijo.github.io/2021_L3_R/)
+
+<br>
+
+
+## Préparation de l'environnement de travail
+
+### Question 0
+
+
+> Chargez les librairies dont vous aurez besoin.
+
+
+On charge le tidyverse pour manipuler les dataframes et faire des graphiques.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+> Chargez le fichier _data_expression_cortijo2017.txt_ (qui est dans le dossier _session6_exam_blanc/data_) dans R et sauvez le dans un objet
+*Aide*: Utilisez la fonction appropriée pour le type de données (dans ce cas colonnes séparées par une tabulation)
+
+
+
+Ici, on utilise la fonction `read_tsv` qui est adaptée aux fichiers texte avec une tabulation comme séparateur.
+
+```{r}
+#expt1 <- read_tsv("2021_L3_R/session6_exam_blanc/data/data_expression_cortijo2017.txt")
+# ou, pour des questions de chemin, si l'exam est dans le repertoire de la session6/materiel:
+
+expt1 <- read_tsv("../data/data_expression_cortijo2017.txt")
+```
+
+## Vérification des données
+
+#### Question 1
+
+
+Avant d'analyser les données, la première étape consiste à vérifier que le tableau importé dans _R_ contient bien les données attendues.
+
+> Est-ce que le tableau importé dans R contient le bon nombre de gènes?
+>
+> Est-ce que le tableau importé dans R contient les données d'expression dans les 6 conditions (15 minutes à 17°C, 1 heure à 17°C, 4 heures à 17°C, 15 minutes à 27°C, 1 heure à 27°C et 4 heures à 27°C) ainsi que l'information pour le cluster d'appartenance de chaque gène? 
+
+On utilise dim qui permet de voir le nombre de lignes et de colonnes d'un dataframe :
+
+```{r}
+
+dim(expt1)
+
+```
+
+On a bien 1035 lignes, donc 1035 gènes.
+
+Pour vérifier les données contenues, on utilise une fonction qui va nous montrer le nom des colonnes :
+
+```{r}
+
+head(expt1)
+#ou 
+names(expt1)
+
+```
+
+On a 8 colonnes : 
+
++ L'expression dans 6 conditions (en logFC)
++ Une colonne avec le nom du gène
++ Une colonne avec le cluster
+
+
+#### Question 2
+
+
+> Est-ce que le tableau importé dans R contient bien le nombre de clusters attendus?
+> Quels sont leurs noms?
+
+
+On voudrait savoir quels sont les différents clusters possibles. Pour cela, on va récupérer cette colonne et montrer les valeurs uniques qu'elle contient :
+
+```{r}
+
+unique(expt1$cluster)
+
+# ou
+
+distinct(expt1, cluster)
+```
+
+
+
+## Analyse de l'expression des gènes
+
+
+#### Question 3
+
+
+
+Avant de faire cette expérience à grande échelle, les chercheurs ont étudié quelques gènes en particulier. Avant d'aller plus loin dans l'analyse, une dernière vérification consiste à s'assurer que ces gènes se comportent comme attendu dans notre jeu de données.
+
+Ces gènes sont:
+
+- **AT1G04520**: Les chercheurs ont préalablement observé que l'expression de ce gène diminue au cours du temps à 17°C et 27°C et que cette diminution est plus rapide est plus importante à 27°C.
+
+
+- **AT3G12580**: Les chercheurs ont préalablement observé que l'expression de AT3G12580 augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre.
+
+
+> Faites un graphique montrant l'évolution au cours du temps de l'expression de ces deux gènes à 17°C et 27°C. Obtenez vous des comportement d'expression correspondants aux résultats préliminaires effectués sur ces deux gènes?
+>
+>
+> *Note*: Gardez en tête que le temps zéro n'est pas représenté sur le graphique, mais que compte tenu de la méthode de normalisation la valeur au temps zéro est de 0 pour tous les gènes.
+
+*Aide: Pour effectuez ce graphique, filtrez tout d'abord les données pour garder les deux gènes d'intérêt, changez le format du tableau pour passer un format long avec une colonne contenant la condition expérimentale comme clé et une colonne contenant les valeurs d'expression comme valeur. Ensuite séparez la colonne avec les conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes. Vous pouvez maintenant faire un graphique avec des points représentant l'expression au cours du temps en regroupant les données par température, avec un facet par gène.*
+
+Pour filtrer tout d'abord les données pour garder les deux gènes d'intérêt, on utilise `filter`, en demandant à ce que les valeurs de la colonne `gene` soient dans le vecteur `c("AT1G04520","AT3G12580")`.
+
+Pour changer le format du tableau pour passer un format long avec une colonne contenant la condition experimentale et une colonne contenant les valeurs d'expression, on utilise `gather` sur les colonnes contenant l'expression dans les différentes conditions `Log2FoldToZero_17c_15min:Log2FoldToZero_27c_4hr`. On appelle la nouvelle clé est nommée `condition` et la colonne valeur est nommée `expression`.
+
+
+Pour séparer la colonne des conditions expérimentales afin que la température et le temps du traitement soient dans deux colonnes différentes, c'est la fonction `separate` qu'il nous faut. Elle va découper les conditions de part et d'autre des underscores. On nomme les 3 nouvelles colonnes crées `"normalisation", "temperature", "temps"`.
+
+On peut maintenant appeler `ggplot` pour tracer le graphique, qui aura en axe x le temps, en axe y l'expression.
+On ajoute dans la fonction `aes` que la couleur doit être liée à la température.
+
+On ajoute ensuite au ggplot la fonction `geom_point` pour tracer les points d'expression. 
+
+Enfin, pour faire un sous-graphe par gène, on ajoute un `facet_wrap` sur la colonne `gene`.
+
+```{r}
+expt1 %>%
+  filter(gene%in%c("AT1G04520","AT3G12580")) %>% 
+  gather(key="condition", value="expression", 
+         Log2FoldToZero_17c_15min, 
+         TLog2FoldToZero_17c_1hr, 
+         Log2FoldToZero_17c_4hr, 
+         Log2FoldToZero_27c_15min,
+         Log2FoldToZero_27c_1hr, 
+         Log2FoldToZero_27c_4hr) %>% 
+  separate(condition, into=c("normalisation", "temperature", "temps")) %>% 
+  ggplot(aes(x=temps, y=expression,color=temperature)) +
+  geom_point() +
+  facet_wrap(~gene)
+```
+
+Pour AT1G04520, on observe bien que l'expression diminue au cours du temps à 17°C et 27°C et que cette diminution est plus rapide est plus importante à 27°C (ligne bleue).
+
+Pour AT3G12580, on observe bien que l'expression augmente à 27°C de manière rapide et atteint son pic d'expression en 15 minutes avant de redescendre (ligne bleue). A 17°C, cette augmentation est présente mais moins forte (ligne rouge).
+
+
+#### Question 4
+
+> Combien de gènes y a-t-il dans chaque cluster?
+
+*Aide*: groupez les données par cluster puis calculez la statistique résumée qu'est le nombre d'observations
+
+Avec la syntaxte tidyverse, on commence par grouper les observations suivant le `cluster` avec la fonction `group_by` appliquée à `expt1`.  On chaine la sortie de ce regroupement avec `summarise`, en demandant une colonne nommée `n.obs` qui sera le comptage du nombre d'observations dans chaque cluster. Cette fonction de comptage est `n()`.
+
+
+```{r}
+
+group_by(expt1, cluster) %>% 
+  summarise(n.obs=n())
+
+# ou
+
+count(expt1, cluster)
+```
+
+Alternativement, une fonction, `count` permet également de faire cette opération.
+
+## Analyse de la fonction des gènes
+
+#### Question 5
+
+Maintenant que nous connaissons la réponse de l'expression des gènes à la température, nous souhaitons en savoir plus sur leur fonction.
+
+Malheureusement la table contenant les données d'expression ne contient que l'*AGI* des gènes qui est un identifiant unique pour chaque gène d'*Arabidopsis thaliana*, mais ne nous donne aucune information sur sa fonction.
+
+
+L'information sur la fonction des gènes se trouve dans la table _gene_fonction_cortijo2017.txt_
+
+Cette table contient dans sa colonne `gene` les gènes d'Arabidopsis, leur description dans la colonne `Primary_Gene_Symbol`, et la colonne `heatRelated` contient "Yes" si le gène est impliqué dans la réponse à la chaleur, "No" sinon.
+
+
+> Chargez la table _gene_fonction_cortijo2017.txt_ dans R.
+>
+> Puis combinez la avec la table contenant l'expression des gènes ( _data_expression_cortijo2017.txt_ chargée en début d'examen) de manière à rajouter l'information sur la fonction des gènes à la table contenant l'expression des gènes et le cluster d'appartenance de chaque gène
+
+
+
+Pour ces nouvelles données, on utilise la fonction `read_tsv` qui est adaptée aux fichiers textes avec une tabulation comme séparateur.
+
+
+
+```{r}
+gene_fonction <- read_tsv("../data/gene_fonction_cortijo2017.txt")
+head(gene_fonction)
+```
+
+
+Ici, on veut créer un nouveau tableau de données qui sera la jointure de `gene_fonction` et `expt1`. Cette jointure de tableau de données se fait avec la fonction `full_join` sur la base de la colonne `gene`, que les deux tableaux contiennent.
+
+```{r}
+
+gene_expression_fonction <- full_join(gene_fonction, expt1, by="gene")
+
+```
+
+Parmi les gènes étudiés plus en détail, **AT3G12580** est intéressant car son expression augmente rapidement en réponse au traitement à 27°C. 
+
+> A partir de la nouvelle table combinée, trouvez le nom de AT3G12580. Quelle fonction ce nom suggère t-il pour AT3G12580 en réponse à la chaleur?
+
+
+On utilise `filter` sur le nouveau dataframe, avec la fonction de test `gene=="AT3G12580"` qui garde uniquement le gène qui nous intéresse. 
+
+```{r}
+
+filter(gene_expression_fonction, gene=="AT3G12580")
+  
+
+```
+
+La colonne rajoutée, nommée `Primary_Gene_Symbol` nous informe que ce gène est une protéine induite en réponse à un stress en chaleur (`HEAT SHOCK PROTEIN 70 (HSP70)`), ce qui est conformé par le "Yes" de la colonne `heatRelated`.
+
+AT3G12580 fait partie du cluster 6A.
+
+> Filtrez la table combinée pour ne garder que le cluster 6A et déterminez combien de gènes de ce cluster répondent à la chaleur. 
+
+On utilise `filter` pour garder uniquement les gènes du cluster 6A ET qui répondent à la chaleur : 
+
+```{r}
+
+filter(gene_expression_fonction, cluster=="cluster6A" & heatRelated=="Yes") 
+
+```
+
+
+La table résultat contient 12 lignes, donc 12 gènes sont modulés par la chaleur dans le cluster 6A.
+
+> Faites la même chose pour la table contennant tous les gènes. Combien de gènes dans la table complète répondent à la chaleur? 
+
+
+Pour comparer au nombre d’occurrences de "heat" dans tous les gènes des données, on réutilise la même fonction mais sans la condition sur l'appartenance au cluster dans `filter`:
+
+```{r}
+
+filter(gene_expression_fonction, heatRelated=="Yes") 
+
+```
+
+
+
+
+La table résultat contient 13 lignes, donc 13 gènes sont modulés par la chaleur parmi tous les gènes des données.
+
+> Qu'est ce que le nombre de gènes répondant à la chaleur dans le cluster 6A par rapport à la table entière indique-t-il?
+
+**Le cluster 6A est très clairement enrichi en gènes de réponse à la chaleur.**
+
+******
+
+<br>
+
+## FIN DE L'EXAMEN BLANC
+
+**Note** : contrairement à cet examen blanc, le réel examen contiendra aussi quelques questions sur les cours magistraux en plus des compétences en programmation.
+
+
