@@ -80,6 +80,13 @@ Les différentes séances sont (avec accès au cours):
 ### Séance 7 (09/12/2021 9h45-11h15): Exam
 
 
+[Ennoncé de l'exam](examen_terminal/Enonce_exam.html)
+
+[Correction de l'exam en format html](examen_terminal/Solution_Exam_L3.html)
+
+[Correction de l'exam en format script R](examen_terminal/Solution_script_exam.R)
+
+
 
 ### Liens  utiles
 
