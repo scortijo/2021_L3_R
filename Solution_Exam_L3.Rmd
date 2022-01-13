@@ -1,0 +1,275 @@
+---
+title: "Solution de l'examen terminal : Introduction à la bioinformatique pour la biologie végétale"
+author: "Sandra Cortijo, Océane Cassan, Mathieu Ingouff"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes 
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Description des données
+
+Pour l'examen, vous allez analyser des données extraites de [Chiang et al., 2011](https://onlinelibrary.wiley.com/doi/10.1111/j.1365-294X.2011.05181.x). 
+
+Il s'agit de données issues d'expériences pour mesurer l'expression de gènes contrôlant la germination chez *Arabidopsis thaliana*. Pour cela, des plantes génétiquement différentes les unes des autres (variable `Ecotype`), ont été mises à germer sous le design expérimental suivant : 
+
++ Différents traitements en longueur de jours et en température pour la plante qui produit les graines : "LW" (long day, warm), "SW" (short day, warm), "SC" (short day, cold). Cette variable est nommée `SeedMaturation.`
+
++ Les écotypes (variable `Ecotype`) choisis sont originaires d'une localisation du "Nord" ou du "Sud" de l'Europe, pour étudier l'effet de la géographie sur la germination (variable `Geography`).
+
+
+![*Illustration de la provenance des écotypes de l'étude. Source :* [Chiang et al., 2011](https://onlinelibrary.wiley.com/doi/10.1111/j.1365-294X.2011.05181.x)](https://onlinelibrary.wiley.com/cms/asset/951727ef-9379-4092-902c-2dbef7510ab3/mec_5181_f1.gif)
+
+
++ Différents stades de développement de la silique (capsule entourant les graines) ont été analysés :"Early" et "Late", encodés dans la variable `SiliqueDevelopmentalStage.`
+
+
++ L'expression de deux gènes d'intérêt pour la germination, DOG1 et NCED9, normalisée par un gène contrôle, sont rapportés dans chacune des combinaisons des variables précédentes. 
+
+La normalisation a été effectuée avec la formule suivante:
+
+$$
+log_2(\frac{\text{expression du gène d'intérêt}}{\text{expression du gène contrôle}})
+$$
+
+Cette normalisation des données est utilisée car : 
+
+- La division par l'expression du gène contrôle permet de s'affranchir de biais expérimentaux
+
+- Le passage au log permet de resserrer la distribution des valeurs d'expression, qui serait sinon étalée vers des valeurs trop extrêmes. Entre autre, cela permet de faire des visualisations plus claires. 
+
+Les valeurs obtenues sont centrées autour de zéro. Pour chaque gènes:
+
+- Les **valeurs positives** indiquent une expression **supérieure** au gène contrôle
+
+- Les **valeurs négatives** indiquent une expression  **inférieure** au gène contrôle
+
+<br>
+
++ Enfin, plusieurs mesures dans des conditions identiques sont réalisées, c'est ce que représente la variable `Replicate`.
+
+<br>
+
+<br>
+
+# Préparation de l'environnement de travail
+
+## Question 0
+
+
+> **Chargez les librairies dont vous aurez besoin.** 
+
+
+```{r}
+library(tidyverse)
+library(visdat)
+```
+
+<br>
+
+> **Définissez le working directory de R pour être dans le dossier de l'exam.** 
+
+```{r, eval=FALSE}
+getwd() #regarder où est le répertoire de travail
+setwd("Bureau/Exam-20211209/") #changer le répertoire de travail
+
+```
+
+<br>
+
+> **Chargez le fichier _DOG1_Expression_clean.txt_ (qui est dans le dossier _/data_), qui contient les données d'expression, dans R et sauvez le dans un objet.**
+
+> *Aide: Utilisez la fonction appropriée pour le type de données (dans ce cas, des colonnes séparées par une tabulation)*
+
+
+```{r}
+expt1 <- read_tsv("data/DOG1_Expression_clean.txt")
+
+```
+
+<br>
+
+> Pensez à inspecter ce que retourne cette commande dans la console pour avoir un tout premier aperçu des données et vérifier qu'elles sont encodées correctement.
+
+<br>
+
+```{r}
+# Pour inspecter les données, utilisez la fonction 
+# View(expt1)
+```
+
+<br>
+
+# Vérification des données
+
+> Avant d'analyser les données, la première étape consiste à vérifier que le tableau importé dans _R_ contient bien les données attendues.
+
+
+## Question 1
+
+
+> **Y a t il des valeurs manquantes dans les données? Comment le voyez vous?**
+
+
+```{r}
+vis_dat(expt1)
+
+```
+
+<br>
+
+Il n'y a pas de données manquantes dans ce tableau. 
+En utilisant la fonction vis_dat, les données manquantes apparaissent en gris.
+Nous ne détectons aucune zone grise dans la figure, il n'y a donc pas de données manquantes. 
+
+<br>
+
+## Question 2
+
+> **Combien y-a-t-il d'écotypes différents? Donnez la liste des écotypes**
+
+<br>
+
+```{r}
+unique(expt1$Ecotype) #nous donne la liste des différentes variables contenues dans la colonne ecotype
+```
+
+<br>
+
+Il y a 12 écotypes: Bil-7, Ct-1, Cvi-0, Edi-0, Fei-0, Ge-0, Lov-5, Mir-0, Pro-0, Sf-2, Tamm-27 et Ull-2-3.
+
+
+<br>
+
+# Etude de l'expression de gènes d'intérêt pour la germination
+
+<br>
+
+## Question 3
+
+
+> **Faites une figure représentant les niveaux d'expression des deux gènes (DOG1 et NCED9) suivant le stade de développement des siliques, l'origine géographique, et les conditions de maturation des graines, et ce uniquement pour des plantes ayant poussé en jours courts à température élevée.**
+>
+> *Aide : Pour cela, filtrez les données pour garder seulement la condition de maturation "SW". Changez le format du tableau pour passer au format long avec une colonne contenant le nom du gène et une colonne contenant les valeurs d’expression. Puis, réalisez le graphe demandé de l'expression des gènes en fonction de la provenance géographique des plantes. Nous souhaitons une représentation en boxplots colorés suivant le stade de développement des siliques, et avec le gène en facet.*
+
+
+<br>
+
+```{r}
+expt1 %>%
+  filter(SeedMaturation == "SW")%>% #garder uniquement les plantes ayant la condition de maturation SW
+  gather("gene","expression_value",DOG1_normControl,NCED9_normControl)%>% #passer le tablea au format long
+  ggplot(aes(x=Geography, y=expression_value, colour = SiliqueDevelopmentalStage))+ #création du graphique
+  geom_boxplot()+ #forme du graphique
+  facet_grid(.~gene) #facet en fonction des gènes
+```
+
+
+<br>
+
+> **Formulez une interprétation complète de ce que nous apprend  cette figure quant à l'influence de la géographie, et du stade de développement sur l'expression de nos gènes d'intérêts.**
+
+<br>
+
+La géographie ne semble pas avoir un impact sur l'expression du gène NCED9. 
+En revanche, au début du stade de développement de la silique, le gène DOG1 est moins exprimé au Nord qu'au Sud.
+Les 2 gènes semblent plus exprimés à la fin du développement de la silique qu'au début, quelque soit la géographie.
+
+
+<br>
+
+## Question 4
+
+<br>
+
+Compte tenu des résultats de l'analyse d'expression des gènes, DOG1 semble être un gène important pour la germination. Nous allons donc nous concentrer sur ce gène pour la suite de l'exam.
+
+<br>
+
+> **Pour vérifier si l'effet du stade de développement de la silique sur l'expression de DOG1 est observé pour tous les génotypes, mesurez la moyenne de l'expression normalisée de DOG1 aux deux stades de développement de la silique pour chaque génotype, et ce uniquement pour des plantes ayant poussé en jours long à température élevée.**
+>
+> *Aide : Pour cela, commencez par filtrer les observations pour garder la condition de maturation "SW". Groupez les échantillons en fonction de l'écotype et du stade de développement de la silique. Et enfin calculez la moyenne de l'expression de DOG1 pour chaque groupe.*
+
+<br>
+
+```{r}
+expt2 <-expt1 %>% #création d'un nouvel objet pour voir en entier le tableau contenant les moyennes
+  filter(SeedMaturation == "SW") %>%
+  group_by(Ecotype, SiliqueDevelopmentalStage) %>% # permet de grouper les plantes par Ecotype et SiliqueDevelopmentalStage
+  summarise(mean.DOG1.expression = mean(DOG1_normControl)) #permet d'obtenir la moyennne de l'expression de DOG1 pour chaque groupe
+
+```
+
+
+<br>
+
+```{r}
+expt2
+
+# Pour regarder les résultats pour tous les écotypes, utilisez la fonction 
+# View(expt2)
+```
+
+
+<br>
+
+> **Observez vous une différence d'expression en fonction du stade de développement de la silique pour tous les écotypes? **
+
+Oui en moyenne, le gène DOG1 est moins exprimé dans les siliques étant au début de leur stade de développement, par rapport à celles étant à la fin de leur stade de développement
+
+>
+>**Y a t'il des écotypes pour lesquels la différence est faible? Si oui, lesquels? **
+
+
+Oui, la différence est faible pour l'écotype Sf-2. 
+L'expression moyenne de DOG1 est de -0.5562486 pour le stade de développement "early" de la silique, contre -0.7920263 pour le stade "late".
+
+<br>
+
+
+# Etude du gène DOG1 en utilisant une base de donnée en ligne
+
+<br>
+
+## Question 5
+
+> Compte tenu des résultats obtenus jusqu'ici, DOG1 semble être un gène qui peut être important dans la germination des graines d'*Arabidopsis thaliana*.
+> En utilisant l'application [ePlant](https://bar.utoronto.ca/eplant/) de BAR de l'Université de Toronto trouvez les informations suivantes sur le gène DOG1:
+
+
+<br>
+
+
+> **- Quel est le numéro unique de DOG1 (du format AT1G12345)?**
+
+<br>
+
+Le numéro unique de DOG1 est AT5G45830.
+
+<br>
+
+> **- Dans quel tissu de la plante est ce que le gène DOG1 est exprimé? Faites un screenshot de la figure de ePlant qui vous a permis de répondre et envoyez le par mail en même temps que votre script R. **
+>
+> *Aide: Utilisez le Plant eFP viewer. Pour prendre un screenshot, utilisez l’icône sur l'interface de ePlant ci dessous pour enregistrer l'image dans le répertoire de l'examen, puis envoyez le par mail en même temps que votre script R*
+
+![Icone de téléchargement d'image dans ePlant](data/icon.png){ width=50% }
+
+<br>
+
+<br>
+
+![Capture d'écran de ePlant pour DOG1](data/capture_d_ecran_eplant.png)
+
+<br>
+
+Le gène DOG1 est exprimé dans les graines, en particulier au stade 9 (cotylédons) qui est un stade tardif. Cette observation est en accord avec les résultats des questions 3 et 4 montrant que DOG1 est plus exprimé à un stade tardif du développement de la graine pour la grande majorité des écotypes étudiés. 
+
+<br>
+
